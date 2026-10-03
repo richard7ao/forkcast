@@ -224,7 +224,7 @@ Crisps", price "£1.80", imageUrl "/product.jpg". Facts: "Made from red lentils"
 per 100g", "Baked, not fried", "Made in Yorkshire", "Vegan", "85g bag".
 
 Results fixture table. Segment voters: student 14, young_pro 18, parent 6, fitness 7, other 2
-(47 in total). Every voter saw all 6 ads, so each variant has n = 47 pooled.
+(47 in total). Every voter saw all 6 ads. Graded (pooled) rates use only the 45 panel-segment voters; the 2 "other" voters appear only in their own cells.
 
 | variant | taps student/young_pro/parent/fitness/other | total taps | AI P(tap) student/young_pro/parent/fitness |
 |---|---|---|---|
@@ -383,6 +383,7 @@ node --import tsx --test apps/api/src/lib/stats.test.ts apps/api/src/lib/results
 # tier4_integration
 # Real server, empty temp data dir (seeds from fixtures), exercise dedupe + validation + counts.
 export FK_DATA=$(mktemp -d)
+mkdir -p $FK_DATA/forecasts && printf '%s' '{"round":1,"model":"smoke-stub","personasPerSegment":1,"perSegment":{},"answers":[],"sealedAt":"2026-10-03T12:00:00Z","sha256":"smoke-stub"}' > $FK_DATA/forecasts/round-1.json   # votes need a sealed round
 (cd apps/api && DATA_DIR=$FK_DATA PORT=8799 node --import tsx src/index.ts > /tmp/fk-api.log 2>&1 &) ; sleep 3
 BASE_URL=http://localhost:8799 pnpm --filter api smoke
 test "$(wc -l < $FK_DATA/votes.jsonl)" -eq 1   # duplicate and invalid votes were not persisted

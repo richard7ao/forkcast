@@ -31,11 +31,11 @@
       "round": 1,
       "lever": "social_proof",
       "human": {
-        "taps": 31,
-        "n": 47,
-        "rate": 0.66,
-        "lo": 0.54,
-        "hi": 0.762
+        "taps": 30,
+        "n": 45,
+        "rate": 0.667,
+        "lo": 0.545,
+        "hi": 0.77
       },
       "ai": 0.558,
       "aiInsideCi": true
@@ -45,11 +45,11 @@
       "round": 1,
       "lever": "scarcity",
       "human": {
-        "taps": 17,
-        "n": 47,
-        "rate": 0.362,
-        "lo": 0.257,
-        "hi": 0.482
+        "taps": 16,
+        "n": 45,
+        "rate": 0.356,
+        "lo": 0.249,
+        "hi": 0.478
       },
       "ai": 0.402,
       "aiInsideCi": true
@@ -59,11 +59,11 @@
       "round": 1,
       "lever": "health_halo",
       "human": {
-        "taps": 22,
-        "n": 47,
-        "rate": 0.468,
-        "lo": 0.353,
-        "hi": 0.586
+        "taps": 21,
+        "n": 45,
+        "rate": 0.467,
+        "lo": 0.35,
+        "hi": 0.587
       },
       "ai": 0.713,
       "aiInsideCi": false
@@ -73,11 +73,11 @@
       "round": 1,
       "lever": "indulgence",
       "human": {
-        "taps": 27,
-        "n": 47,
-        "rate": 0.574,
-        "lo": 0.455,
-        "hi": 0.686
+        "taps": 25,
+        "n": 45,
+        "rate": 0.556,
+        "lo": 0.434,
+        "hi": 0.671
       },
       "ai": 0.502,
       "aiInsideCi": true
@@ -87,11 +87,11 @@
       "round": 1,
       "lever": "provenance",
       "human": {
-        "taps": 24,
-        "n": 47,
+        "taps": 23,
+        "n": 45,
         "rate": 0.511,
-        "lo": 0.393,
-        "hi": 0.627
+        "lo": 0.391,
+        "hi": 0.63
       },
       "ai": 0.596,
       "aiInsideCi": true
@@ -101,11 +101,11 @@
       "round": 1,
       "lever": "value",
       "human": {
-        "taps": 20,
-        "n": 47,
-        "rate": 0.426,
-        "lo": 0.314,
-        "hi": 0.545
+        "taps": 19,
+        "n": 45,
+        "rate": 0.422,
+        "lo": 0.309,
+        "hi": 0.544
       },
       "ai": 0.46,
       "aiInsideCi": true

@@ -176,7 +176,7 @@ Crisps", price "£1.80", imageUrl "/product.jpg". Facts: "Made from red lentils"
 per 100g", "Baked, not fried", "Made in Yorkshire", "Vegan", "85g bag".
 
 Results fixture table. Segment voters: student 14, young_pro 18, parent 6, fitness 7, other 2
-(47 in total). Every voter saw all 6 ads, so each variant has n = 47 pooled.
+(47 in total). Every voter saw all 6 ads. Graded (pooled) rates use only the 45 panel-segment voters; the 2 "other" voters appear only in their own cells.
 
 | variant | taps student/young_pro/parent/fitness/other | total taps | AI P(tap) student/young_pro/parent/fitness |
 |---|---|---|---|

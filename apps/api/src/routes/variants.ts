@@ -1,4 +1,12 @@
 import { Hono } from "hono";
+import type { ResponseOf } from "@hack/contract";
+import { store } from "../data/store";
 
-// Stub until backend stage T1.2.1. Already mounted in index.ts, so lanes edit this file only.
-export const variantsRoutes = new Hono().get("/variants", (c) => c.json({ error: "not implemented" }, 501));
+/** The active round only: round 1 until the challenger runs, then round 2. */
+export const variantsRoutes = new Hono().get("/variants", (c) => {
+  const round = store.activeRound();
+  const variants = store.variants(round);
+  if (!variants) throw new Error(`active round ${round} has no variants file`);
+  const body: ResponseOf<"variants"> = { round, product: store.product(round), variants };
+  return c.json(body);
+});

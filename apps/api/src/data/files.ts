@@ -49,13 +49,24 @@ export const ForecastFile = z.object({
   /** P(tap) by variantId, then by panel segment. */
   perSegment: z.record(z.string(), SegmentProbabilities),
   answers: z.array(PanelAnswer),
+  /** Equal-segment-weight P(tap) per variant, and its argmax: the AI's headline bet, fixed at seal time. */
+  pooledEqual: z.record(z.string(), Probability).optional(),
+  pick: z.string().optional(),
   sealedAt: z.string(),
   /** sha256 of the canonical JSON (sorted keys) of every other field. */
   sha256: z.string(),
 });
 export type ForecastFile = z.infer<typeof ForecastFile>;
 
-export const StateFile = z.object({ activeRound: z.number().int().min(1) });
+/** generated.json: AI ad visuals per round (render-visual.ts). The store serves heroByRound[round] as product.imageUrl. */
+export const GeneratedFile = z.object({ heroByRound: z.record(z.string(), z.string()) });
+export type GeneratedFile = z.infer<typeof GeneratedFile>;
+
+export const StateFile = z.object({
+  activeRound: z.number().int().min(1),
+  /** Round -> ISO opening time; votes cast earlier (phone tests) stay in the file but are excluded. */
+  opensAt: z.record(z.string(), z.string()).optional(),
+});
 export type StateFile = z.infer<typeof StateFile>;
 
 export const VoteLine = VoteRequest.extend({ at: z.string() });
