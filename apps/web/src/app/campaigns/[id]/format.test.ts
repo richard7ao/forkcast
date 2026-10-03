@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
 import { Campaign, type Ad } from "@hack/contract";
-import { audienceGrid, byFitness, cullOrder, findAd, fmtRate, gensSurvived, leverSceneGrid, median, railSteps, sceneLabel } from "./format";
+import { adHref, audienceGrid, byFitness, cullOrder, findAd, fmtRate, gensSurvived, leverSceneGrid, median, railSteps, sceneLabel } from "./format";
 
 // Run from the repo root: node --import tsx "apps/web/src/app/campaigns/[id]/format.test.ts"
 const demo = Campaign.parse(JSON.parse(readFileSync(join(process.cwd(), "fixtures/campaigns.json"), "utf8")).campaigns[0]);
@@ -20,6 +20,11 @@ test("scene labels are the short opening clause of the render prompt", () => {
   assert.equal(sceneLabel("At a woodland campsite, the unchanged pack stands front label to camera"), "At a woodland campsite");
   assert.equal(sceneLabel("On a dark wooden dining table beside a rain-streaked window, the unchanged EPIC pack"), "On a dark wooden dining table beside a…");
   assert.equal(sceneLabel("Flat lay of marshmallows on slate"), "Flat lay of marshmallows");
+});
+
+test("an ad's page link names its generation, because carried-over survivors share an id", () => {
+  assert.equal(adHref("3a7354f4", "g0-value-2", 1), "/campaigns/3a7354f4/ads/g0-value-2?gen=1");
+  assert.equal(adHref("c 1", "a/b"), "/campaigns/c%201/ads/a%2Fb");
 });
 
 test("the grid follows the simulation's ranking, not the AI panel's", () => {
