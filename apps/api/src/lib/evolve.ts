@@ -1,11 +1,13 @@
 import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { setTimeout as sleep } from "node:timers/promises";
 import { z } from "zod";
 import { Lever, PANEL_SEGMENTS, Variant, type Ad, type CampaignStage, type Generation, type Product } from "@hack/contract";
 import { SegmentProbabilities, type PanelSegment, type Persona } from "../data/files";
 import { editProductImage, HERO_PROMPT } from "./image";
 import { chatJson, mapLimit, MODELS } from "./llm";
+import { pickMutations, type RenderCache } from "./renderCache";
 import { canonicalJson } from "./seal";
 import { READING_JSON_SCHEMA, READING_SYSTEM, Reading, slugify } from "./shelf";
 import { SIM_CTR_SCALE, simulateDelivery } from "./simulate";
@@ -188,6 +190,13 @@ async function renderScenes(opts: {
   return { urls: rendered.map((r) => r.url), tokens: rendered.reduce((sum, r) => sum + r.tokens, 0) };
 }
 
+/** Stands in for renderScenes on a cache hit, holding the label for one 2 s poll so the reuse is shown, not hidden. */
+async function cachedRenders(onProgress: Progress, label: string, urls: string[]): Promise<{ urls: string[]; tokens: number }> {
+  onProgress("rendering", label, urls.length, urls.length);
+  await sleep(2000);
+  return { urls, tokens: 0 };
+}
+
 type Genome = Pick<Ad, "id" | "gen" | "parentIds" | "lever" | "scene" | "imageUrl" | "headline" | "body" | "cta" | "rationale">;
 const newAd = (g: Genome): Ad => ({
   ...g,
@@ -198,18 +207,20 @@ const newAd = (g: Genome): Ad => ({
   status: "screening",
 });
 
-type Opts = { product: Product; photo: Buffer; outDir: string; urlPrefix: string; onProgress: Progress };
+type Opts = { product: Product; photo: Buffer; outDir: string; urlPrefix: string; onProgress: Progress; cache?: RenderCache | null };
 
-/** Gen 0: 8 scenes x 6 levers = 48 ads; line i of each lever's copy is written for scene i. */
-export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Opts): Promise<{ ads: Ad[]; imageTokens: number }> {
+/** Gen 0: 8 scenes x 6 levers = 48 ads; line i of each lever's copy is written for scene i. A cache hit supplies the scenes and renders; copy stays live. */
+export async function gen0({ product, photo, outDir, urlPrefix, onProgress, cache }: Opts): Promise<{ ads: Ad[]; imageTokens: number }> {
   const calls = 1 + Lever.options.length;
   let written = 0;
-  onProgress("writing", "Writing scenes", written, calls);
-  const scenes = await askScenes(
-    product,
-    `Write exactly ${SCENES} distinct scenes for square Instagram ads of this pack, each a different setting and mood that suits how people really eat or use it.`,
-    SCENES,
-  );
+  onProgress("writing", cache ? "Reusing this photo's scenes" : "Writing scenes", written, calls);
+  const scenes = cache
+    ? cache.scenes
+    : await askScenes(
+        product,
+        `Write exactly ${SCENES} distinct scenes for square Instagram ads of this pack, each a different setting and mood that suits how people really eat or use it.`,
+        SCENES,
+      );
   onProgress("writing", "Writing copy for 6 levers", ++written, calls);
   const copy = await mapLimit([...Lever.options], Lever.options.length, async (lever) => {
     const task = [
@@ -223,15 +234,17 @@ export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Op
     return lines;
   });
 
-  const images = await renderScenes({
-    label: "Rendering scenes",
-    photo,
-    scenes,
-    names: scenes.map((_, i) => `scene-${i}`),
-    outDir,
-    urlPrefix,
-    onProgress,
-  });
+  const images = cache
+    ? await cachedRenders(onProgress, `Reused ${SCENES} renders of this photo: no image generation`, cache.urls)
+    : await renderScenes({
+        label: "Rendering scenes",
+        photo,
+        scenes,
+        names: scenes.map((_, i) => `scene-${i}`),
+        outDir,
+        urlPrefix,
+        onProgress,
+      });
   const ads = Lever.options.flatMap((lever, l) =>
     scenes.map((scene, i) => newAd({ id: `g0-${lever}-${i}`, gen: 0, parentIds: [], lever, scene, imageUrl: images.urls[i], ...copy[l]![i]! })),
   );
@@ -242,7 +255,7 @@ export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Op
  * Each survivor gets 3 copy mutations (same lever and image, new headline and body) and 1 scene mutation
  * (a re-rendered scene variation, same copy): 6 survivors give 24 children.
  */
-export async function breed({ gen, survivors, product, photo, outDir, urlPrefix, onProgress }: Opts & { gen: number; survivors: readonly Ad[] }): Promise<{ ads: Ad[]; imageTokens: number }> {
+export async function breed({ gen, survivors, product, photo, outDir, urlPrefix, onProgress, cache }: Opts & { gen: number; survivors: readonly Ad[] }): Promise<{ ads: Ad[]; imageTokens: number }> {
   const childId = (s: Ad, suffix: string) => `${s.id.replace(/^g\d+-/, `g${gen}-`)}-${suffix}`;
   const calls = survivors.length + 1;
   let written = 0;
@@ -268,18 +281,32 @@ export async function breed({ gen, survivors, product, photo, outDir, urlPrefix,
     ),
   ]);
 
-  const images = await renderScenes({
-    label: "Rendering scene mutations",
-    photo,
-    scenes: variations,
-    names: survivors.map((s) => childId(s, "s1")),
-    outDir,
-    urlPrefix,
-    onProgress,
-  });
+  // A survivor whose scene already has a cached variation reuses it (scene text and render together); the rest render live.
+  const cached = pickMutations(survivors.map((s) => s.scene), cache?.mutations);
+  const live = survivors.flatMap((_, k) => (cached[k] ? [] : [k]));
+  const reused = survivors.length - live.length;
+  const images = live.length
+    ? await renderScenes({
+        label: reused ? `Rendering ${live.length} scene mutations (${reused} reused)` : "Rendering scene mutations",
+        photo,
+        scenes: live.map((k) => variations[k]!),
+        names: live.map((k) => childId(survivors[k]!, "s1")),
+        outDir,
+        urlPrefix,
+        onProgress,
+      })
+    : await cachedRenders(onProgress, `Reused ${reused} scene mutation renders of this photo: no image generation`, cached.map((m) => m!.imageUrl));
   const ads = survivors.flatMap((s, k) => [
     ...mutations[k]!.map((line, j) => newAd({ ...s, ...line, id: childId(s, `c${j + 1}`), gen, parentIds: [s.id] })),
-    newAd({ ...s, id: childId(s, "s1"), gen, parentIds: [s.id], scene: variations[k]!, imageUrl: images.urls[k], rationale: `Scene mutation of ${s.id}: same copy, new scene.` }),
+    newAd({
+      ...s,
+      id: childId(s, "s1"),
+      gen,
+      parentIds: [s.id],
+      scene: cached[k]?.scene ?? variations[k]!,
+      imageUrl: cached[k]?.imageUrl ?? images.urls[live.indexOf(k)],
+      rationale: `Scene mutation of ${s.id}: same copy, new scene.`,
+    }),
   ]);
   return { ads, imageTokens: images.tokens };
 }

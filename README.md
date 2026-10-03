@@ -142,6 +142,13 @@ tsx and Next do not read the root `.env`, so export it first: `set -a; . ./.env;
 The Evolve button appears only with `?admin=<ADMIN_TOKEN>` in the URL. Endpoints: `POST /campaigns`,
 `GET /campaigns/:id`, `POST /campaigns/:id/evolve` (admin), `GET /campaigns/:id/meta.csv`.
 
+**Demo path vs new products.** Uploading a photo byte-identical to an earlier campaign's photo reuses that
+run's scenes and renders (`apps/api/src/lib/renderCache.ts`), so no images are generated, while copy, the panel
+and the simulation still run live and the progress label says the renders were reused. The demo photo is
+`apps/web/public/generated/campaigns/d87ed849/source-crop.jpg`: generation 0 takes about 60 s instead of 170 s, and
+evolve reuses each cached scene mutation it can. Any other photo is a new product and renders live (about 3 min),
+and once its run finishes its renders are reusable too. Upload the file as is: re-encoding it changes the bytes.
+
 ```bash
 pnpm check                               # fixtures:validate + typecheck; run before every push
 pnpm test                                # API unit tests (Node's runner)

@@ -1,14 +1,15 @@
 import { randomUUID } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { setTimeout as sleep } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
 import { Campaign, type Ad, type CreateCampaignRequest, type Generation } from "@hack/contract";
 import { dataDir } from "../data/files";
-import { breed, enrichFromCatalog, gen0, readPack, runExperiment, screen, sealGeneration, seedOf, type Progress } from "./evolve";
+import { breed, enrichFromCatalog, gen0, readPack, runExperiment, SCENES, screen, sealGeneration, seedOf, type Progress } from "./evolve";
 import { ensurePersonas, loadProduct } from "./forecast";
 import { downscale } from "./image";
 import { usageTotals } from "./llm";
+import { renderCacheFrom, sha256, withoutShown, type RenderCache } from "./renderCache";
 
 /**
  * In-process campaign jobs. A campaign is DATA_DIR/campaigns/<id>.json, rewritten after every step so
@@ -28,6 +29,30 @@ const tokensUsed = () => usageTotals.promptTokens + usageTotals.completionTokens
 export function loadCampaign(id: string): Campaign | null {
   if (!ID.test(id) || !existsSync(campaignFile(id))) return null;
   return Campaign.parse(JSON.parse(readFileSync(campaignFile(id), "utf8")));
+}
+
+/**
+ * Renders already made for this exact photo (byte-identical upload), from every earlier run of it: the demo path.
+ * ponytail: hashes each run's photo on every call; index runs by hash if campaigns grow past a few dozen.
+ */
+function renderCacheFor(sourceImageUrl: string): RenderCache | null {
+  const dir = join(dataDir(), "campaigns");
+  if (!existsSync(dir)) return null;
+  const want = sha256(readFileSync(publicPath(sourceImageUrl)));
+  const runs = readdirSync(dir)
+    .filter((file) => file.endsWith(".json"))
+    .flatMap((file) => {
+      try {
+        const run = loadCampaign(file.slice(0, -".json".length));
+        if (!run) return [];
+        const source = publicPath(run.sourceImageUrl);
+        return existsSync(source) && sha256(readFileSync(source)) === want ? [run] : [];
+      } catch (err) {
+        console.warn(`render cache: skipped unreadable campaign ${file}:`, err);
+        return [];
+      }
+    });
+  return renderCacheFrom(runs, SCENES);
 }
 
 /** Write then rename, so a poll never reads half a file. */
@@ -119,7 +144,9 @@ export function createCampaign(req: CreateCampaignRequest): { id: string } | Ref
     if (matched) await sleep(2000); // one 2 s poll, so the progress UI shows the match before "writing" replaces it
     const personas = await ensurePersonas(dataDir());
     const photo = await downscale(publicPath(sourceImageUrl), RENDER_PX);
-    const { ads, imageTokens } = await gen0({ product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update) });
+    const cache = renderCacheFor(sourceImageUrl);
+    if (cache) console.log(`campaign ${id}: same photo as ${cache.from.id}, reusing its renders`);
+    const { ads, imageTokens } = await gen0({ product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update), cache });
     const screened = await screen({ ads, product, personas, seed: seedOf(`${id}:0:panel`), onProgress: onProgress(update) });
     finishGeneration(update, current, 0, screened, { ...started, imageTokens });
   });
@@ -143,7 +170,9 @@ export function evolveCampaign(id: string): { campaign: Campaign } | Refusal {
     const personas = await ensurePersonas(dataDir());
     const photo = await downscale(publicPath(campaign.sourceImageUrl), RENDER_PX);
     const { product } = campaign;
-    const { ads, imageTokens } = await breed({ gen, survivors, product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update) });
+    const cached = renderCacheFor(campaign.sourceImageUrl);
+    const cache = cached && withoutShown(cached, new Set(campaign.generations.flatMap((g) => g.ads.map((a) => a.imageUrl))));
+    const { ads, imageTokens } = await breed({ gen, survivors, product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update), cache });
     // Survivors are re-screened with their children (the same 40 panel calls): their old rates won them selection,
     // so keeping them would hand every parent a winner's-curse edge over its children.
     const screened = await screen({ ads: [...survivors, ...ads], product, personas, seed: seedOf(`${id}:${gen}:panel`), onProgress: onProgress(update) });

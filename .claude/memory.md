@@ -10,6 +10,8 @@
 ## Patterns
 
 - [2026-10-03] Shared API contract lives verbatim in both specs (docs/superpowers/specs/backend.md, frontend.md), spliced by script and checked with `tsc --strict` before hand-off.
+- [2026-10-03] Render reuse (demo path): the cache is the finished campaigns themselves, matched on the sha256 of the uploaded photo (lib/renderCache.ts). No cache files to keep in sync; new runs become reusable automatically.
+- [2026-10-03] Test every flow in the /lab page on the local test-ui branch (../forkcast-testui, API :8788 with its own DATA_DIR, web :3302 live mode); copy changed API files in, or merge master.
 
 ## Gotchas
 
