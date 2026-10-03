@@ -1,187 +1,159 @@
 # Forkcast
 
-Sealed AI forecasts for food ads, graded by the lunch room. Built at EAT_HACK (Really Good Culture,
-London, 3 October 2026), Track 1: Human Truth. Repo: https://github.com/richard7ao/forkcast
+Survival of the fittest for ads. Upload one product photo, get 48 Meta-style ads in minutes, and let a
+simulated experiment kill the losers until one winner is left. Real people are the optional ground truth.
 
-Generation is free, validation is scarce. AI writes ads in an afternoon that used to take months, but
-nobody knows which ad works for which audience until money is spent. Forkcast takes one real product
-from The Shelf (EPIC Snax Co. Giant Toastin' Marshmallows), makes six ads that each express one
-behavioural lever, and has an AI persona panel forecast the result. The forecast is sealed in public
-git history before anyone votes. Real people then vote and the dashboard grades the AI against the
-room. The outcome is stated tap intent, not CTR or sales, and every AI number is labelled a forecast.
+Built at EAT_HACK (Really Good Culture, London, 3 October 2026), Track 1: Human Truth.
+Repo: https://github.com/richard7ao/forkcast
+
+A food brand spends months ideating, making, revising and signing off one campaign, and it is one big
+bet. AI made ads free to make; knowing which ad works, and for whom, is still slow and expensive.
+Forkcast turns that into a loop that runs in minutes: generate many, test cheaply, keep the fittest,
+breed, repeat. Demo product: EPIC Snax Co. Giant Toastin' Marshmallows, a real pack from The Shelf.
 
 ## How it works
 
-1. **Pack facts.** A vision model (gpt-6.1-sol) reads the claims printed on phone photos of the pack
-   (300g, gluten free, produced in Belgium) and a human checks them. Ad copy may use only these.
-2. **Six lever ads.** gpt-6.1-sol writes one ad per lever: social proof, scarcity, health halo,
-   indulgence, provenance, value. A deterministic guard (`apps/api/src/lib/truth.ts`) rejects copy
-   with a number no pack fact backs or a banned claim phrase (awards, "loved by", "sold out", diet
-   labels); it matches words, not meaning. Every ad in a round shares one hero visual (gpt-image-2,
-   from a real photo of the pack), so differences come from the copy.
-3. **Sealed AI forecast.** 100 personas (25 each: student, young professional, parent, fitness;
-   gpt-5.4-mini) say tap or scroll for every ad. The forecast is hashed (sha256 over canonical JSON)
-   and timestamped, then committed and pushed to this public repo before the round's first vote.
-4. **Lunch room vote.** Attendees scan a QR code, pick a segment and see all six ads in random order,
-   answering "Would tap" or "Scroll past" (30 seconds, anonymous). Each ad says it is a concept test.
-5. **Challenger round.** gpt-6.1-sol writes two challengers citing the round-1 numbers it used. A second
-   forecast is sealed and they face the round-1 winner. Judges vote at the finals (`/vote?seg=judge`).
+1. **Upload one image.** An existing marketing image or a product photo.
+2. **Read the pack.** A vision model extracts the claims printed on it (300g, gluten free, produced in
+   Belgium). Ad copy may use only those facts.
+3. **Generate 48 ads.** 8 AI-rendered scenes x 6 behavioural copy levers (social proof, scarcity, health
+   halo, indulgence, provenance, value), every scene rendered from the one source image.
+4. **Run a simulated experiment.** An AI shopper panel gives each ad a tap rate per audience. Their
+   equal-weight mean x 0.05 is the ad's "true" click rate in a Meta-style delivery simulation: a
+   Thompson-sampling bandit spends 10,000 simulated impressions, so budget flows to winners and losers
+   starve. The resulting CTR is always labelled simulated.
+5. **Survive and breed.** The top 6 survive, at most 2 per lever so one idea cannot fill the field. Each
+   breeds 4 children (copy and scene mutations): 6 survivors + 24 children = 30 ads in generation 1.
+6. **Repeat, then ship.** Simulate again, crown one winner, and export the survivors as a Meta Ads
+   Manager bulk-import CSV (core columns). Each generation's fitness table is sealed with sha256.
 
 ```
-phone /vote --> cloudflared tunnel --> web :3300 --/api--> API :8787 --append--> data/votes.jsonl
-laptop /qr, /dashboard <-- GET /api/results every 3 s -- buildResults(): Wilson 90%, post-stratified AI
-scripts: generate -> data/variants/, forecast -> data/forecasts/ (sealedAt + sha256) -> git push = seal
+photo -> pack facts -> 48 ads --> AI panel --> delivery sim ----> top 6 survive
+(vision) (truth guard) 8 scenes x  tap rate     Thompson bandit,   max 2 per lever
+                       6 levers    per audience 10,000 impr.            |
+                                                                        v
+winner -> meta.csv <- simulate again <- gen 1: 30 ads <- breed 24 children
+(every generation's fitness table is sealed with sha256)
 ```
 
-## Results (round 1, lunch room)
+## The technology
 
-| Voters | Votes | AI winner | Human winner | MAE (points) | Spearman |
+- **Vision facts.** `gpt-6.1-sol` reads the claims printed on the pack. For the demo pack a human checked
+  them against the photo. Copy may claim only these facts.
+- **Truth guard.** `apps/api/src/lib/truth.ts` rejects copy with a number no pack fact backs ("Loved by
+  10,000 Londoners") or a banned claim phrase (awards, "sold out", diet labels the pack cannot carry,
+  spelled-out numbers). It matches words, not meaning. Failing copy is re-asked, never shipped.
+- **Scene renders.** `gpt-image-2` edits the one source photo into 8 scenes. A human checks label fidelity.
+- **AI shopper panel.** 100 fictional personas, 25 per audience (student, young professional, parent,
+  fitness); a campaign screens with 40 of them, each rating 12 ads. Ads appear under neutral labels
+  ("Ad 1"), never lever names that would cue the model. The prompt says "in real life most people scroll
+  past most ads", a deliberate counter to the known positive skew of synthetic panels.
+- **Delivery simulation.** `apps/api/src/lib/simulate.ts`: a seeded Thompson-sampling bandit shows each of
+  the 10,000 impressions to the ad with the highest Beta(1 + clicks, 1 + misses) draw, then clicks at
+  that ad's simulated rate. Twenty snapshots drive the budget-flow view.
+- **Selection and breeding.** Rank by posterior mean simulated CTR, (clicks + 1) / (impressions + 2), at
+  most 2 per lever. Each of the 6 survivors gets 3 copy mutations and 1 re-rendered scene.
+- **sha256 seals.** `sealGeneration` hashes a generation's fitness table (each ad's genome, panel rates
+  and simulated delivery) over canonical JSON. The room-test scripts push a round's seal to this public
+  repo before anyone votes, so the AI is graded, not trusted.
+- **zod contract.** `packages/contract` holds the schemas and the endpoint registry. The API validates
+  its inputs and every model reply; the web app reads the same types.
+- **Fixture mode.** `pnpm dev` serves `fixtures/*.json`, including a finished campaign (`demo-epic`), so
+  the UI runs with no key and no backend.
+
+## Results (EPIC Snax run, simulated)
+
+| Ads generated | Generations | Winner | Simulated CTR, winner vs median | Tokens | Wall time |
 | --- | --- | --- | --- | --- | --- |
 | TBD | TBD | TBD | TBD | TBD | TBD |
 
-Sealed at TBD, sha256 TBD, commit TBD.
+Seals: generation 0 sha256 TBD, generation 1 sha256 TBD. Every CTR here is simulated (panel tap rate x 0.05).
 
-Voters and votes are the graded sample (the four panel segments); "None of these" and judges are
-reported separately. The AI winner is the sealed pick. Read results as which execution won and what
-that suggests about its lever: one execution per lever is not a law of behaviour. Intervals are 90%
-Wilson, fixed before any data. [`docs/analysis-plan.md`](docs/analysis-plan.md), committed with the
-seal, pre-registers the rest: a winner only if a paired within-voter interval separates it from the
-runner-up, otherwise a tied top group; a bootstrap interval for MAE; chance for the winner hit (group
-size / 6, or 1 in 6 for a lone winner); Spearman as descriptive only; opening times; the round-2 test.
+## Honesty and limits
 
-To check the seal, re-hash the forecast, then compare GitHub's server-side push time for the seal
-commit (the repository's Activity view; commit dates are client-set) with `opensAt` in
-`data/state.json` and the first graded vote's `at` in `data/votes.jsonl`:
-
-```bash
-pnpm --filter api verify-seal --round 1                  # recompute the sha256, exit 1 on mismatch
-git log -1 --format=%H -- data/forecasts/round-1.json    # the seal commit to look up on GitHub
-```
-
-## Method
-
-- **Levers.** One lever per ad, same facts and visual, so the copy is the only variable.
-- **Exposure.** Every voter sees every ad once, in a per-voter random order seeded by their anonymous
-  id, so each card's position can be reconstructed for a fatigue check. No adaptive allocation; no
-  per-ad results are shown to the room while a round is open. A repeat vote for an ad counts once.
-- **Outcome.** Stated tap intent, never CTR or sales; 90% Wilson intervals (z = 1.645) on tap rates.
-- **Who counts.** The graded sample is voters who pick a panel segment (student, young professional,
-  parent, fitness). "None of these" and judges are shown separately and never graded. Votes before a
-  round's opening time (phone tests) stay in the file and are excluded. Team members do not vote.
-- **AI grading.** MAE uses the forecast post-stratified to the graded room's segment mix, over ads
-  with n >= 10. A segment cell claims nothing below ten voters ("insufficient evidence").
-
-## Synthetic data
-
-- **Why a panel.** A sealed panel is fast, cheap and directional: it forecasts ads before anyone
-  votes. It is an appropriate stand-in only because it is graded against real people, not trusted.
-  It is not appropriate for lived experience or high-stakes launches without real respondents.
-- **Created.** gpt-6.1-sol writes 25 fictional personas per panel segment (100 in total) with short
-  bios (budget, diet, attitude to ads, what they do while scrolling). Each persona (gpt-5.4-mini, the
-  same model in both rounds) sees a round's ads as neutral "Ad 1 to 6" in a seeded shuffle (lever
-  labels never reach it) and answers tap or scroll with a reason. P(tap | ad, segment) is taps divided
-  by 25, so the panel's own sampling error is up to about +/-10 points (one standard error) per
-  segment cell. The prompt's realism line ("most people scroll past most ads") is a deliberate
-  counter to the known positive skew.
-- **Sealed.** A forecast written after the votes could be tuned to them. The file (model, persona
-  answers and reasons, P(tap) per ad and segment, the pick, `sealedAt`) is hashed with sha256 over
-  canonical JSON and pushed to this public repo before the round opens, so git history is the
-  pre-registration. The headline pick uses equal segment weights. The forecast script refuses to seal
-  a round that already has votes, and to re-seal without `--force`. The API rejects votes until a
-  round's forecast exists, and `scripts/open-round.sh` opens a round only after its seal is pushed.
-- **Validated.** Against the room each round: the sealed pick against the winner group, MAE with its
-  bootstrap interval, and a trust map of the AI-minus-human gap per lever and segment ("trust it
-  here" means the interval includes zero and is narrower than +/-15 points). The panel is under test.
-- **Known failure modes** (reported figures from the literature, not our results):
+- **Simulated is not real.** The experiment pushes AI personas' stated tap intent through a delivery
+  simulation. It is not CTR, ROAS or sales, and no ad money was spent. Every simulated number says so.
+- **The panel is under test, not trusted.** Reported figures from the literature, not our results:
   - PyMC Labs (Maier et al., arXiv 2510.08338): on purchase intent across 57 personal care product
-    surveys (9,300 human responses), synthetic respondents reach 90% of human test-retest
-    reliability. They elicit Likert ratings by semantic similarity; we ask for a binary tap.
+    surveys (9,300 human responses), synthetic respondents reach 90% of human test-retest reliability.
+    They elicit Likert ratings by semantic similarity; we ask for a binary tap.
   - Synthetic panels skew positive: an audit of LLM survey respondents (arXiv 2608.14606) finds an
     acquiescence shift in every model tested, and a model crowd more similar to itself than to humans.
-
-## Limitations
-
-- Convenience sample of hackathon attendees, not shoppers. The room is small, so intervals are wide
-  and most segment cells will read "insufficient evidence": the pooled result is the claim.
-- Stated tap intent, not CTR or sales. There was no ad spend.
-- One execution per lever, one product, one room: a win says which execution won and what that
-  suggests about its lever, not a law of behaviour. Round-2 voters may have seen round 1.
-- Within-subjects exposure brings order and fatigue effects. Card order is randomised per voter and
-  can be reconstructed from the seeded shuffle, so tap rate by position can be checked.
-- Ballot stuffing is possible: voter IDs are anonymous (a random UUID per browser), with no rate limit.
-  If the cloudflared tunnel restarts the public URL changes, and a new origin means a new voter ID.
-- Segments are self-reported, and persona prompts may carry stereotypes about each segment.
-- The panel reads the ad text and is told the ad shows a photo of the product; people see the real ad.
-- The AI image may alter label details. A human checked it against the pack.
-- Commit dates are client-set and force-push protection is not configured, so the sha256 and GitHub's
-  push time carry the pre-registration.
-- Whether an approver would sign the per-ad evidence card (rate, interval, seal) is untested.
+- **Screening reads scenes as text.** To keep calls cheap the panel gets each scene as a description,
+  never the render, and a generation-0 ad gets about 10 ratings. Personas are fictional and may carry
+  stereotypes.
+- **Image label fidelity is checked by a human.** `gpt-image-2` can alter label details, so a person
+  compares each survivor's image with the pack before anything ships.
+- **One execution per lever, one product, one run.** A winner says which execution won and what that
+  suggests about its lever, not a law of behaviour.
 
 ## Beyond the hack
 
-- **Scale.** Swap the lunch room for a research panel with quotas matched to the audience, and seal
-  forecasts the same way across many products. JSONL suits under about 1,000 votes; beyond, a database.
-- **Calibrating the AI per segment (the trust map).** Each graded round adds a point per ad, lever and
-  segment; over many rounds a brand sees where the panel is reliable and where it over-rates.
-- **Cost.** Real token totals (usage log): TBD. AI cost follows personas, ads and rounds, not voters.
-- **Security.** Today: zod at the API boundary and on every model reply, idempotent votes, an admin
-  token on the challenger, and no votes until a round is sealed. Production needs respondent
-  verification (one person, one vote), rate limits and ballot-integrity checks.
-- **Privacy and ownership.** No PII (random ID, segment, choices, dwell time, server timestamp), after a
-  consent line. The brand owns the creative; respondent data is anonymous and deletable.
+Written up, not built today:
+
+- **Meta Marketing API.** Run the survivors as real ads on a small budget and read real CTR back as the
+  fitness signal: the simulation becomes the cheap prior, Meta's delivery the judge.
+- **Shopify.** The same loop on product-page photos, with add-to-cart rate as fitness.
+- **Scale.** Today one job runs at a time, in-process, and campaigns are JSON files. Next: a job queue,
+  a database, and a quota-matched research panel beside the synthetic one.
+- **Privacy.** The loop uses no personal data: the input is the brand's own image and the panel is
+  fictional. The optional room test stores a random ID, segment, answers and timing, after a consent line.
+- **Security.** Today: zod at the API boundary and on every model reply, an image size cap, and an admin
+  token (16+ characters) on evolve and the challenger. Production needs per-brand auth, upload rate
+  limits and spend caps.
+- **Cost.** Tokens per run are in the results table. Cost follows ads x personas x generations, not audience
+  size, and image renders rather than tokens set the wall time.
+- **Data ownership.** The brand owns its image, creatives and results. A seal is only a hash, so in
+  production the table can stay private and be revealed later to prove the verdict came first.
 
 ## Run it
 
 ```bash
 pnpm install --frozen-lockfile   # Node 22 and pnpm 9 (`corepack enable`)
-pnpm dev                         # fixture mode (fictional product, fake votes): web :3300, API :8787
+pnpm dev                         # fixture mode, no key needed: web http://localhost:3300, API :8787
 ```
 
-For live mode, create `.env` from `.env.example` (never overwrite or commit it) and fill it in:
+Fixture mode serves the finished demo campaign, so Run on the upload page opens `/campaigns/demo-epic`.
+For live mode, create `.env` from `.env.example` (never overwrite or commit it):
 
 ```bash
-OPENAI_API_KEY=                 # all model calls; not needed in fixture mode
-ADMIN_TOKEN=                    # gates POST /challenger; generate one with `openssl rand -hex 16`
-DATA_DIR=../../data             # live data, relative to apps/api
+OPENAI_API_KEY=                 # every model call; not needed in fixture mode
+ADMIN_TOKEN=                    # 16+ characters (`openssl rand -hex 16`); gates evolve and the challenger
+DATA_DIR=../../data             # relative to apps/api; campaigns persist to DATA_DIR/campaigns/<id>.json
 DATA_MODE=fixture               # fixture (default) or live
 API_URL=http://localhost:8787   # where the web proxy finds the API
 ```
 
-tsx and Next do not read the root `.env`, so export it (`set -a; . ./.env; set +a`) before running
-`DATA_MODE=live pnpm dev`. `scripts/go-live.sh` does that itself, serves a git worktree pinned to the
-current commit, backs the vote log up every 2 minutes and opens a cloudflared quick tunnel. Open
-`/qr?u=<tunnel URL>/vote` for the room (turnout only) and `/dashboard?admin=<ADMIN_TOKEN>` on that
-laptop only. If the tunnel restarts its URL changes: reopen `/qr` with the new one.
+tsx and Next do not read the root `.env`, so export it first: `set -a; . ./.env; set +a; DATA_MODE=live pnpm dev`.
+The Evolve button appears only with `?admin=<ADMIN_TOKEN>` in the URL. Endpoints: `POST /campaigns`,
+`GET /campaigns/:id`, `POST /campaigns/:id/evolve` (admin), `GET /campaigns/:id/meta.csv`.
 
 ```bash
-pnpm --filter api probe                  # preflight: key valid, both text models honour strict JSON
-pnpm --filter api facts                  # read pack facts from the pack photos (not committed)
-pnpm --filter api visual                 # gpt-image-2 hero visual from the same photo
-pnpm --filter api generate               # six lever ads for round 1, from the committed product.json
-pnpm --filter api forecast --round 1     # persona panel, then the sealed forecast
-pnpm --filter api verify-seal --round 1  # recompute the sha256, exit 1 on mismatch
-scripts/seal-round.sh 1                  # generate, forecast, verify, commit and push the seal
-scripts/open-round.sh 1                  # open the round (opensAt), only once its seal is on GitHub
-pnpm --filter api smoke                  # vote pipeline check on a scratch API (:8799); stores a vote
+pnpm check                               # fixtures:validate + typecheck; run before every push
 pnpm test                                # API unit tests (Node's runner)
+pnpm --filter api probe                  # preflight: key valid, both text models honour strict JSON
+pnpm --filter api facts                  # read pack facts from pack photos (photos are never committed)
+pnpm --filter api visual                 # gpt-image-2 edit of a source photo; --scene for an ad scene
+pnpm --filter api verify-seal --round 1  # recompute a sealed forecast's sha256, exit 1 on mismatch
+pnpm --filter api smoke                  # vote pipeline check on a scratch API (:8799); stores a vote
 ```
 
-## Repo map
+## Optional real-people test
 
-```
-apps/api/            Hono API. src/lib: llm.ts (every OpenAI call: plain fetch, zod-validated JSON),
-                     truth, seal, panel, forecast, stats, results (pure), challenger
-apps/web/            Next.js pages /vote, /qr, /dashboard and the /api proxy
-packages/contract/   zod schemas and the four-endpoint registry (variants, votes, results, challenger)
-fixtures/, data/     sample responses for fixture mode; live data (sealed forecasts, votes, state)
-scripts/             go-live.sh (server and tunnel), seal-round.sh, open-round.sh
-```
+`/vote-lite` is a phone page for a room: each person sees a round's ads one at a time and answers "Would
+tap" or "Scroll past", anonymously (random ID, segment, answers, timing). A round's AI forecast is sealed
+and pushed before it opens: `scripts/seal-round.sh <round>`, then `scripts/open-round.sh <round>`.
+`scripts/go-live.sh` serves it through a cloudflared tunnel. It is not part of the simulated results above.
 
-**Pre-existing work.** A generic contract-first dashboard template (pnpm workspaces, zod contract
-package, Hono API, Next.js app, fixtures). Everything Forkcast-specific was built at EAT_HACK on 3
-October: lever ads, number guard, persona panel, sealing, vote store, stats, pages, visual, challenger.
+## Pre-existing work, and what was built today
 
-Team docs: `docs/analysis-plan.md` (pre-registered rules), `docs/designs/forkcast.md` (design record),
-`docs/superpowers/specs/backend.md` and `frontend.md` (specs, frozen contract), `docs/decisions.md`.
+**Pre-existing:** a generic contract-first dashboard template (pnpm workspaces, a zod contract package, a
+Hono API, a Next.js app, fixtures).
 
-Built at EAT_HACK (Really Good Culture, London, 3 October 2026) by a two-person team with Claude Code.
+**Built at EAT_HACK on 3 October (everything Forkcast-specific):** vision pack facts, the truth guard, lever
+copy, `gpt-image-2` scene renders, the persona panel and its sealing, the delivery simulation, selection and
+breeding, the campaign API and pages (upload, generation rail, ad grid, winner panel, analytics), the Meta
+CSV export, and the optional room-test pipeline (vote store, `/vote-lite`, stats, challenger).
+
+Docs: `docs/pitch.md`, `docs/decisions.md` (every call, with reasons), `docs/analysis-plan.md`,
+`docs/superpowers/specs/`. Built by a two-person team with Claude Code.

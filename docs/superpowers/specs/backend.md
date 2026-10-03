@@ -51,11 +51,10 @@ Every AI verdict is sealed (sha256) before people test, so the AI is graded rath
 - **Screen (fitness):**
   - AI panel of 40 personas (10 per segment). Each sees 12 random ads: scene described in text, copy verbatim.
   - So each ad gets ~10 ratings, giving P(tap) with a Wilson interval.
-  - Text screening keeps calls near 1.5k tokens. Finalists are re-scored with the real images
-    (images cost ~8k tokens per panel call).
-- **Select:** keep the top 6 by Wilson **lower bound** (thin evidence can't win), at most 2 per lever (diversity).
-- **Breed:** each survivor gets 4 children: 2 copy mutations (same lever, new headline/body) and 2 scene
-  mutations (new scene, same copy). Next generation = 6 survivors + 24 children = 30. Screen and select again.
+  - Screening is text-only (scene described + copy), ~1.5k tokens per call; image scoring (~8k tokens per call) is not used in v2.
+- **Select:** keep the top 6 by simulated-CTR posterior mean (clicks+1)/(impressions+2), at most 2 per lever (diversity).
+- **Breed:** each survivor gets 4 children: 3 copy mutations (same lever and image, new headline/body) and 1 scene
+  re-render (same copy). Next generation = 6 survivors + 24 children = 30. Screen new ads, simulate all, pick the winner.
 - **Stop:** after 2 evolutions, or when the top survivor holds for a whole generation.
 - **Seal:** each generation's fitness table is sealed and pushed before people test its survivors.
 - **Ground truth:**
@@ -73,7 +72,7 @@ New:
 | `POST /campaigns` | `{ imageDataUrl, name? }` (jpeg/png data URL ≤ 4 MB) | `{ ok, campaignId }` |
 | `GET /campaigns/:id` | — | `Campaign` (poll every 2 s) |
 | `POST /campaigns/:id/evolve` | `{ adminToken }` | `{ ok }` (next generation from the survivors) |
-| `POST /campaigns/:id/room` | `{ adminToken }` | `{ ok, round }` (survivors sealed into a room round) |
+| `POST /campaigns/:id/room` | `{ adminToken }` | not built (optional real-people round; the room flow exists via `scripts/seal-round.sh`) |
 | `GET /campaigns/:id/meta.csv` | — | Meta Ads Manager bulk-import CSV of survivors (stretch) |
 
 ```ts

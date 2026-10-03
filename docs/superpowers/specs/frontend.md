@@ -36,7 +36,7 @@ New:
 | `POST /campaigns` | `{ imageDataUrl, name? }` (jpeg/png data URL ≤ 4 MB) | `{ ok, campaignId }` |
 | `GET /campaigns/:id` | — | `Campaign` (poll every 2 s) |
 | `POST /campaigns/:id/evolve` | `{ adminToken }` | `{ ok }` (next generation from the survivors) |
-| `POST /campaigns/:id/room` | `{ adminToken }` | `{ ok, round }` (survivors sealed into a room round) |
+| `POST /campaigns/:id/room` | `{ adminToken }` | not built (optional real-people round; the room flow exists via `scripts/seal-round.sh`) |
 | `GET /campaigns/:id/meta.csv` | — | Meta Ads Manager bulk-import CSV of survivors (stretch) |
 
 ```ts
