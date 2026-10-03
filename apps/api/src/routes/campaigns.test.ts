@@ -27,3 +27,15 @@ test("an unknown campaign is a 404, not an empty CSV a brand could upload by mis
   const res = await campaignsRoutes.request("/campaigns/no-such-campaign/meta.csv");
   assert.equal(res.status, 404);
 });
+
+test("iterate refuses an unknown campaign or ad with a 404, so a stale page never breeds the wrong ad", async () => {
+  assert.equal((await campaignsRoutes.request("/campaigns/no-such-campaign/ads/x/iterate", { method: "POST" })).status, 404);
+  assert.equal((await campaignsRoutes.request(`/campaigns/${fixture.id}/ads/no-such-ad/iterate`, { method: "POST" })).status, 404);
+});
+
+test("iterate before gen 0 is done is a 409: there is no screened ad to breed from yet", async () => {
+  const id = "iterate-early";
+  writeFileSync(join(dir, "campaigns", `${id}.json`), JSON.stringify({ ...fixture, id, stage: "screening", generations: [], winnerId: null }));
+  const res = await campaignsRoutes.request(`/campaigns/${id}/ads/${fixture.generations[0].ads[0].id}/iterate`, { method: "POST" });
+  assert.equal(res.status, 409);
+});

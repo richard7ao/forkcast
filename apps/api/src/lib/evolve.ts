@@ -16,17 +16,17 @@ import { bannedClaims, inventedNumbers } from "./truth";
 
 /**
  * The evolution engine: genome = { lever, scene, headline, body, cta }; image = render(scene, source photo).
- * gen0 writes 8 scenes x 6 levers, screen asks a text-only AI panel, runExperiment simulates Meta-style
+ * gen0 writes 20 scenes, one lever each (round-robin), screen asks a text-only AI panel, runExperiment simulates Meta-style
  * delivery and keeps the fittest, breed mutates the survivors. All copy passes the truth guard.
  */
-export const SCENES = 8;
-export const SURVIVORS = 6;
+export const SCENES = 20;
+export const SURVIVORS = 4;
 export const PER_LEVER = 2;
 const COPY_MUTATIONS = 3;
 const PANEL_PER_SEGMENT = 10;
 const ADS_PER_PERSONA = 12;
 const MAX_COPY_ATTEMPTS = 3; // the first ask plus 2 re-asks that list the exact violations
-const RENDER_CONCURRENCY = 4; // medium quality is ~36 s an image
+const RENDER_CONCURRENCY = 7; // medium quality is ~36 s an image
 const PANEL_CONCURRENCY = 8;
 
 export type Progress = (stage: CampaignStage, label: string, done: number, total: number) => void;
@@ -222,7 +222,10 @@ const newAd = (g: Genome): Ad => ({
 
 type Opts = { product: Product; photo: Buffer; outDir: string; urlPrefix: string; onProgress: Progress };
 
-/** Gen 0: 8 scenes x 6 levers = 48 ads; line i of each lever's copy is written for scene i. A known photo never gets here: it replays (campaigns.ts). */
+/** Ad i of gen 0 runs lever i mod 6: 20 scenes give 20 ads, each lever on 3 or 4 of them. */
+export const leverOf = (i: number): Lever => Lever.options[i % Lever.options.length]!;
+
+/** Gen 0: 20 ads, one per scene; each lever's copy call writes lines only for its own scenes. A known photo never gets here: it replays (campaigns.ts). */
 export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Opts): Promise<{ ads: Ad[]; imageTokens: number }> {
   const calls = 1 + Lever.options.length;
   let written = 0;
@@ -233,16 +236,18 @@ export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Op
     SCENES,
   );
   onProgress("writing", "Writing copy for 6 levers", ++written, calls);
+  const mine = (lever: Lever) => scenes.flatMap((_, i) => (leverOf(i) === lever ? [i] : []));
   const copy = await mapLimit([...Lever.options], Lever.options.length, async (lever) => {
+    const own = mine(lever);
     const task = [
       `Persuasion lever: ${lever}: ${LEVER_BRIEF[lever]}.`,
-      `Write exactly ${SCENES} Instagram feed ads that all lean hard on this lever, in this order: ad i runs with scene i as its image.`,
+      `Write exactly ${own.length} Instagram feed ads that all lean hard on this lever, in this order: ad k runs with scene k as its image.`,
       "Make them genuinely different from each other: hook, angle and rhythm.",
-      ...scenes.map((scene, i) => `Scene ${i + 1}: ${scene}`),
+      ...own.map((i, k) => `Scene ${k + 1}: ${scenes[i]}`),
     ].join("\n");
-    const lines = await askLines(product, task, SCENES);
+    const lines = await askLines(product, task, own.length);
     onProgress("writing", "Writing copy for 6 levers", ++written, calls);
-    return lines;
+    return new Map(own.map((i, k) => [i, lines[k]!]));
   });
 
   const images = await renderScenes({
@@ -254,15 +259,16 @@ export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Op
     urlPrefix,
     onProgress,
   });
-  const ads = Lever.options.flatMap((lever, l) =>
-    scenes.map((scene, i) => newAd({ id: `g0-${lever}-${i}`, gen: 0, parentIds: [], lever, scene, imageUrl: images.urls[i], ...copy[l]![i]! })),
-  );
+  const ads = scenes.map((scene, i) => {
+    const lever = leverOf(i);
+    return newAd({ id: `g0-${lever}-${i}`, gen: 0, parentIds: [], lever, scene, imageUrl: images.urls[i], ...copy[Lever.options.indexOf(lever)]!.get(i)! });
+  });
   return { ads, imageTokens: images.tokens };
 }
 
 /**
  * Each survivor gets 3 copy mutations (same lever and image, new headline and body) and 1 scene mutation
- * (a re-rendered scene variation, same copy): 6 survivors give 24 children.
+ * (a re-rendered scene variation, same copy): 4 survivors + 16 children = 20 ads.
  */
 export async function breed({ gen, survivors, product, photo, outDir, urlPrefix, onProgress, cache }: Opts & { gen: number; survivors: readonly Ad[]; cache?: RenderCache | null }): Promise<{ ads: Ad[]; imageTokens: number }> {
   const childId = (s: Ad, suffix: string) => `${s.id.replace(/^g\d+-/, `g${gen}-`)}-${suffix}`;

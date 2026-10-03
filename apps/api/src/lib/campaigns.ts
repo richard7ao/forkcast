@@ -191,8 +191,11 @@ export function createCampaign(req: CreateCampaignRequest): { id: string } | Ref
   return { id };
 }
 
-/** Breeds the latest generation's survivors into the next one, then screens and simulates parents and children together. */
-export function evolveCampaign(id: string): { campaign: Campaign } | Refusal {
+/**
+ * Breeds the latest generation's survivors into the next one, then screens and simulates parents and children together.
+ * With `adId` (iterate), breeds just that ad, from any generation: it plus its 3 copy and 1 scene mutations, always live.
+ */
+export function evolveCampaign(id: string, adId?: string): { campaign: Campaign } | Refusal {
   const campaign = loadCampaign(id);
   if (!campaign) return { status: 404, error: "no such campaign" };
   if (busy) return { status: 409, error: `campaign ${busy} is still running` };
@@ -201,11 +204,13 @@ export function evolveCampaign(id: string): { campaign: Campaign } | Refusal {
   if (!(campaign.stage === "done" || campaign.stage === "error") || !last) return { status: 409, error: `campaign is ${campaign.stage}, not done` };
 
   const gen = last.gen + 1;
-  const survivors = last.survivorIds.map((sid) => ({ ...last.ads.find((a) => a.id === sid)!, experiment: null, status: "screening" as const }));
+  const picked = adId === undefined ? last.survivorIds.map((sid) => last.ads.find((a) => a.id === sid)!) : [campaign.generations.flatMap((g) => g.ads).reverse().find((a) => a.id === adId)];
+  if (!picked[0]) return { status: 404, error: "no such ad" };
+  const survivors = picked.map((a) => ({ ...a!, experiment: null, status: "screening" as const }));
   const start: Campaign = { ...campaign, stage: "writing", progress: { label: `Breeding generation ${gen}`, done: 0, total: 1 }, error: undefined };
   runJob(start, async (update, current) => {
     const cached = renderCacheFor(campaign.sourceImageUrl);
-    const replay = cached && replayable(campaign, cached.from, gen);
+    const replay = adId === undefined && cached && replayable(campaign, cached.from, gen);
     if (cached && replay) return replayGeneration(update, current, cached.from, replay);
     const started = { at: performance.now(), tokens: tokensUsed() };
     const personas = await ensurePersonas(dataDir());
