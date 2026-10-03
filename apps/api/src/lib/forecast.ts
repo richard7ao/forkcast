@@ -188,19 +188,19 @@ export async function runForecast(opts: {
   if (new Set(counts).size !== 1 || !counts[0]) throw new Error(`personas must be balanced across panel segments, got ${counts.join("/")}`);
 
   const withImage = variants.filter((v) => v.imageUrl);
-  const images = withImage.length ? new Map(withImage.map((v) => [v.id, imageDataUrl(v.imageUrl!)])) : null;
+  let images = withImage.length ? new Map(withImage.map((v) => [v.id, imageDataUrl(v.imageUrl!)])) : null;
   const ask = (persona: Persona, imgs: Map<string, string> | null) => askPersona(persona, round, product, variants, model, imgs);
 
-  // The first persona doubles as a probe: a panel model that rejects images fails every call the same way.
-  let imagesUsed = images !== null;
+  // The first persona doubles as a probe: a panel model that rejects images fails every call the same way,
+  // so after a rejection `images` is dropped and the rest of the panel runs text-only.
   const [first, ...rest] = personas;
   const firstAnswers = await ask(first!, images).catch((err: unknown) => {
     if (!images || !String(err).includes("HTTP 400")) throw err;
-    imagesUsed = false;
+    images = null;
     warn?.(`PANEL MODEL ${model} REJECTED IMAGES (${String(err).slice(0, 200)}): this forecast is TEXT-ONLY, unlike the ads voters see`);
     return ask(first!, null);
   });
-  const answers = [...firstAnswers, ...(await mapLimit(rest, concurrency, (p) => ask(p, imagesUsed ? images : null))).flat()];
+  const answers = [...firstAnswers, ...(await mapLimit(rest, concurrency, (p) => ask(p, images))).flat()];
   const perSegment = aggregate(answers, variants);
   return sealForecast({ round, model, personasPerSegment: counts[0], perSegment, ...pooledPick(perSegment, variants), answers });
 }

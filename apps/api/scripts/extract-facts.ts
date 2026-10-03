@@ -19,7 +19,7 @@ const OUT_DIR = join(ROOT, "data", "shelf");
 const MAX_PX = 2048;
 const CONCURRENCY = 4;
 
-type Outcome = { ok: true; item: SourcedReading } | { ok: false; source: string; error: string };
+type Outcome = { ok: true; item: SourcedReading } | { ok: false; source: string };
 
 const json = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
 const sourceName = (file: string) => (relative(ROOT, file).startsWith("..") ? file : relative(ROOT, file));
@@ -38,6 +38,7 @@ if (images.length === 0) {
 
 const outcomes = await mapLimit(images, CONCURRENCY, async (file, i): Promise<Outcome> => {
   const tag = `[${i + 1}/${images.length}] ${basename(file)}`;
+  const source = sourceName(file);
   try {
     const jpeg = await downscale(file, MAX_PX);
     const reading = await chatJson({
@@ -52,10 +53,10 @@ const outcomes = await mapLimit(images, CONCURRENCY, async (file, i): Promise<Ou
       schema: Reading,
     });
     console.log(`${tag}  ${reading.brand} | ${reading.name}  ${reading.view}, ${reading.confidence}, ${reading.facts.length} facts${reading.notes ? `  (${reading.notes})` : ""}`);
-    return { ok: true, item: { source: sourceName(file), reading } };
+    return { ok: true, item: { source, reading } };
   } catch (err) {
     console.error(`${tag}  FAILED ${String(err).slice(0, 300)}`);
-    return { ok: false, source: sourceName(file), error: String(err) };
+    return { ok: false, source };
   }
 });
 
