@@ -65,9 +65,23 @@ winner -> meta.csv <- simulate again <- gen 1: 30 ads <- breed 24 children
 
 | Ads generated | Generations | Winner | Simulated CTR, winner vs median | Tokens | Wall time |
 | --- | --- | --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD | TBD | TBD |
+| 72 (48 + 24 children) | 2 | "0g fat mallows. Fire up the s'mores." (health halo) | 3.1% (56 / 1,831) vs 0.8% | 237k | 4 min 17 s |
 
-Seals: generation 0 sha256 TBD, generation 1 sha256 TBD. Every CTR here is simulated (panel tap rate x 0.05).
+Generation 0 took 156 s and 127k tokens, generation 1 took 101 s and 110k. The median is generation 1's. All six
+generation-1 survivors are children, so breeding beat every parent. Seals: generation 0 sha256
+`08f47febdfbbb593cdab7e39575379d562141d61697a09f4dc923afbdcdb5439`, generation 1 sha256
+`425fb2f196ec55538d32d7616135ab911c06fb274f8e4c14c6e6aeb35402aae3`. Every CTR here is simulated (panel tap
+rate x 0.05).
+
+## Real people: Watch Humans (concept demo)
+
+`/watch-humans` shows where real people come in. [Watch Humans](https://watchhumans.com/) is Really Good
+Culture's app that sends members free products to review on video. In the demo, a member claiming a free
+sample first swipes on the brand's finalist ads (the last generation's survivors and winner): right if they
+would tap, left if they would scroll past. Beside the phone, the brand sees each finalist's simulated CTR next
+to the share of members who would tap, and whether people agree with the AI's pick. The members' pick uses the
+engine's selection rule (posterior mean), and a tie is shown as a tie. Swipes stay in the browser tab: nothing
+is sent to Watch Humans or stored. Wiring it for real is one route that fills the existing `fitness.human` field.
 
 ## Honesty and limits
 
@@ -153,7 +167,8 @@ Hono API, a Next.js app, fixtures).
 **Built at EAT_HACK on 3 October (everything Forkcast-specific):** vision pack facts, the truth guard, lever
 copy, `gpt-image-2` scene renders, the persona panel and its sealing, the delivery simulation, selection and
 breeding, the campaign API and pages (upload, generation rail, ad grid, winner panel, analytics), the Meta
-CSV export, and the optional room-test pipeline (vote store, `/vote-lite`, stats, challenger).
+CSV export, the Watch Humans concept demo (`/watch-humans`), and the optional room-test pipeline (vote store,
+`/vote-lite`, stats, challenger).
 
 Docs: `docs/pitch.md`, `docs/decisions.md` (every call, with reasons), `docs/analysis-plan.md`,
 `docs/superpowers/specs/`. Built by a two-person team with Claude Code.

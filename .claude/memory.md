@@ -20,6 +20,9 @@
 - [2026-10-03] zsh: a shell variable named `path` overwrites PATH and every later command fails with "command not found".
 - [2026-10-03] Port 3000 on Richard's Mac is held by the Nous Vite dev server; Forkcast web runs on 3300.
 - [2026-10-03] context-mode hook blocks curl/inline fetch in Bash; test HTTP with a node script file or ctx_execute.
+- [2026-10-03] The Playwright MCP browser can be locked by another session ("Browser is already in use"); use the chrome-devtools MCP with `isolatedContext` and `background: true` so a tab the user is clicking in is left alone.
+- [2026-10-03] With parallel agents, a file can appear between your check and your Write: check `git status` right before writing a path a teammate might create (a route test was overwritten this way).
+- [2026-10-03] Uploaded campaign photos land in `apps/web/public/generated/campaigns/<id>/source.*` and may show people; that pattern is gitignored, so commit only the renders and a checked crop.
 
 ## Open Questions
 
