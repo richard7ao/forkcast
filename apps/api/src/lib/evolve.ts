@@ -207,20 +207,18 @@ const newAd = (g: Genome): Ad => ({
   status: "screening",
 });
 
-type Opts = { product: Product; photo: Buffer; outDir: string; urlPrefix: string; onProgress: Progress; cache?: RenderCache | null };
+type Opts = { product: Product; photo: Buffer; outDir: string; urlPrefix: string; onProgress: Progress };
 
-/** Gen 0: 8 scenes x 6 levers = 48 ads; line i of each lever's copy is written for scene i. A cache hit supplies the scenes and renders; copy stays live. */
-export async function gen0({ product, photo, outDir, urlPrefix, onProgress, cache }: Opts): Promise<{ ads: Ad[]; imageTokens: number }> {
+/** Gen 0: 8 scenes x 6 levers = 48 ads; line i of each lever's copy is written for scene i. A known photo never gets here: it replays (campaigns.ts). */
+export async function gen0({ product, photo, outDir, urlPrefix, onProgress }: Opts): Promise<{ ads: Ad[]; imageTokens: number }> {
   const calls = 1 + Lever.options.length;
   let written = 0;
-  onProgress("writing", cache ? "Reusing this photo's scenes" : "Writing scenes", written, calls);
-  const scenes = cache
-    ? cache.scenes
-    : await askScenes(
-        product,
-        `Write exactly ${SCENES} distinct scenes for square Instagram ads of this pack, each a different setting and mood that suits how people really eat or use it.`,
-        SCENES,
-      );
+  onProgress("writing", "Writing scenes", written, calls);
+  const scenes = await askScenes(
+    product,
+    `Write exactly ${SCENES} distinct scenes for square Instagram ads of this pack, each a different setting and mood that suits how people really eat or use it.`,
+    SCENES,
+  );
   onProgress("writing", "Writing copy for 6 levers", ++written, calls);
   const copy = await mapLimit([...Lever.options], Lever.options.length, async (lever) => {
     const task = [
@@ -234,17 +232,15 @@ export async function gen0({ product, photo, outDir, urlPrefix, onProgress, cach
     return lines;
   });
 
-  const images = cache
-    ? await cachedRenders(onProgress, `Reused ${SCENES} renders of this photo: no image generation`, cache.urls)
-    : await renderScenes({
-        label: "Rendering scenes",
-        photo,
-        scenes,
-        names: scenes.map((_, i) => `scene-${i}`),
-        outDir,
-        urlPrefix,
-        onProgress,
-      });
+  const images = await renderScenes({
+    label: "Rendering scenes",
+    photo,
+    scenes,
+    names: scenes.map((_, i) => `scene-${i}`),
+    outDir,
+    urlPrefix,
+    onProgress,
+  });
   const ads = Lever.options.flatMap((lever, l) =>
     scenes.map((scene, i) => newAd({ id: `g0-${lever}-${i}`, gen: 0, parentIds: [], lever, scene, imageUrl: images.urls[i], ...copy[l]![i]! })),
   );
@@ -255,7 +251,7 @@ export async function gen0({ product, photo, outDir, urlPrefix, onProgress, cach
  * Each survivor gets 3 copy mutations (same lever and image, new headline and body) and 1 scene mutation
  * (a re-rendered scene variation, same copy): 6 survivors give 24 children.
  */
-export async function breed({ gen, survivors, product, photo, outDir, urlPrefix, onProgress, cache }: Opts & { gen: number; survivors: readonly Ad[] }): Promise<{ ads: Ad[]; imageTokens: number }> {
+export async function breed({ gen, survivors, product, photo, outDir, urlPrefix, onProgress, cache }: Opts & { gen: number; survivors: readonly Ad[]; cache?: RenderCache | null }): Promise<{ ads: Ad[]; imageTokens: number }> {
   const childId = (s: Ad, suffix: string) => `${s.id.replace(/^g\d+-/, `g${gen}-`)}-${suffix}`;
   const calls = survivors.length + 1;
   let written = 0;

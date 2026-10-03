@@ -1,33 +1,28 @@
 import { createHash } from "node:crypto";
-import type { Campaign } from "@hack/contract";
+import type { Campaign, Generation } from "@hack/contract";
 
 /**
- * Render reuse, the demo path: a campaign whose upload is byte-identical to an earlier campaign's photo reuses
- * that run's scenes and renders instead of paying gpt-image-2 again. Copy, the panel and the simulation still
- * run live, and the progress label says renders were reused. A new product's photo matches nothing and
- * renders as normal; once its run finishes, its renders are reusable too, with no extra bookkeeping.
+ * The demo path, for a photo seen before: a campaign whose upload is byte-identical to an earlier campaign's photo
+ * replays that run with no model calls, generation by generation, while its history matches it seal for seal. Past
+ * that it evolves live, but reuses scene-mutation renders of the photo it has not shown yet instead of paying
+ * gpt-image-2 again. The progress labels say so either way. A new product's photo matches nothing and runs as
+ * normal; once its run finishes, it is reusable too, with no extra bookkeeping.
  */
 export type Mutation = { scene: string; imageUrl: string };
 export type RenderCache = {
-  /** The run the gen-0 scenes and renders come from. */
+  /** The oldest run of this photo with a finished gen 0: the one a re-upload replays. */
   from: Campaign;
-  scenes: string[];
-  urls: string[];
   /** Parent scene -> rendered variations of it, from every run of this photo. */
   mutations: Map<string, Mutation[]>;
 };
 
 export const sha256 = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
 
-/** Builds the cache from runs of the same photo; gen 0 comes from the oldest finished one. null if there is none, or if its gen 0 doesn't have exactly `sceneCount` renders. */
-export function renderCacheFrom(runs: readonly Campaign[], sceneCount: number): RenderCache | null {
+/** Builds the cache from runs of the same photo; `from` is the oldest one with a finished gen 0. null if there is none. */
+export function renderCacheFrom(runs: readonly Campaign[]): RenderCache | null {
   const oldestFirst = [...runs].sort((a, b) => a.createdAt.localeCompare(b.createdAt));
   const from = oldestFirst.find((c) => (c.generations[0]?.ads.length ?? 0) > 0);
   if (!from) return null;
-  // Gen 0 is lever-major (every lever runs scene i with render i), so unique renders in file order are scenes 0..n-1.
-  const byUrl = new Map<string, string>();
-  for (const ad of from.generations[0]!.ads) if (ad.imageUrl && !byUrl.has(ad.imageUrl)) byUrl.set(ad.imageUrl, ad.scene);
-  if (byUrl.size !== sceneCount) return null;
 
   const mutations = new Map<string, Mutation[]>();
   for (const run of oldestFirst) {
@@ -35,13 +30,22 @@ export function renderCacheFrom(runs: readonly Campaign[], sceneCount: number): 
     const byId = new Map(ads.map((ad) => [ad.id, ad])); // ids repeat across runs, so one map per run
     for (const ad of ads) {
       const parent = byId.get(ad.parentIds[0] ?? "");
-      // A scene mutation has a new scene; copy mutations keep the parent's scene and render nothing.
+      // A scene mutation has a new scene; a copy mutation keeps its parent's scene, whatever its image.
       if (!parent || !ad.imageUrl || ad.scene === parent.scene) continue;
       const known = mutations.get(parent.scene) ?? [];
       if (!known.some((m) => m.imageUrl === ad.imageUrl)) mutations.set(parent.scene, [...known, { scene: ad.scene, imageUrl: ad.imageUrl }]);
     }
   }
-  return { from, scenes: [...byUrl.values()], urls: [...byUrl.keys()], mutations };
+  return { from, mutations };
+}
+
+/**
+ * Full replay, the demo path: the source run's generation `gen`, provided this campaign has so far replayed that
+ * run exactly (every generation it has carries the same seal). null means run it live.
+ */
+export function replayable(campaign: Pick<Campaign, "generations">, source: Campaign, gen: number): Generation | null {
+  const sameSoFar = campaign.generations.every((g) => source.generations.find((s) => s.gen === g.gen)?.sealedSha256 === g.sealedSha256);
+  return sameSoFar ? (source.generations.find((g) => g.gen === gen) ?? null) : null;
 }
 
 /** The cache minus variations this campaign already shows, so evolving again never repeats one of its own images. */

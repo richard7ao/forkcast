@@ -3,13 +3,13 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, writeFile
 import { join } from "node:path";
 import { setTimeout as sleep } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
-import { Campaign, type Ad, type CreateCampaignRequest, type Generation } from "@hack/contract";
+import { Campaign, type Ad, type CampaignStage, type CreateCampaignRequest, type Generation } from "@hack/contract";
 import { dataDir } from "../data/files";
-import { breed, enrichFromCatalog, gen0, readPack, runExperiment, SCENES, screen, sealGeneration, seedOf, type Progress } from "./evolve";
+import { breed, enrichFromCatalog, gen0, readPack, runExperiment, screen, sealGeneration, seedOf, type Progress } from "./evolve";
 import { ensurePersonas, loadProduct } from "./forecast";
 import { downscale } from "./image";
 import { usageTotals } from "./llm";
-import { renderCacheFrom, sha256, withoutShown, type RenderCache } from "./renderCache";
+import { renderCacheFrom, replayable, sha256, withoutShown, type RenderCache } from "./renderCache";
 
 /**
  * In-process campaign jobs. A campaign is DATA_DIR/campaigns/<id>.json, rewritten after every step so
@@ -32,7 +32,8 @@ export function loadCampaign(id: string): Campaign | null {
 }
 
 /**
- * Renders already made for this exact photo (byte-identical upload), from every earlier run of it: the demo path.
+ * Earlier runs of this exact photo (byte-identical upload): the one to replay, and the scene-mutation renders
+ * already made. The demo path.
  * ponytail: hashes each run's photo on every call; index runs by hash if campaigns grow past a few dozen.
  */
 function renderCacheFor(sourceImageUrl: string): RenderCache | null {
@@ -52,7 +53,7 @@ function renderCacheFor(sourceImageUrl: string): RenderCache | null {
         return [];
       }
     });
-  return renderCacheFrom(runs, SCENES);
+  return renderCacheFrom(runs);
 }
 
 /** Write then rename, so a poll never reads half a file. */
@@ -112,6 +113,33 @@ function finishGeneration(update: Update, current: () => Campaign, gen: number, 
 
 const onProgress = (update: Update): Progress => (stage, label, done, total) => update({ stage, progress: { label, done, total } });
 
+const REPLAY_HOLD_MS = 1500;
+
+/**
+ * Demo path, full replay: appends generation `generation` of an earlier run of this exact photo, walking the same
+ * stages with a short hold each so the progress UI still plays, at no model cost. Every label says it is a replay.
+ */
+async function replayGeneration(update: Update, current: () => Campaign, source: Campaign, generation: Generation) {
+  const started = performance.now();
+  const renders = new Set(generation.ads.map((a) => a.imageUrl)).size;
+  const steps: [CampaignStage, string][] = [
+    ["writing", `Replaying ${generation.ads.length} ads from the earlier run of this photo`],
+    ["rendering", `Reusing ${renders} renders: no image generation`],
+    ["screening", "Replaying the AI shopper panel"],
+    ["simulating", "Replaying 10,000 simulated impressions"],
+  ];
+  for (const [i, [stage, label]] of steps.entries()) {
+    update({ stage, progress: { label, done: i, total: steps.length } });
+    await sleep(REPLAY_HOLD_MS);
+  }
+  update({
+    stage: "done",
+    progress: { label: `Done: replayed from ${source.id}`, done: 1, total: 1 },
+    generations: [...current().generations, { ...generation, tokens: 0, seconds: Math.round((performance.now() - started) / 1000) }],
+    winnerId: generation.gen > 0 ? (generation.survivorIds[0] ?? null) : null,
+  });
+}
+
 /** Saves the upload and starts reading -> writing -> rendering -> screening -> simulating -> selecting -> done. */
 export function createCampaign(req: CreateCampaignRequest): { id: string } | Refusal {
   if (busy) return { status: 409, error: `campaign ${busy} is still running` };
@@ -133,6 +161,18 @@ export function createCampaign(req: CreateCampaignRequest): { id: string } | Ref
     winnerId: null,
   };
   runJob(start, async (update, current) => {
+    const cache = renderCacheFor(sourceImageUrl);
+    const replay = cache && replayable(current(), cache.from, 0);
+    if (cache && replay) {
+      console.log(`campaign ${id}: same photo as ${cache.from.id}, replaying it`);
+      update({
+        product: { ...cache.from.product, imageUrl: sourceImageUrl },
+        name: req.name ?? cache.from.name,
+        progress: { label: "Same photo as an earlier run: replaying it", done: 1, total: 1 },
+      });
+      await sleep(REPLAY_HOLD_MS);
+      return replayGeneration(update, current, cache.from, replay);
+    }
     const started = { at: performance.now(), tokens: tokensUsed() };
     const read = await readPack(await downscale(publicPath(sourceImageUrl), READ_PX), sourceImageUrl);
     const catalog = loadProduct(dataDir()); // the brand catalog: DATA_DIR/product.json
@@ -144,9 +184,7 @@ export function createCampaign(req: CreateCampaignRequest): { id: string } | Ref
     if (matched) await sleep(2000); // one 2 s poll, so the progress UI shows the match before "writing" replaces it
     const personas = await ensurePersonas(dataDir());
     const photo = await downscale(publicPath(sourceImageUrl), RENDER_PX);
-    const cache = renderCacheFor(sourceImageUrl);
-    if (cache) console.log(`campaign ${id}: same photo as ${cache.from.id}, reusing its renders`);
-    const { ads, imageTokens } = await gen0({ product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update), cache });
+    const { ads, imageTokens } = await gen0({ product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update) });
     const screened = await screen({ ads, product, personas, seed: seedOf(`${id}:0:panel`), onProgress: onProgress(update) });
     finishGeneration(update, current, 0, screened, { ...started, imageTokens });
   });
@@ -166,11 +204,13 @@ export function evolveCampaign(id: string): { campaign: Campaign } | Refusal {
   const survivors = last.survivorIds.map((sid) => ({ ...last.ads.find((a) => a.id === sid)!, experiment: null, status: "screening" as const }));
   const start: Campaign = { ...campaign, stage: "writing", progress: { label: `Breeding generation ${gen}`, done: 0, total: 1 }, error: undefined };
   runJob(start, async (update, current) => {
+    const cached = renderCacheFor(campaign.sourceImageUrl);
+    const replay = cached && replayable(campaign, cached.from, gen);
+    if (cached && replay) return replayGeneration(update, current, cached.from, replay);
     const started = { at: performance.now(), tokens: tokensUsed() };
     const personas = await ensurePersonas(dataDir());
     const photo = await downscale(publicPath(campaign.sourceImageUrl), RENDER_PX);
     const { product } = campaign;
-    const cached = renderCacheFor(campaign.sourceImageUrl);
     const cache = cached && withoutShown(cached, new Set(campaign.generations.flatMap((g) => g.ads.map((a) => a.imageUrl))));
     const { ads, imageTokens } = await breed({ gen, survivors, product, photo, outDir: publicPath(urlPrefix(id)), urlPrefix: urlPrefix(id), onProgress: onProgress(update), cache });
     // Survivors are re-screened with their children (the same 40 panel calls): their old rates won them selection,
