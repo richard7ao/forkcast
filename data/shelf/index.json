@@ -1,0 +1,185 @@
+[
+  {
+    "slug": "oom-balance",
+    "brand": "OOM",
+    "name": "Balance",
+    "factCount": 37,
+    "confidence": "high",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (6).jpeg",
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46.jpeg"
+    ]
+  },
+  {
+    "slug": "lowrise-hazy-pale",
+    "brand": "LOWRISE",
+    "name": "HAZY PALE",
+    "factCount": 24,
+    "confidence": "high",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (7).jpeg",
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (8).jpeg",
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (5).jpeg"
+    ]
+  },
+  {
+    "slug": "pentire-coastal-spritz",
+    "brand": "Pentire",
+    "name": "Coastal Spritz",
+    "factCount": 4,
+    "confidence": "high",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (3).jpeg"
+    ]
+  },
+  {
+    "slug": "navas-original-tonic-water",
+    "brand": "NAVAS",
+    "name": "ORIGINAL TONIC WATER",
+    "factCount": 3,
+    "confidence": "high",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.45.jpeg"
+    ]
+  },
+  {
+    "slug": "navas-fiery-ginger-beer",
+    "brand": "NAVAS",
+    "name": "FIERY GINGER BEER",
+    "factCount": 2,
+    "confidence": "high",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.44.jpeg"
+    ]
+  },
+  {
+    "slug": "otzibrew-organic-dandelion-and-burdock-root-coffee-alternative",
+    "brand": "ötzibrew",
+    "name": "Organic Dandelion & Burdock Root Coffee Alternative",
+    "factCount": 2,
+    "confidence": "high",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.47 (1).jpeg"
+    ]
+  },
+  {
+    "slug": "epic-snax-toastin-marshmallows",
+    "brand": "Epic Snax",
+    "name": "Toastin' Marshmallows",
+    "factCount": 40,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.47.jpeg"
+    ]
+  },
+  {
+    "slug": "epic-snax-co-giant-toastin-marshmallows",
+    "brand": "EPIC SNAX CO.",
+    "name": "Giant Toastin' Marshmallows",
+    "factCount": 23,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.47 (5).jpeg"
+    ]
+  },
+  {
+    "slug": "mindfuelbev-perform",
+    "brand": "Mindfuelbev",
+    "name": "PERFORM",
+    "factCount": 21,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (4).jpeg"
+    ]
+  },
+  {
+    "slug": "lowrise-brewery-brilliant-low-calorie-lager",
+    "brand": "LOWRISE BREWERY",
+    "name": "Brilliant Low-Calorie Lager",
+    "factCount": 13,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (2).jpeg"
+    ]
+  },
+  {
+    "slug": "flow-mushroom-iced-latte-salted-caramel",
+    "brand": "flow",
+    "name": "mushroom iced latte salted caramel",
+    "factCount": 6,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (1).jpeg"
+    ]
+  },
+  {
+    "slug": "charitea-mate-sparkling",
+    "brand": "ChariTea",
+    "name": "mate sparkling",
+    "factCount": 5,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (12).jpeg"
+    ]
+  },
+  {
+    "slug": "ep-c-snax-co-toastin-marsh-mallows",
+    "brand": "EP!C SNAX CO.",
+    "name": "TOASTIN’ MARSH-MALLOWS",
+    "factCount": 4,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.47 (4).jpeg"
+    ]
+  },
+  {
+    "slug": "ferment-fizz-lemon-lemonade",
+    "brand": "ferment",
+    "name": "Fizz lemon lemonade",
+    "factCount": 4,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.43.jpeg"
+    ]
+  },
+  {
+    "slug": "ferment-fizz-lemon-and-raspberry-lemonade",
+    "brand": "ferment",
+    "name": "fizz lemon & raspberry lemonade",
+    "factCount": 3,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.45 (1).jpeg"
+    ]
+  },
+  {
+    "slug": "ferment-fizz-orange-and-mango-lemonade",
+    "brand": "ferment",
+    "name": "Fizz Orange & Mango Lemonade",
+    "factCount": 3,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.45 (2).jpeg"
+    ]
+  },
+  {
+    "slug": "dash-pink-lady-apple",
+    "brand": "DASH",
+    "name": "Pink Lady® Apple",
+    "factCount": 2,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.46 (9).jpeg"
+    ]
+  },
+  {
+    "slug": "ep-c-giant-toastin-marshmallows",
+    "brand": "EP!C",
+    "name": "Giant Toastin' Marshmallows",
+    "factCount": 2,
+    "confidence": "medium",
+    "sourceImages": [
+      "sample_images/WhatsApp Image 2026-10-03 at 12.46.47 (3).jpeg"
+    ]
+  }
+]

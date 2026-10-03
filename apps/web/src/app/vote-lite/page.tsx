@@ -156,7 +156,7 @@ function Intro({ count, onStart }: { count: number; onStart: () => void }) {
         <p className="text-muted">For each ad, would you tap it or scroll past? Go with your gut.</p>
       </div>
       <p className="text-sm text-muted">
-        We store a random ID, the group you pick, your answers and how long each took, nothing else. Results are shown live and published in our public repo.
+        We store a random ID, the group you pick, your answers and how long each took, nothing else. Results are shown after the round closes and published in our public repo.
       </p>
       <button type="button" onClick={onStart} className={PRIMARY_BTN}>
         Start
@@ -278,7 +278,7 @@ function AdCard({ product, variant }: { product: Product; variant: Variant }) {
         </div>
       ) : (
         <img
-          src={product.imageUrl}
+          src={variant.imageUrl ?? product.imageUrl}
           alt={product.name}
           onError={() => setImageFailed(true)}
           className="aspect-[4/3] w-full bg-neutral-200 object-cover"

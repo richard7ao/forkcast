@@ -44,7 +44,20 @@ const { product, placeholder } = loadProduct(dir);
 if (placeholder) console.error("\n!!! PLACEHOLDER PRODUCT: write data/product.json !!!\n");
 
 const personas = await ensurePersonas(dir);
-const forecast = await runForecast({ round, product, variants, personas });
+const imageCount = variants.filter((v) => v.imageUrl).length;
+if (!imageCount) console.error("\n!!! NO VARIANT HAS AN imageUrl: this forecast is TEXT-ONLY !!!\n");
+let textOnly = !imageCount;
+const forecast = await runForecast({
+  round,
+  product,
+  variants,
+  personas,
+  warn: (message) => {
+    textOnly = true;
+    console.error(`\n!!! ${message} !!!\n`);
+  },
+});
+if (!textOnly) console.log(`panel saw ${imageCount} ad image(s)`);
 mkdirSync(join(dir, "forecasts"), { recursive: true });
 writeFileSync(out, `${JSON.stringify(forecast, null, 2)}\n`, { flag: values.force ? "w" : "wx" });
 

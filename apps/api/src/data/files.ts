@@ -66,6 +66,8 @@ export const StateFile = z.object({
   activeRound: z.number().int().min(1),
   /** Round -> ISO opening time; votes cast earlier (phone tests) stay in the file but are excluded. */
   opensAt: z.record(z.string(), z.string()).optional(),
+  /** Round -> ISO closing time; later votes (stragglers, finals judges) never change that round's graded results. */
+  closesAt: z.record(z.string(), z.string()).optional(),
 });
 export type StateFile = z.infer<typeof StateFile>;
 

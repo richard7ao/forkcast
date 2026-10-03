@@ -43,6 +43,44 @@ export function mae(pairs: readonly (readonly [number, number])[]): number | nul
   return pairs.length === 0 ? null : mean(pairs.map(([a, b]) => Math.abs(a - b)));
 }
 
+/**
+ * Paired (within-voter) difference in tap rate between two ads, from discordant pairs, McNemar-style:
+ * b = voters who tapped the first ad only, c = the second only, n = voters who rated both.
+ * d = (b - c) / n with SE = sqrt(b + c - (b - c)^2 / n) / n. Null when nobody rated both.
+ */
+export function pairedDiff(b: number, c: number, n: number, z = 1.645): { d: number; lo: number; hi: number } | null {
+  if (n === 0) return null;
+  const d = (b - c) / n;
+  const se = Math.sqrt(Math.max(0, b + c - (b - c) ** 2 / n)) / n;
+  return { d, lo: d - z * se, hi: d + z * se };
+}
+
+/** Seeded PRNG (mulberry32) in [0, 1): the bootstrap must print the same interval on every poll. */
+export function seededRandom(seed: number): () => number {
+  let state = seed >>> 0;
+  return () => {
+    state = (state + 0x6d2b79f5) >>> 0;
+    let t = state;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** Linearly interpolated quantile of an ascending, non-empty list (numpy's default). */
+export function quantile(sorted: readonly number[], p: number): number {
+  const h = (sorted.length - 1) * p;
+  const i = Math.floor(h);
+  const below = sorted[i] ?? NaN;
+  const above = sorted[Math.min(i + 1, sorted.length - 1)] ?? NaN;
+  return below + (h - i) * (above - below);
+}
+
+/** Expected MAE of a perfect forecaster at these sample sizes: mean of sqrt(p(1-p)/n)·sqrt(2/π). Null with nothing to score. */
+export function noiseFloor(rates: readonly { p: number; n: number }[]): number | null {
+  return rates.length === 0 ? null : mean(rates.map(({ p, n }) => Math.sqrt((p * (1 - p)) / n) * Math.sqrt(2 / Math.PI)));
+}
+
 /** Panel forecast weighted by the room's voter count per panel segment; equal weights before anyone votes. */
 export function postStratify(aiBySegment: SegmentProbabilities, mix: Partial<Record<PanelSegment, number>>): number {
   const total = sum(PANEL_SEGMENTS.map((seg) => mix[seg] ?? 0));

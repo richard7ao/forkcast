@@ -26,6 +26,7 @@ export const Variant = z.object({
   cta: z.string().max(20),
   rationale: z.string(),       // how the copy expresses the lever; challengers cite the round-1 evidence they use
   parentId: z.string().nullable(), // round 2: the round-1 variant this one descends from; round 1: null
+  imageUrl: z.string().optional(), // this ad's own AI image (from the one product photo); falls back to product.imageUrl
 });
 export type Variant = z.infer<typeof Variant>;
 
@@ -81,11 +82,17 @@ export type Seal = z.infer<typeof Seal>;
 
 export const Scorecard = z.object({
   round: z.number().int(),
-  humanWinnerId: z.string().nullable(),
+  humanWinnerId: z.string().nullable(), // the top ad only when the paired test separates it from every rival (topGroup size 1)
   aiWinnerId: z.string().nullable(),
   aiPickedWinner: z.boolean().nullable(),
   mae: z.number().nullable(),         // mean |ai - human.rate| over variants with human.n >= 10 (0-1 scale)
-  spearman: z.number().nullable(),    // rank agreement across the round's variants; null if < 3 variants have n >= 10
+  spearman: z.number().nullable(),    // rank agreement; null if < 3 variants have n >= 10 or the round has < 4 variants
+  // docs/analysis-plan.md (pre-registered). Optional so older fixtures stay valid; absent when not computable.
+  topGroup: z.array(z.string()).optional(),            // the top ad plus every ad a paired 90% test cannot separate from it
+  aiPickInTopGroup: z.boolean().nullable().optional(), // the AI's sealed pick is in topGroup
+  chanceRate: z.number().optional(),                   // topGroup size / ads in the round: a random pick's hit rate
+  maeCi: z.tuple([z.number(), z.number()]).optional(), // 90% bootstrap interval of mae (2,000 voter resamples, seeded)
+  maeNoiseFloor: z.number().optional(),                // expected mae of a perfect forecaster at the observed n
 });
 export type Scorecard = z.infer<typeof Scorecard>;
 

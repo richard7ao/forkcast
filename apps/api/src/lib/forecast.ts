@@ -1,9 +1,10 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { extname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { PANEL_SEGMENTS, Product, VariantsResponse, type Variant } from "@hack/contract";
 import { PersonasFile, type ForecastFile, type PanelAnswer, type PanelSegment, type Persona } from "../data/files";
-import { chatJson, mapLimit, MODELS } from "./llm";
+import { chatJson, mapLimit, MODELS, type ContentPart } from "./llm";
 import { aggregate, personaOrder, pooledPick } from "./panel";
 import { sealForecast } from "./seal";
 
@@ -99,18 +100,51 @@ const answersSchema = (labels: string[]) => ({
   },
 });
 
+/** apps/web/public, where every ad image the voters see is served from. */
+const PUBLIC_DIR = fileURLToPath(new URL("../../../web/public/", import.meta.url));
+const MIME: Record<string, string> = { ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp" };
+
+/** A served ad image ("/generated/r1-value.png") as a base64 data URL. Throws when missing, so the panel never judges other creative than the room. */
+function imageDataUrl(imageUrl: string): string {
+  const file = resolve(PUBLIC_DIR, imageUrl.replace(/^\/+/, ""));
+  const mime = MIME[extname(file).toLowerCase()];
+  if (!file.startsWith(PUBLIC_DIR) || !mime) throw new Error(`unusable ad image ${imageUrl}`);
+  if (!existsSync(file)) throw new Error(`missing ad image ${file}: render it before forecasting`);
+  return `data:${mime};base64,${readFileSync(file).toString("base64")}`;
+}
+
 /**
  * One persona's verdict on every ad, shown in its personaOrder as "Ad 1..n": variant ids name the
- * lever ("r1-scarcity"), so they never reach the model. Re-asks once if any ad is missed or doubled.
+ * lever ("r1-scarcity"), so they never reach the model. With images (variantId -> data URL), each ad's
+ * image sits between its label and its copy, as on the vote card. Re-asks once if any ad is missed or doubled.
  */
-async function askPersona(persona: Persona, round: number, product: Product, variants: Variant[], model: string): Promise<PanelAnswer[]> {
+async function askPersona(
+  persona: Persona,
+  round: number,
+  product: Product,
+  variants: Variant[],
+  model: string,
+  images: Map<string, string> | null,
+): Promise<PanelAnswer[]> {
   const order = personaOrder(persona.id, round, variants);
   const labels = order.map((_, i) => String(i + 1));
-  const user = [
-    `Every ad is from ${product.brand} (Sponsored) and shows a photo of ${product.name}.`,
-    ...order.map((v, i) => `\nAd ${labels[i]}\nHeadline: ${v.headline}\nBody: ${v.body}\nButton: ${v.cta}`),
-    '\nAnswer every ad exactly once: ad (its number), decision ("tap" or "scroll"), reason (one short sentence in your own voice).',
-  ].join("\n");
+  const copy = (v: Variant) => `Headline: ${v.headline}\nBody: ${v.body}\nButton: ${v.cta}`;
+  const outro = 'Answer every ad exactly once: ad (its number), decision ("tap" or "scroll"), reason (one short sentence in your own voice).';
+  const user: string | ContentPart[] = images
+    ? [
+        { type: "text", text: `Every ad is from ${product.brand} (Sponsored). Each ad's image is shown with it.` },
+        ...order.flatMap((v, i): ContentPart[] => {
+          const url = images.get(v.id);
+          const image = url ? [{ type: "image_url", image_url: { url, detail: "low" } } as ContentPart] : [];
+          return [{ type: "text", text: `Ad ${labels[i]}` }, ...image, { type: "text", text: copy(v) }];
+        }),
+        { type: "text", text: outro },
+      ]
+    : [
+        `Every ad is from ${product.brand} (Sponsored) and shows a photo of ${product.name}.`,
+        ...order.map((v, i) => `\nAd ${labels[i]}\n${copy(v)}`),
+        `\n${outro}`,
+      ].join("\n");
 
   for (let attempt = 1; ; attempt++) {
     const { answers } = await chatJson({
@@ -135,7 +169,11 @@ async function askPersona(persona: Persona, round: number, product: Product, var
   }
 }
 
-/** Every persona judges every variant (concurrency-capped); P(tap) per segment, the pooled means and the pick are sealed together. */
+/**
+ * Every persona judges every variant (concurrency-capped), seeing each variant's imageUrl when it has one;
+ * P(tap) per segment, the pooled means and the pick are sealed together. If the panel model rejects images
+ * (HTTP 400 on the first persona), the whole panel runs text-only and `warn` is told, so the caller can say so loudly.
+ */
 export async function runForecast(opts: {
   round: number;
   product: Product;
@@ -143,12 +181,26 @@ export async function runForecast(opts: {
   personas: Persona[];
   model?: string;
   concurrency?: number;
+  warn?: (message: string) => void;
 }): Promise<ForecastFile> {
-  const { round, product, variants, personas, model = MODELS.panel, concurrency = 8 } = opts;
+  const { round, product, variants, personas, model = MODELS.panel, concurrency = 8, warn } = opts;
   const counts = PANEL_SEGMENTS.map((segment) => personas.filter((p) => p.segment === segment).length);
-  if (new Set(counts).size !== 1) throw new Error(`personas must be balanced across panel segments, got ${counts.join("/")}`);
+  if (new Set(counts).size !== 1 || !counts[0]) throw new Error(`personas must be balanced across panel segments, got ${counts.join("/")}`);
 
-  const answers = (await mapLimit(personas, concurrency, (p) => askPersona(p, round, product, variants, model))).flat();
+  const withImage = variants.filter((v) => v.imageUrl);
+  const images = withImage.length ? new Map(withImage.map((v) => [v.id, imageDataUrl(v.imageUrl!)])) : null;
+  const ask = (persona: Persona, imgs: Map<string, string> | null) => askPersona(persona, round, product, variants, model, imgs);
+
+  // The first persona doubles as a probe: a panel model that rejects images fails every call the same way.
+  let imagesUsed = images !== null;
+  const [first, ...rest] = personas;
+  const firstAnswers = await ask(first!, images).catch((err: unknown) => {
+    if (!images || !String(err).includes("HTTP 400")) throw err;
+    imagesUsed = false;
+    warn?.(`PANEL MODEL ${model} REJECTED IMAGES (${String(err).slice(0, 200)}): this forecast is TEXT-ONLY, unlike the ads voters see`);
+    return ask(first!, null);
+  });
+  const answers = [...firstAnswers, ...(await mapLimit(rest, concurrency, (p) => ask(p, imagesUsed ? images : null))).flat()];
   const perSegment = aggregate(answers, variants);
-  return sealForecast({ round, model, personasPerSegment: counts[0]!, perSegment, ...pooledPick(perSegment, variants), answers });
+  return sealForecast({ round, model, personasPerSegment: counts[0], perSegment, ...pooledPick(perSegment, variants), answers });
 }
