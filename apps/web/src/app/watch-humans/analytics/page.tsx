@@ -6,13 +6,14 @@
  * campaign). ?c=<campaign id>, default demo-epic.
  */
 import Link from "next/link";
-import { Fragment, Suspense, useMemo, type ReactNode } from "react";
+import { Fragment, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 import { Bar, BarChart, Cell, LabelList, Pie, PieChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import type { Campaign } from "@hack/contract";
 import { ErrorNote, Skeleton } from "../../../components/ui";
 import { useEndpoint } from "../../../lib/useEndpoint";
 import { buildAnalytics, clock, DAYS, pct, type FinalistStat, type Share } from "../insights";
+import m from "../motion.module.css";
 
 const INK = "#1D1D1D";
 const FOREST = "#336138";
@@ -22,6 +23,12 @@ const RAMP = ["#F1F8E1", "#DCEFB6", "#C2E773", "#7FB24E", "#336138"];
 const GENDER_SHORT = ["Female", "Male", "Non-binary", "Not said"];
 const AGE_SHORT = ["18–24", "25–34", "35–44", "45–54", "55+"];
 const fmt = (n: number) => n.toLocaleString("en-GB");
+const whole = (n: number) => fmt(Math.round(n));
+const minSec = (s: number) => `${Math.floor(Math.round(s) / 60)}:${String(Math.round(s) % 60).padStart(2, "0")}`;
+const COUNT_MS = 1100;
+/** Borderless card: a soft shadow instead of the theme's hairline, and a lift on hover. */
+const TILE = `e-tile border-transparent shadow-[0_1px_2px_rgba(0,0,0,0.04),0_12px_32px_-18px_rgba(0,0,0,0.14)] ${m.lift}`;
+const delay = (i: number, step: number) => ({ animationDelay: `${i * step}ms` });
 
 export default function AnalyticsPage() {
   // useSearchParams needs a Suspense boundary when Next prerenders the page.
@@ -37,7 +44,7 @@ function Load() {
   const { data, error, reload } = useEndpoint("campaign", { params: { id } });
   return (
     <div className="theme-e pb-16">
-      <main className="mx-auto w-full max-w-6xl space-y-10 px-4 py-6 md:py-10">
+      <main className="mx-auto w-full max-w-6xl space-y-14 px-4 py-8 md:py-12">
         <Link href={`/watch-humans?c=${encodeURIComponent(id)}`} className="e-mono text-[13px] uppercase tracking-wider text-muted hover:text-ink">
           ← Back to swiping
         </Link>
@@ -62,10 +69,10 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
   const { brand, name } = campaign.product;
   const n = a.finalists.length;
   const header = (
-    <header className="space-y-3">
+    <header className={`space-y-3 ${m.rise}`}>
       <div className="flex flex-wrap items-center gap-3">
         <h1 className="e-h text-[36px] md:text-[56px]">Customer analytics</h1>
-        <span className="e-mono rounded-full border border-edge px-3 py-1 text-[12px] uppercase tracking-wider text-muted">Mock data</span>
+        <span className="e-mono rounded-full bg-white px-3 py-1 text-[12px] uppercase tracking-wider text-muted">Mock data</span>
       </div>
       <p className="text-[17px] text-muted">
         {brand} {name} · Watch Humans members who swiped the {n} finalist {n === 1 ? "ad" : "ads"} before claiming a sample
@@ -84,19 +91,19 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
   return (
     <>
       {header}
-      <section aria-label="Headline numbers" className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
-        <Kpi label="Members reached" value={fmt(a.members)} note="swiped every finalist" />
-        <Kpi label="Swipes" value={fmt(a.swipes)} note={`${fmt(a.members)} × ${n} finalists`} />
-        <Kpi label="Right-swipe rate" value={pct(a.rights / a.swipes)} note={`${fmt(a.rights)} would tap`} />
-        <Kpi label="Samples claimed" value={fmt(a.samples)} note={`${pct(a.samples / a.members)} of members`} />
-        <Kpi label="Video reviews" value={fmt(a.videos)} note={`${pct(a.videos / a.samples)} of samples`} />
-        <Kpi label="Avg watch time" value={`${Math.floor(a.watchSec / 60)}:${String(a.watchSec % 60).padStart(2, "0")}`} note="per review video" />
+      <section aria-label="Headline numbers" className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+        <Kpi i={1} label="Members reached" value={a.members} format={whole} note="swiped every finalist" />
+        <Kpi i={2} label="Swipes" value={a.swipes} format={whole} note={`${fmt(a.members)} × ${n} finalists`} />
+        <Kpi i={3} label="Right-swipe rate" value={a.rights / a.swipes} format={pct} note={`${fmt(a.rights)} would tap`} />
+        <Kpi i={4} label="Samples claimed" value={a.samples} format={whole} note={`${pct(a.samples / a.members)} of members`} />
+        <Kpi i={5} label="Video reviews" value={a.videos} format={whole} note={`${pct(a.videos / a.samples)} of samples`} />
+        <Kpi i={6} label="Avg watch time" value={a.watchSec} format={minSec} note="per review video" />
       </section>
 
       <Section label="What stands out">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {a.insights.map((insight) => (
-            <article key={insight.title} className="e-tile flex flex-col gap-2 p-5">
+          {a.insights.map((insight, i) => (
+            <article key={insight.title} className={`${TILE} flex flex-col gap-2 p-6 ${m.rise}`} style={delay(i + 1, 90)}>
               <h3 className="text-[18px] font-medium leading-snug">{insight.title}</h3>
               <p className="text-[15px] leading-snug text-muted">{insight.body}</p>
             </article>
@@ -107,7 +114,7 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
       <Section label="Demographics">
         <div className="grid gap-4 lg:grid-cols-3">
           <Card title="Age">
-            <div role="img" aria-label={a.age.map((s) => `${s.label} ${s.pct}%`).join(", ")} className="h-56">
+            <div role="img" aria-label={a.age.map((s) => `${s.label} ${s.pct}%`).join(", ")} className={`h-56 ${m.bars}`}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={a.age.map((s) => ({ ...s, text: `${s.pct}%` }))} margin={{ top: 22, right: 0, bottom: 0, left: 0 }}>
                   <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#555555" }} axisLine={false} tickLine={false} interval={0} />
@@ -121,7 +128,7 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
           </Card>
           <Card title="Gender">
             <div className="flex flex-wrap items-center gap-5">
-              <div role="img" aria-label={a.gender.map((s) => `${s.label} ${s.pct}%`).join(", ")} className="size-40 shrink-0">
+              <div role="img" aria-label={a.gender.map((s) => `${s.label} ${s.pct}%`).join(", ")} className={`size-40 shrink-0 ${m.donut}`}>
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie data={a.gender} dataKey="count" nameKey="label" innerRadius="62%" outerRadius="100%" stroke="#FFFFFF" strokeWidth={2} isAnimationActive={false}>
@@ -161,7 +168,7 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
         <div className="grid gap-4 lg:grid-cols-2">
           <Card title="Right-swipe rate by finalist" className="lg:col-span-2">
             <ul className="space-y-4">
-              {a.finalists.map((f) => (
+              {a.finalists.map((f, i) => (
                 <li key={f.id} className="flex items-center gap-3">
                   <img src={f.imageUrl} alt="" className="size-12 shrink-0 rounded-lg object-cover" />
                   <div className="min-w-0 flex-1 space-y-1.5">
@@ -172,7 +179,7 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
                     </p>
                     <div className="flex items-center gap-3">
                       <div aria-hidden className="h-2 flex-1 overflow-hidden rounded-full" style={{ background: TRACK }}>
-                        <div className="h-full rounded-full" style={{ width: pct(f.rate), background: FOREST }} />
+                        <div className={`h-full rounded-full ${m.grow}`} style={{ width: pct(f.rate), background: FOREST, ...delay(i, 90) }} />
                       </div>
                       <span className="w-28 shrink-0 text-right text-[14px] tabular-nums">
                         {pct(f.rate)} <span className="text-muted">· {fmt(f.rights)}</span>
@@ -201,9 +208,24 @@ function Dashboard({ campaign }: { campaign: Campaign }) {
   );
 }
 
+/** Fades up, and starts the animations inside it, once it scrolls into view. */
 function Section({ label, children }: { label: string; children: ReactNode }) {
+  const ref = useRef<HTMLElement>(null);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) {
+        setSeen(true);
+        io.disconnect();
+      }
+    }, { threshold: 0.1 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   return (
-    <section aria-label={label} className="space-y-4">
+    <section ref={ref} aria-label={label} className={`space-y-5 ${m.reveal} ${seen ? m.in : ""}`}>
       <h2 className="e-lbl">{label}</h2>
       {children}
     </section>
@@ -212,7 +234,7 @@ function Section({ label, children }: { label: string; children: ReactNode }) {
 
 function Card({ title, caption, className = "", children }: { title: string; caption?: string; className?: string; children: ReactNode }) {
   return (
-    <div className={`e-tile flex min-w-0 flex-col gap-4 p-5 ${className}`}>
+    <div className={`${TILE} flex min-w-0 flex-col gap-5 p-6 ${className}`}>
       <div className="space-y-1">
         <h3 className="text-[17px] font-medium">{title}</h3>
         {caption && <p className="text-[14px] leading-snug text-muted">{caption}</p>}
@@ -222,14 +244,37 @@ function Card({ title, caption, className = "", children }: { title: string; cap
   );
 }
 
-function Kpi({ label, value, note }: { label: string; value: string; note: string }) {
+function Kpi({ i, label, value, format, note }: { i: number; label: string; value: number; format: (n: number) => string; note: string }) {
   return (
-    <div className="e-tile min-w-0 space-y-1 p-4">
+    <div className={`${TILE} min-w-0 space-y-1 p-5 ${m.rise}`} style={delay(i, 60)}>
       <p className="e-mono text-[11px] uppercase tracking-wider text-muted">{label}</p>
-      <p className="e-h text-[32px] tabular-nums">{value}</p>
+      <p className="e-h text-[32px] tabular-nums">
+        <CountUp to={value} format={format} />
+      </p>
       <p className="truncate text-[13px] text-muted">{note}</p>
     </div>
   );
+}
+
+/** Counts from 0 up to `to` with an ease-out; shows the final value at once under reduced motion. */
+function CountUp({ to, format }: { to: number; format: (n: number) => string }) {
+  const [v, setV] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setV(to);
+      return;
+    }
+    const t0 = performance.now();
+    let raf = 0;
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - t0) / COUNT_MS);
+      setV(to * (1 - (1 - p) ** 3));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [to]);
+  return <>{format(v)}</>;
 }
 
 function Tag({ children }: { children: ReactNode }) {
@@ -240,11 +285,11 @@ function ShareBars({ shares }: { shares: Share[] }) {
   const max = Math.max(...shares.map((s) => s.pct), 1);
   return (
     <ul className="space-y-2.5">
-      {shares.map((s) => (
+      {shares.map((s, i) => (
         <li key={s.label} className="grid grid-cols-[minmax(0,9rem)_minmax(0,1fr)_2.75rem] items-center gap-3 text-[14px]">
           <span className="truncate">{s.label}</span>
           <div aria-hidden className="h-2 overflow-hidden rounded-full" style={{ background: TRACK }}>
-            <div className="h-full rounded-full" style={{ width: `${(s.pct / max) * 100}%`, background: FOREST }} />
+            <div className={`h-full rounded-full ${m.grow}`} style={{ width: `${(s.pct / max) * 100}%`, background: FOREST, ...delay(i, 60) }} />
           </div>
           <span className="text-right tabular-nums" title={`${fmt(s.count)} members`}>{s.pct}%</span>
         </li>
@@ -280,7 +325,7 @@ function RateGrid({ rows, cols, short, values }: { rows: FinalistStat[]; cols: S
             <span className="truncate text-[13px]" title={r.headline}>{r.headline}</span>
           </span>
           {(values[f] ?? []).map((v, i) => (
-            <span key={cols[i]?.label} className="rounded-md py-2 text-center text-[12px] tabular-nums" style={shade(v, lo, hi)}>
+            <span key={cols[i]?.label} className={`rounded-md py-2 text-center text-[12px] tabular-nums ${m.pop}`} style={{ ...shade(v, lo, hi), ...delay(f + i, 50) }}>
               {pct(v)}
             </span>
           ))}
@@ -302,8 +347,8 @@ function WhenGrid({ when }: { when: number[][] }) {
               <span
                 key={h}
                 title={`${DAYS[d]} ${clock(h)}: ${fmt(n)} swipes`}
-                className="h-4 rounded-[3px] sm:h-6"
-                style={{ background: n ? shade(n, 0, max).background : "#F6F6F7" }}
+                className={`h-4 rounded-[3px] sm:h-6 ${m.pop}`}
+                style={{ background: n ? shade(n, 0, max).background : "#F6F6F7", ...delay(d + h, 15) }}
               />
             ))}
           </Fragment>
