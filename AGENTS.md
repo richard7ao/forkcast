@@ -5,8 +5,8 @@ happen while everyone stays in lane.
 
 | Lane | Owns | Spec |
 | --- | --- | --- |
-| Backend | `packages/contract/**` (additive only), `apps/api/**`, `fixtures/**`, `data/**` except `data/product.json`, `apps/web/public/generated/**` (AI ad visuals), the self-contained demo pages `apps/web/src/app/{vote-lite,watch-humans}/**`, `README.md`, root config | `docs/superpowers/specs/backend.md` |
-| Frontend | `apps/web/src/app/**` except the proxy route, `vote-lite/` and `watch-humans/`, `apps/web/src/components/**`, new files in `apps/web/src/lib/`, `apps/web/public/**` except `generated/`, `data/product.json` | `docs/superpowers/specs/frontend.md` |
+| Backend | `packages/contract/**` (additive only), `apps/api/**`, `fixtures/**`, `data/**` except `data/product.json`, `apps/web/public/generated/**` (AI ad visuals), the self-contained demo pages and late-image route `apps/web/src/app/{vote-lite,watch-humans,generated}/**`, `README.md`, root config | `docs/superpowers/specs/backend.md` |
+| Frontend | `apps/web/src/app/**` except the proxy route, `vote-lite/`, `watch-humans/` and `generated/`, `apps/web/src/components/**`, new files in `apps/web/src/lib/`, `apps/web/public/**` except `generated/`, `data/product.json` | `docs/superpowers/specs/frontend.md` |
 
 Nobody edits during the sprint: `apps/web/src/lib/client.ts`, `apps/web/src/lib/useEndpoint.ts`,
 `apps/web/src/app/api/[...path]/route.ts`, `packages/contract/src/fixtures.ts`, and

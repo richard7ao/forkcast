@@ -23,8 +23,11 @@
 - [2026-10-03] The Playwright MCP browser can be locked by another session ("Browser is already in use"); use the chrome-devtools MCP with `isolatedContext` and `background: true` so a tab the user is clicking in is left alone.
 - [2026-10-03] With parallel agents, a file can appear between your check and your Write: check `git status` right before writing a path a teammate might create (a route test was overwritten this way).
 - [2026-10-03] Uploaded campaign photos land in `apps/web/public/generated/campaigns/<id>/source.*` and may show people; that pattern is gitignored, so commit only the renders and a checked crop.
+- [2026-10-03] `node --test` treats a path argument as a glob, so `[id]` folders match nothing and it reports 0 tests without failing. Run such files directly: `node --import tsx "<path>"`.
+- [2026-10-03] `next start` serves only the public/ files present when it booted. Images written later (live campaign renders) need the route handler at `apps/web/src/app/generated/campaigns/[id]/[file]/route.ts`.
+- [2026-10-03] Production is the live stack behind the cloudflared tunnel (scripts/go-live.sh, redeploy-live.sh); there is no Vercel or GitHub deployment.
 
 ## Open Questions
 
 - [2026-10-03] Which Shelf product; public GitHub repo creation needs Richard's OK; organisers' mic slot at 14:00; venue Wi-Fi with the tunnel.
-- [2026-10-03] UI direction pending pick: 3 mockups on canvas https://claude.ai/artifact/27bRsusa3uxU7LdW8pU7qw (A Gimme native recommended, B Sealed lab, C Match night). AdCard is the stimulus: identical in every direction, never restyled.
+- [2026-10-03] UI direction pending pick: v2 canvas https://claude.ai/artifact/27bRsusa3uxU7LdW8pU7qw has A Gimme native, B Sealed lab, C Match night, D Really Good, and E = A + D all light (recommended; user disliked D's dark sections). Each row: upload, campaign + drawer, winner + analytics, member swipe phone. AdCard is the stimulus: identical in every direction, never restyled.
