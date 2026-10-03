@@ -9,6 +9,49 @@
   --color-accent: oklch(0.72 0.16 250);
   --color-good: oklch(0.76 0.15 155);
   --color-bad: oklch(0.70 0.18 25);
+  --color-pistachio: #C2E773;
+  --color-forest: #336138;
+  --color-ai: #6D3FD9;
+  --color-ai-mark: #9A66FF;
+  --color-track: #EDEDED;
+  --color-line: rgb(29 29 29 / 0.12);
 }
 
 body { background: var(--color-bg); color: var(--color-ink); }
+
+/* Direction E, the brand pages: light. Scoped so /vote-lite and /watch-humans, where people test ads, keep their look. */
+.theme-e {
+  --color-bg: #FFFFFF;
+  --color-panel: #FFFFFF;
+  --color-edge: rgb(29 29 29 / 0.18);
+  --color-ink: #1D1D1D;
+  --color-muted: #555555;
+  --color-accent: #6D3FD9;
+  --color-good: #336138;
+  --color-bad: #B42318;
+  min-height: 100vh;
+  color: var(--color-ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #FFFFFF;
+  background-image: radial-gradient(circle 900px at 100% 0, rgb(194 231 115 / 0.28), rgb(194 231 115 / 0) 70%),
+    radial-gradient(#E3E3E8 1.2px, transparent 1.2px);
+  background-size: auto, 22px 22px;
+}
+body:has(.theme-e) { background: #FFFFFF; }
+
+@layer components {
+  .e-h { font-weight: 400; letter-spacing: -0.045em; line-height: 1.06; }
+  .e-mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  /* Mono caps label with a pistachio square, e.g. "Read off the pack". */
+  .e-lbl { display: inline-flex; align-items: center; gap: 10px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .e-lbl::before { content: ""; width: 8px; height: 8px; background: var(--color-pistachio); flex: none; }
+  .e-pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid transparent; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; }
+  .e-pill:disabled { opacity: 0.45; cursor: not-allowed; }
+  .e-lime { background: linear-gradient(90deg, #B6F000, #2BA84A); color: #1D1D1D; }
+  .e-outline { background: #FFFFFF; border-color: var(--color-forest); color: var(--color-forest); }
+  /* Polaroid frame for ads; thin-bordered tile for panels. */
+  .e-pol { background: #FFFFFF; border-radius: 18px; padding: 10px 10px 12px; border: 1px solid rgb(0 0 0 / 0.06); box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 14px 36px rgb(0 0 0 / 0.10); }
+  .e-tile { background: #FFFFFF; border-radius: 16px; border: 1px solid var(--color-edge); }
+  .e-chip { background: #FFFFFF; border: 1px solid var(--color-edge); border-radius: 999px; padding: 6px 14px; font-size: 14px; line-height: 1.3; }
+  .theme-e :focus-visible { outline: 2px solid var(--color-ai); outline-offset: 2px; }
+}
