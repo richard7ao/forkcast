@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type CSSProperties, type FormEvent } from "react";
 import { CreateCampaignRequest } from "@hack/contract";
@@ -84,8 +85,9 @@ export default function Page() {
 
   return (
     <div className="theme-e relative overflow-hidden">
-      <header className="relative z-10 mx-auto flex max-w-[1344px] items-center px-4 py-6 md:px-10">
+      <header className="relative z-10 mx-auto flex max-w-[1344px] items-center justify-between gap-3 px-4 py-6 md:px-10">
         <Logo />
+        <Link href="/watch-humans" aria-label="Watch Humans integration" className="e-pill e-outline px-4">Watch Humans<span className="hidden sm:inline">&nbsp;integration</span></Link>
       </header>
       {FLOATS.map((f, i) => (
         <div key={f.src} aria-hidden className={`fk-float absolute hidden w-[184px] min-[1300px]:block ${f.at}`} style={{ "--d": `${i * -1.4}s` } as CSSProperties}>
