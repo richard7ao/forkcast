@@ -7,6 +7,12 @@
 - [2026-10-03] Scaffold by copying the /hackathon template into the repo root; init.sh refuses a non-empty dir and would nest a git repo.
 - [2026-10-03] Live server is `next build` + `next start` + a cloudflared quick tunnel on the backend laptop. No deployment.
 
+- [2026-10-03] UI direction E (A Gimme native + D Really Good, all light) is built (334614c, 1f44097). The light theme is scoped to `.theme-e` so /vote-lite and /watch-humans keep their look.
+- [2026-10-03] Campaign pages reuse vote-lite's AdCard unchanged (the stimulus people voted on), framed by a ring outside the card, instead of the mockups' square-image card.
+- [2026-10-03] Upload limit follows the contract (data URL max 8.4M chars, about 6 MB of image), not frontend.md's "≤ 4 MB".
+- [2026-10-03] "Test with real people" admin button not built: POST /campaigns/:id/room is in neither the contract nor the API.
+- [2026-10-03] The segment heatmap shows GET /results as the room test, named by GET /variants' product, because those rows are not the campaign's ads.
+
 ## Patterns
 
 - [2026-10-03] Shared API contract lives verbatim in both specs (docs/superpowers/specs/backend.md, frontend.md), spliced by script and checked with `tsc --strict` before hand-off.
@@ -28,8 +34,13 @@
 - [2026-10-03] `node --test` treats a path argument as a glob, so `[id]` folders match nothing and it reports 0 tests without failing. Run such files directly: `node --import tsx "<path>"`.
 - [2026-10-03] `next start` serves only the public/ files present when it booted. Images written later (live campaign renders) need the route handler at `apps/web/src/app/generated/campaigns/[id]/[file]/route.ts`.
 - [2026-10-03] Production is the live stack behind the cloudflared tunnel (scripts/go-live.sh, redeploy-live.sh); there is no Vercel or GitHub deployment.
+- [2026-10-03] Gen N+1 carries gen-N survivors forward under the same ad id, re-screened with their own fitness and status, and their `gen` field keeps the birth generation. Ad ids are unique only within a generation: look ads up by (generation, id) with `findAd` in apps/web/src/app/campaigns/[id]/format.ts.
+- [2026-10-03] Survivors are selected by posterior simulated CTR, (clicks+1)/(impressions+2), not by AI P(tap); a culled ad can out-score the winner on AI P(tap).
+- [2026-10-03] The live web (:3300) and API (:8787) run from a separate checkout, ~/Documents/GitHub/forkcast-live. A fixture dev server on :3301 runs from this repo and shares apps/web/.next, so run `next build` in a scratch copy (symlinked node_modules and packages), not in place.
+- [2026-10-03] Next injects a route announcer with role="alert"; scope Playwright alert locators, e.g. `form [role=alert]`.
+- [2026-10-03] The admin token is read once from ?admin=, kept in sessionStorage (key fk-admin) and stripped from the URL, so it never shows on the demo screen.
 
 ## Open Questions
 
 - [2026-10-03] Which Shelf product; public GitHub repo creation needs Richard's OK; organisers' mic slot at 14:00; venue Wi-Fi with the tunnel.
-- [2026-10-03] UI direction pending pick: v2 canvas https://claude.ai/artifact/27bRsusa3uxU7LdW8pU7qw has A Gimme native, B Sealed lab, C Match night, D Really Good, and E = A + D all light (recommended; user disliked D's dark sections). Each row: upload, campaign + drawer, winner + analytics, member swipe phone. AdCard is the stimulus: identical in every direction, never restyled.
+- [2026-10-03] /watch-humans still uses the old dark tokens; direction E's swipe mockup (canvas row E, https://claude.ai/artifact/27bRsusa3uxU7LdW8pU7qw) is not applied to it, because it is a stimulus page people test on.

@@ -1,0 +1,29 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "createdAt": "2026-10-03T14:05:47.942Z",
+        "reason": "Direction E type spec (Helvetica Neue, weight 400, -0.045em) mirrors the Really Good Culture / Watch Humans reference sites; the user picked direction E on the mockup canvas and asked to implement it"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-10-03T15:45:59.676Z",
+        "reason": "Claude: swipe-card snap-back in /watch-humans; a released card overshoots back to centre like a physical card. User-triggered, literal motion; reduced-motion gets none (rules sit inside prefers-reduced-motion: no-preference)"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "apps/web/src/app/watch-humans/motion.module.css"
+        ],
+        "createdAt": "2026-10-03T15:45:59.735Z",
+        "reason": "Claude: .ease animates width only on small fixed-size progress and tally bars on /watch-humans and its analytics page; layout cost is negligible, and switching to scaleX would change the analytics page another session owns"
+      }
+    ]
+  }
+}
