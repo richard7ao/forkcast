@@ -11,7 +11,7 @@ import { Analytics } from "./Analytics";
 import { Heatmaps } from "./Heatmaps";
 import { Grid, tabStorage, type Breed } from "./Grid";
 import { TopBar, WRAP } from "./TopBar";
-import { adHref, errorText, railSteps, type Step } from "./format";
+import { adHref, errorText, railSteps, winnerOf, type Step } from "./format";
 
 const POLL_MS = 2000;
 const ADMIN_KEY = "fk-admin";
@@ -206,7 +206,7 @@ function Summary({ c, gen, rail, children }: { c: Campaign; gen: Generation | un
               {/* 40 = the backend's 4 panel segments x 10 personas. */}
               {gen && <p className="mt-1.5 text-[17px] text-muted">Screened by 40 AI shoppers{impressions > 0 && ` · ${impressions.toLocaleString("en-GB")} simulated impressions`}</p>}
             </div>
-            {c.winnerId && (
+            {winnerOf(c) && (
               <Link href={`/campaigns/${encodeURIComponent(c.id)}/winner`} className="e-pill bg-ink text-white transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none">
                 Meet the winner →
               </Link>
@@ -248,9 +248,11 @@ function Summary({ c, gen, rail, children }: { c: Campaign; gen: Generation | un
 }
 
 function RailStep({ step, c, selected, onPick }: { step: Step; c: Campaign; selected: boolean; onPick: (gen: number) => void }) {
+  // The Winner step links to the winner page as soon as any generation is ranked, crowned or not.
+  const toWinner = step.key === "winner" && winnerOf(c) != null;
   const look = selected ? "border-ink bg-ink text-white"
     : step.state === "run" ? "border-transparent e-lime"
-    : step.state === "done" ? "border-ink bg-white text-ink"
+    : step.state === "done" || toWinner ? "border-ink bg-white text-ink"
     : "border-edge bg-white text-muted";
   const body = (
     <>
@@ -268,7 +270,7 @@ function RailStep({ step, c, selected, onPick }: { step: Step; c: Campaign; sele
     <div className="flex flex-col gap-1.5">
       {gen != null ? (
         <button type="button" aria-pressed={selected} onClick={() => onPick(gen)} className={`${PILL} ${look} cursor-pointer`}>{body}</button>
-      ) : step.key === "winner" && step.state === "done" ? (
+      ) : toWinner ? (
         <Link href={`/campaigns/${encodeURIComponent(c.id)}/winner`} className={`${PILL} ${look}`}>{body}</Link>
       ) : (
         <span className={`${PILL} ${look}`}>{body}</span>
