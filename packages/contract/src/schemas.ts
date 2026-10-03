@@ -134,7 +134,8 @@ export const Ad = Variant.extend({
   gen: z.number().int().min(0),
   parentIds: z.array(z.string()),         // gen 0: []; children: [the survivor they mutate]
   scene: z.string(),                      // the scene the image was rendered from
-  fitness: z.object({ ai: Rate.nullable(), human: Rate.nullable() }), // ai = text-screen panel taps, pooled
+  // ai = text-screen panel taps, pooled; aiBySegment = panel segment -> P(tap), which drives the simulation
+  fitness: z.object({ ai: Rate.nullable(), human: Rate.nullable(), aiBySegment: z.record(z.string(), z.number()).optional() }),
   experiment: Experiment.nullable(),      // null until the generation's simulation has run
   status: z.enum(["screening", "survivor", "culled", "winner"]),
 });

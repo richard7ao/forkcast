@@ -3,3 +3,5 @@ node_modules
 dist
 .env
 *.tsbuildinfo
+# Raw uploads may show people; the repo is public. Commit only renders and checked crops.
+apps/web/public/generated/campaigns/*/source.*

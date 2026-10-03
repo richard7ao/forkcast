@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { campaignsRoutes } from "./routes/campaigns";
 import { challengerRoutes } from "./routes/challenger";
 import { resultsRoutes } from "./routes/results";
 import { variantsRoutes } from "./routes/variants";
@@ -15,6 +16,7 @@ app.route("/", variantsRoutes);
 app.route("/", votesRoutes);
 app.route("/", resultsRoutes);
 app.route("/", challengerRoutes);
+app.route("/", campaignsRoutes);
 
 const port = Number(process.env.PORT ?? 8787);
 serve({ fetch: app.fetch, port });
