@@ -116,3 +116,65 @@ export const ChallengerResponse = z.object({
   variants: z.array(Variant).optional(),
   error: z.string().optional(),
 });
+
+// ---- v2: the evolution engine (campaigns). Additive; nothing above changed. ----
+
+/** One ad's SIMULATED Meta-style delivery (Thompson-sampling bandit). Not real CTR. lo/hi = 90% Wilson on ctr. */
+export const Experiment = z.object({
+  impressions: z.number().int(),
+  clicks: z.number().int(),
+  ctr: z.number(),
+  lo: z.number(),
+  hi: z.number(),
+});
+export type Experiment = z.infer<typeof Experiment>;
+
+/** A genome { lever, scene, headline, body, cta } plus its fitness. `round` = gen + 1 (Variant needs >= 1). */
+export const Ad = Variant.extend({
+  gen: z.number().int().min(0),
+  parentIds: z.array(z.string()),         // gen 0: []; children: [the survivor they mutate]
+  scene: z.string(),                      // the scene the image was rendered from
+  fitness: z.object({ ai: Rate.nullable(), human: Rate.nullable() }), // ai = text-screen panel taps, pooled
+  experiment: Experiment.nullable(),      // null until the generation's simulation has run
+  status: z.enum(["screening", "survivor", "culled", "winner"]),
+});
+export type Ad = z.infer<typeof Ad>;
+
+export const Generation = z.object({
+  gen: z.number().int().min(0),
+  ads: z.array(Ad),
+  survivorIds: z.array(z.string()),
+  sealedSha256: z.string().nullable(),    // sha256 of this generation's canonical fitness table
+  tokens: z.number().int(),
+  seconds: z.number(),
+  // 20 cumulative snapshots of the simulated budget flowing to winners
+  timeline: z.array(z.object({ step: z.number().int(), impressionsByAd: z.record(z.string(), z.number().int()) })),
+});
+export type Generation = z.infer<typeof Generation>;
+
+export const CampaignStage = z.enum(["reading", "writing", "rendering", "screening", "simulating", "selecting", "done", "error"]);
+export type CampaignStage = z.infer<typeof CampaignStage>;
+
+export const Campaign = z.object({
+  id: z.string(),
+  name: z.string(),
+  createdAt: z.string(),                  // ISO 8601 UTC
+  sourceImageUrl: z.string(),             // the uploaded image, served from apps/web/public
+  product: Product,                       // facts read off the pack; empty until "reading" finishes
+  stage: CampaignStage,
+  progress: z.object({ label: z.string(), done: z.number().int(), total: z.number().int() }), // e.g. "Rendering scenes", 5, 8
+  generations: z.array(Generation),
+  winnerId: z.string().nullable(),
+  error: z.string().optional(),
+});
+export type Campaign = z.infer<typeof Campaign>;
+
+/** ~6 MB of image: base64 is 4/3 of the bytes. */
+export const CreateCampaignRequest = z.object({
+  imageDataUrl: z.string().max(8_400_000).regex(/^data:image\/(jpeg|png);base64,[A-Za-z0-9+/]+=*$/, "must be a jpeg or png data URL"),
+  name: z.string().max(80).optional(),
+});
+export type CreateCampaignRequest = z.infer<typeof CreateCampaignRequest>;
+export const CreateCampaignResponse = z.object({ ok: z.boolean(), campaignId: z.string().optional(), error: z.string().optional() });
+export const CampaignResponse = z.object({ campaign: Campaign });
+export const EvolveResponse = z.object({ ok: z.boolean(), campaign: Campaign.optional(), error: z.string().optional() });

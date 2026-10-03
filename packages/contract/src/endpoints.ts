@@ -1,5 +1,8 @@
 import { z } from "zod";
-import { ChallengerRequest, ChallengerResponse, ResultsResponse, VariantsResponse, VoteRequest, VoteResponse } from "./schemas";
+import {
+  CampaignResponse, ChallengerRequest, ChallengerResponse, CreateCampaignRequest, CreateCampaignResponse, EvolveResponse,
+  ResultsResponse, VariantsResponse, VoteRequest, VoteResponse,
+} from "./schemas";
 
 /**
  * One registry, three consumers:
@@ -15,6 +18,10 @@ export const endpoints = {
   vote:       { method: "POST", path: "/votes",      response: VoteResponse,       fixture: "vote",       request: VoteRequest },
   results:    { method: "GET",  path: "/results",    response: ResultsResponse,    fixture: "results" },
   challenger: { method: "POST", path: "/challenger", response: ChallengerResponse, fixture: "challenger", request: ChallengerRequest },
+  // v2 evolution engine. Campaign jobs run in-process; poll GET /campaigns/:id every 2 s.
+  createCampaign: { method: "POST", path: "/campaigns",            response: CreateCampaignResponse, fixture: "campaign-created", request: CreateCampaignRequest },
+  campaign:       { method: "GET",  path: "/campaigns/:id",        response: CampaignResponse,       fixture: "campaigns", pickBy: "id" },
+  evolveCampaign: { method: "POST", path: "/campaigns/:id/evolve", response: EvolveResponse,         fixture: "campaigns", pickBy: "id", request: ChallengerRequest },
 } as const;
 
 export type EndpointName = keyof typeof endpoints;
