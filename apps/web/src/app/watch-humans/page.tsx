@@ -5,6 +5,7 @@
  * members free products to review on video. Before a free sample ships, the member swipes on the brand's
  * finalist ads, and every swipe is real human fitness for the experiment. Left: the member's phone.
  * Right: what the brand sees in Forkcast. ?c=<campaign id> picks the campaign (default demo-epic).
+ * Styled in direction E (light), like the brand pages.
  *
  * Decisions made without asking:
  * - The deck is the last generation's survivors and winner (./swipe): the AI screen narrows the field,
@@ -20,8 +21,10 @@ import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Ad, Campaign, Product } from "@hack/contract";
+import { Logo } from "../../components/Logo";
 import { ErrorNote, Skeleton } from "../../components/ui";
 import { useEndpoint } from "../../lib/useEndpoint";
+import { LEVER_LABEL } from "../campaigns/[id]/format";
 import { AdCard } from "../vote-lite/AdCard";
 import { shuffleSeeded } from "../vote-lite/lite";
 import m from "./motion.module.css";
@@ -31,11 +34,9 @@ type Stage = "offer" | "deck" | "claimed";
 
 /** How long a decided card takes to fly off-screen; matches .fly in motion.module.css. */
 const FLY_MS = 280;
-const SHADOW = "shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-32px_rgba(0,0,0,0.35)]";
-
-const BTN = "min-h-12 touch-manipulation select-none rounded-xl font-semibold";
-const ANSWER_BTN = `${BTN} flex-1 bg-bg transition-colors hover:bg-edge active:bg-edge`;
-const PRIMARY_BTN = `${BTN} w-full bg-accent text-bg transition-[opacity,transform] hover:opacity-90 active:scale-[0.98]`;
+const WRAP = "mx-auto w-full max-w-[1180px] px-4 md:px-8";
+const PRIMARY_BTN = "e-pill e-lime min-h-[52px] w-full touch-manipulation select-none text-sm transition-transform hover:-translate-y-0.5 active:scale-[0.98]";
+const ANSWER_BTN = "e-pill min-h-[52px] flex-1 touch-manipulation select-none border-ink/30 bg-white text-ink transition-colors hover:bg-[#F4F4F1]";
 const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
 
 export default function WatchHumansPage() {
@@ -47,25 +48,43 @@ export default function WatchHumansPage() {
   );
 }
 
+function Shell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="theme-e pb-16">
+      <header className="border-b border-line">
+        <div className={`${WRAP} flex items-center justify-between gap-4 py-[18px]`}>
+          <Logo />
+          <span className="e-lbl">Concept demo</span>
+        </div>
+      </header>
+      {children}
+    </div>
+  );
+}
+
 function Demo() {
   const id = useSearchParams().get("c") ?? "demo-epic";
   const { data, error, reload } = useEndpoint("campaign", { params: { id } });
   if (error) {
     return (
-      <main className="mx-auto max-w-md space-y-4 px-4 py-10">
-        <p className="text-lg font-medium">Could not load campaign &quot;{id}&quot;.</p>
-        <ErrorNote error={error} />
-        <button type="button" onClick={() => reload()} className={PRIMARY_BTN}>
-          Try again
-        </button>
-      </main>
+      <Shell>
+        <main className="mx-auto max-w-md space-y-4 px-4 py-10">
+          <p className="text-lg font-medium">Could not load campaign &quot;{id}&quot;.</p>
+          <ErrorNote error={error} />
+          <button type="button" onClick={() => reload()} className={PRIMARY_BTN}>
+            Try again
+          </button>
+        </main>
+      </Shell>
     );
   }
   if (!data) {
     return (
-      <main className="mx-auto max-w-md px-4 py-10">
-        <Skeleton rows={6} />
-      </main>
+      <Shell>
+        <main className="mx-auto max-w-md px-4 py-10">
+          <Skeleton rows={6} />
+        </main>
+      </Shell>
     );
   }
   return <Integration campaign={data.campaign} />;
@@ -78,32 +97,31 @@ function Integration({ campaign }: { campaign: Campaign }) {
   const [tally, setTally] = useState<Tally>({});
 
   return (
-    <main className="mx-auto grid w-full max-w-5xl gap-8 px-4 py-8 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)] md:items-start md:py-12">
-      <header className={`flex flex-wrap items-center gap-3 md:col-span-2 ${m.rise}`}>
-        <h1 className="text-3xl font-semibold tracking-tight">Forkcast inside Watch Humans</h1>
-        <span className="rounded-full bg-panel px-2.5 py-0.5 text-xs text-muted">Concept demo</span>
-      </header>
-      <section
-        aria-label="A member's phone"
-        className={`flex min-h-[600px] flex-col overflow-hidden rounded-[2rem] bg-panel p-5 ${SHADOW} ${m.rise}`}
-        style={{ animationDelay: "80ms" }}
-      >
-        {stage === "offer" && <Offer product={campaign.product} count={ads.length} onStart={() => setStage("deck")} />}
-        {stage === "deck" && (
-          <SwipeDeck
-            ads={ads}
-            product={campaign.product}
-            onSwipe={(adId, tapped) => setTally((t) => record(t, adId, tapped))}
-            onDone={() => {
-              setClaimed((n) => n + 1);
-              setStage("claimed");
-            }}
-          />
-        )}
-        {stage === "claimed" && <Claimed product={campaign.product} onNext={() => setStage("offer")} />}
-      </section>
-      <BrandView campaign={campaign} ads={ads} claimed={claimed} tally={tally} />
-    </main>
+    <Shell>
+      <main className={`${WRAP} grid gap-8 pt-10 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] md:items-start md:pt-14`}>
+        <h1 className={`e-h text-[40px] md:col-span-2 md:text-[56px] ${m.rise}`}>Forkcast inside Watch Humans</h1>
+        <section
+          aria-label="A member's phone"
+          className={`flex min-h-[640px] flex-col overflow-hidden rounded-[32px] border border-edge bg-white p-5 shadow-[0_1px_2px_rgb(0_0_0/0.06),0_24px_60px_-28px_rgb(0_0_0/0.3)] ${m.rise}`}
+          style={{ animationDelay: "80ms" }}
+        >
+          {stage === "offer" && <Offer product={campaign.product} count={ads.length} onStart={() => setStage("deck")} />}
+          {stage === "deck" && (
+            <SwipeDeck
+              ads={ads}
+              product={campaign.product}
+              onSwipe={(adId, tapped) => setTally((t) => record(t, adId, tapped))}
+              onDone={() => {
+                setClaimed((n) => n + 1);
+                setStage("claimed");
+              }}
+            />
+          )}
+          {stage === "claimed" && <Claimed product={campaign.product} onNext={() => setStage("offer")} />}
+        </section>
+        <BrandView campaign={campaign} ads={ads} claimed={claimed} tally={tally} />
+      </main>
+    </Shell>
   );
 }
 
@@ -112,22 +130,22 @@ function Offer({ product, count, onStart }: { product: Product; count: number; o
   const chips = product.facts.filter((fact) => fact.length <= 24).slice(0, 4);
   return (
     <div className={`my-auto space-y-6 ${m.rise}`}>
-      <p className="text-xs font-semibold uppercase tracking-wider text-muted">Watch Humans · your next box</p>
-      <div className="space-y-3 rounded-2xl bg-bg p-5">
+      <p className="e-lbl">Watch Humans · your next box</p>
+      <div className="e-tile space-y-3 p-5">
         <p className="text-sm text-muted">{product.brand}</p>
-        <h2 className="text-2xl font-semibold leading-tight">{product.name}</h2>
+        <h2 className="e-h text-[30px]">{product.name}</h2>
         <ul className="flex flex-wrap gap-2">
           {chips.map((fact) => (
-            <li key={fact} className="rounded-full bg-panel px-3 py-1 text-sm">
+            <li key={fact} className="rounded-full border border-edge px-3 py-1 text-sm">
               {fact}
             </li>
           ))}
         </ul>
-        <p className="text-sm font-semibold text-good">Free sample</p>
+        <p className="w-fit rounded-full bg-pistachio px-3 py-1 text-sm font-medium">Free sample</p>
       </div>
       {count > 0 ? (
         <>
-          <p className="leading-relaxed">
+          <p className="text-[17px] leading-relaxed">
             Before it ships, swipe through {count} ads {product.brand} is testing: right if you would tap the ad, left if
             you would scroll past.
           </p>
@@ -185,13 +203,16 @@ function SwipeDeck({ ads, product, onSwipe, onDone }: {
   const sign = fly === "right" ? 1 : -1;
   return (
     <>
-      <div className="mb-3 flex items-center gap-3">
-        <div aria-hidden className="h-1.5 flex-1 overflow-hidden rounded-full bg-edge">
-          <div className={`h-full rounded-full bg-accent ${m.ease}`} style={{ width: `${((i + 1) / deck.length) * 100}%` }} />
+      <div className="mb-4 space-y-2.5">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="e-h text-[22px]">Finalist {i + 1} of {deck.length}</h2>
+          <span className="e-lbl">Member test</span>
         </div>
-        <span className="text-sm tabular-nums text-muted">
-          {i + 1} / {deck.length}
-        </span>
+        <div aria-hidden className="flex gap-1">
+          {deck.map((ad, k) => (
+            <span key={ad.id} className={`h-1 flex-1 rounded-full ${m.ease} ${k < i ? "bg-forest" : k === i ? "bg-ink" : "bg-ink/12"}`} />
+          ))}
+        </div>
       </div>
       <div
         key={card.id}
@@ -217,20 +238,22 @@ function SwipeDeck({ ads, product, onSwipe, onDone }: {
         onPointerCancel={() => setDrag(null)}
         onDragStart={(e) => e.preventDefault()}
       >
-        <div className={m.enter}>
-          <AdCard product={product} variant={card} />
+        <div className={`e-pol p-2 ${m.enter}`}>
+          <div className="overflow-hidden rounded-xl shadow-[0_0_0_1px_rgba(0,0,0,.06),0_1px_2px_rgba(0,0,0,.10)]">
+            <AdCard product={product} variant={card} />
+          </div>
         </div>
         {lean !== 0 && (
           <span
-            className={`absolute top-16 rounded-lg border-2 bg-bg/80 px-3 py-1 text-lg font-bold ${lean > 0 ? "left-4 rotate-[-8deg] border-good text-good" : "right-4 rotate-[8deg] border-bad text-bad"}`}
+            className={`e-mono absolute top-24 rounded-lg border-[1.5px] border-ink px-3 py-1 text-[13px] font-semibold uppercase tracking-[0.04em] text-ink shadow-[0_4px_10px_rgb(29_29_29/0.18)] ${lean > 0 ? "left-4 rotate-[-10deg] bg-pistachio" : "right-4 rotate-[10deg] bg-white"}`}
             style={{ opacity: Math.min(1, Math.abs(lean) / SWIPE_PX) }}
           >
             {lean > 0 ? "Would tap" : "Scroll past"}
           </span>
         )}
       </div>
-      <p className="mt-4 text-center text-xs text-muted">Swipe the ad, or use the buttons or arrow keys.</p>
-      <div className="mt-auto flex gap-3 pt-3">
+      <p className="mt-4 text-center text-[13px] text-muted">Swipe right to tap, left to scroll past, or use the buttons or arrow keys.</p>
+      <div className="mt-auto flex gap-3 pt-4">
         <button type="button" onClick={() => answer(false)} className={ANSWER_BTN}>
           Scroll past
         </button>
@@ -245,7 +268,7 @@ function SwipeDeck({ ads, product, onSwipe, onDone }: {
 function Claimed({ product, onNext }: { product: Product; onNext: () => void }) {
   return (
     <div className={`my-auto space-y-5 text-center ${m.rise}`}>
-      <h2 className="text-3xl font-semibold tracking-tight">Sample claimed.</h2>
+      <h2 className="e-h text-[40px]">Sample claimed.</h2>
       <p className="text-lg text-muted">
         {product.name} is in your next Watch Humans box. When it arrives, film your video review.
       </p>
@@ -263,24 +286,20 @@ function BrandView({ campaign, ads, claimed, tally }: { campaign: Campaign; ads:
   const membersPick = humanLeader(ads, tally);
   const swiped = Object.keys(tally).length > 0;
   return (
-    <section
-      aria-label="What the brand sees"
-      className={`space-y-8 rounded-[2rem] bg-panel p-6 md:p-8 ${SHADOW} ${m.rise}`}
-      style={{ animationDelay: "160ms" }}
-    >
-      <div className="space-y-3">
-        <h2 className="text-xl font-semibold tracking-tight">What {campaign.product.brand} sees in Forkcast</h2>
-        <ol className="list-decimal space-y-1.5 pl-5 text-sm leading-relaxed text-muted">
+    <section aria-label="What the brand sees" className={`e-tile space-y-8 p-6 md:p-8 ${m.rise}`} style={{ animationDelay: "160ms" }}>
+      <div className="space-y-4">
+        <h2 className="e-h text-[30px] md:text-[36px]">What {campaign.product.brand} sees in Forkcast</h2>
+        <ol className="list-decimal space-y-1.5 pl-5 text-[15px] leading-relaxed text-muted">
           <li>The AI made {made} ads and screened them in a simulated experiment. {ads.length} finalists survived.</li>
           <li>Watch Humans members swipe on the finalists before their free sample ships.</li>
           <li>Each swipe is real human fitness, so people crown the winner, not the simulation. The video reviews follow.</li>
         </ol>
-        <Link href={`/watch-humans/analytics?c=${encodeURIComponent(campaign.id)}`} className="e-pill e-lime mt-3 w-full transition-transform hover:-translate-y-0.5 sm:w-auto">
+        <Link href={`/watch-humans/analytics?c=${encodeURIComponent(campaign.id)}`} className="e-pill e-lime w-full transition-transform hover:-translate-y-0.5 sm:w-auto">
           See customer analytics →
         </Link>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="w-full min-w-[520px] text-[15px]">
           <thead className="text-left text-xs text-muted">
             <tr>
               <th className="pb-2 font-medium">Finalist</th>
@@ -292,25 +311,25 @@ function BrandView({ campaign, ads, claimed, tally }: { campaign: Campaign; ads:
             {ads.map((ad) => {
               const t = tally[ad.id];
               return (
-                <tr key={ad.id}>
-                  <td className="py-2.5">
+                <tr key={ad.id} className="border-t border-line">
+                  <td className="py-3">
                     <div className="flex items-center gap-3">
-                      <img src={ad.imageUrl ?? campaign.product.imageUrl} alt="" className="size-11 shrink-0 rounded-xl object-cover" />
+                      <img src={ad.imageUrl ?? campaign.product.imageUrl} alt="" className="size-12 shrink-0 rounded-xl border border-line object-cover" />
                       <div>
                         <p className="font-medium leading-snug">{ad.headline}</p>
-                        <p className="text-xs text-muted">
-                          {ad.lever.replace("_", " ")}
-                          {ad.id === campaign.winnerId && " · AI winner"}
+                        <p className="flex flex-wrap items-center gap-1.5 text-xs text-muted">
+                          {LEVER_LABEL[ad.lever]}
+                          {ad.id === campaign.winnerId && <span className="rounded-full bg-ai-mark/15 px-2 py-0.5 font-medium text-ai">AI pick</span>}
                         </p>
                       </div>
                     </div>
                   </td>
-                  <td className="py-2.5 text-right tabular-nums">{ad.experiment ? pct(ad.experiment.ctr) : "n/a"}</td>
-                  <td className="py-2.5 pl-4">
+                  <td className="py-3 text-right tabular-nums">{ad.experiment ? pct(ad.experiment.ctr) : "n/a"}</td>
+                  <td className="py-3 pl-4">
                     {t ? (
                       <div className="flex items-center gap-2">
-                        <div aria-hidden className="h-1.5 w-16 overflow-hidden rounded-full bg-edge">
-                          <div className={`h-full rounded-full bg-good ${m.ease}`} style={{ width: pct(t.taps / t.n) }} />
+                        <div aria-hidden className="h-1.5 w-16 overflow-hidden rounded-full bg-track">
+                          <div className={`h-full rounded-full bg-forest ${m.ease}`} style={{ width: pct(t.taps / t.n) }} />
                         </div>
                         <span className="tabular-nums">
                           {t.taps} of {t.n}
@@ -327,21 +346,25 @@ function BrandView({ campaign, ads, claimed, tally }: { campaign: Campaign; ads:
         </table>
       </div>
       <dl className="grid gap-3 sm:grid-cols-2">
-        <div className={`rounded-2xl bg-bg p-4 ${m.lift}`}>
-          <dt className="text-xs text-muted">AI&apos;s pick (simulated)</dt>
-          <dd className="font-medium">{aiPick?.headline ?? "none yet"}</dd>
-        </div>
-        <div className={`rounded-2xl bg-bg p-4 ${m.lift}`}>
+        <div className={`rounded-2xl border border-edge p-4 ${m.lift}`}>
           <dt className="text-xs text-muted">
+            <span aria-hidden className="mr-2 inline-block size-2.5 bg-ai-mark" />
+            AI&apos;s pick (simulated)
+          </dt>
+          <dd className="mt-1 font-medium">{aiPick?.headline ?? "none yet"}</dd>
+        </div>
+        <div className={`rounded-2xl border border-edge p-4 ${m.lift}`}>
+          <dt className="text-xs text-muted">
+            <span aria-hidden className="mr-2 inline-block size-2.5 bg-forest" />
             Members&apos; pick ({claimed} {claimed === 1 ? "sample" : "samples"} claimed)
           </dt>
-          <dd key={membersPick?.id ?? String(swiped)} className={`font-medium ${m.rise}`}>
+          <dd key={membersPick?.id ?? String(swiped)} className={`mt-1 font-medium ${m.rise}`}>
             {membersPick?.headline ?? (swiped ? "tied so far" : "waiting for swipes")}
           </dd>
         </div>
       </dl>
       {aiPick && membersPick && (
-        <p key={String(membersPick.id === aiPick.id)} className={`text-sm ${m.rise}`}>
+        <p key={String(membersPick.id === aiPick.id)} className={`text-[15px] ${m.rise}`}>
           {membersPick.id === aiPick.id
             ? "Members agree with the AI so far."
             : "Members disagree with the AI so far: real people overrule the simulation."}

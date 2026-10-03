@@ -24,7 +24,7 @@ export function AdCard({ product, variant }: { product: Product; variant: Varian
       <p className="px-3 pb-3 text-[15px] leading-snug">{variant.body}</p>
       {imageFailed ? (
         <div
-          className="grid aspect-[4/3] place-items-center p-6 text-center text-xl font-bold text-white"
+          className="grid aspect-square place-items-center p-6 text-center text-xl font-bold text-white"
           style={{ backgroundColor: brandColor }}
         >
           {product.name}
@@ -34,7 +34,7 @@ export function AdCard({ product, variant }: { product: Product; variant: Varian
           src={variant.imageUrl ?? product.imageUrl}
           alt={product.name}
           onError={() => setImageFailed(true)}
-          className="aspect-[4/3] w-full bg-neutral-200 object-cover"
+          className="aspect-square w-full bg-neutral-100 object-contain"
         />
       )}
       <div className="flex items-center gap-3 bg-neutral-100 p-3">
