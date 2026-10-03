@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Campaign, Rate } from "@hack/contract";
 import { AdCard } from "../../vote-lite/AdCard";
 import { CARD_FRAME, RateBar } from "./AdTile";
@@ -77,6 +78,10 @@ export function Winner({ campaign, onOpen }: { campaign: Campaign; onOpen: (id: 
               Export to Meta
             </a>
             <span className="text-sm text-muted">CSV for Meta Ads Manager bulk import</span>
+            <Link href={`/watch-humans?c=${encodeURIComponent(campaign.id)}`} className="e-pill e-outline min-h-[52px] text-sm">
+              Test with real people
+            </Link>
+            <span className="text-sm text-muted">Watch Humans members swipe on the finalists (concept demo)</span>
           </div>
         </div>
       </div>

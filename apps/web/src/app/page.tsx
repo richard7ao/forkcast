@@ -13,6 +13,8 @@ const FLOATS = [
   { src: "/generated/campaigns/d87ed849/scene-4.png", at: "right-[84px] top-[460px] -rotate-[4deg]" },
 ];
 const ACCEPT = ["image/jpeg", "image/png"];
+/** The demo pack photo. Sent byte for byte, it matches an earlier run, so the API reuses that run's renders. */
+const DEMO_PHOTO = "/generated/campaigns/d87ed849/source-crop.jpg";
 
 const mb = (bytes: number) => `${(bytes / 1_000_000).toFixed(1)} MB`;
 
@@ -48,6 +50,16 @@ export default function Page() {
       setImage({ file, dataUrl });
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
+    }
+  }
+
+  async function pickDemoPhoto() {
+    try {
+      const res = await fetch(DEMO_PHOTO);
+      if (!res.ok) throw new Error(`The demo photo did not load (${res.status}).`);
+      await pick(new File([await res.blob()], "epic-snax-demo.jpg", { type: "image/jpeg" }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
     }
   }
 
@@ -142,7 +154,10 @@ export default function Page() {
           </div>
           {error && <p role="alert" className="w-full px-2 text-sm text-bad">{error}</p>}
         </form>
-        <p className="mt-7 text-[15px] text-muted">No campaigns yet. Next up: the same loop for Shopify product photos.</p>
+        <button type="button" onClick={() => void pickDemoPhoto()} className="mt-6 cursor-pointer text-[15px] underline underline-offset-4">
+          Or use the demo photo: EPIC Snax Giant Toastin&apos; Marshmallows
+        </button>
+        <p className="mt-4 text-[15px] text-muted">No campaigns yet. Next up: the same loop for Shopify product photos.</p>
       </main>
     </div>
   );
