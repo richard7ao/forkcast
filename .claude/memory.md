@@ -24,3 +24,4 @@
 ## Open Questions
 
 - [2026-10-03] Which Shelf product; public GitHub repo creation needs Richard's OK; organisers' mic slot at 14:00; venue Wi-Fi with the tunnel.
+- [2026-10-03] UI direction pending pick: 3 mockups on canvas https://claude.ai/artifact/27bRsusa3uxU7LdW8pU7qw (A Gimme native recommended, B Sealed lab, C Match night). AdCard is the stimulus: identical in every direction, never restyled.

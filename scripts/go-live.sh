@@ -10,8 +10,8 @@ LIVE="$REPO/../forkcast-live"
 set -a; . ./.env; set +a
 export DATA_MODE=live DATA_DIR="$REPO/data"
 
-pkill -f "next start -p 3300" 2>/dev/null || true
-pkill -f "tsx src/index.ts" 2>/dev/null || true
+# Kill by port, never by command line: agents run test servers with similar command lines.
+for port in 3300 8787; do lsof -ti "tcp:$port" -sTCP:LISTEN | xargs kill 2>/dev/null || true; done
 git worktree remove --force "$LIVE" 2>/dev/null || true
 git worktree add --detach "$LIVE" HEAD
 cd "$LIVE"
