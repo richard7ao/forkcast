@@ -120,44 +120,140 @@ Written up, not built today:
 - **Data ownership.** The brand owns its image, creatives and results. A seal is only a hash, so in
   production the table can stay private and be revealed later to prove the verdict came first.
 
-## Run it
+## Run it locally
+
+### 1. Prerequisites
+
+| Tool | Version | Check |
+| --- | --- | --- |
+| Node.js | 22.x | `node -v` |
+| pnpm | 9.12 (pinned in `packageManager`) | `corepack enable && pnpm -v` |
+| git | any recent | `git --version` |
+| OpenAI API key | live mode only | — |
+| cloudflared | optional, for sharing a public URL | `cloudflared --version` |
+
+macOS and Linux are tested. On Windows, use WSL2.
+
+### 2. Install
 
 ```bash
-pnpm install --frozen-lockfile   # Node 22 and pnpm 9 (`corepack enable`)
-pnpm dev                         # fixture mode, no key needed: web http://localhost:3300, API :8787
+git clone https://github.com/richard7ao/forkcast.git
+cd forkcast
+pnpm install --frozen-lockfile
 ```
 
-Fixture mode serves the finished demo campaign, so Run on the upload page opens `/campaigns/demo-epic`.
-For live mode, create `.env` from `.env.example` (never overwrite or commit it):
+### 3. Choose a mode
+
+| Mode | Needs a key | What you get |
+| --- | --- | --- |
+| **Fixture** (default) | No | The finished demo campaign (`demo-epic`), served from `fixtures/`. Best for UI work and offline demos. |
+| **Live** | Yes | Real runs: reading the pack, writing copy, rendering images, the AI shopper panel, the simulated rollout, breeding and iterating. |
+
+#### Fixture mode
 
 ```bash
-OPENAI_API_KEY=                 # every model call; not needed in fixture mode
-ADMIN_TOKEN=                    # 16+ characters (`openssl rand -hex 16`); gates evolve and the challenger
+pnpm dev
+```
+
+The web app is at http://localhost:3300 and the API at http://localhost:8787.
+
+#### Live mode
+
+Create `.env` in the repo root from `.env.example`. Never commit it, and never overwrite an existing one.
+
+```bash
+OPENAI_API_KEY=sk-...           # every model and image call
+ADMIN_TOKEN=<32 hex chars>      # openssl rand -hex 16; gates the challenger and room-test admin routes
 DATA_DIR=../../data             # relative to apps/api; campaigns persist to DATA_DIR/campaigns/<id>.json
-DATA_MODE=fixture               # fixture (default) or live
+DATA_MODE=live
 API_URL=http://localhost:8787   # where the web proxy finds the API
 ```
 
-tsx and Next do not read the root `.env`, so export it first: `set -a; . ./.env; set +a; DATA_MODE=live pnpm dev`.
-The Evolve button appears only with `?admin=<ADMIN_TOKEN>` in the URL. Endpoints: `POST /campaigns`,
-`GET /campaigns/:id`, `POST /campaigns/:id/evolve` (admin), `GET /campaigns/:id/meta.csv`.
-
-**Demo path vs new products.** Uploading a photo byte-identical to an earlier campaign's photo reuses that
-run's scenes and renders (`apps/api/src/lib/renderCache.ts`), so no images are generated, while copy, the panel
-and the simulation still run live and the progress label says the renders were reused. The demo photo is
-`apps/web/public/generated/campaigns/d87ed849/source-crop.jpg`: generation 0 takes about 60 s instead of 170 s, and
-evolve reuses each cached scene mutation it can. Any other photo is a new product and renders live (about 3 min),
-and once its run finishes its renders are reusable too. Upload the file as is: re-encoding it changes the bytes.
+tsx and Next do not read the root `.env`, so export it into the shell first:
 
 ```bash
-pnpm check                               # fixtures:validate + typecheck; run before every push
-pnpm test                                # API unit tests (Node's runner)
-pnpm --filter api probe                  # preflight: key valid, both text models honour strict JSON
-pnpm --filter api facts                  # read pack facts from pack photos (photos are never committed)
-pnpm --filter api visual                 # gpt-image-2 edit of a source photo; --scene for an ad scene
-pnpm --filter api verify-seal --round 1  # recompute a sealed forecast's sha256, exit 1 on mismatch
-pnpm --filter api smoke                  # vote pipeline check on a scratch API (:8799); stores a vote
+set -a; . ./.env; set +a
+DATA_MODE=live pnpm dev
 ```
+
+Check the key and the models before a demo with `pnpm --filter api probe`.
+
+### 4. Try the product
+
+1. Open http://localhost:3300 and click **Or use the demo photo**, or upload your own pack photo (JPEG or PNG).
+2. Watch the agent screen. The demo photo replays a recorded run in about 10 s with no model calls. A new photo runs live in about 3 min and renders 20 images.
+3. Click **Simulate campaign rollout** to rank the 20 ads, best to worst.
+4. Click **Meet the winner →** or the **★ Winner** button in the top bar.
+5. Click any ad twice to open its performance page. **Iterate on this ad ↻** breeds that ad plus 4 live variations.
+6. **Breed the 4 survivors →** runs the next generation of 20. **Export** downloads a Meta Ads Manager CSV.
+7. Open **Watch Humans integration** on the home page for the swipe demo and its mocked customer analytics.
+
+### 5. API reference
+
+| Method | Path | Notes |
+| --- | --- | --- |
+| `POST` | `/campaigns` | `{ imageDataUrl, name? }` starts gen 0. One job at a time: `409` while busy. |
+| `GET` | `/campaigns/:id` | The campaign, including its stage and progress. Poll this while a job runs. |
+| `POST` | `/campaigns/:id/evolve` | Breeds the survivors into the next generation. |
+| `POST` | `/campaigns/:id/ads/:adId/iterate` | Breeds one ad into a generation of 5. `404` for an unknown campaign or ad, `409` when busy or before gen 0. |
+| `GET` | `/campaigns/:id/meta.csv` | The Meta Ads Manager export. `409` before gen 0. |
+
+The web app proxies these routes under `/api/*`. Every response is `{ ok, ... }` or `{ ok: false, error }`.
+
+### 6. Quality gates
+
+```bash
+pnpm check                               # fixtures:validate + typecheck for every package; required before every push
+pnpm test                                # API unit tests (Node's test runner)
+cd apps/web && npx next build            # production build of the web app
+```
+
+Test files under bracketed paths (`[id]`) must be run directly:
+`node --import tsx "apps/web/src/app/campaigns/[id]/format.test.ts"`.
+
+Other tools:
+
+```bash
+pnpm --filter api probe                  # preflight: the key works and both text models return strict JSON
+pnpm --filter api verify-seal --round 1  # recompute a sealed forecast's sha256; exits 1 on a mismatch
+pnpm --filter api smoke                  # vote pipeline check on a scratch API (:8799)
+```
+
+### 7. Production-style run
+
+```bash
+cd apps/web && npx next build && cd ../..
+set -a; . ./.env; set +a
+DATA_MODE=live pnpm --filter api start & (cd apps/web && npx next start -p 3300)
+scripts/go-live.sh                       # optional: serve it through a cloudflared tunnel
+```
+
+`scripts/redeploy-live.sh` rebuilds a deployment worktree and restarts it on ports 3300 and 8787.
+
+> **Security:** an open tunnel lets anyone start paid runs. Stop it after the demo, and rotate the key if it was ever exposed.
+
+### 8. Repository layout
+
+```text
+apps/api            Hono API: evolution engine (src/lib/evolve.ts), campaigns, render cache, routes
+apps/web            Next.js 15 App Router UI (campaign grid, winner and ad pages, Watch Humans)
+packages/contract   zod schemas shared by both apps (frozen: optional additions only)
+fixtures/           demo campaign served in fixture mode
+data/               live-mode storage (campaigns, votes); gitignored except the demo
+scripts/            go-live, redeploy, room-test seal and open
+```
+
+### 9. Troubleshooting
+
+| Symptom | Fix |
+| --- | --- |
+| `EADDRINUSE :3300` or `:8787` | `lsof -ti tcp:3300 \| xargs kill` (do the same for 8787) |
+| Live mode still shows fixture data | `DATA_MODE=live` must be exported in the same shell as `pnpm dev` |
+| `401` or `OPENAI_API_KEY` missing | Re-run `set -a; . ./.env; set +a` |
+| `409 busy` | One job runs at a time. Wait for `stage: done` on `GET /campaigns/:id` |
+| New images 404 after `next start` | Served by `/generated/campaigns/[id]/[file]`. Check that `DATA_DIR` and the web public dir are on the same machine |
+| The demo photo runs live instead of replaying | Upload the file unchanged. Re-encoding changes the bytes, so the hash no longer matches |
+
 
 ## Optional real-people test
 
