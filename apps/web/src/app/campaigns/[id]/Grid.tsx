@@ -4,7 +4,6 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type 
 import type { Ad, Campaign, Generation, Lever } from "@hack/contract";
 import { safeStorage, type StorageLike } from "../../vote-lite/lite";
 import { AdTile, type Delivered } from "./AdTile";
-import { Heatmaps } from "./Heatmaps";
 import { byFitness, LEVER_LABEL, LEVERS, survived } from "./format";
 
 const STEP_MS = 170; // 20 delivery snapshots ≈ 3.4 s
@@ -34,13 +33,14 @@ export function tabStorage(): StorageLike {
  * One generation's ads. The simulation already ran on the server when the generation finished; "Simulate campaign
  * rollout" replays its recorded outcome: the 20 budget snapshots, then the re-sort best to worst, then the summary and the next step.
  */
-export function Grid({ c, gen, isLast, breed, onNext, onOpen }: {
+export function Grid({ c, gen, isLast, breed, onNext, onOpen, onHeatmaps }: {
   c: Campaign;
   gen: Generation;
   isLast: boolean;
   breed: Breed;
   onNext: (gen: number) => void;
   onOpen: (id: string) => void;
+  onHeatmaps: () => void;
 }) {
   const key = `fk-rollout:${c.id}:${gen.gen}`;
   const [phase, setPhase] = useState<Phase>("idle");
@@ -158,6 +158,8 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen }: {
               <p className="mt-1 text-[15px] text-muted">
                 Simulated rollout · {budget} impressions ·{" "}
                 <button type="button" onClick={start} className="cursor-pointer underline underline-offset-4 hover:text-ink">Replay rollout</button>
+                {" · "}
+                <button type="button" onClick={onHeatmaps} className="cursor-pointer underline underline-offset-4 hover:text-ink">See heat maps →</button>
               </p>
             </div>
             <div className="flex flex-col items-start gap-2">
@@ -165,7 +167,6 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen }: {
               {breed.failure && <span role="alert" className="text-[13px] text-bad">{breed.failure}</span>}
             </div>
           </div>
-          <div className="mt-6"><Heatmaps campaign={c} /></div>
         </>
       )}
       <div role="group" aria-label="Filter by lever" className="mt-6 flex flex-wrap gap-2">

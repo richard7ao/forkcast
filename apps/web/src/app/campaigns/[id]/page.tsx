@@ -8,6 +8,7 @@ import { fetchTyped } from "../../../lib/client";
 import { useEndpoint } from "../../../lib/useEndpoint";
 import { AgentRun, RUN_STEPS, StepBar } from "./AgentRun";
 import { Analytics } from "./Analytics";
+import { Heatmaps } from "./Heatmaps";
 import { Grid, tabStorage, type Breed } from "./Grid";
 import { TopBar, WRAP } from "./TopBar";
 import { adHref, errorText, railSteps, type Step } from "./format";
@@ -16,7 +17,7 @@ const POLL_MS = 2000;
 const ADMIN_KEY = "fk-admin";
 const PILL = "e-mono inline-flex h-11 items-center gap-2 whitespace-nowrap rounded-full border px-4 text-[13px] font-medium uppercase tracking-[0.04em]";
 const FACTS_SHOWN = 6;
-const TABS = [["ads", "Ads"], ["analytics", "Analytics"]] as const;
+const TABS = [["ads", "Ads"], ["heatmaps", "Heat maps"], ["analytics", "Analytics"]] as const;
 type Tab = (typeof TABS)[number][0];
 
 export default function Page() {
@@ -142,6 +143,8 @@ function CampaignView() {
       <section key={tab} id="campaign-panel" role="tabpanel" aria-labelledby={`tab-${tab}`} className="fk-blur-in mt-8">
         {tab === "analytics" ? (
           <Analytics campaign={c} />
+        ) : tab === "heatmaps" ? (
+          <Heatmaps campaign={c} />
         ) : (
           gen && (
             <Grid
@@ -151,6 +154,7 @@ function CampaignView() {
               isLast={gen === c.generations.at(-1)}
               breed={breed}
               onNext={pick}
+              onHeatmaps={() => setTab("heatmaps")}
               onOpen={(id) => router.push(adHref(c.id, id, gen.gen))}
             />
           )
