@@ -75,10 +75,7 @@ function Integration({ campaign }: { campaign: Campaign }) {
     <main className="mx-auto grid w-full max-w-5xl gap-6 px-4 py-6 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)] md:items-start">
       <header className="space-y-1 md:col-span-2">
         <h1 className="text-2xl font-semibold tracking-tight">Forkcast inside Watch Humans</h1>
-        <p className="text-muted">
-          Concept demo, not the Watch Humans app. Members who want a free sample swipe on the brand&apos;s finalist ads
-          first. Nothing leaves this tab.
-        </p>
+        <span className="inline-block rounded-full border border-edge px-2.5 py-0.5 text-xs text-muted">Concept demo</span>
       </header>
       <section aria-label="A member's phone" className="flex min-h-[600px] flex-col rounded-[2rem] border border-edge bg-panel p-4">
         {stage === "offer" && <Offer product={campaign.product} count={ads.length} onStart={() => setStage("deck")} />}

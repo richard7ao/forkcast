@@ -4,6 +4,7 @@ import { CartesianGrid, ReferenceLine, ResponsiveContainer, Scatter, ScatterChar
 import { ErrorNote, Skeleton } from "../../../components/ui";
 import { useEndpoint } from "../../../lib/useEndpoint";
 import { LEVERS, LEVER_LABEL, allAds, firstCopies, fmtRate, sceneLabel, survived } from "./format";
+import { Heatmaps, Panel } from "./Heatmaps";
 
 const GEN_FILL = ["#C2E773", "#336138", "#7FB24E"];
 const genFill = (gen: number) => GEN_FILL[Math.min(gen, 2)];
@@ -27,16 +28,6 @@ function rankPoints<T>(items: T[], ai: (t: T) => number, human: (t: T) => number
 
 /** A row with no ads in a generation: it died out earlier, or it only appears later. */
 const absent = (r: Row, gen: number) => (r.gens.some((g) => g.gen < gen && g.of > 0) ? "extinct" : "not yet");
-
-function Panel({ title, caption, children }: { title: string; caption: string; children: React.ReactNode }) {
-  return (
-    <section aria-label={title} className="e-tile flex min-w-0 flex-col gap-4 p-5 sm:p-7">
-      <h3 className="e-h text-[28px] md:text-[40px]">{title}</h3>
-      <p className="text-[15px] leading-snug text-muted">{caption}</p>
-      {children}
-    </section>
-  );
-}
 
 /** Survivors out of tested ads, one bar per generation, on a shared 0–100% track so rows compare. */
 function Bars({ rows, kind, gens }: { rows: Row[]; kind: string; gens: number[] }) {
@@ -126,6 +117,7 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
 
   return (
     <div className="flex flex-col gap-10">
+      <Heatmaps campaign={campaign} />
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(560px,100%),1fr))] items-start gap-6">
         <Panel title="Which levers survive" caption="Share of each lever's ads that survived, per generation.">
           <Bars rows={levers} kind="lever" gens={gens} />
@@ -249,7 +241,7 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
       </div>
 
       <p className="border-t border-line pt-[18px] text-sm leading-normal text-muted">
-        AI fitness = synthetic shopper panel, sealed before people test. Simulated delivery is not real CTR. People = stated tap
+        AI fitness = synthetic shopper panel, sealed per generation. People = stated tap
         intent from EAT_HACK attendees (convenience sample).
       </p>
     </div>

@@ -89,3 +89,45 @@ export function railSteps(c: Campaign): Step[] {
   steps.push({ key: "winner", gen: null, label: "Winner", state: c.winnerId && !running ? "done" : "todo" });
   return steps;
 }
+
+/** The losers in the order the rollout crosses them out: weakest simulated CTR first, never a survivor. */
+export const cullOrder = (ads: Ad[]): Ad[] => ads.filter((a) => a.status === "culled").sort(byFitness).reverse();
+
+export function median(xs: number[]): number | null {
+  const s = [...xs].sort((a, b) => a - b);
+  const mid = s.length >> 1;
+  return !s.length ? null : s.length % 2 ? s[mid]! : (s[mid - 1]! + s[mid]!) / 2;
+}
+
+/** How many generations this ad came through the cull: survivors are carried into the next generation under the same id. */
+export const gensSurvived = (c: Campaign, id: string): number =>
+  c.generations.filter((g) => g.ads.some((a) => a.id === id && survived(a))).length;
+
+/**
+ * Gen 0 writes every lever into every scene, so it fills a lever × scene grid: one ad per cell, or null where none
+ * was written. `best` is the simulation's top pick, the same ranking the grid and the cull use.
+ */
+export function leverSceneGrid(ads: Ad[]) {
+  const scenes = [...new Set(ads.map((a) => a.scene))];
+  const rows = LEVERS.filter((l) => ads.some((a) => a.lever === l)).map((lever) => ({
+    lever,
+    cells: scenes.map((scene) => ads.find((a) => a.lever === lever && a.scene === scene && a.experiment) ?? null),
+  }));
+  const best = [...ads].filter((a) => a.experiment).sort(byFitness)[0] ?? null;
+  return { scenes, rows, best };
+}
+
+export const SEGMENTS = ["student", "young_pro", "parent", "fitness"] as const;
+
+/** Mean AI-panel P(tap) per audience segment and lever, over the ads that have a score for that segment. */
+export function audienceGrid(ads: Ad[]) {
+  const levers = LEVERS.filter((l) => ads.some((a) => a.lever === l));
+  const rows = SEGMENTS.map((seg) => ({
+    seg,
+    cells: levers.map((lever) => {
+      const xs = ads.filter((a) => a.lever === lever).flatMap((a) => a.fitness.aiBySegment?.[seg] ?? []);
+      return xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : null;
+    }),
+  }));
+  return { levers, rows };
+}

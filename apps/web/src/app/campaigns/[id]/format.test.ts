@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
-import { Campaign } from "@hack/contract";
-import { byFitness, findAd, fmtRate, railSteps, sceneLabel } from "./format";
+import { Campaign, type Ad } from "@hack/contract";
+import { audienceGrid, byFitness, cullOrder, findAd, fmtRate, gensSurvived, leverSceneGrid, median, railSteps, sceneLabel } from "./format";
 
 // Run from the repo root: node --import tsx "apps/web/src/app/campaigns/[id]/format.test.ts"
 const demo = Campaign.parse(JSON.parse(readFileSync(join(process.cwd(), "fixtures/campaigns.json"), "utf8")).campaigns[0]);
@@ -53,4 +53,44 @@ test("the grid puts the winner first and culled ads last", () => {
   const sorted = [...demo.generations[1]!.ads].sort(byFitness);
   assert.equal(sorted[0]!.id, demo.winnerId);
   assert.equal(sorted.at(-1)!.status, "culled");
+});
+
+test("the rollout crosses out the weakest ad first and never touches a survivor", () => {
+  const order = cullOrder(demo.generations[0]!.ads);
+  const post = (a: (typeof order)[number]) => (a.experiment!.clicks + 1) / (a.experiment!.impressions + 2);
+  assert.equal(order.length, demo.generations[0]!.ads.length - demo.generations[0]!.survivorIds.length);
+  assert.ok(order.every((a) => a.status === "culled"));
+  assert.ok(order.every((a, i) => i === 0 || post(order[i - 1]!) <= post(a)));
+});
+
+test("the lever × scene heat map has one cell per lever and scene, and outlines the simulation's top pick", () => {
+  const ads = demo.generations[0]!.ads;
+  const { scenes, rows, best } = leverSceneGrid(ads);
+  assert.equal(rows.length * scenes.length, ads.length); // gen 0 is the full 6 × 8 grid
+  assert.ok(rows.every((r) => r.cells.every((a) => a?.lever === r.lever)));
+  assert.equal(best?.id, [...ads].sort(byFitness)[0]!.id);
+  assert.ok(demo.generations[0]!.survivorIds.includes(best!.id));
+});
+
+test("the audience heat map averages each lever's ads per segment and skips ads without a score", () => {
+  const [a, b] = demo.generations[0]!.ads.filter((x) => x.lever === "value");
+  const ads: Ad[] = [
+    { ...a!, fitness: { ...a!.fitness, aiBySegment: { student: 0.2, parent: 0.5 } } },
+    { ...b!, fitness: { ...b!.fitness, aiBySegment: { student: 0.6 } } },
+  ];
+  const { levers, rows } = audienceGrid(ads);
+  assert.deepEqual(levers, ["value"]);
+  assert.deepEqual(rows.map((r) => [r.seg, r.cells[0]]), [["student", 0.4], ["young_pro", null], ["parent", 0.5], ["fitness", null]]);
+});
+
+test("the winner page compares against the generation median and counts the culls an ad came through", () => {
+  assert.equal(median([3, 1, 2]), 2);
+  assert.equal(median([4, 1, 2, 3]), 2.5);
+  assert.equal(median([]), null);
+  // A gen-0 survivor carried into gen 1 and kept again came through two culls; a gen-1 child, one.
+  const id = "g0-health_halo-3"; // a gen-0 survivor, re-screened and culled in gen 1
+  assert.equal(gensSurvived(demo, id), 1);
+  const keptAgain = { ...demo, generations: demo.generations.map((g) => ({ ...g, ads: g.ads.map((a) => (a.id === id ? { ...a, status: "survivor" as const } : a)) })) };
+  assert.equal(gensSurvived(keptAgain, id), 2);
+  assert.equal(gensSurvived(demo, demo.winnerId!), 1);
 });

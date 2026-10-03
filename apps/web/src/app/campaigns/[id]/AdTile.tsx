@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Ad, Product, Rate } from "@hack/contract";
 import { AdCard } from "../../vote-lite/AdCard";
 import { fmtCtr, fmtRate, LEVER_LABEL, sceneLabel, STATUS_LABEL, survived } from "./format";
@@ -23,49 +24,70 @@ export function RateBar({ rate, band, dot }: { rate: Rate; band: string; dot: st
   );
 }
 
-/** Simulated delivery for one tile: impressions so far, its share of the leading ad's, and whether the run has finished. */
-export type Delivered = { impressions: number; share: number; final: boolean };
+/** Simulated delivery for one tile: impressions so far and its share of the leading ad's. */
+export type Delivered = { impressions: number; share: number };
 
-export function AdTile({ ad, product, delivered, onOpen }: { ad: Ad; product: Product; delivered: Delivered | null; onOpen: () => void }) {
-  const { ai, human } = ad.fitness;
+const BURST = ["#B6F000", "#2BA84A", "#C2E773", "#336138"];
+
+/**
+ * One ad in the grid. `verdict` is what the rollout has decided about it so far: null until the cull reaches it, so
+ * every ad starts out equal. `stats` shows its numbers, which appear only once the rollout has finished.
+ */
+export function AdTile({ ad, product, delivered, verdict, stats, onOpen }: {
+  ad: Ad; product: Product; delivered: Delivered | null; verdict: Ad["status"] | null; stats: boolean; onOpen: () => void;
+}) {
+  const { ai } = ad.fitness;
+  const cut = verdict === "culled";
+  const kept = verdict === "survivor" || verdict === "winner";
   return (
-    <div className="e-pol relative flex min-w-0 flex-col gap-2.5">
-      <div className="flex items-center justify-between gap-2 px-0.5 pt-0.5">
-        <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium leading-tight ${BADGE[ad.status]}`}>{STATUS_LABEL[ad.status]}</span>
+    <div className={`e-pol relative flex min-w-0 flex-col gap-2.5 ${verdict === "winner" ? "fk-crown" : kept ? "fk-glow" : ""}`}>
+      <div className="flex min-h-[26px] items-center justify-between gap-2 px-0.5 pt-0.5">
+        {verdict ? (
+          <span key={verdict} className={`fk-badge whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium leading-tight ${BADGE[verdict]}`}>{STATUS_LABEL[verdict]}</span>
+        ) : <span />}
         <span className="text-right text-xs leading-tight text-muted">{LEVER_LABEL[ad.lever]} × {sceneLabel(ad.scene)}</span>
       </div>
-      <div className={`${CARD_FRAME} ${ad.status === "culled" ? "opacity-50 grayscale" : ""}`}>
-        <AdCard product={product} variant={ad} />
+      <div className={`relative ${CARD_FRAME}`}>
+        <div className={`transition-[filter,opacity] duration-500 motion-reduce:transition-none ${cut ? "opacity-45 grayscale" : ""}`}>
+          <AdCard product={product} variant={ad} />
+        </div>
+        {cut && (
+          <svg aria-hidden viewBox="0 0 100 100" preserveAspectRatio="none" className="fk-cross absolute inset-0 size-full">
+            <path pathLength={1} d="M10 10 L90 90" />
+            <path pathLength={1} d="M90 10 L10 90" />
+          </svg>
+        )}
       </div>
       <div className="flex flex-col gap-2 px-0.5 pt-0.5 text-[13px] tabular-nums">
-        {ai && <RateBar rate={ai} band="bg-ai-mark" dot="bg-ai" />}
-        <span>
-          {survived(ad) && <span aria-hidden className="text-forest">▲ </span>}
-          <span className="font-medium text-ai">AI</span> {ai ? fmtRate(ai) : "screening"}
-        </span>
         {delivered && (
-          <>
-            <div aria-hidden className="relative h-1.5 rounded-full bg-track">
+          <div className="flex items-center gap-2.5">
+            <div aria-hidden className="relative h-1.5 flex-1 rounded-full bg-track">
               <span
-                className="e-lime absolute inset-y-0 left-0 rounded-full transition-[width] duration-300 motion-reduce:transition-none"
+                className="e-lime absolute inset-y-0 left-0 rounded-full transition-[width] duration-150 motion-reduce:transition-none"
                 style={{ width: `${delivered.share * 100}%` }}
               />
             </div>
-            <span>
-              <span className="font-medium">Simulated</span>{" "}
-              {delivered.final && ad.experiment ? `CTR ${fmtCtr(ad.experiment)}` : `${delivered.impressions.toLocaleString("en-GB")} impressions`}
-            </span>
-          </>
+            <span className="e-mono min-w-[4ch] text-right text-xs text-muted">{delivered.impressions > 0 && delivered.impressions.toLocaleString("en-GB")}</span>
+          </div>
         )}
-        {human ? (
-          <>
-            <RateBar rate={human} band="bg-pistachio" dot="bg-forest" />
-            <span><span className="font-medium text-forest">People</span> {fmtRate(human)}</span>
-          </>
-        ) : (
-          <span className="text-muted">Not tested with people yet</span>
+        {stats && (
+          <div className="fk-pop flex flex-col gap-2">
+            {ad.experiment && <span><span className="font-medium">Simulated</span> CTR {fmtCtr(ad.experiment)}</span>}
+            {ai && <RateBar rate={ai} band="bg-ai-mark" dot="bg-ai" />}
+            <span>
+              {survived(ad) && <span aria-hidden className="text-forest">▲ </span>}
+              <span className="font-medium text-ai">AI shoppers</span> {ai ? fmtRate(ai) : "screening"}
+            </span>
+          </div>
         )}
       </div>
+      {verdict === "winner" && (
+        <span aria-hidden className="fk-burst pointer-events-none absolute inset-0">
+          {Array.from({ length: 14 }, (_, i) => (
+            <i key={i} style={{ "--a": `${i * (360 / 14)}deg`, "--c": BURST[i % BURST.length], "--d": `${(i % 3) * 60}ms` } as CSSProperties} />
+          ))}
+        </span>
+      )}
       <button type="button" onClick={onOpen} aria-label={`Details for “${ad.headline}”`} className="absolute inset-0 cursor-pointer rounded-[18px]" />
     </div>
   );

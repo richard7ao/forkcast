@@ -74,12 +74,10 @@ export function AdDrawer({ campaign, open, onOpen, onClose }: {
               <dd className={ROW}>{ad.fitness.ai ? `P(tap) ${fmtRate(ad.fitness.ai)}` : "Screening"}</dd>
               <dt className={DT}>Simulated</dt>
               <dd className={ROW}>{ad.experiment ? `CTR ${fmtCtr(ad.experiment)}` : "Not run yet"}</dd>
-              <dt className={DT}><Swatch className="bg-forest" />People</dt>
-              <dd className={ROW}>{ad.fitness.human ? `Tap rate ${fmtRate(ad.fitness.human)}` : "Not tested yet"}</dd>
               <dt className={DT}>Sealed</dt>
-              <dd className={ROW}>{sealed ? <>Gen {gen} sha256 <span className="e-mono">{sealed.slice(0, 8)}</span>, before people test</> : "Not sealed yet"}</dd>
+              <dd className={ROW}>{sealed ? <>Gen {gen} sha256 <span className="e-mono">{sealed.slice(0, 8)}</span></> : "Not sealed yet"}</dd>
             </dl>
-            <p className="text-[13px] leading-normal text-muted">Simulated Meta-style delivery: budget shifts to the ads that win. Not real CTR.</p>
+            <p className="text-[13px] leading-normal text-muted">Simulated Meta-style delivery: budget shifts to the ads that win.</p>
           </div>
           <details className="text-[13px] text-muted">
             <summary className="cursor-pointer">Render prompt</summary>
