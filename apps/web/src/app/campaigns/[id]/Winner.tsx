@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
-import type { CSSProperties, ReactNode } from "react";
+import { useRouter } from "next/navigation";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import type { Ad, Campaign, Generation } from "@hack/contract";
 import { AdCard } from "../../vote-lite/AdCard";
 import { CARD_FRAME, RateBar } from "./AdTile";
@@ -170,6 +172,7 @@ export function AdReport({ campaign, ad, gen, best = false }: { campaign: Campai
             </div>
           )}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <Iterate campaignId={campaign.id} adId={ad.id} />
             {isWin && (
               <>
                 {/* Not in the contract (CSV fits no JSON fixture), so it only resolves in live mode. */}
@@ -184,6 +187,42 @@ export function AdReport({ campaign, ad, gen, best = false }: { campaign: Campai
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Breeds a new generation of 5 from this one ad: the ad plus 4 variations. On success the campaign page shows the run.
+ * ponytail: plain fetch, the iterate route is not in the frozen contract; add it there to go through fetchTyped.
+ */
+function Iterate({ campaignId, adId }: { campaignId: string; adId: string }) {
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  const [failure, setFailure] = useState<string | null>(null);
+  async function go() {
+    setBusy(true);
+    setFailure(null);
+    try {
+      const res = await fetch(`/api/campaigns/${encodeURIComponent(campaignId)}/ads/${encodeURIComponent(adId)}/iterate`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: "{}",
+      });
+      if (res.status === 409) throw new Error("Busy, another run is going");
+      const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!res.ok || !json?.ok) throw new Error(json?.error ?? `Iterate failed (${res.status}).`);
+      router.push(`/campaigns/${encodeURIComponent(campaignId)}`);
+    } catch (e) {
+      setFailure(e instanceof Error ? e.message : String(e));
+      setBusy(false);
+    }
+  }
+  return (
+    <span className="flex flex-col items-start gap-1.5">
+      <button type="button" onClick={() => void go()} disabled={busy} className="e-pill e-lime min-h-[52px] text-sm">
+        {busy ? "Iterating…" : "Iterate on this ad ↻"}
+      </button>
+      {failure && <span role="alert" className="text-[13px] text-bad">{failure}</span>}
+    </span>
   );
 }
 

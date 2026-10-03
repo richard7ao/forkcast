@@ -106,7 +106,7 @@ export default function Page() {
           <span className="rounded-[18px] bg-pistachio px-[0.14em] pb-[0.04em] [box-decoration-break:clone]">ads survive.</span>
         </h1>
         <p style={{ "--d": "120ms" } as CSSProperties} className="fk-pop mx-auto mt-[22px] max-w-[640px] text-[17px] leading-[1.45] text-muted md:text-xl md:leading-[1.45]">
-          Drop one product photo. Forkcast writes 48 Meta ads, tests them on AI shoppers and a simulated Meta delivery, breeds the survivors and exports the winner to Meta.
+          Drop one product photo. Forkcast writes 20 Meta ads, tests them on AI shoppers and a simulated Meta delivery, breeds the survivors and exports the winner to Meta.
         </p>
         {/* One pill, as on getgimmegimme.com: the whole left side is the file picker and the drop target. */}
         <form

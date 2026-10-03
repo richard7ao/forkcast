@@ -87,7 +87,7 @@ export function winnerOf(c: Campaign): { ad: Ad; gen: Generation } | null {
   return gen && ad ? { ad, gen } : null;
 }
 
-/** Mid-rank percentile as an ordinal: #1 of 48 is the "99th". */
+/** Mid-rank percentile as an ordinal: #1 of 20 is the "98th". */
 export function percentile(rank: number, n: number): string {
   const p = Math.round((100 * (n - rank + 0.5)) / n);
   return `${p}${p % 100 >= 11 && p % 100 <= 13 ? "th" : (["th", "st", "nd", "rd"][p % 10] ?? "th")}`;
@@ -103,7 +103,7 @@ export function ctrBenchmarks(ad: Ad, gen: Generation) {
 
 export type Step = { key: string; label: string; state: "done" | "run" | "todo"; gen: number | null };
 
-/** "Gen 0 · 48 ads → 6 survive → Gen 1 · 30 ads → 6 survive → Winner", including a generation still being written. */
+/** "Gen 0 · 20 ads → 4 survive → Gen 1 · 20 ads → 4 survive → Winner", including a generation still being written. */
 export function railSteps(c: Campaign): Step[] {
   const running = c.stage !== "done" && c.stage !== "error";
   const steps: Step[] = c.generations.flatMap((g): Step[] => {

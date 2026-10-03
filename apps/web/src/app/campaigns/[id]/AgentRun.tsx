@@ -52,12 +52,12 @@ export function stepAt(c: Campaign): { at: number; f: number } {
 }
 
 /**
- * Ads a generation will hold. Gen 0 is 6 levers x 8 scenes; each later one is the survivors plus 4 children each.
+ * Ads a generation will hold. Gen 0 is 20 ads; each later one is the survivors plus 4 children each.
  * ponytail: mirrors apps/api/src/lib/evolve.ts constants; ask for a progress field if those change.
  */
 const adsInRun = (c: Campaign) => {
   const last = c.generations.at(-1);
-  return last ? last.survivorIds.length * 5 : 48;
+  return last ? last.survivorIds.length * 5 : 20;
 };
 
 /** Ads with an image so far: none while copy is written, then in step with the renders. */
@@ -173,7 +173,7 @@ export function AgentRun({ c }: { c: Campaign }) {
   );
 }
 
-/** "0 of 48 ready" with empty tiles while the pack is read, then a big counter that climbs with the renders. */
+/** "0 of 20 ready" with empty tiles while the pack is read, then a big counter that climbs with the renders. */
 function Counter({ reading, ready, target }: { reading: boolean; ready: number; target: number }) {
   if (reading) {
     return (
