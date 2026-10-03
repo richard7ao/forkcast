@@ -1,0 +1,26 @@
+{
+  "name": "web",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3300",
+    "build": "next build",
+    "typecheck": "tsc -p tsconfig.json",
+    "start": "next start -p 3300"
+  },
+  "dependencies": {
+    "@hack/contract": "workspace:*",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2"
+  }
+}

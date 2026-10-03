@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "round": 2,
+  "variants": [
+    {
+      "id": "r2-incumbent",
+      "round": 2,
+      "lever": "social_proof",
+      "headline": "The bag that gets passed round the office",
+      "body": "Baked red lentil crisps made for sharing. Fair warning: it won't come back.",
+      "cta": "Shop now",
+      "rationale": "Round-1 human winner (66% tap intent, n 47), re-tested unchanged as the control.",
+      "parentId": "r1-social_proof"
+    },
+    {
+      "id": "r2-c1",
+      "round": 2,
+      "lever": "social_proof",
+      "headline": "The office crisp with 13g protein",
+      "body": "Baked red lentil crisps that get passed round the office. Protein on the label, crunch in the bag.",
+      "cta": "Shop now",
+      "parentId": "r1-social_proof",
+      "rationale": "Keeps the winning social-proof frame (66%) and adds the protein fact the AI over-rated (AI 71% vs room 47%), to test whether health helps inside the winning frame."
+    },
+    {
+      "id": "r2-c2",
+      "round": 2,
+      "lever": "indulgence",
+      "headline": "The 4pm bag everyone reaches for",
+      "body": "Sea salt lentil crisps, baked not fried. Bring one to the meeting and watch it go.",
+      "cta": "Shop now",
+      "parentId": "r1-social_proof",
+      "rationale": "Combines the top two levers from round 1: social proof (66%) and indulgence (57%)."
+    }
+  ]
+}

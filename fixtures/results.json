@@ -1,0 +1,525 @@
+{
+  "updatedAt": "2026-10-03T13:20:00Z",
+  "activeRound": 1,
+  "voters": 47,
+  "votes": 282,
+  "segmentMix": [
+    {
+      "segment": "student",
+      "voters": 14
+    },
+    {
+      "segment": "young_pro",
+      "voters": 18
+    },
+    {
+      "segment": "parent",
+      "voters": 6
+    },
+    {
+      "segment": "fitness",
+      "voters": 7
+    },
+    {
+      "segment": "other",
+      "voters": 2
+    }
+  ],
+  "variants": [
+    {
+      "variantId": "r1-social_proof",
+      "round": 1,
+      "lever": "social_proof",
+      "human": {
+        "taps": 31,
+        "n": 47,
+        "rate": 0.66,
+        "lo": 0.54,
+        "hi": 0.762
+      },
+      "ai": 0.558,
+      "aiInsideCi": true
+    },
+    {
+      "variantId": "r1-scarcity",
+      "round": 1,
+      "lever": "scarcity",
+      "human": {
+        "taps": 17,
+        "n": 47,
+        "rate": 0.362,
+        "lo": 0.257,
+        "hi": 0.482
+      },
+      "ai": 0.402,
+      "aiInsideCi": true
+    },
+    {
+      "variantId": "r1-health_halo",
+      "round": 1,
+      "lever": "health_halo",
+      "human": {
+        "taps": 22,
+        "n": 47,
+        "rate": 0.468,
+        "lo": 0.353,
+        "hi": 0.586
+      },
+      "ai": 0.713,
+      "aiInsideCi": false
+    },
+    {
+      "variantId": "r1-indulgence",
+      "round": 1,
+      "lever": "indulgence",
+      "human": {
+        "taps": 27,
+        "n": 47,
+        "rate": 0.574,
+        "lo": 0.455,
+        "hi": 0.686
+      },
+      "ai": 0.502,
+      "aiInsideCi": true
+    },
+    {
+      "variantId": "r1-provenance",
+      "round": 1,
+      "lever": "provenance",
+      "human": {
+        "taps": 24,
+        "n": 47,
+        "rate": 0.511,
+        "lo": 0.393,
+        "hi": 0.627
+      },
+      "ai": 0.596,
+      "aiInsideCi": true
+    },
+    {
+      "variantId": "r1-value",
+      "round": 1,
+      "lever": "value",
+      "human": {
+        "taps": 20,
+        "n": 47,
+        "rate": 0.426,
+        "lo": 0.314,
+        "hi": 0.545
+      },
+      "ai": 0.46,
+      "aiInsideCi": true
+    }
+  ],
+  "cells": [
+    {
+      "variantId": "r1-social_proof",
+      "segment": "student",
+      "human": {
+        "taps": 11,
+        "n": 14,
+        "rate": 0.786,
+        "lo": 0.568,
+        "hi": 0.911
+      },
+      "ai": 0.6,
+      "enough": true
+    },
+    {
+      "variantId": "r1-social_proof",
+      "segment": "young_pro",
+      "human": {
+        "taps": 12,
+        "n": 18,
+        "rate": 0.667,
+        "lo": 0.473,
+        "hi": 0.817
+      },
+      "ai": 0.6,
+      "enough": true
+    },
+    {
+      "variantId": "r1-social_proof",
+      "segment": "parent",
+      "human": {
+        "taps": 3,
+        "n": 6,
+        "rate": 0.5,
+        "lo": 0.221,
+        "hi": 0.779
+      },
+      "ai": 0.4,
+      "enough": false
+    },
+    {
+      "variantId": "r1-social_proof",
+      "segment": "fitness",
+      "human": {
+        "taps": 4,
+        "n": 7,
+        "rate": 0.571,
+        "lo": 0.289,
+        "hi": 0.814
+      },
+      "ai": 0.5,
+      "enough": false
+    },
+    {
+      "variantId": "r1-social_proof",
+      "segment": "other",
+      "human": {
+        "taps": 1,
+        "n": 2,
+        "rate": 0.5,
+        "lo": 0.121,
+        "hi": 0.879
+      },
+      "ai": null,
+      "enough": false
+    },
+    {
+      "variantId": "r1-scarcity",
+      "segment": "student",
+      "human": {
+        "taps": 6,
+        "n": 14,
+        "rate": 0.429,
+        "lo": 0.241,
+        "hi": 0.64
+      },
+      "ai": 0.5,
+      "enough": true
+    },
+    {
+      "variantId": "r1-scarcity",
+      "segment": "young_pro",
+      "human": {
+        "taps": 6,
+        "n": 18,
+        "rate": 0.333,
+        "lo": 0.183,
+        "hi": 0.527
+      },
+      "ai": 0.4,
+      "enough": true
+    },
+    {
+      "variantId": "r1-scarcity",
+      "segment": "parent",
+      "human": {
+        "taps": 2,
+        "n": 6,
+        "rate": 0.333,
+        "lo": 0.117,
+        "hi": 0.653
+      },
+      "ai": 0.3,
+      "enough": false
+    },
+    {
+      "variantId": "r1-scarcity",
+      "segment": "fitness",
+      "human": {
+        "taps": 2,
+        "n": 7,
+        "rate": 0.286,
+        "lo": 0.1,
+        "hi": 0.591
+      },
+      "ai": 0.3,
+      "enough": false
+    },
+    {
+      "variantId": "r1-scarcity",
+      "segment": "other",
+      "human": {
+        "taps": 1,
+        "n": 2,
+        "rate": 0.5,
+        "lo": 0.121,
+        "hi": 0.879
+      },
+      "ai": null,
+      "enough": false
+    },
+    {
+      "variantId": "r1-health_halo",
+      "segment": "student",
+      "human": {
+        "taps": 4,
+        "n": 14,
+        "rate": 0.286,
+        "lo": 0.135,
+        "hi": 0.506
+      },
+      "ai": 0.6,
+      "enough": true
+    },
+    {
+      "variantId": "r1-health_halo",
+      "segment": "young_pro",
+      "human": {
+        "taps": 8,
+        "n": 18,
+        "rate": 0.444,
+        "lo": 0.272,
+        "hi": 0.631
+      },
+      "ai": 0.7,
+      "enough": true
+    },
+    {
+      "variantId": "r1-health_halo",
+      "segment": "parent",
+      "human": {
+        "taps": 3,
+        "n": 6,
+        "rate": 0.5,
+        "lo": 0.221,
+        "hi": 0.779
+      },
+      "ai": 0.8,
+      "enough": false
+    },
+    {
+      "variantId": "r1-health_halo",
+      "segment": "fitness",
+      "human": {
+        "taps": 6,
+        "n": 7,
+        "rate": 0.857,
+        "lo": 0.548,
+        "hi": 0.967
+      },
+      "ai": 0.9,
+      "enough": false
+    },
+    {
+      "variantId": "r1-health_halo",
+      "segment": "other",
+      "human": {
+        "taps": 1,
+        "n": 2,
+        "rate": 0.5,
+        "lo": 0.121,
+        "hi": 0.879
+      },
+      "ai": null,
+      "enough": false
+    },
+    {
+      "variantId": "r1-indulgence",
+      "segment": "student",
+      "human": {
+        "taps": 10,
+        "n": 14,
+        "rate": 0.714,
+        "lo": 0.494,
+        "hi": 0.865
+      },
+      "ai": 0.6,
+      "enough": true
+    },
+    {
+      "variantId": "r1-indulgence",
+      "segment": "young_pro",
+      "human": {
+        "taps": 10,
+        "n": 18,
+        "rate": 0.556,
+        "lo": 0.369,
+        "hi": 0.728
+      },
+      "ai": 0.5,
+      "enough": true
+    },
+    {
+      "variantId": "r1-indulgence",
+      "segment": "parent",
+      "human": {
+        "taps": 2,
+        "n": 6,
+        "rate": 0.333,
+        "lo": 0.117,
+        "hi": 0.653
+      },
+      "ai": 0.4,
+      "enough": false
+    },
+    {
+      "variantId": "r1-indulgence",
+      "segment": "fitness",
+      "human": {
+        "taps": 3,
+        "n": 7,
+        "rate": 0.429,
+        "lo": 0.186,
+        "hi": 0.711
+      },
+      "ai": 0.4,
+      "enough": false
+    },
+    {
+      "variantId": "r1-indulgence",
+      "segment": "other",
+      "human": {
+        "taps": 2,
+        "n": 2,
+        "rate": 1,
+        "lo": 0.425,
+        "hi": 1
+      },
+      "ai": null,
+      "enough": false
+    },
+    {
+      "variantId": "r1-provenance",
+      "segment": "student",
+      "human": {
+        "taps": 5,
+        "n": 14,
+        "rate": 0.357,
+        "lo": 0.186,
+        "hi": 0.575
+      },
+      "ai": 0.5,
+      "enough": true
+    },
+    {
+      "variantId": "r1-provenance",
+      "segment": "young_pro",
+      "human": {
+        "taps": 10,
+        "n": 18,
+        "rate": 0.556,
+        "lo": 0.369,
+        "hi": 0.728
+      },
+      "ai": 0.6,
+      "enough": true
+    },
+    {
+      "variantId": "r1-provenance",
+      "segment": "parent",
+      "human": {
+        "taps": 5,
+        "n": 6,
+        "rate": 0.833,
+        "lo": 0.498,
+        "hi": 0.962
+      },
+      "ai": 0.8,
+      "enough": false
+    },
+    {
+      "variantId": "r1-provenance",
+      "segment": "fitness",
+      "human": {
+        "taps": 3,
+        "n": 7,
+        "rate": 0.429,
+        "lo": 0.186,
+        "hi": 0.711
+      },
+      "ai": 0.6,
+      "enough": false
+    },
+    {
+      "variantId": "r1-provenance",
+      "segment": "other",
+      "human": {
+        "taps": 1,
+        "n": 2,
+        "rate": 0.5,
+        "lo": 0.121,
+        "hi": 0.879
+      },
+      "ai": null,
+      "enough": false
+    },
+    {
+      "variantId": "r1-value",
+      "segment": "student",
+      "human": {
+        "taps": 9,
+        "n": 14,
+        "rate": 0.643,
+        "lo": 0.425,
+        "hi": 0.814
+      },
+      "ai": 0.6,
+      "enough": true
+    },
+    {
+      "variantId": "r1-value",
+      "segment": "young_pro",
+      "human": {
+        "taps": 7,
+        "n": 18,
+        "rate": 0.389,
+        "lo": 0.227,
+        "hi": 0.58
+      },
+      "ai": 0.4,
+      "enough": true
+    },
+    {
+      "variantId": "r1-value",
+      "segment": "parent",
+      "human": {
+        "taps": 2,
+        "n": 6,
+        "rate": 0.333,
+        "lo": 0.117,
+        "hi": 0.653
+      },
+      "ai": 0.5,
+      "enough": false
+    },
+    {
+      "variantId": "r1-value",
+      "segment": "fitness",
+      "human": {
+        "taps": 1,
+        "n": 7,
+        "rate": 0.143,
+        "lo": 0.033,
+        "hi": 0.452
+      },
+      "ai": 0.3,
+      "enough": false
+    },
+    {
+      "variantId": "r1-value",
+      "segment": "other",
+      "human": {
+        "taps": 1,
+        "n": 2,
+        "rate": 0.5,
+        "lo": 0.121,
+        "hi": 0.879
+      },
+      "ai": null,
+      "enough": false
+    }
+  ],
+  "seals": [
+    {
+      "round": 1,
+      "sealedAt": "2026-10-03T12:52:10Z",
+      "sha256": "90b10331a1c6a54b43dd3d7bb4057cd958e1a55295ae9f3fe67c1d894d9426a5",
+      "model": "claude-sonnet-5-5",
+      "personasPerSegment": 10
+    }
+  ],
+  "scorecards": [
+    {
+      "round": 1,
+      "humanWinnerId": "r1-social_proof",
+      "aiWinnerId": "r1-health_halo",
+      "aiPickedWinner": false,
+      "mae": 0.096,
+      "spearman": 0.486
+    }
+  ]
+}

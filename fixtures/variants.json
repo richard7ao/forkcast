@@ -1,0 +1,79 @@
+{
+  "round": 1,
+  "product": {
+    "brand": "Crunchwell",
+    "name": "Sea Salt Lentil Crisps",
+    "price": "£1.80",
+    "imageUrl": "/product.jpg",
+    "facts": [
+      "Made from red lentils",
+      "13g protein per 100g",
+      "Baked, not fried",
+      "Made in Yorkshire",
+      "Vegan",
+      "85g bag"
+    ]
+  },
+  "variants": [
+    {
+      "id": "r1-social_proof",
+      "round": 1,
+      "lever": "social_proof",
+      "headline": "The bag that gets passed round the office",
+      "body": "Baked red lentil crisps made for sharing. Fair warning: it won't come back.",
+      "cta": "Shop now",
+      "rationale": "Social proof: frames the crisp as something groups already share, with no invented numbers.",
+      "parentId": null
+    },
+    {
+      "id": "r1-scarcity",
+      "round": 1,
+      "lever": "scarcity",
+      "headline": "Don't wait for the last bag",
+      "body": "Baked red lentil crisps from Yorkshire. When the shelf's empty, it's empty.",
+      "cta": "Shop now",
+      "rationale": "Scarcity: urgency from limited shelf stock, without claiming a fake limited run.",
+      "parentId": null
+    },
+    {
+      "id": "r1-health_halo",
+      "round": 1,
+      "lever": "health_halo",
+      "headline": "13g protein. Still a crisp.",
+      "body": "Baked, not fried, from red lentils. The crunch you want, with protein on the label.",
+      "cta": "Shop now",
+      "rationale": "Health halo: leads with the protein and baked-not-fried facts.",
+      "parentId": null
+    },
+    {
+      "id": "r1-indulgence",
+      "round": 1,
+      "lever": "indulgence",
+      "headline": "Proper crunch. Proper salt.",
+      "body": "Sea salt lentil crisps for the 4pm slump. No apology needed.",
+      "cta": "Shop now",
+      "rationale": "Indulgence: pleasure and permission, no health framing.",
+      "parentId": null
+    },
+    {
+      "id": "r1-provenance",
+      "round": 1,
+      "lever": "provenance",
+      "headline": "Made in Yorkshire",
+      "body": "Red lentils and sea salt, baked not fried, made in Yorkshire.",
+      "cta": "Shop now",
+      "rationale": "Provenance: origin and simple ingredients as the reason to trust it.",
+      "parentId": null
+    },
+    {
+      "id": "r1-value",
+      "round": 1,
+      "lever": "value",
+      "headline": "£1.80 for a proper 85g bag",
+      "body": "A full-size bag of baked lentil crisps for less than your coffee.",
+      "cta": "Shop now",
+      "rationale": "Value: price and pack size up front.",
+      "parentId": null
+    }
+  ]
+}
