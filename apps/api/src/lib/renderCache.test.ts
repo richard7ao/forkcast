@@ -36,7 +36,7 @@ test("scene mutations are cached under their parent's scene; copy mutations keep
   const cached = [...mutations.values()].flat().map((m) => m.imageUrl);
   assert.equal(cached.length, 6);
   assert.equal(new Set(cached).size, 6);
-  assert.ok(cached.every((url) => url.endsWith("-s1.png")));
+  assert.ok(cached.every((url) => /-s1\.(png|jpg)$/.test(url))); // the scene-mutation children (ids ending -s1)
   assert.equal(mutations.get(sceneOf(3))?.length, 3);
   // Every ad has its own image now, so it is the copy mutations' unchanged scene that keeps all 18 out.
   const parentScene = new Map(demo.generations[0]!.ads.map((ad) => [ad.id, ad.scene]));
