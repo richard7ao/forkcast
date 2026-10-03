@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
 import { Campaign, type Ad } from "@hack/contract";
-import { adHref, audienceGrid, byFitness, cullOrder, findAd, fmtRate, gensSurvived, leverSceneGrid, median, railSteps, sceneLabel } from "./format";
+import { adHref, audienceGrid, byFitness, ctrBenchmarks, cullOrder, findAd, fmtRate, gensSurvived, leverSceneGrid, median, percentile, railSteps, rankAds, sceneLabel, winnerOf } from "./format";
 
 // Run from the repo root: node --import tsx "apps/web/src/app/campaigns/[id]/format.test.ts"
 const demo = Campaign.parse(JSON.parse(readFileSync(join(process.cwd(), "fixtures/campaigns.json"), "utf8")).campaigns[0]);
@@ -98,4 +98,36 @@ test("the winner page compares against the generation median and counts the cull
   const keptAgain = { ...demo, generations: demo.generations.map((g) => ({ ...g, ads: g.ads.map((a) => (a.id === id ? { ...a, status: "survivor" as const } : a)) })) };
   assert.equal(gensSurvived(keptAgain, id), 2);
   assert.equal(gensSurvived(demo, demo.winnerId!), 1);
+});
+
+test("the winner page always has an ad once a generation is ranked: the crowned winner, else the Grid's #1", () => {
+  // Crowned: a bred generation's winner, the same ad the Grid ranks first.
+  assert.equal(winnerOf(demo)?.ad.id, demo.winnerId);
+  assert.equal(winnerOf(demo)?.ad.id, rankAds(winnerOf(demo)!.gen.ads)[0]!.id);
+  // Gen 0 only, nothing bred: the simulation's best ad (highest posterior simulated CTR), never a dead end.
+  const g0 = demo.generations[0]!;
+  const fresh = { ...demo, winnerId: null, generations: [g0] };
+  const post = (a: Ad) => (a.experiment!.clicks + 1) / (a.experiment!.impressions + 2);
+  assert.equal(winnerOf(fresh)?.gen, g0);
+  assert.ok(g0.survivorIds.includes(winnerOf(fresh)!.ad.id));
+  assert.ok(g0.ads.every((a) => post(winnerOf(fresh)!.ad) >= post(a)));
+  // A generation still running (no survivors yet) never replaces the last ranked one.
+  const evolving = { ...demo, stage: "writing" as const, generations: [...demo.generations, { ...g0, gen: 2, survivorIds: [] }] };
+  assert.equal(winnerOf(evolving)?.ad.id, demo.winnerId);
+  assert.equal(winnerOf({ ...fresh, generations: [{ ...g0, survivorIds: [] }] }), null);
+});
+
+test("the ad page's rank percentile and CTR benchmarks", () => {
+  assert.equal(percentile(1, 48), "99th");
+  assert.equal(percentile(48, 48), "1st");
+  assert.equal(percentile(2, 4), "63rd");
+  // The lever and scene averages only count ads sharing the ad's lever or scene.
+  const g0 = demo.generations[0]!;
+  const ad = g0.ads[0]!;
+  const ctr = (keep: (a: Ad) => boolean) => g0.ads.filter(keep).map((a) => a.experiment!.ctr);
+  const avg = (xs: number[]) => xs.reduce((s, x) => s + x, 0) / xs.length;
+  const b = ctrBenchmarks(ad, g0);
+  assert.equal(b.lever, avg(ctr((a) => a.lever === ad.lever)));
+  assert.equal(b.scene, avg(ctr((a) => a.scene === ad.scene)));
+  assert.equal(b.median, median(ctr(() => true)));
 });

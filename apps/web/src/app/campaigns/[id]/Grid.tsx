@@ -4,13 +4,14 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type 
 import type { Ad, Campaign, Generation, Lever } from "@hack/contract";
 import { safeStorage, type StorageLike } from "../../vote-lite/lite";
 import { AdTile, type Delivered } from "./AdTile";
-import { byFitness, LEVER_LABEL, LEVERS, survived } from "./format";
+import { LEVER_LABEL, LEVERS, rankAds, survived } from "./format";
 
 const STEP_MS = 170; // 20 delivery snapshots ≈ 3.4 s
 const RANK_MS = 1800; // the re-sort slides (FLIP_MS), then the badges settle before the summary
 const FLIP_MS = 700;
 const BEAT_MS = 650; // the pause between acts
 const CTA = "e-pill e-lime min-h-[56px] px-7 text-[15px]";
+const SECOND = "e-pill e-outline min-h-[56px] px-7 text-[15px]";
 
 /** Idle: every ad equal, in generated order. Then budget flows (delivery), the grid re-sorts best to worst (rank), summary (done). */
 type Phase = "idle" | "delivery" | "rank" | "done";
@@ -52,8 +53,8 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen, onHeatmaps }: {
   const ready = last >= 0 && gen.survivorIds.length > 0; // a generation still screening has nothing to roll out
   const kept = gen.ads.filter(survived).length;
   const ranked = ready && (phase === "rank" || phase === "done");
-  // Best to worst by simulated CTR: the winner, then the survivors, then the rest (format.ts byFitness).
-  const rankOf = new Map([...gen.ads].sort(byFitness).map((a, i) => [a.id, i + 1]));
+  // Best to worst by simulated CTR: the winner, then the survivors, then the rest (format.ts rankAds).
+  const rankOf = new Map(rankAds(gen.ads).map((a, i) => [a.id, i + 1]));
   const tiles = useRef(new Map<string, HTMLElement>());
   const spots = useRef(new Map<string, { x: number; y: number }>());
 
@@ -115,14 +116,13 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen, onHeatmaps }: {
   const budget = sum(final).toLocaleString("en-GB");
   const delivered = (a: Ad): Delivered | null => (ready ? { impressions: now[a.id] ?? 0, share: (now[a.id] ?? 0) / lead } : null);
   const shown = lever ? gen.ads.filter((a) => a.lever === lever) : gen.ads;
-  const ads = ranked ? [...shown].sort(byFitness) : shown;
+  const ads = ranked ? rankAds(shown) : shown;
 
-  const next: ReactNode = gen.ads.some((a) => a.status === "winner") ? (
-    <Link href={`/campaigns/${encodeURIComponent(c.id)}/winner`} className={`${CTA} min-h-[64px] px-9 text-[17px]`}>Meet the winner →</Link>
-  ) : !isLast ? (
-    <button type="button" onClick={() => onNext(gen.gen + 1)} className={CTA}>See Gen {gen.gen + 1} →</button>
+  // Every rollout ends on the winner page (format.ts winnerOf); breeding or the next generation is the second step.
+  const then: ReactNode = gen.ads.some((a) => a.status === "winner") ? null : !isLast ? (
+    <button type="button" onClick={() => onNext(gen.gen + 1)} className={SECOND}>See Gen {gen.gen + 1} →</button>
   ) : (
-    <button type="button" onClick={breed.evolve} disabled={breed.busy} className={CTA}>{breed.busy ? "Breeding…" : `Breed the ${kept} survivors →`}</button>
+    <button type="button" onClick={breed.evolve} disabled={breed.busy} className={SECOND}>{breed.busy ? "Breeding…" : `Breed the ${kept} survivors →`}</button>
   );
 
   return (
@@ -164,7 +164,10 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen, onHeatmaps }: {
               </p>
             </div>
             <div className="flex flex-col items-start gap-2">
-              {next}
+              <div className="flex flex-wrap items-center gap-3">
+                <Link href={`/campaigns/${encodeURIComponent(c.id)}/winner`} className={`${CTA} min-h-[64px] px-9 text-[17px]`}>Meet the winner →</Link>
+                {then}
+              </div>
               {breed.failure && <span role="alert" className="text-[13px] text-bad">{breed.failure}</span>}
             </div>
           </div>

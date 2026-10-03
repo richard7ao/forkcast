@@ -1,4 +1,4 @@
-import type { Ad, Campaign, Experiment, Lever, Rate } from "@hack/contract";
+import type { Ad, Campaign, Experiment, Generation, Lever, Rate } from "@hack/contract";
 
 export const LEVERS: Lever[] = ["social_proof", "scarcity", "health_halo", "indulgence", "provenance", "value"];
 
@@ -71,6 +71,35 @@ const posterior = (a: Ad) => (a.experiment ? (a.experiment.clicks + 1) / (a.expe
 /** Winner, then survivors, then the rest; within each group, in the order the simulation ranked them. */
 export const byFitness = (a: Ad, b: Ad) =>
   STATUS_RANK[a.status] - STATUS_RANK[b.status] || posterior(b) - posterior(a) || (b.fitness.ai?.rate ?? -1) - (a.fitness.ai?.rate ?? -1);
+
+/** Best to worst: the order the Grid shows after a rollout, and the one the winner page takes its #1 from. */
+export const rankAds = (ads: Ad[]): Ad[] => [...ads].sort(byFitness);
+
+/**
+ * The ad the winner page shows: the crowned winner once a bred generation has one, otherwise the #1-ranked ad of the
+ * latest generation whose survivors are picked. A generation still running never counts. Null until one has finished.
+ */
+export function winnerOf(c: Campaign): { ad: Ad; gen: Generation } | null {
+  const finished = c.generations.filter((g) => g.survivorIds.length > 0).reverse();
+  const crownedIn = finished.find((g) => g.ads.some((a) => a.id === c.winnerId));
+  const gen = crownedIn ?? finished[0];
+  const ad = crownedIn ? crownedIn.ads.find((a) => a.id === c.winnerId) : gen && rankAds(gen.ads)[0];
+  return gen && ad ? { ad, gen } : null;
+}
+
+/** Mid-rank percentile as an ordinal: #1 of 48 is the "99th". */
+export function percentile(rank: number, n: number): string {
+  const p = Math.round((100 * (n - rank + 0.5)) / n);
+  return `${p}${p % 100 >= 11 && p % 100 <= 13 ? "th" : (["th", "st", "nd", "rd"][p % 10] ?? "th")}`;
+}
+
+const mean = (xs: number[]): number | null => (xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : null);
+
+/** Yardsticks for an ad's simulated CTR within its generation: the median, and the mean for its lever and for its scene. */
+export function ctrBenchmarks(ad: Ad, gen: Generation) {
+  const ctrs = (keep: (a: Ad) => boolean) => gen.ads.flatMap((a) => (a.experiment && keep(a) ? [a.experiment.ctr] : []));
+  return { median: median(ctrs(() => true)), lever: mean(ctrs((a) => a.lever === ad.lever)), scene: mean(ctrs((a) => a.scene === ad.scene)) };
+}
 
 export type Step = { key: string; label: string; state: "done" | "run" | "todo"; gen: number | null };
 
