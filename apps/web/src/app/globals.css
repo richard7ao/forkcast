@@ -55,3 +55,28 @@ body:has(.theme-e) { background: #FFFFFF; }
   .e-chip { background: #FFFFFF; border: 1px solid var(--color-edge); border-radius: 999px; padding: 6px 14px; font-size: 14px; line-height: 1.3; }
   .theme-e :focus-visible { outline: 2px solid var(--color-ai); outline-offset: 2px; }
 }
+
+/*
+ * Run and reveal motion, after getgimmegimme.com: shimmer placeholders, a scan band over the pack photo,
+ * titles that blur into focus and cards that pop in one by one. Stagger with --d (a delay) on the element.
+ * Floats and pops use the `translate` property, so they compose with Tailwind's rotate-* and hover translate-*.
+ */
+@keyframes fk-shimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+@keyframes fk-scan { from { transform: translateY(-100%); } to { transform: translateY(400%); } }
+@keyframes fk-blur-in { from { opacity: 0; filter: blur(12px); translate: 0 6px; } }
+@keyframes fk-pop { from { opacity: 0; filter: blur(8px); translate: 0 14px; scale: 0.98; } }
+@keyframes fk-float { 50% { translate: 0 -10px; } }
+
+.fk-shimmer { background: linear-gradient(100deg, #EFEFEF 30%, #F9F9F9 50%, #EFEFEF 70%) 0 0 / 200% 100%; animation: fk-shimmer 1.4s linear infinite; animation-delay: var(--d, 0ms); }
+/* A slot under a card that is about to pop in: shimmers until the card covers it, then stops repainting. */
+.fk-slot { animation-iteration-count: 2; }
+/* Scanner bar: a quarter-height band, brightest at its leading edge, sweeping top to bottom. */
+.fk-scan { background: linear-gradient(to bottom, rgb(255 255 255 / 0), rgb(255 255 255 / 0.75)); border-bottom: 2px solid #FFFFFF; box-shadow: 0 6px 14px rgb(0 0 0 / 0.06); animation: fk-scan 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+.fk-blur-in { animation: fk-blur-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.fk-pop { animation: fk-pop 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.fk-float { animation: fk-float 6s ease-in-out infinite; animation-delay: var(--d, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fk-shimmer, .fk-float, .fk-blur-in, .fk-pop { animation: none; }
+  .fk-scan { display: none; }
+}

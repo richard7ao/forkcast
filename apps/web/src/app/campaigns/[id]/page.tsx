@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
-import { Fragment, Suspense, useEffect, useState } from "react";
-import type { Ad, Campaign, Generation, Product } from "@hack/contract";
+import { Fragment, Suspense, useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import type { Ad, Campaign, Generation, Lever, Product } from "@hack/contract";
 import { Logo } from "../../../components/Logo";
 import { ErrorNote, Skeleton } from "../../../components/ui";
 import { fetchTyped } from "../../../lib/client";
@@ -10,9 +10,10 @@ import { useEndpoint } from "../../../lib/useEndpoint";
 import { safeStorage, type StorageLike } from "../../vote-lite/lite";
 import { AdDrawer, type OpenAd } from "./AdDrawer";
 import { AdTile, type Delivered } from "./AdTile";
+import { AgentRun, RUN_STEPS, StepBar } from "./AgentRun";
 import { Analytics } from "./Analytics";
 import { Winner } from "./Winner";
-import { byFitness, errorText, railSteps, survived, type Step } from "./format";
+import { byFitness, errorText, LEVER_LABEL, LEVERS, railSteps, survived, type Step } from "./format";
 
 const POLL_MS = 2000;
 const STEP_MS = 350;
@@ -96,24 +97,35 @@ function CampaignView() {
     setTab("ads");
   };
 
+  const rail = (
+    <nav aria-label="Generations" className="flex flex-wrap items-start gap-y-3">
+      {railSteps(c).map((s, i) => (
+        <Fragment key={s.key}>
+          {i > 0 && <span aria-hidden className="mt-[22px] h-px w-6 flex-none bg-ink/35" />}
+          <RailStep step={s} c={c} selected={tab === "ads" && s.key === `g${gen?.gen}`} onPick={pick} />
+        </Fragment>
+      ))}
+    </nav>
+  );
+
   return (
     <div className="theme-e pb-16">
       <TopBar />
-      <CampaignHeader c={c} adminToken={adminToken} onEvolved={reload} />
-      <nav aria-label="Generations" className={`${WRAP} mt-10 flex flex-wrap items-start gap-y-3`}>
-        {railSteps(c).map((s, i) => (
-          <Fragment key={s.key}>
-            {i > 0 && <span aria-hidden className="mt-[22px] h-px w-6 flex-none bg-ink/35" />}
-            <RailStep step={s} c={c} selected={tab === "ads" && s.key === `g${gen?.gen}`} onPick={pick} />
-          </Fragment>
-        ))}
-      </nav>
-      {running && <Progress c={c} />}
-      {running && error != null && <p className={`${WRAP} mt-3 text-sm text-muted`}>Lost contact with the server. Retrying every 2 s.</p>}
+      {/* While a generation runs, the agent screen replaces the summary; earlier generations stay browsable below it. */}
+      {running ? (
+        <div className={`${WRAP} mt-8`}>
+          <AgentRun c={c} />
+          {error != null && <p className="mt-3 text-sm text-muted">Lost contact with the server. Retrying every 2 s.</p>}
+          {c.generations.length > 0 && <div className="mt-12">{rail}</div>}
+        </div>
+      ) : (
+        <Summary c={c} gen={gen} rail={rail} adminToken={adminToken} onEvolved={reload} />
+      )}
       {c.stage === "error" && (
         <p role="alert" className={`${WRAP} mt-8 text-lg text-bad`}>This run stopped: {c.error ?? "no reason given"}. {c.generations.length ? "An admin can evolve again to retry." : "Start a new campaign to try again."}</p>
       )}
       {c.winnerId && !running && <div className={WRAP}><Winner campaign={c} onOpen={(id) => setOpen({ id })} /></div>}
+      {c.generations.length > 0 && <>
       <div className={`${WRAP} mt-11`}>
         <div role="tablist" aria-label="Campaign views" className="flex gap-8 border-b border-line">
           {TABS.map(([key, label]) => (
@@ -135,12 +147,11 @@ function CampaignView() {
       <section id="campaign-panel" role="tabpanel" aria-labelledby={`tab-${tab}`} className={`${WRAP} mt-8`}>
         {tab === "analytics" ? (
           <Analytics campaign={c} />
-        ) : gen ? (
-          <Grid key={gen.gen} gen={gen} product={c.product} onOpen={(id) => setOpen({ id, gen: gen.gen })} />
         ) : (
-          <p className="e-tile p-8 text-muted">Gen 0 appears here once its ads are written and rendered.</p>
+          gen && <Grid key={gen.gen} gen={gen} product={c.product} onOpen={(id) => setOpen({ id, gen: gen.gen })} />
         )}
       </section>
+      </>}
       <AdDrawer campaign={c} open={open} onOpen={(id) => setOpen({ id })} onClose={() => setOpen(null)} />
     </div>
   );
@@ -157,31 +168,67 @@ function TopBar() {
   );
 }
 
-function CampaignHeader({ c, adminToken, onEvolved }: { c: Campaign; adminToken: string | null; onEvolved: () => void }) {
+/**
+ * The finished run, laid out like the agent screen it replaces: the same step bar, now all ticked, and the pack on
+ * the left; the title blurs into focus on the right.
+ */
+function Summary({ c, gen, rail, adminToken, onEvolved }: {
+  c: Campaign;
+  gen: Generation | undefined;
+  rail: ReactNode;
+  adminToken: string | null;
+  onEvolved: () => void;
+}) {
   const facts = c.product.facts;
+  const n = gen?.ads.length ?? 0;
+  const impressions = gen?.ads.reduce((sum, a) => sum + (a.experiment?.impressions ?? 0), 0) ?? 0;
+  const title = !gen ? "This run stopped" : gen.gen === 0 ? `${n} ads ready for ${c.product.name || c.name}` : `${n} ads in generation ${gen.gen}`;
   return (
-    <section aria-label="Campaign" className={`${WRAP} mt-10 flex flex-col gap-8 md:flex-row md:items-start`}>
-      <div className="e-pol w-fit flex-none -rotate-3 p-2 pb-2.5">
-        <img src={c.sourceImageUrl} alt="Your upload" className="block h-[178px] w-[134px] rounded-[10px] object-cover" />
-      </div>
-      <div className="flex min-w-0 max-w-[880px] flex-col gap-3.5">
-        <h1 className="e-h text-[40px] md:text-[64px]">{c.name}</h1>
-        {c.product.brand && <p className="text-lg text-muted">{c.product.brand} · {c.product.name}</p>}
-        {facts.length > 0 ? (
-          <>
+    <section aria-label="Campaign" className={`${WRAP} mt-8 grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]`}>
+      <div className="flex min-w-0 flex-col gap-6 lg:col-start-2">
+        <div className="flex flex-wrap items-start justify-between gap-6">
+          <div className="min-w-0">
+            <h1 key={title} className="e-h fk-blur-in text-[36px] md:text-[56px]">{title}</h1>
+            {/* 40 = the backend's 4 panel segments x 10 personas. */}
+            {gen && <p className="mt-2 text-lg text-muted">Screened by 40 AI shoppers{impressions > 0 && ` · ${impressions.toLocaleString("en-GB")} simulated impressions`}</p>}
+          </div>
+          {c.winnerId && (
+            <a href="#winner" className="e-pill bg-ink text-white">
+              See the fittest ad
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M5 12h14" />
+                <path d="M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          )}
+        </div>
+        {rail}
+        {facts.length > 0 && (
+          <div className="flex flex-col gap-2.5">
             <div className="flex flex-wrap items-center gap-x-3.5 gap-y-2">
               <span className="e-lbl">Read off the pack</span>
               <span className="text-sm text-muted">Copy may only claim these.</span>
             </div>
-            <ul className="flex flex-wrap gap-2">
-              {facts.map((f, i) => <li key={i} className="e-chip">{f}</li>)}
+            <ul className="flex flex-wrap gap-1.5">
+              {facts.map((f, i) => <li key={i} className="e-chip px-2.5 py-1 text-[13px]">{f}</li>)}
             </ul>
-          </>
-        ) : (
-          c.stage === "reading" && <p className="text-sm text-muted">Reading the pack…</p>
+          </div>
         )}
         {adminToken && <Admin c={c} token={adminToken} onEvolved={onEvolved} />}
       </div>
+      <aside className="flex flex-col gap-4 lg:col-start-1 lg:row-start-1">
+        <div className="e-tile p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]">
+          <StepBar at={gen ? RUN_STEPS.length : 0} f={0} />
+          <p className="mt-3 text-[13px] text-muted">{gen ? `${n} ads ready` : "Stopped"}</p>
+        </div>
+        <div className="e-tile overflow-hidden shadow-[0_8px_24px_rgb(0_0_0/0.05)]">
+          <img src={c.sourceImageUrl} alt="Your upload" className="block aspect-[4/3] w-full bg-track object-contain p-3" />
+          <div className="border-t border-line p-4">
+            <p className="font-medium">{c.name}</p>
+            {c.product.price && <p className="text-sm text-muted">{c.product.price}</p>}
+          </div>
+        </div>
+      </aside>
     </section>
   );
 }
@@ -256,29 +303,9 @@ function RailStep({ step, c, selected, onPick }: { step: Step; c: Campaign; sele
   );
 }
 
-function Progress({ c }: { c: Campaign }) {
-  const { label, done, total } = c.progress;
-  return (
-    <section aria-label="Progress" className={`${WRAP} mt-8`}>
-      <div className="flex max-w-[860px] flex-col gap-2.5">
-        <div className="flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
-          <span id="progress-label" className="text-lg font-medium">{label}</span>
-          <span className="e-mono text-[15px]">{done}/{total}</span>
-          <span className="text-sm text-muted">Stage: {c.stage}</span>
-        </div>
-        <div role="progressbar" aria-labelledby="progress-label" aria-valuemin={0} aria-valuemax={total} aria-valuenow={done} className="relative h-1.5 rounded-full bg-track">
-          <span
-            className="e-lime absolute inset-y-0 left-0 rounded-full transition-[width] duration-500 motion-reduce:transition-none"
-            style={{ width: `${total > 0 ? (done / total) * 100 : 0}%` }}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Grid({ gen, product, onOpen }: { gen: Generation; product: Product; onOpen: (id: string) => void }) {
   const [step, setStep] = useState<number | null>(null); // null = the finished simulation
+  const [lever, setLever] = useState<Lever | null>(null); // null = every lever
   const last = gen.timeline.length - 1;
 
   // "Play delivery" walks the 20 budget snapshots; the order of the cards stays fixed while it plays.
@@ -289,6 +316,7 @@ function Grid({ gen, product, onOpen }: { gen: Generation; product: Product; onO
   }, [step, last]);
 
   const ads = [...gen.ads].sort(byFitness);
+  const visible = lever ? ads.filter((a) => a.lever === lever) : ads;
   const alive = ads.filter(survived).length;
   const culled = ads.filter((a) => a.status === "culled").length;
   const snapshot = step == null ? null : gen.timeline[step]?.impressionsByAd;
@@ -321,11 +349,41 @@ function Grid({ gen, product, onOpen }: { gen: Generation; product: Product; onO
           </span>
         </div>
       )}
-      <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(min(260px,100%),1fr))] gap-6">
-        {ads.map((ad) => (
-          <AdTile key={ad.id} ad={ad} product={product} delivered={delivered(ad)} onOpen={() => onOpen(ad.id)} />
+      <div role="group" aria-label="Filter by lever" className="mt-5 flex flex-wrap gap-2">
+        <Chip on={lever == null} onClick={() => setLever(null)} label="All" n={ads.length} />
+        {LEVERS.map((l) => {
+          const n = ads.filter((a) => a.lever === l).length;
+          return n > 0 && <Chip key={l} on={lever === l} onClick={() => setLever(l)} label={LEVER_LABEL[l]} n={n} />;
+        })}
+      </div>
+      {/* Keyed by the filter, so a new filter deals its cards in again. */}
+      <div key={lever ?? "all"} className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(min(260px,100%),1fr))] gap-6">
+        {visible.map((ad, i) => (
+          // Each card pops in over a shimmer slot, 40 ms after the one before, capped at about 1 s for the last.
+          <div key={ad.id} className="fk-shimmer fk-slot min-w-0 rounded-[18px]">
+            <div
+              className="fk-pop grid h-full transition-[translate] duration-200 hover:-translate-y-1 motion-reduce:transition-none"
+              style={{ "--d": `${Math.min(i, 24) * 40}ms` } as CSSProperties}
+            >
+              <AdTile ad={ad} product={product} delivered={delivered(ad)} onOpen={() => onOpen(ad.id)} />
+            </div>
+          </div>
         ))}
       </div>
     </>
+  );
+}
+
+function Chip({ on, onClick, label, n }: { on: boolean; onClick: () => void; label: string; n: number }) {
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      onClick={onClick}
+      className={`inline-flex h-9 cursor-pointer items-center gap-1.5 rounded-full border px-3.5 text-sm ${on ? "border-ink bg-ink text-white" : "border-edge bg-white hover:border-ink/40"}`}
+    >
+      {label}
+      <span className={on ? "text-white/60" : "text-muted"}>{n}</span>
+    </button>
   );
 }
