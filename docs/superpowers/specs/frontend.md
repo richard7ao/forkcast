@@ -12,8 +12,9 @@
 2. Forkcast reads the pack (vision), so ad copy can only claim what the pack says.
 3. It generates ~50 Meta-style ad variants: 8 AI scenes × 6 behavioural copy levers = 48 ads,
    all rendered from the one image.
-4. It runs experiments. An **AI shopper panel** gives fast simulated fitness, and **real people**
-   give ground truth (the event room now, Meta ads later).
+4. It runs **simulated experiments**. The AI shopper panel estimates each ad's tap rate per audience;
+   a Meta-style delivery simulation (Thompson-sampling bandit, 10,000 simulated impressions) shifts
+   budget to winners and starves losers. Real people (the room, later Meta) are the optional ground truth.
 5. Only the fittest survive. Survivors **breed**: copy and scene mutations of the winners.
    Repeat until one ad holds the top spot.
 6. The winner ships to Meta Ads (CSV export today, Marketing API later).
@@ -42,9 +43,11 @@ New:
 type Ad = Variant & {                   // Variant = existing contract type (has imageUrl?)
   gen: number; parentIds: string[]; scene: string;
   fitness: { ai: Rate | null; human: Rate | null };   // Rate = existing { taps, n, rate, lo, hi }
+  experiment: { impressions: number; clicks: number; ctr: number; lo: number; hi: number } | null; // simulated Meta-style delivery
   status: "screening" | "survivor" | "culled" | "winner";
 };
-type Generation = { gen: number; ads: Ad[]; survivorIds: string[]; sealedSha256: string | null; tokens: number; seconds: number };
+type Generation = { gen: number; ads: Ad[]; survivorIds: string[]; sealedSha256: string | null; tokens: number; seconds: number;
+  timeline: { step: number; impressionsByAd: Record<string, number> }[] };   // 20 snapshots of simulated budget flowing to winners
 type Campaign = {
   id: string; name: string; createdAt: string; sourceImageUrl: string; product: Product;
   stage: "reading" | "writing" | "rendering" | "screening" | "selecting" | "done" | "error";
