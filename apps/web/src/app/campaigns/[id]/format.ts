@@ -23,13 +23,16 @@ export function fmtCtr(e: Experiment): string {
 }
 
 /**
- * A short name for the scene an image was rendered from, e.g. "Relaxed backyard BBQ".
- * ponytail: parsed from the render prompt's opening clause; ask the backend for a label field if prompts change shape.
+ * A short name for the scene an image was rendered from: the prompt's opening clause, e.g. "At a woodland campsite"
+ * or "Relaxed backyard BBQ". Group scenes by imageUrl, not by this label: two prompts can open alike.
+ * ponytail: parsed from the render prompt; ask the backend for a label field if prompts change shape.
  */
 export function sceneLabel(scene: string): string {
-  const m = /^(?:\d+\.\s*)?(?:an?|the)\s+(.+?)(?:\s+scene)?\s+\w+\s+the\s+(?:exactly\s+)?unchanged\b/i.exec(scene);
-  const label = m?.[1] ?? scene.split(/\s+/).slice(0, 4).join(" ");
-  return label.charAt(0).toUpperCase() + label.slice(1);
+  const opening = /^(?:\d+\.\s*)?(.+?)(?:,|\s+\w+\s+the\s+(?:exactly\s+)?unchanged\b)/i.exec(scene)?.[1]
+    ?? scene.split(/\s+/).slice(0, 4).join(" ");
+  const label = opening.replace(/^(?:an?|the)\s+/i, "").replace(/\s+scene$/i, "");
+  const short = label.length > 44 ? `${label.slice(0, 43).replace(/\s+\S*$/, "")}…` : label;
+  return short.charAt(0).toUpperCase() + short.slice(1);
 }
 
 export const allAds = (c: Campaign): Ad[] => c.generations.flatMap((g) => g.ads);
@@ -52,9 +55,12 @@ export const survived = (a: Ad) => a.status === "survivor" || a.status === "winn
 
 const STATUS_RANK: Record<Ad["status"], number> = { winner: 0, survivor: 1, screening: 2, culled: 3 };
 
-/** Winner, then survivors, then the rest; fittest first within each group. */
+/** The backend's selection score (apps/api/src/lib/evolve.ts `select`): posterior mean of the simulated CTR. */
+const posterior = (a: Ad) => (a.experiment ? (a.experiment.clicks + 1) / (a.experiment.impressions + 2) : -1);
+
+/** Winner, then survivors, then the rest; within each group, in the order the simulation ranked them. */
 export const byFitness = (a: Ad, b: Ad) =>
-  STATUS_RANK[a.status] - STATUS_RANK[b.status] || (b.fitness.ai?.rate ?? -1) - (a.fitness.ai?.rate ?? -1);
+  STATUS_RANK[a.status] - STATUS_RANK[b.status] || posterior(b) - posterior(a) || (b.fitness.ai?.rate ?? -1) - (a.fitness.ai?.rate ?? -1);
 
 export type Step = { key: string; label: string; state: "done" | "run" | "todo"; gen: number | null };
 

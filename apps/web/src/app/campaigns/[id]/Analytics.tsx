@@ -3,7 +3,7 @@ import { Segment, type Ad, type Campaign } from "@hack/contract";
 import { CartesianGrid, ReferenceLine, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from "recharts";
 import { ErrorNote, Skeleton } from "../../../components/ui";
 import { useEndpoint } from "../../../lib/useEndpoint";
-import { LEVERS, LEVER_LABEL, allAds, fmtRate, sceneLabel, survived } from "./format";
+import { LEVERS, LEVER_LABEL, allAds, firstCopies, fmtRate, sceneLabel, survived } from "./format";
 
 const GEN_FILL = ["#C2E773", "#336138", "#7FB24E"];
 const genFill = (gen: number) => GEN_FILL[Math.min(gen, 2)];
@@ -38,8 +38,8 @@ function Bars({ rows, kind, gens }: { rows: Row[]; kind: string; gens: number[] 
           </span>
         ))}
       </div>
-      {rows.map((r) => (
-        <div key={r.name} className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-center gap-3 border-t border-line py-2.5 sm:grid-cols-[190px_minmax(0,1fr)]">
+      {rows.map((r, i) => (
+        <div key={i} className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-center gap-3 border-t border-line py-2.5 sm:grid-cols-[190px_minmax(0,1fr)]">
           <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[15px]">
             {r.name}
             {r.winner && <span className="rounded-full bg-pistachio px-2 py-0.5 text-xs font-medium">Winner&apos;s {kind}</span>}
@@ -69,6 +69,7 @@ function Bars({ rows, kind, gens }: { rows: Row[]; kind: string; gens: number[] 
 
 export function Analytics({ campaign }: { campaign: Campaign }) {
   const results = useEndpoint("results");
+  const room = useEndpoint("variants"); // names the room test's product, which may not be this campaign's
   if (!campaign.generations.length) return <p className="text-[15px] text-muted">Analytics appear once Gen 0 has been screened.</p>;
 
   const ads = allAds(campaign);
@@ -81,12 +82,15 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
     });
   const total = (r: Row) => r.gens.reduce((s, g) => s + g.n, 0);
   const levers: Row[] = LEVERS.map((l) => ({ name: LEVER_LABEL[l], winner: winner?.lever === l, gens: tally((a) => a.lever === l) }));
-  const scenes: Row[] = [...new Set(ads.map((a) => sceneLabel(a.scene)))]
-    .map((s) => ({ name: s, winner: winner != null && sceneLabel(winner.scene) === s, gens: tally((a) => sceneLabel(a.scene) === s) }))
+  // A scene is a rendered image: copy mutations reuse their parent's image, scene mutations get a new one.
+  const sceneOf = (a: Ad) => a.imageUrl ?? a.scene;
+  const scenes: Row[] = [...new Map(ads.map((a) => [sceneOf(a), a.scene])).entries()]
+    .map(([key, prompt]) => ({ name: sceneLabel(prompt), winner: winner != null && sceneOf(winner) === key, gens: tally((a) => sceneOf(a) === key) }))
     .sort((a, b) => total(b) - total(a));
 
   // Rank 1 = fittest on each axis, over ads with enough people data to rank; ties keep list order.
-  const tested = ads.filter((a) => a.fitness.ai?.rate != null && a.fitness.human?.rate != null && a.fitness.human.n >= 10);
+  // firstCopies: a survivor carried into the next generation keeps its id, so count it once.
+  const tested = firstCopies(ads.filter((a) => a.fitness.ai?.rate != null && a.fitness.human?.rate != null && a.fitness.human.n >= 10));
   const rankBy = (rate: (a: Ad) => number) => new Map([...tested].sort((a, b) => rate(b) - rate(a)).map((a, i) => [a.id, i + 1]));
   const aiRank = rankBy((a) => a.fitness.ai?.rate ?? 0);
   const humanRank = rankBy((a) => a.fitness.human?.rate ?? 0);
@@ -149,7 +153,10 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
           )}
         </Panel>
 
-        <Panel title="Tap intent by segment" caption="From the room round with real people. Cells with n < 10 claim nothing.">
+        <Panel
+          title="Tap intent by segment"
+          caption={`Room test with real people${room.data ? `: ${room.data.product.brand} ${room.data.product.name}, round ${room.data.round}` : ""}. Separate from this campaign's AI run. Cells with n < 10 claim nothing.`}
+        >
           {results.error ? (
             <ErrorNote error={results.error} />
           ) : !r ? (

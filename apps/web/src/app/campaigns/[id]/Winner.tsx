@@ -10,7 +10,9 @@ export function Winner({ campaign, onOpen }: { campaign: Campaign; onOpen: (id: 
   const win = campaign.winnerId ? findAd(campaign, campaign.winnerId, last?.gen) : undefined;
   if (!win) return null;
   const parent = win.parentIds[0] ? findAd(campaign, win.parentIds[0]) : undefined;
-  const family = parent ? firstCopies(allAds(campaign).filter((a) => a.parentIds.includes(parent.id))) : [];
+  // The tree starts at the parent, or at the winner itself when it is an original that outlived its own children.
+  const root = parent ?? win;
+  const family = firstCopies(allAds(campaign).filter((a) => a.parentIds.includes(root.id)));
   const sealed = last?.sealedSha256;
 
   return (
@@ -43,15 +45,15 @@ export function Winner({ campaign, onOpen }: { campaign: Campaign; onOpen: (id: 
               <span className="font-medium">Simulated delivery:</span> CTR {fmtCtr(win.experiment)}. <span className="text-muted">Not real CTR.</span>
             </p>
           )}
-          {parent && (
+          {family.length > 0 && (
             <div className="flex flex-col gap-4">
               <span className="e-lbl">Family tree</span>
-              <button type="button" onClick={() => onOpen(parent.id)} className="flex max-w-[520px] cursor-pointer items-center gap-3 rounded-xl text-left">
-                <img src={parent.imageUrl ?? campaign.product.imageUrl} alt="" className="size-16 flex-none rounded-lg border border-line object-cover" />
+              <button type="button" onClick={() => onOpen(root.id)} className="flex max-w-[520px] cursor-pointer items-center gap-3 rounded-xl text-left">
+                <img src={root.imageUrl ?? campaign.product.imageUrl} alt="" className="size-16 flex-none rounded-lg border border-line object-cover" />
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-xs text-muted">Gen {parent.gen} · {STATUS_LABEL[parent.status]}</span>
-                  <span className="font-medium">{parent.headline}</span>
-                  {parent.fitness.ai && <span className="text-xs text-muted">AI {fmtRate(parent.fitness.ai)}</span>}
+                  <span className="text-xs text-muted">Gen {root.gen} · {STATUS_LABEL[root.status]}</span>
+                  <span className="font-medium">{root.headline}</span>
+                  {root.fitness.ai && <span className="text-xs text-muted">AI {fmtRate(root.fitness.ai)}</span>}
                 </span>
               </button>
               <span aria-hidden className="ml-8 h-5 w-px bg-ink/35" />

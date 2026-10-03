@@ -1,6 +1,6 @@
 import type { Ad, Product, Rate } from "@hack/contract";
 import { AdCard } from "../../vote-lite/AdCard";
-import { fmtRate, LEVER_LABEL, sceneLabel, STATUS_LABEL, survived } from "./format";
+import { fmtCtr, fmtRate, LEVER_LABEL, sceneLabel, STATUS_LABEL, survived } from "./format";
 
 const BADGE: Record<Ad["status"], string> = {
   winner: "e-lime",
@@ -23,7 +23,10 @@ export function RateBar({ rate, band, dot }: { rate: Rate; band: string; dot: st
   );
 }
 
-export function AdTile({ ad, product, onOpen }: { ad: Ad; product: Product; onOpen: () => void }) {
+/** Simulated delivery for one tile: impressions so far, its share of the leading ad's, and whether the run has finished. */
+export type Delivered = { impressions: number; share: number; final: boolean };
+
+export function AdTile({ ad, product, delivered, onOpen }: { ad: Ad; product: Product; delivered: Delivered | null; onOpen: () => void }) {
   const { ai, human } = ad.fitness;
   return (
     <div className="e-pol relative flex min-w-0 flex-col gap-2.5">
@@ -40,6 +43,20 @@ export function AdTile({ ad, product, onOpen }: { ad: Ad; product: Product; onOp
           {survived(ad) && <span aria-hidden className="text-forest">▲ </span>}
           <span className="font-medium text-ai">AI</span> {ai ? fmtRate(ai) : "screening"}
         </span>
+        {delivered && (
+          <>
+            <div aria-hidden className="relative h-1.5 rounded-full bg-track">
+              <span
+                className="e-lime absolute inset-y-0 left-0 rounded-full transition-[width] duration-300 motion-reduce:transition-none"
+                style={{ width: `${delivered.share * 100}%` }}
+              />
+            </div>
+            <span>
+              <span className="font-medium">Simulated</span>{" "}
+              {delivered.final && ad.experiment ? `CTR ${fmtCtr(ad.experiment)}` : `${delivered.impressions.toLocaleString("en-GB")} impressions`}
+            </span>
+          </>
+        )}
         {human ? (
           <>
             <RateBar rate={human} band="bg-pistachio" dot="bg-forest" />

@@ -14,9 +14,19 @@ test("rates use the house format, interval and n always shown", () => {
 });
 
 test("scene labels are the short opening clause of the render prompt", () => {
+  // Fixture-style prompts (subject, verb, "the unchanged pack") and real-run prompts (place, comma, pack).
   assert.equal(sceneLabel("A relaxed backyard BBQ scene pairs the unchanged pack, front label facing camera"), "Relaxed backyard BBQ");
   assert.equal(sceneLabel("1. A cosy movie-night nook places the exactly unchanged pack on a low oak table"), "Cosy movie-night nook");
+  assert.equal(sceneLabel("At a woodland campsite, the unchanged pack stands front label to camera"), "At a woodland campsite");
+  assert.equal(sceneLabel("On a dark wooden dining table beside a rain-streaked window, the unchanged EPIC pack"), "On a dark wooden dining table beside a…");
   assert.equal(sceneLabel("Flat lay of marshmallows on slate"), "Flat lay of marshmallows");
+});
+
+test("the grid follows the simulation's ranking, not the AI panel's", () => {
+  // Survivors are picked by posterior simulated CTR; a culled ad can have a higher AI P(tap) than the winner.
+  const culled = [...demo.generations[1]!.ads].filter((a) => a.status === "culled").sort(byFitness);
+  const ctr = (a: (typeof culled)[number]) => (a.experiment!.clicks + 1) / (a.experiment!.impressions + 2);
+  assert.ok(culled.every((a, i) => i === 0 || ctr(culled[i - 1]!) >= ctr(a)));
 });
 
 test("a carried-over survivor resolves to the copy in the generation it was opened from", () => {

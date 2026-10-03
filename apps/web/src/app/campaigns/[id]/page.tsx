@@ -2,20 +2,21 @@
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { Fragment, Suspense, useEffect, useState } from "react";
-import type { Campaign, Generation, Product } from "@hack/contract";
+import type { Ad, Campaign, Generation, Product } from "@hack/contract";
 import { Logo } from "../../../components/Logo";
 import { ErrorNote, Skeleton } from "../../../components/ui";
 import { fetchTyped } from "../../../lib/client";
 import { useEndpoint } from "../../../lib/useEndpoint";
 import { safeStorage, type StorageLike } from "../../vote-lite/lite";
 import { AdDrawer, type OpenAd } from "./AdDrawer";
-import { AdTile } from "./AdTile";
+import { AdTile, type Delivered } from "./AdTile";
 import { Analytics } from "./Analytics";
 import { Winner } from "./Winner";
 import { byFitness, railSteps, survived, type Step } from "./format";
 
 const POLL_MS = 2000;
 const FIRST_ADS = 12;
+const STEP_MS = 350;
 const ADMIN_KEY = "fk-admin";
 const WRAP = "mx-auto w-full max-w-[1344px] px-4 md:px-12";
 const PILL = "e-mono inline-flex h-11 items-center gap-2 whitespace-nowrap rounded-full border px-4 text-[13px] font-medium uppercase tracking-[0.04em]";
@@ -274,18 +275,52 @@ function Progress({ c }: { c: Campaign }) {
 
 function Grid({ gen, product, onOpen }: { gen: Generation; product: Product; onOpen: (id: string) => void }) {
   const [all, setAll] = useState(false);
+  const [step, setStep] = useState<number | null>(null); // null = the finished simulation
+  const last = gen.timeline.length - 1;
+
+  // "Play delivery" walks the 20 budget snapshots; the order of the cards stays fixed while it plays.
+  useEffect(() => {
+    if (step == null || step >= last) return;
+    const timer = setTimeout(() => setStep(step + 1), STEP_MS);
+    return () => clearTimeout(timer);
+  }, [step, last]);
+
   const ads = [...gen.ads].sort(byFitness);
   const alive = ads.filter(survived).length;
   const culled = ads.filter((a) => a.status === "culled").length;
+  const snapshot = step == null ? null : gen.timeline[step]?.impressionsByAd;
+  const shown = (a: Ad) => (snapshot ? (snapshot[a.id] ?? 0) : (a.experiment?.impressions ?? 0));
+  const lead = Math.max(1, ...ads.map(shown));
+  const total = ads.reduce((sum, a) => sum + shown(a), 0);
+  const final = step == null || step === last;
+  const delivered = (a: Ad): Delivered | null => (snapshot || a.experiment ? { impressions: shown(a), share: shown(a) / lead, final } : null);
+
   return (
     <>
       <div className="flex flex-wrap items-center gap-x-3.5 gap-y-2">
-        <span className="e-lbl">Gen {gen.gen} · sorted by fitness</span>
+        <span className="e-lbl">Gen {gen.gen} · ranked by simulated CTR</span>
         <span className="text-[15px] text-muted">{ads.length} ads. {alive || culled ? `${alive} survive, ${culled} culled.` : "Screening now."}</span>
       </div>
+      {last >= 0 && (
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <button type="button" onClick={() => setStep(0)} className="e-pill e-outline">Play delivery</button>
+          <input
+            type="range"
+            min={0}
+            max={last}
+            value={step ?? last}
+            onChange={(e) => setStep(Number(e.target.value))}
+            aria-label="Delivery step"
+            className="w-48 accent-forest"
+          />
+          <span className="e-mono text-[13px] text-muted">
+            Simulated · step {(step ?? last) + 1} of {last + 1} · {total.toLocaleString("en-GB")} impressions · not real CTR
+          </span>
+        </div>
+      )}
       <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(min(260px,100%),1fr))] gap-6">
         {(all ? ads : ads.slice(0, FIRST_ADS)).map((ad) => (
-          <AdTile key={ad.id} ad={ad} product={product} onOpen={() => onOpen(ad.id)} />
+          <AdTile key={ad.id} ad={ad} product={product} delivered={delivered(ad)} onOpen={() => onOpen(ad.id)} />
         ))}
       </div>
       {!all && ads.length > FIRST_ADS && (
