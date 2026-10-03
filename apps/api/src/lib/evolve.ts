@@ -168,6 +168,18 @@ async function askLines(product: Product, task: string, n: number): Promise<Line
   }
 }
 
+/** One look per render, so a run's images vary in format and colour, not only in setting (gimme-style variety). */
+const LOOKS = [
+  "Overhead flat lay.",
+  "Low-angle hero shot with the pack large in the foreground.",
+  "Bold saturated solid-colour background, studio light.",
+  "Tight close-up with a shallow depth of field.",
+  "Dark moody scene with a single warm spotlight.",
+  "Soft pastel minimal set with a long soft shadow.",
+  "Pop-art colour blocking with high contrast.",
+  "Golden-hour side light with long shadows.",
+];
+
 /** Renders each scene from the source photo with HERO_PROMPT's packaging-fidelity rules; returns served URLs. */
 async function renderScenes(opts: {
   label: string;
@@ -182,7 +194,8 @@ async function renderScenes(opts: {
   opts.onProgress("rendering", opts.label, done, opts.scenes.length);
   await mkdir(opts.outDir, { recursive: true });
   const rendered = await mapLimit([...opts.scenes], RENDER_CONCURRENCY, async (scene, i) => {
-    const { png, usage } = await editProductImage({ photo: opts.photo, prompt: `${HERO_PROMPT} Scene: ${scene}` });
+    const look = LOOKS[i % LOOKS.length];
+    const { png, usage } = await editProductImage({ photo: opts.photo, prompt: `${HERO_PROMPT} Scene: ${scene} Look: ${look}` });
     await writeFile(join(opts.outDir, `${opts.names[i]}.png`), png);
     opts.onProgress("rendering", opts.label, ++done, opts.scenes.length);
     return { url: `${opts.urlPrefix}/${opts.names[i]}.png`, tokens: usage?.total_tokens ?? 0 };

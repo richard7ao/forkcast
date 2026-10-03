@@ -2,13 +2,12 @@ import { Hono } from "hono";
 import type { z } from "zod";
 import { ChallengerRequest, CreateCampaignRequest, type ResponseOf } from "@hack/contract";
 import { createCampaign, evolveCampaign, loadCampaign } from "../lib/campaigns";
-import { adminTokenConfigured } from "../lib/challenger";
 import { toMetaCsv } from "../lib/metaExport";
 
 const issues = (error: z.ZodError) => error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ");
 const body = (c: { req: { json: () => Promise<unknown> } }) => c.req.json().catch(() => null);
 
-/** POST /campaigns starts a job and answers at once; poll GET /campaigns/:id. Evolve is admin only, as the challenger. */
+/** POST /campaigns starts a job and answers at once; poll GET /campaigns/:id. Evolve is open too (see its route). */
 export const campaignsRoutes = new Hono()
   .post("/campaigns", async (c) => {
     const parsed = CreateCampaignRequest.safeParse(await body(c));
@@ -38,11 +37,10 @@ export const campaignsRoutes = new Hono()
   })
   .post("/campaigns/:id/evolve", async (c) => {
     const rejected = (error: string): ResponseOf<"evolveCampaign"> => ({ ok: false, error });
-    const token = process.env.ADMIN_TOKEN;
-    if (!adminTokenConfigured(token)) return c.json(rejected("admin token not configured"), 401);
+    // Open to anyone, like POST /campaigns: the demo's "Breed the survivors" must work without a token, and a
+    // replayed generation costs nothing. ponytail: gate both on per-brand auth before this leaves the demo.
     const parsed = ChallengerRequest.safeParse(await body(c));
     if (!parsed.success) return c.json(rejected(issues(parsed.error)), 400);
-    if (parsed.data.adminToken !== token) return c.json(rejected("unauthorized"), 401);
     const started = evolveCampaign(c.req.param("id"));
     if ("error" in started) return c.json(rejected(started.error), started.status);
     return c.json({ ok: true, campaign: started.campaign } satisfies ResponseOf<"evolveCampaign">);
