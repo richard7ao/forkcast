@@ -32,7 +32,7 @@ export function AdTile({ ad, product, delivered, rank, onOpen }: {
   const top = rank != null && survived(ad);
   const badge = top ? (ad.status === "winner" ? "Winner" : "Survivor") : ad.status === "screening" ? "Screening" : null;
   return (
-    <div className={`group relative aspect-[9/16] min-w-0 rounded-[18px] ${rank === 1 ? "fk-crown" : top ? "fk-glow" : ""}`}>
+    <div className={`group relative aspect-square min-w-0 rounded-[18px] ${rank === 1 ? "fk-crown" : top ? "fk-glow" : ""}`}>
       <div className="absolute inset-0 overflow-hidden rounded-[18px] bg-[#1D1D1D]">
         <div className={`absolute inset-0 transition-opacity duration-500 motion-reduce:transition-none ${rank != null && !top ? "opacity-80" : ""}`}>
           <img src={ad.imageUrl ?? product.imageUrl} alt="" loading="lazy" className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none" />

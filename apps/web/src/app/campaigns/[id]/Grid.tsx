@@ -43,6 +43,7 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen, onHeatmaps }: {
   onHeatmaps: () => void;
 }) {
   const key = `fk-rollout:${c.id}:${gen.gen}`;
+  const [zoom, setZoom] = useState<Ad | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
   const [tick, setTick] = useState(0);
   const [lever, setLever] = useState<Lever | null>(null); // null = every lever
@@ -189,12 +190,39 @@ export function Grid({ c, gen, isLast, breed, onNext, onOpen, onHeatmaps }: {
               className="fk-pop grid h-full transition-[translate] duration-200 hover:-translate-y-1 motion-reduce:transition-none"
               style={{ "--d": `${Math.min(i, 24) * 40}ms` } as CSSProperties}
             >
-              <AdTile ad={ad} product={c.product} delivered={delivered(ad)} rank={ranked ? (rankOf.get(ad.id) ?? null) : null} onOpen={() => onOpen(ad.id)} />
+              <AdTile ad={ad} product={c.product} delivered={delivered(ad)} rank={ranked ? (rankOf.get(ad.id) ?? null) : null} onOpen={() => setZoom(ad)} />
             </div>
           </div>
         ))}
       </div>
+      {zoom && <Lightbox ad={zoom} onClose={() => setZoom(null)} onOpen={() => onOpen(zoom.id)} />}
     </>
+  );
+}
+
+/** First click on a tile shows the creative large; a click on it opens the ad's page. Esc or the backdrop closes. */
+function Lightbox({ ad, onClose, onOpen }: { ad: Ad; onClose: () => void; onOpen: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return (
+    <div role="dialog" aria-modal="true" aria-label={ad.headline} onClick={onClose} className="fk-fade fixed inset-0 z-50 grid place-items-center bg-black/70 p-4 backdrop-blur-sm">
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpen();
+        }}
+        className="fk-zoom-in flex w-full max-w-[min(90vw,620px)] cursor-pointer flex-col items-center gap-3"
+      >
+        <img src={ad.imageUrl} alt={ad.headline} className="w-full rounded-[18px] shadow-2xl" />
+        <span className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink">See how it performed →</span>
+      </button>
+    </div>
   );
 }
 
