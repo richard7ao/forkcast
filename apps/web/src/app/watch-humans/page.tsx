@@ -16,6 +16,7 @@
  * - Swipes stay in this tab; nothing is sent or stored. ponytail: POST them to a /campaigns/:id/swipes
  *   route that fills fitness.human once real members swipe.
  */
+import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Ad, Campaign, Product } from "@hack/contract";
@@ -242,6 +243,9 @@ function BrandView({ campaign, ads, claimed, tally }: { campaign: Campaign; ads:
           <li>Watch Humans members swipe on the finalists before their free sample ships.</li>
           <li>Each swipe is real human fitness, so people crown the winner, not the simulation. The video reviews follow.</li>
         </ol>
+        <Link href={`/watch-humans/analytics?c=${encodeURIComponent(campaign.id)}`} className="e-pill e-lime mt-2 w-full sm:w-auto">
+          See customer analytics →
+        </Link>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
