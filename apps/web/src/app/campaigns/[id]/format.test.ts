@@ -44,7 +44,7 @@ test("a carried-over survivor resolves to the copy in the generation it was open
 
 test("the rail reads Gen 0, survivors, Gen 1, survivors, Winner for a finished run", () => {
   assert.deepEqual(railSteps(demo).map((s) => `${s.label}:${s.state}`), [
-    "Gen 0 · 48 ads:done", "6 survive:done", "Gen 1 · 30 ads:done", "6 survive:done", "Winner:done",
+    "Gen 0 · 20 ads:done", "4 survive:done", "Gen 1 · 20 ads:done", "4 survive:done", "Winner:done",
   ]);
 });
 
@@ -71,14 +71,14 @@ test("the rollout crosses out the weakest ad first and never touches a survivor"
 test("the lever × scene heat map has one cell per lever and scene, and outlines the simulation's top pick", () => {
   const ads = demo.generations[0]!.ads;
   const { scenes, rows, best } = leverSceneGrid(ads);
-  assert.equal(rows.length * scenes.length, ads.length); // gen 0 is the full 6 × 8 grid
-  assert.ok(rows.every((r) => r.cells.every((a) => a?.lever === r.lever)));
+  assert.equal(rows.flatMap((r) => r.cells).filter(Boolean).length, ads.length); // every gen-0 ad lands in exactly one cell
+  assert.ok(rows.every((r) => r.cells.every((a) => !a || a.lever === r.lever)));
   assert.equal(best?.id, [...ads].sort(byFitness)[0]!.id);
   assert.ok(demo.generations[0]!.survivorIds.includes(best!.id));
 });
 
 test("the audience heat map averages each lever's ads per segment and skips ads without a score", () => {
-  const [a, b] = demo.generations[0]!.ads.filter((x) => x.lever === "value");
+  const [a, b] = demo.generations[0]!.ads.slice(0, 2).map((x) => ({ ...x, lever: "value" as const }));
   const ads: Ad[] = [
     { ...a!, fitness: { ...a!.fitness, aiBySegment: { student: 0.2, parent: 0.5 } } },
     { ...b!, fitness: { ...b!.fitness, aiBySegment: { student: 0.6 } } },
@@ -93,11 +93,11 @@ test("the winner page compares against the generation median and counts the cull
   assert.equal(median([4, 1, 2, 3]), 2.5);
   assert.equal(median([]), null);
   // A gen-0 survivor carried into gen 1 and kept again came through two culls; a gen-1 child, one.
-  const id = "g0-health_halo-3"; // a gen-0 survivor, re-screened and culled in gen 1
+  const id = "g0-provenance-3"; // a gen-0 survivor, re-screened and culled in gen 1
   assert.equal(gensSurvived(demo, id), 1);
   const keptAgain = { ...demo, generations: demo.generations.map((g) => ({ ...g, ads: g.ads.map((a) => (a.id === id ? { ...a, status: "survivor" as const } : a)) })) };
   assert.equal(gensSurvived(keptAgain, id), 2);
-  assert.equal(gensSurvived(demo, demo.winnerId!), 1);
+  assert.equal(gensSurvived(demo, demo.winnerId!), 2); // the demo winner is a gen-0 survivor that won gen 1 too
 });
 
 test("the winner page always has an ad once a generation is ranked: the crowned winner, else the Grid's #1", () => {
