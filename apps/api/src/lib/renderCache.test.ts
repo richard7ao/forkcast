@@ -4,11 +4,11 @@ import { test } from "node:test";
 import { Campaign } from "@hack/contract";
 import { pickMutations, renderCacheFrom, replayable, withoutShown, type Mutation } from "./renderCache";
 
-// The real demo run (demo-epic): gen 0 is 8 scenes x 6 levers, every ad with its own image; gen 1 has 6 scene
-// mutations (three of them of scene 3) and 18 copy mutations, which keep their parent's scene.
+// The real demo run (demo-epic): gen 0 is 20 of the original 8 scenes x 6 levers, every ad with its own image; gen 1 has 4 scene
+// mutations (three of them of scene 3) and 12 copy mutations, which keep their parent's scene.
 const demo = Campaign.parse(JSON.parse(readFileSync(new URL("../../../../fixtures/campaigns.json", import.meta.url), "utf8")).campaigns[0]);
 const running = (createdAt: string): Campaign => ({ ...demo, id: "running", createdAt, stage: "writing", generations: [], winnerId: null });
-const sceneOf = (i: number) => demo.generations[0]!.ads.find((ad) => ad.id === `g0-social_proof-${i}`)!.scene;
+const sceneOf = (i: number) => demo.generations[0]!.ads.find((ad) => ad.id === `g0-indulgence-${i}`)!.scene;
 // Two later runs of the same photo, with the demo's ad ids: one reused all its renders (the demo path), one wrote and rendered its own.
 const reuseRun: Campaign = { ...demo, id: "reuse", createdAt: "2026-10-04T00:00:00Z" };
 const liveRun: Campaign = {
@@ -34,21 +34,21 @@ test("the oldest finished run is the source whatever order runs are listed in, s
 test("scene mutations are cached under their parent's scene; copy mutations keep the parent's scene and add nothing", () => {
   const { mutations } = renderCacheFrom([demo])!;
   const cached = [...mutations.values()].flat().map((m) => m.imageUrl);
-  assert.equal(cached.length, 6);
-  assert.equal(new Set(cached).size, 6);
+  assert.equal(cached.length, 4);
+  assert.equal(new Set(cached).size, 4);
   assert.ok(cached.every((url) => /-s1\.(png|jpg)$/.test(url))); // the scene-mutation children (ids ending -s1)
   assert.equal(mutations.get(sceneOf(3))?.length, 3);
-  // Every ad has its own image now, so it is the copy mutations' unchanged scene that keeps all 18 out.
+  // Every ad has its own image now, so it is the copy mutations' unchanged scene that keeps all 12 out.
   const parentScene = new Map(demo.generations[0]!.ads.map((ad) => [ad.id, ad.scene]));
   const copies = demo.generations[1]!.ads.filter((ad) => /-c\d$/.test(ad.id));
-  assert.equal(copies.length, 18);
+  assert.equal(copies.length, 12);
   assert.ok(copies.every((ad) => ad.scene === parentScene.get(ad.parentIds[0]!)));
   assert.ok(copies.every((ad) => !cached.includes(ad.imageUrl!)));
 });
 
 test("across runs, a reused render is cached once, and each run's variations stay under its own parents' scenes", () => {
   // Counted twice, one render could go to two survivors of the same scene.
-  assert.equal([...renderCacheFrom([demo, reuseRun])!.mutations.values()].flat().length, 6);
+  assert.equal([...renderCacheFrom([demo, reuseRun])!.mutations.values()].flat().length, 4);
   // Ad ids repeat across runs: a parent looked up in the wrong run would file the variation under the wrong scene.
   const { mutations } = renderCacheFrom([demo, liveRun])!;
   assert.equal(mutations.get(sceneOf(3))?.length, 3);
@@ -70,10 +70,10 @@ test("evolving a campaign again never reuses a variation it already shows: those
   const cache = renderCacheFrom([demo])!;
   const shown = new Set(demo.generations.flatMap((g) => g.ads.map((ad) => ad.imageUrl)));
   const fresh = withoutShown(cache, shown);
-  assert.equal([...fresh.mutations.values()].flat().length, 0); // all 6 cached variations are demo's own gen-1 images
+  assert.equal([...fresh.mutations.values()].flat().length, 0); // all 4 cached variations are demo's own gen-1 images
   assert.deepEqual(pickMutations([sceneOf(3)], fresh.mutations), [null]);
   // ...while a different campaign of the same photo, which has not shown them, still reuses them
-  assert.equal([...withoutShown(cache, new Set()).mutations.values()].flat().length, 6);
+  assert.equal([...withoutShown(cache, new Set()).mutations.values()].flat().length, 4);
 });
 
 test("each survivor takes the next unused variation of its scene, and renders live once they run out", () => {

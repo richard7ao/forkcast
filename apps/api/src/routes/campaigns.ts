@@ -44,4 +44,10 @@ export const campaignsRoutes = new Hono()
     const started = evolveCampaign(c.req.param("id"));
     if ("error" in started) return c.json(rejected(started.error), started.status);
     return c.json({ ok: true, campaign: started.campaign } satisfies ResponseOf<"evolveCampaign">);
+  })
+  // Iterate on one ad: breeds a generation from just it (it + 3 copy + 1 scene mutation). Open and answered like evolve.
+  .post("/campaigns/:id/ads/:adId/iterate", (c) => {
+    const started = evolveCampaign(c.req.param("id"), c.req.param("adId"));
+    if ("error" in started) return c.json({ ok: false, error: started.error } satisfies ResponseOf<"evolveCampaign">, started.status);
+    return c.json({ ok: true, campaign: started.campaign } satisfies ResponseOf<"evolveCampaign">);
   });
