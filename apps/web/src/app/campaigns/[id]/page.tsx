@@ -12,10 +12,9 @@ import { AdDrawer, type OpenAd } from "./AdDrawer";
 import { AdTile, type Delivered } from "./AdTile";
 import { Analytics } from "./Analytics";
 import { Winner } from "./Winner";
-import { byFitness, railSteps, survived, type Step } from "./format";
+import { byFitness, errorText, railSteps, survived, type Step } from "./format";
 
 const POLL_MS = 2000;
-const FIRST_ADS = 12;
 const STEP_MS = 350;
 const ADMIN_KEY = "fk-admin";
 const WRAP = "mx-auto w-full max-w-[1344px] px-4 md:px-12";
@@ -33,7 +32,8 @@ export default function Page() {
 
 /**
  * The admin token arrives once as ?admin=<token>. Keep it for this tab and strip it from the URL,
- * so it never shows in the address bar on the demo screen or lands in browser history.
+ * so it stays out of the address bar on the demo screen. The first visit's URL still reaches browser history:
+ * record demos in a private window.
  */
 function useAdminToken(): string | null {
   const fromUrl = useSearchParams().get("admin");
@@ -111,9 +111,9 @@ function CampaignView() {
       {running && <Progress c={c} />}
       {running && error != null && <p className={`${WRAP} mt-3 text-sm text-muted`}>Lost contact with the server. Retrying every 2 s.</p>}
       {c.stage === "error" && (
-        <p role="alert" className={`${WRAP} mt-8 text-lg text-bad`}>This run stopped: {c.error ?? "no reason given"}. Start a new campaign to try again.</p>
+        <p role="alert" className={`${WRAP} mt-8 text-lg text-bad`}>This run stopped: {c.error ?? "no reason given"}. {c.generations.length ? "An admin can evolve again to retry." : "Start a new campaign to try again."}</p>
       )}
-      {c.winnerId && <div className={WRAP}><Winner campaign={c} onOpen={(id) => setOpen({ id })} /></div>}
+      {c.winnerId && !running && <div className={WRAP}><Winner campaign={c} onOpen={(id) => setOpen({ id })} /></div>}
       <div className={`${WRAP} mt-11`}>
         <div role="tablist" aria-label="Campaign views" className="flex gap-8 border-b border-line">
           {TABS.map(([key, label]) => (
@@ -178,7 +178,7 @@ function CampaignHeader({ c, adminToken, onEvolved }: { c: Campaign; adminToken:
             </ul>
           </>
         ) : (
-          <p className="text-sm text-muted">Reading the pack…</p>
+          c.stage === "reading" && <p className="text-sm text-muted">Reading the pack…</p>
         )}
         {adminToken && <Admin c={c} token={adminToken} onEvolved={onEvolved} />}
       </div>
@@ -186,11 +186,12 @@ function CampaignHeader({ c, adminToken, onEvolved }: { c: Campaign; adminToken:
   );
 }
 
-/** Shown only with ?admin=<token>; the API checks the token. */
+/** Shown once this tab has been given ?admin=<token> (see useAdminToken); the API checks the token. */
 function Admin({ c, token, onEvolved }: { c: Campaign; token: string; onEvolved: () => void }) {
   const [busy, setBusy] = useState(false);
   const [failure, setFailure] = useState<string | null>(null);
-  const ready = c.stage === "done";
+  // The API also evolves from an error, retrying from the last survivors instead of a new paid run.
+  const ready = (c.stage === "done" || c.stage === "error") && c.generations.length > 0;
 
   async function evolve() {
     setBusy(true);
@@ -200,7 +201,7 @@ function Admin({ c, token, onEvolved }: { c: Campaign; token: string; onEvolved:
       if (!res.ok) throw new Error(res.error ?? "Evolve was refused.");
       onEvolved();
     } catch (e) {
-      setFailure(e instanceof Error ? e.message : String(e));
+      setFailure(errorText(e));
     } finally {
       setBusy(false);
     }
@@ -210,11 +211,14 @@ function Admin({ c, token, onEvolved }: { c: Campaign; token: string; onEvolved:
     <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-2.5">
       <span className="e-lbl">Admin</span>
       <button type="button" onClick={evolve} disabled={!ready || busy} className="e-pill e-lime">{busy ? "Evolving…" : "Evolve"}</button>
+      {/* POST /campaigns/:id/room is not built: the room round runs from scripts/seal-round.sh. */}
+      <button type="button" disabled className="e-pill e-outline">Test with real people</button>
       {failure ? (
         <span role="alert" className="text-[13px] text-bad">{failure}</span>
       ) : (
         <span className="text-[13px] text-muted">
-          {ready ? "Breeds the next generation from the survivors." : c.stage === "error" ? "Evolve is off: this run stopped." : "Evolve is off while a generation runs."}
+          {!ready ? "Evolve is off while a generation runs." : c.stage === "error" ? "Evolve again to retry from the last survivors." : "Evolve breeds the next generation from the survivors."}{" "}
+          People rounds run from scripts/seal-round.sh for now.
         </span>
       )}
     </div>
@@ -274,7 +278,6 @@ function Progress({ c }: { c: Campaign }) {
 }
 
 function Grid({ gen, product, onOpen }: { gen: Generation; product: Product; onOpen: (id: string) => void }) {
-  const [all, setAll] = useState(false);
   const [step, setStep] = useState<number | null>(null); // null = the finished simulation
   const last = gen.timeline.length - 1;
 
@@ -319,16 +322,10 @@ function Grid({ gen, product, onOpen }: { gen: Generation; product: Product; onO
         </div>
       )}
       <div className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(min(260px,100%),1fr))] gap-6">
-        {(all ? ads : ads.slice(0, FIRST_ADS)).map((ad) => (
+        {ads.map((ad) => (
           <AdTile key={ad.id} ad={ad} product={product} delivered={delivered(ad)} onOpen={() => onOpen(ad.id)} />
         ))}
       </div>
-      {!all && ads.length > FIRST_ADS && (
-        <div className="e-pol mt-7 flex flex-wrap items-center justify-between gap-4 px-6 py-5">
-          <span className="text-xl tracking-[-0.02em]">{ads.length - FIRST_ADS} more ads</span>
-          <button type="button" onClick={() => setAll(true)} className="e-pill e-outline">Show all {ads.length}</button>
-        </div>
-      )}
     </>
   );
 }

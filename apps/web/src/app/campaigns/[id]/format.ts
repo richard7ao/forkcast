@@ -35,6 +35,12 @@ export function sceneLabel(scene: string): string {
   return short.charAt(0).toUpperCase() + short.slice(1);
 }
 
+/** fetchTyped throws "name: status {json}" on a non-2xx response; show people only the API's own error message. */
+export function errorText(e: unknown): string {
+  const message = e instanceof Error ? e.message : String(e);
+  return /"error":"((?:[^"\\]|\\.)*)"/.exec(message)?.[1] ?? message;
+}
+
 export const allAds = (c: Campaign): Ad[] => c.generations.flatMap((g) => g.ads);
 
 /**
@@ -79,6 +85,7 @@ export function railSteps(c: Campaign): Step[] {
     const gen = c.generations.length;
     steps.push({ key: `g${gen}`, gen: null, label: `Gen ${gen}`, state: "run" }, { key: `s${gen}`, gen: null, label: "Survivors", state: "todo" });
   }
-  steps.push({ key: "winner", gen: null, label: "Winner", state: c.winnerId ? "done" : "todo" });
+  // The backend keeps the previous winnerId while it evolves, so a running campaign has no winner yet.
+  steps.push({ key: "winner", gen: null, label: "Winner", state: c.winnerId && !running ? "done" : "todo" });
   return steps;
 }

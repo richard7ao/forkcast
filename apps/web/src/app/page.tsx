@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { CreateCampaignRequest } from "@hack/contract";
 import { Logo } from "../components/Logo";
 import { fetchTyped } from "../lib/client";
+import { errorText } from "./campaigns/[id]/format";
 
 /** Real renders from the demo campaign, floating beside the form on wide screens. */
 const FLOATS = [
@@ -74,7 +75,7 @@ export default function Page() {
       if (!res.ok || !res.campaignId) throw new Error(res.error ?? "The campaign did not start.");
       router.push(`/campaigns/${encodeURIComponent(res.campaignId)}`);
     } catch (err) {
-      setError(`Could not start the campaign. ${err instanceof Error ? err.message : String(err)}`);
+      setError(`Could not start the campaign. ${errorText(err)}`);
       setBusy(false);
     }
   }
@@ -86,7 +87,7 @@ export default function Page() {
       </header>
       {FLOATS.map((f) => (
         <div key={f.src} aria-hidden className={`e-pol absolute hidden w-[184px] min-[1300px]:block ${f.at}`}>
-          <img src={f.src} alt="" className="block aspect-square w-full rounded-[10px] object-cover" />
+          <img src={f.src} alt="" loading="lazy" className="block aspect-square w-full rounded-[10px] object-cover" />
         </div>
       ))}
       <main className="relative mx-auto flex max-w-[1344px] flex-col items-center px-4 pb-14 pt-12 text-center md:px-6">
@@ -97,7 +98,7 @@ export default function Page() {
           <span className="block">ads survive.</span>
         </h1>
         <p className="mx-auto mt-[22px] max-w-[640px] text-[17px] leading-[1.45] text-muted md:text-xl md:leading-[1.45]">
-          Drop one product photo. Forkcast writes 48 Meta ads, screens them with AI shoppers, then real people, breeds the survivors and exports the winner to Meta.
+          Drop one product photo. Forkcast writes 48 Meta ads, tests them on AI shoppers and a simulated Meta delivery, breeds the survivors and exports the winner to Meta.
         </p>
         <form onSubmit={run} aria-label="New campaign" className="mt-9 flex w-full max-w-[760px] flex-wrap gap-4 rounded-[20px] border border-edge bg-white p-4 text-left">
           <div
@@ -157,7 +158,7 @@ export default function Page() {
         <button type="button" onClick={() => void pickDemoPhoto()} className="mt-6 cursor-pointer text-[15px] underline underline-offset-4">
           Or use the demo photo: EPIC Snax Giant Toastin&apos; Marshmallows
         </button>
-        <p className="mt-4 text-[15px] text-muted">No campaigns yet. Next up: the same loop for Shopify product photos.</p>
+        <p className="mt-4 text-[15px] text-muted">Next up: the same loop for Shopify product photos.</p>
       </main>
     </div>
   );

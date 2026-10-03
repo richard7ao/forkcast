@@ -52,7 +52,7 @@ export function AdDrawer({ campaign, open, onOpen, onClose }: {
             </button>
           </div>
           <h2 id="ad-title" className="e-h text-[32px]">{ad.headline}</h2>
-          <div className={CARD_FRAME}><AdCard product={campaign.product} variant={ad} /></div>
+          <div className={CARD_FRAME}><AdCard key={key} product={campaign.product} variant={ad} /></div>
           <dl className="grid grid-cols-[118px_minmax(0,1fr)] text-[15px] leading-snug">
             <dt className={DT}>Lever</dt><dd className={ROW}>{LEVER_LABEL[ad.lever]}</dd>
             <dt className={DT}>Scene</dt><dd className={ROW}>{sceneLabel(ad.scene)}</dd>
@@ -64,7 +64,7 @@ export function AdDrawer({ campaign, open, onOpen, onClose }: {
             <span className="e-lbl">Lineage</span>
             <p className="text-[15px]">{parents.length ? "Parent:" : "Parents: none, an original from the upload."}</p>
             {parents.length > 0 && <Thumbs ads={parents} fallback={campaign.product.imageUrl} onOpen={onOpen} />}
-            <p className="text-[15px]">{children.length ? `Children: ${children.length} in Gen ${ad.gen + 1}` : "Children: none yet."}</p>
+            <p className="text-[15px]">{children.length ? `Children: ${children.length}` : "Children: none yet."}</p>
             {children.length > 0 && <Thumbs ads={children} fallback={campaign.product.imageUrl} onOpen={onOpen} />}
           </div>
           <div className="flex flex-col gap-2.5">

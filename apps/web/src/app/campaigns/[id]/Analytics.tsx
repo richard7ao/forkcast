@@ -15,6 +15,18 @@ const SEG_LABEL: Record<Segment, string> = {
 const AXIS_TICK = { fontSize: 12, fill: "#555555" };
 
 type Row = { name: string; winner: boolean; gens: { gen: number; n: number; of: number }[] };
+type Point = { x: number; y: number; label: string; ai: string; human: string };
+
+/** Rank 1 = fittest on each axis; ties keep list order. */
+function rankPoints<T>(items: T[], ai: (t: T) => number, human: (t: T) => number, describe: (t: T) => Omit<Point, "x" | "y">): Point[] {
+  const rank = (score: (t: T) => number) => new Map([...items].sort((a, b) => score(b) - score(a)).map((t, i) => [t, i + 1]));
+  const byAi = rank(ai);
+  const byHuman = rank(human);
+  return items.map((t) => ({ x: byAi.get(t) ?? 0, y: byHuman.get(t) ?? 0, ...describe(t) }));
+}
+
+/** A row with no ads in a generation: it died out earlier, or it only appears later. */
+const absent = (r: Row, gen: number) => (r.gens.some((g) => g.gen < gen && g.of > 0) ? "extinct" : "not yet");
 
 function Panel({ title, caption, children }: { title: string; caption: string; children: React.ReactNode }) {
   return (
@@ -46,7 +58,7 @@ function Bars({ rows, kind, gens }: { rows: Row[]; kind: string; gens: number[] 
           </span>
           <div
             role="img"
-            aria-label={r.gens.map((g) => `Gen ${g.gen}: ${g.of ? `${g.n} of ${g.of} survivors` : "not tested"}.`).join(" ")}
+            aria-label={r.gens.map((g) => `Gen ${g.gen}: ${g.of ? `${g.n} of ${g.of} survivors` : absent(r, g.gen)}.`).join(" ")}
             className="flex flex-col gap-1"
           >
             {r.gens.map((g) => (
@@ -57,7 +69,7 @@ function Bars({ rows, kind, gens }: { rows: Row[]; kind: string; gens: number[] 
                     style={{ width: g.n ? `${(g.n / g.of) * 100}%` : g.of ? 2 : 0, background: g.n ? genFill(g.gen) : "#1D1D1D" }}
                   />
                 </span>
-                <span className="w-16 shrink-0">{g.of ? `${g.n} of ${g.of}` : "not tested"}</span>
+                <span className="w-16 shrink-0">{g.of ? `${g.n} of ${g.of}` : absent(r, g.gen)}</span>
               </span>
             ))}
           </div>
@@ -88,18 +100,28 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
     .map(([key, prompt]) => ({ name: sceneLabel(prompt), winner: winner != null && sceneOf(winner) === key, gens: tally((a) => sceneOf(a) === key) }))
     .sort((a, b) => total(b) - total(a));
 
-  // Rank 1 = fittest on each axis, over ads with enough people data to rank; ties keep list order.
-  // firstCopies: a survivor carried into the next generation keeps its id, so count it once.
+  // Over ads with people results, n >= 10. firstCopies: a survivor carried into the next generation keeps its id.
+  // Campaign ads get people results only from a room round on them; until then, rank the room test's ads instead.
   const tested = firstCopies(ads.filter((a) => a.fitness.ai?.rate != null && a.fitness.human?.rate != null && a.fitness.human.n >= 10));
-  const rankBy = (rate: (a: Ad) => number) => new Map([...tested].sort((a, b) => rate(b) - rate(a)).map((a, i) => [a.id, i + 1]));
-  const aiRank = rankBy((a) => a.fitness.ai?.rate ?? 0);
-  const humanRank = rankBy((a) => a.fitness.human?.rate ?? 0);
-  const points = tested.map((a) => ({ x: aiRank.get(a.id) ?? 0, y: humanRank.get(a.id) ?? 0, ad: a }));
+  const r = results.data;
+  const roomTested = r?.variants.filter((v) => v.ai != null && v.human.rate != null && v.human.n >= 10) ?? [];
+  const useRoom = tested.length < 3 && roomTested.length >= 3;
+  const points = useRoom
+    ? rankPoints(roomTested, (v) => v.ai ?? 0, (v) => v.human.rate ?? 0, (v) => ({
+        label: room.data?.variants.find((x) => x.id === v.variantId)?.headline ?? LEVER_LABEL[v.lever],
+        ai: `${Math.round((v.ai ?? 0) * 100)}%`,
+        human: fmtRate(v.human),
+      }))
+    : rankPoints(tested, (a) => a.fitness.ai?.rate ?? 0, (a) => a.fitness.human?.rate ?? 0, (a) => ({
+        label: a.headline,
+        ai: a.fitness.ai ? fmtRate(a.fitness.ai) : "",
+        human: a.fitness.human ? fmtRate(a.fitness.human) : "",
+      }));
   const n = points.length;
   const rho = 1 - (6 * points.reduce((s, p) => s + (p.x - p.y) ** 2, 0)) / (n * (n * n - 1));
+  const card = useRoom ? r?.scorecards.find((s) => s.round === r.activeRound) : undefined; // pre-registered analysis
   const ticks = points.map((_, i) => i + 1);
 
-  const r = results.data;
   const segs = r ? Segment.options.filter((s) => r.cells.some((c) => c.segment === s)) : [];
 
   return (
@@ -113,7 +135,12 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
           <Bars rows={scenes} kind="scene" gens={gens} />
         </Panel>
 
-        <Panel title="AI shoppers vs humans" caption="Ranks of the ads tested with people, n ≥ 10 each. On the dashed line, AI shoppers and humans agree.">
+        <Panel
+          title="AI shoppers vs humans"
+          caption={useRoom
+            ? `No campaign ads have people results yet, so this ranks the room test's ads${room.data ? ` (${room.data.product.brand} ${room.data.product.name})` : ""}, n ≥ 10 each. On the dashed line, AI shoppers and humans agree.`
+            : "Ranks of the ads tested with people, n ≥ 10 each. On the dashed line, AI shoppers and humans agree."}
+        >
           {n < 3 ? (
             <p className="text-[15px] text-muted">No ads tested with people yet. Ranks appear once at least 3 survivors have human results.</p>
           ) : (
@@ -137,9 +164,9 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
                         const p = payload?.[0]?.payload as (typeof points)[number] | undefined;
                         return p ? (
                           <div className="rounded-lg border border-edge bg-white px-3 py-2 text-[13px] leading-snug shadow-sm">
-                            <p className="font-medium">{p.ad.headline}</p>
-                            <p>AI shoppers, rank {p.x}: {p.ad.fitness.ai && fmtRate(p.ad.fitness.ai)}</p>
-                            <p>Humans, rank {p.y}: {p.ad.fitness.human && fmtRate(p.ad.fitness.human)}</p>
+                            <p className="font-medium">{p.label}</p>
+                            <p>AI shoppers, rank {p.x}: {p.ai}</p>
+                            <p>Humans, rank {p.y}: {p.human}</p>
                           </div>
                         ) : null;
                       }}
@@ -148,7 +175,10 @@ export function Analytics({ campaign }: { campaign: Campaign }) {
                   </ScatterChart>
                 </ResponsiveContainer>
               </div>
-              <p className="text-[15px] text-muted">Spearman ρ {rho.toFixed(2)} across {n} tested ads.</p>
+              <p className="text-[15px] text-muted">
+                Spearman ρ {(card?.spearman ?? rho).toFixed(2)} across {n} ads
+                {card?.mae != null && `, mean error ${Math.round(card.mae * 100)} points (pre-registered, round ${card.round})`}.
+              </p>
             </>
           )}
         </Panel>

@@ -44,7 +44,8 @@ test("the rail reads Gen 0, survivors, Gen 1, survivors, Winner for a finished r
 });
 
 test("after Evolve, the rail shows the next generation running before it has any ads", () => {
-  const evolving = { ...demo, stage: "writing" as const, winnerId: null };
+  // The backend keeps the previous winnerId while it evolves; the rail must not show that winner as done.
+  const evolving = { ...demo, stage: "writing" as const };
   assert.deepEqual(railSteps(evolving).slice(-3).map((s) => `${s.label}:${s.state}`), ["Gen 2:run", "Survivors:todo", "Winner:todo"]);
 });
 

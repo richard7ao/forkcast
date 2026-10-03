@@ -34,7 +34,7 @@ export function Winner({ campaign, onOpen }: { campaign: Campaign; onOpen: (id: 
         <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-4">
             <Stat name="AI shoppers" swatch="bg-ai-mark" rate={win.fitness.ai} band="bg-ai-mark" dot="bg-ai">
-              {sealed ? <>P(tap), sealed as <span className="e-mono">{sealed.slice(0, 8)}</span> before people tested it.</> : "P(tap) from the AI shopper panel."}
+              {sealed ? <>P(tap), sealed as <span className="e-mono">{sealed.slice(0, 8)}</span> before any people test.</> : "P(tap) from the AI shopper panel."}
             </Stat>
             <Stat name="People" swatch="bg-forest" rate={win.fitness.human} band="bg-[#7FB24E]" dot="bg-forest">
               Tap rate from real people.
