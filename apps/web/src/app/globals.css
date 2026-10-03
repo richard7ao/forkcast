@@ -77,23 +77,20 @@ body:has(.theme-e) { background: #FFFFFF; }
 .fk-float { animation: fk-float 6s ease-in-out infinite; animation-delay: var(--d, 0ms); }
 
 /*
- * Campaign rollout: a loser is crossed out with a drawn stroke (pathLength 1, so the dash maths holds at any card
- * size), a survivor's badge pops in a lime glow, and the winner pulses with a short burst.
+ * Campaign rollout: once the grid re-sorts best to worst, a survivor's badge pops in a lime glow and the top ad
+ * pulses with a short burst.
  */
-@keyframes fk-draw { from { stroke-dashoffset: 1; } }
 @keyframes fk-badge { from { opacity: 0; scale: 0.4; } 60% { opacity: 1; scale: 1.15; } }
 @keyframes fk-glow { from { box-shadow: 0 0 0 0 rgb(182 240 0 / 0), 0 0 0 rgb(182 240 0 / 0), 0 14px 36px rgb(0 0 0 / 0.10); } }
 @keyframes fk-crown { 50% { box-shadow: 0 0 0 5px #B6F000, 0 0 72px rgb(43 168 74 / 0.6), 0 14px 36px rgb(0 0 0 / 0.12); } }
 @keyframes fk-burst { from { opacity: 1; transform: rotate(var(--a)) translateY(0) scale(1); } to { opacity: 0; transform: rotate(var(--a)) translateY(-150px) scale(0.3); } }
 
-.fk-cross path { fill: none; stroke: rgb(29 29 29 / 0.85); stroke-width: 1.3; stroke-linecap: round; stroke-dasharray: 1; animation: fk-draw 0.3s cubic-bezier(0.6, 0, 0.3, 1) both; }
-.fk-cross path + path { animation-delay: 0.12s; }
 .fk-badge { animation: fk-badge 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .fk-glow { box-shadow: 0 0 0 2px #B6F000, 0 0 32px rgb(182 240 0 / 0.55), 0 14px 36px rgb(0 0 0 / 0.10); animation: fk-glow 0.6s ease-out both; }
 .fk-crown { box-shadow: 0 0 0 3px #B6F000, 0 0 48px rgb(43 168 74 / 0.5), 0 14px 36px rgb(0 0 0 / 0.12); animation: fk-crown 1.2s ease-in-out 2; }
 .fk-burst i { position: absolute; left: 50%; top: 40%; width: 8px; height: 8px; margin: -4px; border-radius: 999px; background: var(--c); animation: fk-burst 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
 
 @media (prefers-reduced-motion: reduce) {
-  .fk-shimmer, .fk-float, .fk-blur-in, .fk-pop, .fk-cross path, .fk-badge, .fk-glow, .fk-crown { animation: none; }
+  .fk-shimmer, .fk-float, .fk-blur-in, .fk-pop, .fk-badge, .fk-glow, .fk-crown { animation: none; }
   .fk-scan, .fk-burst { display: none; }
 }

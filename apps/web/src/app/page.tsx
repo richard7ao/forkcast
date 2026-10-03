@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type CSSProperties, type FormEvent } from "react";
 import { CreateCampaignRequest } from "@hack/contract";
@@ -84,8 +85,9 @@ export default function Page() {
 
   return (
     <div className="theme-e relative overflow-hidden">
-      <header className="relative z-10 mx-auto flex max-w-[1344px] items-center px-4 py-6 md:px-10">
+      <header className="relative z-10 mx-auto flex max-w-[1344px] items-center justify-between gap-3 px-4 py-6 md:px-10">
         <Logo />
+        <Link href="/watch-humans" aria-label="Watch Humans integration" className="e-pill e-outline px-4">Watch Humans<span className="hidden sm:inline">&nbsp;integration</span></Link>
       </header>
       {FLOATS.map((f, i) => (
         <div key={f.src} aria-hidden className={`fk-float absolute hidden w-[184px] min-[1300px]:block ${f.at}`} style={{ "--d": `${i * -1.4}s` } as CSSProperties}>
@@ -103,7 +105,7 @@ export default function Page() {
           <span className="block">Only the fittest</span>
           <span className="rounded-[18px] bg-pistachio px-[0.14em] pb-[0.04em] [box-decoration-break:clone]">ads survive.</span>
         </h1>
-        <p className="mx-auto mt-[22px] max-w-[640px] text-[17px] leading-[1.45] text-muted md:text-xl md:leading-[1.45]">
+        <p style={{ "--d": "120ms" } as CSSProperties} className="fk-pop mx-auto mt-[22px] max-w-[640px] text-[17px] leading-[1.45] text-muted md:text-xl md:leading-[1.45]">
           Drop one product photo. Forkcast writes 48 Meta ads, tests them on AI shoppers and a simulated Meta delivery, breeds the survivors and exports the winner to Meta.
         </p>
         {/* One pill, as on getgimmegimme.com: the whole left side is the file picker and the drop target. */}
@@ -120,7 +122,8 @@ export default function Page() {
             setOver(false);
             void pick(e.dataTransfer.files[0]);
           }}
-          className={`mt-9 flex w-full max-w-[600px] items-center gap-2 rounded-full border bg-white p-2 text-left shadow-[0_1px_2px_rgb(0_0_0/0.06),0_14px_36px_rgb(0_0_0/0.08)] transition-colors ${over ? "border-forest bg-pistachio/20" : "border-edge"}`}
+          style={{ "--d": "220ms" } as CSSProperties}
+          className={`fk-pop mt-9 flex w-full max-w-[600px] items-center gap-2 rounded-full border bg-white p-2 text-left shadow-[0_1px_2px_rgb(0_0_0/0.06),0_14px_36px_rgb(0_0_0/0.08)] transition-colors ${over ? "border-forest bg-pistachio/20" : "border-edge"}`}
         >
           <input id="image" type="file" accept={ACCEPT.join(",")} className="peer sr-only" onChange={(e) => void pick(e.target.files?.[0])} />
           <label
@@ -145,7 +148,7 @@ export default function Page() {
             </span>
           </label>
           <button type="submit" disabled={busy} className="inline-flex h-12 flex-none cursor-pointer items-center gap-2 rounded-full bg-ink px-5 text-[15px] font-medium text-white disabled:cursor-not-allowed disabled:opacity-60">
-            {busy ? "Starting…" : "Gimme ads"}
+            {busy ? "Starting…" : <>Create<span className="hidden sm:inline">&nbsp;marketing</span>&nbsp;experiment</>}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M5 12h14" />
               <path d="M13 6l6 6-6 6" />
@@ -154,7 +157,7 @@ export default function Page() {
         </form>
         <p className="mt-3 text-[13px] text-muted">JPEG or PNG, up to 6 MB.</p>
         {error && <p role="alert" className="mt-2 text-sm text-bad">{error}</p>}
-        <button type="button" onClick={() => void pickDemoPhoto()} className="mt-6 cursor-pointer text-[15px] underline underline-offset-4">
+        <button type="button" onClick={() => void pickDemoPhoto()} style={{ "--d": "320ms" } as CSSProperties} className="fk-pop mt-6 cursor-pointer text-[15px] underline underline-offset-4">
           Or use the demo photo: EPIC Snax Giant Toastin&apos; Marshmallows
         </button>
         <p className="mt-4 text-[15px] text-muted">Next up: the same loop for Shopify product photos.</p>

@@ -10,10 +10,11 @@ export function TopBar({ campaign }: { campaign?: Campaign }) {
   const crowned = campaign?.winnerId && (campaign.stage === "done" || campaign.stage === "error");
   return (
     <header className="border-b border-line">
-      <div className={`${WRAP} flex items-center justify-between gap-3 py-[18px]`}>
+      <div className={`${WRAP} flex flex-wrap items-center justify-between gap-3 py-[18px]`}>
         <Logo />
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
           {crowned && <Link href={`/campaigns/${encodeURIComponent(campaign.id)}/winner`} className="e-pill e-lime px-4">★ Winner</Link>}
+          <Link href={campaign ? `/watch-humans?c=${encodeURIComponent(campaign.id)}` : "/watch-humans"} aria-label="Watch Humans integration" className="e-pill e-outline px-4">Watch Humans<span className="hidden sm:inline">&nbsp;integration</span></Link>
           <Link href="/" className="e-pill e-outline px-4">New<span className="hidden sm:inline">&nbsp;campaign</span></Link>
         </div>
       </div>

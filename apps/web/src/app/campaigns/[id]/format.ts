@@ -35,6 +35,10 @@ export function sceneLabel(scene: string): string {
   return short.charAt(0).toUpperCase() + short.slice(1);
 }
 
+/** An ad's performance page. Ids repeat across generations (survivors are carried over), so pass the generation. */
+export const adHref = (campaignId: string, adId: string, gen?: number): string =>
+  `/campaigns/${encodeURIComponent(campaignId)}/ads/${encodeURIComponent(adId)}${gen == null ? "" : `?gen=${gen}`}`;
+
 /** fetchTyped throws "name: status {json}" on a non-2xx response; show people only the API's own error message. */
 export function errorText(e: unknown): string {
   const message = e instanceof Error ? e.message : String(e);
