@@ -1,0 +1,4256 @@
+{
+  "round": 1,
+  "model": "gpt-5.4-mini",
+  "personasPerSegment": 25,
+  "perSegment": {
+    "r1-social_proof": {
+      "student": 0,
+      "young_pro": 0,
+      "parent": 0.16,
+      "fitness": 0.12
+    },
+    "r1-scarcity": {
+      "student": 0.08,
+      "young_pro": 0.04,
+      "parent": 0.12,
+      "fitness": 0
+    },
+    "r1-health_halo": {
+      "student": 0.36,
+      "young_pro": 0.48,
+      "parent": 0.32,
+      "fitness": 0.48
+    },
+    "r1-indulgence": {
+      "student": 0.04,
+      "young_pro": 0.08,
+      "parent": 0.08,
+      "fitness": 0.04
+    },
+    "r1-provenance": {
+      "student": 0,
+      "young_pro": 0.04,
+      "parent": 0,
+      "fitness": 0
+    },
+    "r1-value": {
+      "student": 0.32,
+      "young_pro": 0.36,
+      "parent": 0.48,
+      "fitness": 0.48
+    }
+  },
+  "answers": [
+    {
+      "personaId": "student-1",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Cute, but giant marshmallows aren’t something I’d buy for myself on a student budget."
+    },
+    {
+      "personaId": "student-1",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so it’s pretty irrelevant to me."
+    },
+    {
+      "personaId": "student-1",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Sounds like a party food I’d still just skip unless I was already going to a BBQ."
+    },
+    {
+      "personaId": "student-1",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and calories info is actually useful, even if I’m still a bit sceptical of the branding."
+    },
+    {
+      "personaId": "student-1",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style/Belgian-production line feels like marketing fluff, not a reason to click."
+    },
+    {
+      "personaId": "student-1",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A s’mores recipe on the bag is mildly useful, and I’d want to see if it works for a cheap treat."
+    },
+    {
+      "personaId": "student-2",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Fun for a BBQ, but I’m not really buying giant marshmallows off Instagram."
+    },
+    {
+      "personaId": "student-2",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The facts are nice, but it still feels like a pretty standard sweet snack ad."
+    },
+    {
+      "personaId": "student-2",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style angle doesn’t really grab me enough to tap."
+    },
+    {
+      "personaId": "student-2",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just marshmallows and I’d keep scrolling."
+    },
+    {
+      "personaId": "student-2",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel a bit more useful and tempting."
+    },
+    {
+      "personaId": "student-2",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s upbeat, but I’m unlikely to click for a bag of marshmallows right now."
+    },
+    {
+      "personaId": "student-3",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "They look like sugary BBQ marshmallows, which isn’t really something I’d stop for."
+    },
+    {
+      "personaId": "student-3",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The “American style” angle doesn’t make it more relevant to me, and it still looks like a generic marshmallow ad."
+    },
+    {
+      "personaId": "student-3",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d only care if I needed a gluten-free label check, and this ad doesn’t mention that."
+    },
+    {
+      "personaId": "student-3",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds like a party snack, but I’m not tempted enough to tap."
+    },
+    {
+      "personaId": "student-3",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s just another marshmallow promo and I’d keep scrolling."
+    },
+    {
+      "personaId": "student-3",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "I’d tap to check the gluten-free claim and ingredients because I need that info for coeliac safety."
+    },
+    {
+      "personaId": "student-4",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "I’d probably skip it because the health facts don’t make a marshmallow ad feel any more useful to me."
+    },
+    {
+      "personaId": "student-4",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ/snacking ads aren’t really my thing, and this one sounds more like a party thing than something I’d buy."
+    },
+    {
+      "personaId": "student-4",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It’s still just marshmallows for toasting, so I’d likely keep scrolling."
+    },
+    {
+      "personaId": "student-4",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have much interest in grabbing marshmallows for a grill or fire pit."
+    },
+    {
+      "personaId": "student-4",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s’mores angle is nice, but I’d still probably not tap because I’m picky and wouldn’t go out of my way for it."
+    },
+    {
+      "personaId": "student-4",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "This feels like another sweet snack ad, and I usually ignore those unless it’s a brand I already buy."
+    },
+    {
+      "personaId": "student-5",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Looks like a novelty marshmallow ad and I’m not planning a BBQ, so I’d keep scrolling."
+    },
+    {
+      "personaId": "student-5",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s clearly for group BBQ snacking, which isn’t really my thing enough to tap."
+    },
+    {
+      "personaId": "student-5",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but this is still just marshmallows and I’d probably ignore it."
+    },
+    {
+      "personaId": "student-5",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The copy is a bit over-the-top, but I’m not especially interested in giant toasting mallows."
+    },
+    {
+      "personaId": "student-5",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d only buy these if I already wanted marshmallows, so I’d scroll past."
+    },
+    {
+      "personaId": "student-5",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and calorie info makes it the most useful one to quickly check."
+    },
+    {
+      "personaId": "student-6",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Marshmallows sound nice, but I’m not really going out of my way for a BBQ-only snack."
+    },
+    {
+      "personaId": "student-6",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I don’t usually buy sharing bags for BBQs unless I’m already at one."
+    },
+    {
+      "personaId": "student-6",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The low calories and gluten-free bit makes it feel like a decent snack to check out."
+    },
+    {
+      "personaId": "student-6",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding isn’t enough to make me care about marshmallows right now."
+    },
+    {
+      "personaId": "student-6",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "tap",
+      "reason": "“Don’t miss” plus a quick grab-now vibe would probably catch me if I fancied a treat."
+    },
+    {
+      "personaId": "student-6",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound good, but I’d still probably just keep scrolling past this ad."
+    },
+    {
+      "personaId": "student-7",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d scroll past because giant marshmallows aren’t something I’d buy, and I’m not into s’mores."
+    },
+    {
+      "personaId": "student-7",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s just another sugary BBQ treat, so I wouldn’t tap it."
+    },
+    {
+      "personaId": "student-7",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The gluten-free and low-fat angle doesn’t matter to me, and I still wouldn’t buy mallows."
+    },
+    {
+      "personaId": "student-7",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’d pass since this is basically just marshmallows for a BBQ, which doesn’t interest me."
+    },
+    {
+      "personaId": "student-7",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t really buy marshmallows, so this wouldn’t catch me."
+    },
+    {
+      "personaId": "student-7",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail doesn’t make it appealing to me, and I’d still scroll on."
+    },
+    {
+      "personaId": "student-8",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s just standard BBQ marshmallow copy and doesn’t feel especially worth tapping."
+    },
+    {
+      "personaId": "student-8",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is a bit overblown and the image-only marshmallow ad doesn’t hook me."
+    },
+    {
+      "personaId": "student-8",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it more useful and I’d be tempted to see that."
+    },
+    {
+      "personaId": "student-8",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s straightforward but generic, so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "student-8",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American/Belgian angle feels random and not very compelling."
+    },
+    {
+      "personaId": "student-8",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The calorie and gluten-free facts make it feel more practical and easy to consider."
+    },
+    {
+      "personaId": "student-9",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "I don't really buy BBQ sweets, so this feels like something I'd skip past."
+    },
+    {
+      "personaId": "student-9",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s'mores angle is cute, but I wouldn't tap for a big bag of marshmallows."
+    },
+    {
+      "personaId": "student-9",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don't have much use for giant marshmallows, so I'd keep scrolling."
+    },
+    {
+      "personaId": "student-9",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition stats are fine, but it still isn't something I'd be tempted to buy."
+    },
+    {
+      "personaId": "student-9",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds very BBQ-focused and I’m not usually shopping for that sort of snack."
+    },
+    {
+      "personaId": "student-9",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding doesn’t make it any more relevant to me, so I'd scroll on."
+    },
+    {
+      "personaId": "student-10",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not really the BBQ crowd and this just feels like a big bag of sweets."
+    },
+    {
+      "personaId": "student-10",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but I’d probably just keep scrolling past a marshmallow ad."
+    },
+    {
+      "personaId": "student-10",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds a bit overhyped and I’m not likely to buy giant marshmallows anyway."
+    },
+    {
+      "personaId": "student-10",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this doesn’t feel relevant to me."
+    },
+    {
+      "personaId": "student-10",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The packaging angle doesn’t convince me, and I’m not that bothered about brand origin."
+    },
+    {
+      "personaId": "student-10",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are fine, but I still wouldn’t tap a marshmallow ad just for that."
+    },
+    {
+      "personaId": "student-11",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I don’t really buy BBQ marshmallows unless I’m already going to a cookout, and this feels a bit random."
+    },
+    {
+      "personaId": "student-11",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The low-fat angle doesn’t make me care enough to tap, and it still feels like a very occasional treat."
+    },
+    {
+      "personaId": "student-11",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound fun, but I’m more likely to grab something quick and salty than a whole marshmallow bag."
+    },
+    {
+      "personaId": "student-11",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The product sounds fine, but the ad copy is too generic to make me stop scrolling."
+    },
+    {
+      "personaId": "student-11",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but I wouldn’t buy giant marshmallows on impulse from an ad."
+    },
+    {
+      "personaId": "student-11",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d only want this if I was planning a BBQ, so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "student-12",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s just BBQ marshmallows and I’m not really shopping for dessert snacks right now."
+    },
+    {
+      "personaId": "student-12",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and 0g fat details make it worth a quick look for allergen and nutrition info."
+    },
+    {
+      "personaId": "student-12",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "The fire pit/BBQ angle doesn’t do much for me and I’d likely ignore it."
+    },
+    {
+      "personaId": "student-12",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding and origin message aren’t enough to make me stop scrolling."
+    },
+    {
+      "personaId": "student-12",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds like a sweet treat, but I’m not strongly tempted by marshmallows."
+    },
+    {
+      "personaId": "student-12",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The 300g pack and s’mores recipe make it useful enough to check out."
+    },
+    {
+      "personaId": "student-13",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ ads feel a bit pushy and I’m not really bothered about giant marshmallows."
+    },
+    {
+      "personaId": "student-13",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound messy and I’d probably just keep scrolling past this one."
+    },
+    {
+      "personaId": "student-13",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds overly hyped for something I wouldn’t actually buy."
+    },
+    {
+      "personaId": "student-13",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The calorie and gluten info doesn’t make it tempting enough for me to tap."
+    },
+    {
+      "personaId": "student-13",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this isn’t really for me."
+    },
+    {
+      "personaId": "student-13",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding doesn’t add much, and I’m not in the mood for marshmallows."
+    },
+    {
+      "personaId": "student-14",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Looks a bit novelty and I’m not especially sold by the US/Belgium angle."
+    },
+    {
+      "personaId": "student-14",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "They sound fun, but I wouldn’t click through for marshmallows unless I was already planning a BBQ."
+    },
+    {
+      "personaId": "student-14",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s very straightforward, but I’d probably just keep scrolling past a marshmallow ad."
+    },
+    {
+      "personaId": "student-14",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Passing them round at a BBQ is nice, but this still doesn’t feel worth a tap."
+    },
+    {
+      "personaId": "student-14",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel more useful, and I do like weekend cooking ideas."
+    },
+    {
+      "personaId": "student-14",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are fine, but the ad itself isn’t compelling enough for me to open."
+    },
+    {
+      "personaId": "student-15",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "Nice for a BBQ, but I’m not exactly hunting giant marshmallows on Instagram."
+    },
+    {
+      "personaId": "student-15",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores are tempting, but this still feels like a pretty generic snack ad."
+    },
+    {
+      "personaId": "student-15",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Looks like a standard BBQ treat and I’d probably just keep scrolling."
+    },
+    {
+      "personaId": "student-15",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but nothing here makes me want to tap the ad."
+    },
+    {
+      "personaId": "student-15",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The nutrition claims make it seem more useful than the usual sugary fluff, so I’d check it."
+    },
+    {
+      "personaId": "student-15",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style angle doesn’t really sell it to me, so I’d pass."
+    },
+    {
+      "personaId": "student-16",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "tap",
+      "reason": "Big silly marshmallows for BBQ toasting sound fun and very on-brand for a snacky impulse click."
+    },
+    {
+      "personaId": "student-16",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds basically the same as the others and the American/Belgian angle does not grab me."
+    },
+    {
+      "personaId": "student-16",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and low-fat bits make it feel like a slightly more practical treat, so I’d check it out."
+    },
+    {
+      "personaId": "student-16",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s a straightforward buy-now ad and I’d probably keep scrolling unless I already needed marshmallows."
+    },
+    {
+      "personaId": "student-16",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I like anything that comes with a s’mores recipe because it feels more like a fun project snack."
+    },
+    {
+      "personaId": "student-16",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This one feels the most generic and I’m not especially tempted by the crowd/passing angle."
+    },
+    {
+      "personaId": "student-17",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Marshmallows aren't really something I'd buy, and this doesn't give me a reason to pay attention."
+    },
+    {
+      "personaId": "student-17",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It sounds like a BBQ snack, but I don't really need giant marshmallows."
+    },
+    {
+      "personaId": "student-17",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It's just another marshmallow ad and I usually ignore sponsored food posts."
+    },
+    {
+      "personaId": "student-17",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is catchy, but it's still just a sweet treat I wouldn't go for."
+    },
+    {
+      "personaId": "student-17",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A s'mores recipe is nice, but I don't think I'd tap for marshmallows I won't use."
+    },
+    {
+      "personaId": "student-17",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition claims don't make it interesting enough for me to stop."
+    },
+    {
+      "personaId": "student-18",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not really the one for BBQ snacks and this just sounds like more marshmallows."
+    },
+    {
+      "personaId": "student-18",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A s'mores recipe is fine, but I’d probably just skip this and buy cheaper biscuits instead."
+    },
+    {
+      "personaId": "student-18",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The wording doesn’t make it seem especially useful to me, so I’d keep scrolling."
+    },
+    {
+      "personaId": "student-18",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this isn’t relevant."
+    },
+    {
+      "personaId": "student-18",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The calorie and fat info is nice, but it still feels like a treat I wouldn’t bother with."
+    },
+    {
+      "personaId": "student-18",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds a bit over-the-top for something I’m unlikely to buy anyway."
+    },
+    {
+      "personaId": "student-19",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "I like the clear ingredient info, but I don’t have a fire pit or BBQ so it’s not really for me."
+    },
+    {
+      "personaId": "student-19",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The facts are clear, but marshmallows aren’t something I’d usually buy and it doesn’t feel very useful."
+    },
+    {
+      "personaId": "student-19",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s'mores idea sounds nice, but I’d probably just scroll unless I was already planning a treat."
+    },
+    {
+      "personaId": "student-19",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It looks tasty, but it’s still just sweet marshmallows and I’m not especially tempted."
+    },
+    {
+      "personaId": "student-19",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d probably skip this because it’s clearly for BBQs and I don’t see myself buying a bag right now."
+    },
+    {
+      "personaId": "student-19",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s clear enough, but I’d still scroll past since it feels like a group BBQ snack rather than something I’d pick up."
+    },
+    {
+      "personaId": "student-20",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S'mores sound nice, but this is still just marshmallows and I’m not that tempted."
+    },
+    {
+      "personaId": "student-20",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It feels more like a BBQ add-on than something I’d actively buy."
+    },
+    {
+      "personaId": "student-20",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health facts are fine, but I’m not stopping for marshmallows just because they’re gluten free."
+    },
+    {
+      "personaId": "student-20",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding is neat, but it’s still the same sugary treat so I’d keep scrolling."
+    },
+    {
+      "personaId": "student-20",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "tap",
+      "reason": "This sounds like an easy impulse buy for a BBQ or fire pit, especially in a bag deal."
+    },
+    {
+      "personaId": "student-20",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Big sweet mallows are fine, but I’d probably just scroll past unless I was already shopping for dessert."
+    },
+    {
+      "personaId": "student-21",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s just marshmallows and the ad’s a bit over-the-top for me."
+    },
+    {
+      "personaId": "student-21",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d rather not tap a snack ad unless it looks genuinely useful or new."
+    },
+    {
+      "personaId": "student-21",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The copy sounds a bit salesy and I’m not especially tempted by marshmallows."
+    },
+    {
+      "personaId": "student-21",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health-y framing doesn’t really persuade me, and I’d keep scrolling."
+    },
+    {
+      "personaId": "student-21",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds like standard BBQ snack stuff, so I’d pass."
+    },
+    {
+      "personaId": "student-21",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not in the market for marshmallows, so I’d keep moving."
+    },
+    {
+      "personaId": "student-22",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this isn’t really for me."
+    },
+    {
+      "personaId": "student-22",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The Belgian-produced detail doesn’t make me any more likely to buy marshmallows."
+    },
+    {
+      "personaId": "student-22",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition stats are fine, but I’m not looking to buy sweet treats."
+    },
+    {
+      "personaId": "student-22",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but I’d only bother if I already had the ingredients and a reason to make them."
+    },
+    {
+      "personaId": "student-22",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds indulgent, but I usually skip snack ads unless they’re clearly a bargain."
+    },
+    {
+      "personaId": "student-22",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not planning a BBQ, so a big bag of marshmallows for sharing doesn’t appeal to me."
+    },
+    {
+      "personaId": "student-23",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Not really my thing unless I already had a BBQ plan, so I’d keep scrolling."
+    },
+    {
+      "personaId": "student-23",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It sounds fine, but I’m not exactly hunting for marshmallows on Instagram."
+    },
+    {
+      "personaId": "student-23",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores are decent, but this still doesn’t feel like something I’d tap for."
+    },
+    {
+      "personaId": "student-23",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’d probably just scroll past since it’s another BBQ marshmallow ad."
+    },
+    {
+      "personaId": "student-23",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Big sweet marshmallows are cute, but I wouldn’t stop for it."
+    },
+    {
+      "personaId": "student-23",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and 0g fat angle catches my eye, so I’d probably tap to check it out."
+    },
+    {
+      "personaId": "student-24",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks nice, but it's just marshmallows and I'm not really stopping for a snack ad."
+    },
+    {
+      "personaId": "student-24",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The calorie/fat stats are tidy, but that still doesn't make me want to tap."
+    },
+    {
+      "personaId": "student-24",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don't need to buy a giant bag of mallows for a BBQ right now."
+    },
+    {
+      "personaId": "student-24",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It feels very generic and a bit like being pushed to bring sweets to an event."
+    },
+    {
+      "personaId": "student-24",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s'mores angle is tempting and the packaging sounds a bit more fun."
+    },
+    {
+      "personaId": "student-24",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style Belgian-made pitch doesn't really grab me or make me hungry."
+    },
+    {
+      "personaId": "student-25",
+      "segment": "student",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The “facts” are just basic nutrition info and it still feels like a sugary marshmallow I’d probably skip."
+    },
+    {
+      "personaId": "student-25",
+      "segment": "student",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s very generic hype and doesn’t give me anything convincing beyond it being a sweet treat."
+    },
+    {
+      "personaId": "student-25",
+      "segment": "student",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it a bit more useful, so I’d check it out if I was planning a BBQ."
+    },
+    {
+      "personaId": "student-25",
+      "segment": "student",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This is just party marketing and I’m not especially tempted by a big bag of marshmallows."
+    },
+    {
+      "personaId": "student-25",
+      "segment": "student",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It feels like a pushy “buy now” snack ad, which I’d usually ignore while scrolling."
+    },
+    {
+      "personaId": "student-25",
+      "segment": "student",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style/Belgian-produced angle doesn’t really add anything I care about, so I’d pass."
+    },
+    {
+      "personaId": "young_pro-1",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’m not really tempted by marshmallows unless I’m already buying stuff for a barbecue."
+    },
+    {
+      "personaId": "young_pro-1",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style angle doesn’t do much for me, and I’d probably just keep moving."
+    },
+    {
+      "personaId": "young_pro-1",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds sugary and a bit overhyped, so I’d skip it."
+    },
+    {
+      "personaId": "young_pro-1",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The calorie and gluten-free info is clear, and I’d at least check the facts on that one."
+    },
+    {
+      "personaId": "young_pro-1",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It feels like a party-food extra I don’t need for my week, so I’d pass."
+    },
+    {
+      "personaId": "young_pro-1",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this isn’t really relevant to me."
+    },
+    {
+      "personaId": "young_pro-2",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Looks fine, but it’s just marshmallows and not something I’d stop for."
+    },
+    {
+      "personaId": "young_pro-2",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "tap",
+      "reason": "This sounds a bit fun and tempting for a BBQ snack."
+    },
+    {
+      "personaId": "young_pro-2",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it more useful and worth a look."
+    },
+    {
+      "personaId": "young_pro-2",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The wording is a bit bland and doesn’t grab me."
+    },
+    {
+      "personaId": "young_pro-2",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health stats don’t really make marshmallows any more appealing to me."
+    },
+    {
+      "personaId": "young_pro-2",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s a straightforward snack ad, but nothing especially compelling."
+    },
+    {
+      "personaId": "young_pro-3",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Looks like a BBQ sweet, but I’d usually skip ads unless it has clear halal ingredient info."
+    },
+    {
+      "personaId": "young_pro-3",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s’mores idea sounds nice, but I’d want to check ingredients before tapping on marshmallows."
+    },
+    {
+      "personaId": "young_pro-3",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It’s not giving me any useful product or halal details, so I’d pass."
+    },
+    {
+      "personaId": "young_pro-3",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "Gluten free and the nutrition facts are easy to see, so I’d check the ingredients."
+    },
+    {
+      "personaId": "young_pro-3",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but I’d scroll past unless I can quickly confirm what’s in it."
+    },
+    {
+      "personaId": "young_pro-3",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s just a generic call to buy, and I’d rather see the ingredient list first."
+    },
+    {
+      "personaId": "young_pro-4",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It looks like a standard marshmallow ad and I’d probably just keep scrolling."
+    },
+    {
+      "personaId": "young_pro-4",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but this still feels like a generic snack ad I wouldn’t bother opening."
+    },
+    {
+      "personaId": "young_pro-4",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ on my mind, so this doesn’t really hook me."
+    },
+    {
+      "personaId": "young_pro-4",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s basically the same BBQ marshmallow pitch and doesn’t stand out enough to tap."
+    },
+    {
+      "personaId": "young_pro-4",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is a bit over the top, but not interesting enough for me to stop."
+    },
+    {
+      "personaId": "young_pro-4",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and calorie facts make it feel a bit more useful, so I might check it out."
+    },
+    {
+      "personaId": "young_pro-5",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "Marshmallows are not something I’d buy from a vague ad, and it gives me nothing about allergens or if they’re actually safe for my coeliac diet."
+    },
+    {
+      "personaId": "young_pro-5",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "It clearly says gluten free and shows the basic nutrition, so I’d tap to check the ingredients and allergen details."
+    },
+    {
+      "personaId": "young_pro-5",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s just hypey language without any useful info for me, so I’d keep scrolling."
+    },
+    {
+      "personaId": "young_pro-5",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A s’mores recipe is mildly useful, and I’d tap to see the full pack info and whether it’s properly gluten free."
+    },
+    {
+      "personaId": "young_pro-5",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding doesn’t tell me anything I need, and I’d want clearer allergen information before caring."
+    },
+    {
+      "personaId": "young_pro-5",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds fun for a BBQ, but I’m looking for clear gluten-free and ingredient details, not crowd-pulling copy."
+    },
+    {
+      "personaId": "young_pro-6",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "I’d scroll past because it’s just marshmallows and the facts-heavy angle doesn’t really tempt me."
+    },
+    {
+      "personaId": "young_pro-6",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "I’d scroll past since it sounds sugary and a bit overhyped for something I’m not that bothered about."
+    },
+    {
+      "personaId": "young_pro-6",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d scroll past because I’m not really into making s'mores or trying a special marshmallow snack."
+    },
+    {
+      "personaId": "young_pro-6",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’d scroll past since it’s aimed at BBQ crowds and I’m not fussed about marshmallows at all."
+    },
+    {
+      "personaId": "young_pro-6",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "I’d scroll past because the branding doesn’t matter to me and I’d only want a cheap, simple snack."
+    },
+    {
+      "personaId": "young_pro-6",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d scroll past because I’m not going to buy a big bag of marshmallows for a fire pit or grill."
+    },
+    {
+      "personaId": "young_pro-7",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Marshmallows aren’t something I’d stop for in the middle of scrolling, even if the copy is a bit fun."
+    },
+    {
+      "personaId": "young_pro-7",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It feels very BBQ-specific and I’m unlikely to tap an ad for toasting mallows."
+    },
+    {
+      "personaId": "young_pro-7",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail doesn’t really hook me, and the product still isn’t that relevant."
+    },
+    {
+      "personaId": "young_pro-7",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition claims are nice, but it still reads like a sugary treat I’d just pass by."
+    },
+    {
+      "personaId": "young_pro-7",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A s’mores recipe is mildly tempting, but not enough to make me tap the ad."
+    },
+    {
+      "personaId": "young_pro-7",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s another generic marshmallow ad and I’d probably keep scrolling."
+    },
+    {
+      "personaId": "young_pro-8",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "Nice for s'mores, but I’m not exactly hunting marshmallows on Instagram."
+    },
+    {
+      "personaId": "young_pro-8",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Sounds tasty, but it’s still just marshmallows and I’d probably keep scrolling."
+    },
+    {
+      "personaId": "young_pro-8",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this doesn’t really hook me."
+    },
+    {
+      "personaId": "young_pro-8",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ use is a bit too niche for me to stop on."
+    },
+    {
+      "personaId": "young_pro-8",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "Gluten free and 0g fat caught my eye, and I’d be curious about the facts."
+    },
+    {
+      "personaId": "young_pro-8",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American style/Belgian angle doesn’t really make me want to tap."
+    },
+    {
+      "personaId": "young_pro-9",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Not really my thing, and the “American style” angle doesn’t make it feel any less like a sweet BBQ gimmick."
+    },
+    {
+      "personaId": "young_pro-9",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s’mores recipe is useful, but I don’t really go for big marshmallow treats enough to tap."
+    },
+    {
+      "personaId": "young_pro-9",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It sounds like a standard sweet snack ad, so I’d keep scrolling."
+    },
+    {
+      "personaId": "young_pro-9",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This feels very BBQ-specific and sugary, which isn’t something I’d usually click."
+    },
+    {
+      "personaId": "young_pro-9",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Cute wording, but giant marshmallows still aren’t my sort of snack."
+    },
+    {
+      "personaId": "young_pro-9",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are handy, but I’d still scroll because I’m not tempted by marshmallows."
+    },
+    {
+      "personaId": "young_pro-10",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not really buying marshmallows from an ad, even if I do have the occasional BBQ."
+    },
+    {
+      "personaId": "young_pro-10",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American/Belgian angle doesn’t make marshmallows interesting enough for me to tap."
+    },
+    {
+      "personaId": "young_pro-10",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S'mores sound nice, but I’d still just keep scrolling past a snack ad."
+    },
+    {
+      "personaId": "young_pro-10",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds a bit overblown for something I’d only buy if I was already shopping for a barbecue."
+    },
+    {
+      "personaId": "young_pro-10",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not planning a BBQ, so a bigger bag of marshmallows isn’t tempting right now."
+    },
+    {
+      "personaId": "young_pro-10",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are fine, but I’m still unlikely to tap a marshmallow ad."
+    },
+    {
+      "personaId": "young_pro-11",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "They sound fun, but I’m not really buying giant marshmallows unless I’m already planning a BBQ."
+    },
+    {
+      "personaId": "young_pro-11",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this feels pretty irrelevant to me."
+    },
+    {
+      "personaId": "young_pro-11",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s a bit occasion-specific, and I’d probably just keep scrolling."
+    },
+    {
+      "personaId": "young_pro-11",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The country-of-origin angle doesn’t make me want to buy marshmallows on the spot."
+    },
+    {
+      "personaId": "young_pro-11",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s tempting, but fancy marshmallows aren’t the sort of thing I’d tap on late at night."
+    },
+    {
+      "personaId": "young_pro-11",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and calorie info makes it feel a bit more useful than the others."
+    },
+    {
+      "personaId": "young_pro-12",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t really buy marshmallows just because an ad tells me to, and this feels a bit generic."
+    },
+    {
+      "personaId": "young_pro-12",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds descriptive, but I’d still just keep scrolling past a sweets ad."
+    },
+    {
+      "personaId": "young_pro-12",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not the person planning a BBQ crowd snack, so this wouldn’t catch me."
+    },
+    {
+      "personaId": "young_pro-12",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "tap",
+      "reason": "The American style / Belgian production angle makes it feel a bit more interesting than the usual sugary ad."
+    },
+    {
+      "personaId": "young_pro-12",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The “facts” headline feels a bit try-hard, and I’m not especially tempted by marshmallows."
+    },
+    {
+      "personaId": "young_pro-12",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A s’mores recipe is nice, but I’d still probably ignore it unless I was already shopping for a BBQ."
+    },
+    {
+      "personaId": "young_pro-13",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d probably skip it because I don’t usually buy marshmallows just for a BBQ."
+    },
+    {
+      "personaId": "young_pro-13",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just a marshmallow ad so I’d keep scrolling."
+    },
+    {
+      "personaId": "young_pro-13",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not really looking for a party snack to pass around."
+    },
+    {
+      "personaId": "young_pro-13",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The gluten-free and nutrition claims are fine, but it doesn’t tell me enough about allergy safety."
+    },
+    {
+      "personaId": "young_pro-13",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but I wouldn’t tap a snack ad without clear peanut allergy info."
+    },
+    {
+      "personaId": "young_pro-13",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail doesn’t make it more useful to me, so I’d scroll past."
+    },
+    {
+      "personaId": "young_pro-14",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not buying marshmallows from an ad unless I’m already shopping for a BBQ sweet."
+    },
+    {
+      "personaId": "young_pro-14",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s fine for a barbecue, but it feels like generic marshmallow fluff I’d ignore."
+    },
+    {
+      "personaId": "young_pro-14",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The “supersized sweetness” angle doesn’t make it any more useful to me."
+    },
+    {
+      "personaId": "young_pro-14",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe plus a 300g bag is actually a useful, specific BBQ buy."
+    },
+    {
+      "personaId": "young_pro-14",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "I’d tap for the nutrition facts and gluten-free claim if I wanted a lower-effort treat."
+    },
+    {
+      "personaId": "young_pro-14",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style/Belgian-produced line is interesting, but not enough to stop me scrolling."
+    },
+    {
+      "personaId": "young_pro-15",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Sounds a bit generic and I’m not especially bothered about BBQ marshmallows."
+    },
+    {
+      "personaId": "young_pro-15",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores angle makes it feel more useful and tempting than the others."
+    },
+    {
+      "personaId": "young_pro-15",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s catchy, but I’d probably just keep moving past a sweets ad."
+    },
+    {
+      "personaId": "young_pro-15",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are nice, but they don’t really make me want to stop."
+    },
+    {
+      "personaId": "young_pro-15",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The ad copy is decent, but I’m not in the market for marshmallows right now."
+    },
+    {
+      "personaId": "young_pro-15",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "tap",
+      "reason": "This feels direct and snacky, and I could see myself buying that after work."
+    },
+    {
+      "personaId": "young_pro-16",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "I’m not into marshmallows or grilling, and the “facts” angle doesn’t make it more useful to me."
+    },
+    {
+      "personaId": "young_pro-16",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds like a BBQ treat, but I’d just keep scrolling because it’s not something I’d buy."
+    },
+    {
+      "personaId": "young_pro-16",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores and giant marshmallows aren’t really my thing, so I wouldn’t stop for it."
+    },
+    {
+      "personaId": "young_pro-16",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s clear what it is, but I don’t have much interest in toastin’ marshmallows."
+    },
+    {
+      "personaId": "young_pro-16",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "A BBQ crowd snack doesn’t appeal to me, and I’d rather not tap into sweets like this."
+    },
+    {
+      "personaId": "young_pro-16",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s obvious enough visually, but giant sweet marshmallows aren’t something I’d click on."
+    },
+    {
+      "personaId": "young_pro-17",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I don’t really need a giant bag of marshmallows, even if the s’mores angle is cute."
+    },
+    {
+      "personaId": "young_pro-17",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts don’t make me any more interested in sugary marshmallows."
+    },
+    {
+      "personaId": "young_pro-17",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It just feels like standard sugary BBQ food, which isn’t enough to make me tap."
+    },
+    {
+      "personaId": "young_pro-17",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not planning a fire pit or BBQ moment, so this isn’t for me."
+    },
+    {
+      "personaId": "young_pro-17",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This is very BBQ-specific and I’d usually pass on a marshmallow ad like this."
+    },
+    {
+      "personaId": "young_pro-17",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American style/Belgian production detail doesn’t really add anything I care about."
+    },
+    {
+      "personaId": "young_pro-18",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds fun for a BBQ, but I’m not really buying giant marshmallows just for that."
+    },
+    {
+      "personaId": "young_pro-18",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is catchy, but it’s still just marshmallows and I’d probably keep scrolling."
+    },
+    {
+      "personaId": "young_pro-18",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ on the go, so this isn’t for me."
+    },
+    {
+      "personaId": "young_pro-18",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s'mores recipe makes it a bit more useful, so I’d likely tap to see that."
+    },
+    {
+      "personaId": "young_pro-18",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail doesn’t really matter to me if I’m just looking for value."
+    },
+    {
+      "personaId": "young_pro-18",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The nutrition facts and gluten-free info make it more useful to check quickly."
+    },
+    {
+      "personaId": "young_pro-19",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d probably skip it unless I was already planning a dessert for a BBQ."
+    },
+    {
+      "personaId": "young_pro-19",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s a bit too BBQ-specific for me, so I’d keep scrolling."
+    },
+    {
+      "personaId": "young_pro-19",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The gluten-free and fat stats don’t really make this feel any more relevant to me."
+    },
+    {
+      "personaId": "young_pro-19",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds cute, but marshmallows aren’t something I’d usually tap on."
+    },
+    {
+      "personaId": "young_pro-19",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Fun for a barbecue crowd, but I’m not tempted enough to stop."
+    },
+    {
+      "personaId": "young_pro-19",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s descriptive, but I’m not in the mood for a marshmallow ad."
+    },
+    {
+      "personaId": "young_pro-20",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks like a straightforward sweet snack ad, and I’d probably just keep scrolling unless I was actively shopping for BBQ treats."
+    },
+    {
+      "personaId": "young_pro-20",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The Belgium/US angle doesn’t really make it more convincing to me, so I’d likely ignore it."
+    },
+    {
+      "personaId": "young_pro-20",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds fine for a BBQ, but I’m not stopping for a generic marshmallow ad on Instagram."
+    },
+    {
+      "personaId": "young_pro-20",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "The copy is a bit pushy, and I’d still want independent reviews before bothering to tap."
+    },
+    {
+      "personaId": "young_pro-20",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores are tempting, but this is still just another product ad and I usually scroll past those."
+    },
+    {
+      "personaId": "young_pro-20",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The nutrition details make it feel a bit more useful, so I’d tap to check the facts before deciding."
+    },
+    {
+      "personaId": "young_pro-21",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Looks like a BBQ sweet, but I’m not specifically shopping for marshmallows right now."
+    },
+    {
+      "personaId": "young_pro-21",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just a marshmallow ad so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "young_pro-21",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail is interesting, but it doesn’t really make me want to tap."
+    },
+    {
+      "personaId": "young_pro-21",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s another generic BBQ marshmallow pitch, so I’d skip it."
+    },
+    {
+      "personaId": "young_pro-21",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it more useful, and I’d be curious to see the ingredients and serving details."
+    },
+    {
+      "personaId": "young_pro-21",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The nutrition facts and gluten-free callout catch my eye, so I’d tap to check the details."
+    },
+    {
+      "personaId": "young_pro-22",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "That sounds properly useful for a BBQ night, and the s'mores recipe makes it feel a bit more worth a look."
+    },
+    {
+      "personaId": "young_pro-22",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The macro-y fact sheet vibe is a bit dull, even if the marshmallows sound decent."
+    },
+    {
+      "personaId": "young_pro-22",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It's fine, but it feels like generic BBQ food advertising rather than something I need to open."
+    },
+    {
+      "personaId": "young_pro-22",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Round-at-the-BBQ positioning is nice, but it still feels like standard sponsored snack fluff."
+    },
+    {
+      "personaId": "young_pro-22",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "tap",
+      "reason": "Pillowy hunks and supersized sweetness is a bit extra in a way I’d actually want to inspect."
+    },
+    {
+      "personaId": "young_pro-22",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "American style, Belgian production doesn’t really hook me enough to stop scrolling."
+    },
+    {
+      "personaId": "young_pro-23",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks like a novelty sweet and I’m not really spending on marshmallows when I’m trying to keep food cheap."
+    },
+    {
+      "personaId": "young_pro-23",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this feels irrelevant to me."
+    },
+    {
+      "personaId": "young_pro-23",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s clearly for BBQ crowds and I’m more of a beans-and-frozen-veg person."
+    },
+    {
+      "personaId": "young_pro-23",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and calorie info makes it feel a bit more useful, and I’d be curious if it’s a decent cheap treat."
+    },
+    {
+      "personaId": "young_pro-23",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores stuff feels quite extra and not really my kind of budget snack."
+    },
+    {
+      "personaId": "young_pro-23",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "American-style branding doesn’t do much for me, and I’d probably just pass on it."
+    },
+    {
+      "personaId": "young_pro-24",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "I’m not that bothered by marshmallows and the facts-first angle doesn’t make them feel more tempting."
+    },
+    {
+      "personaId": "young_pro-24",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "BBQ marshmallows sound a bit niche for me, and I’d probably keep moving."
+    },
+    {
+      "personaId": "young_pro-24",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds fun, but giant sweet marshmallows aren’t really my kind of snack."
+    },
+    {
+      "personaId": "young_pro-24",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American style/Belgian production detail doesn’t do much for me."
+    },
+    {
+      "personaId": "young_pro-24",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "A BBQ crowd snack feels like something I’d leave for other people."
+    },
+    {
+      "personaId": "young_pro-24",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores angle is at least a bit more interesting, so I’d probably check it out."
+    },
+    {
+      "personaId": "young_pro-25",
+      "segment": "young_pro",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It’s clear enough, but I’m not especially tempted by marshmallows just because they’re Belgian-made."
+    },
+    {
+      "personaId": "young_pro-25",
+      "segment": "young_pro",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The simple facts and gluten-free note make this feel useful and easy to check quickly."
+    },
+    {
+      "personaId": "young_pro-25",
+      "segment": "young_pro",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds very BBQ-focused, and I’d usually ignore that unless I was already shopping for one."
+    },
+    {
+      "personaId": "young_pro-25",
+      "segment": "young_pro",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "The urgency feels a bit manufactured, so I’d keep scrolling."
+    },
+    {
+      "personaId": "young_pro-25",
+      "segment": "young_pro",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A s’mores recipe is actually useful, so I’d be more likely to open it."
+    },
+    {
+      "personaId": "young_pro-25",
+      "segment": "young_pro",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is catchy, but it doesn’t give me enough practical reason to tap."
+    },
+    {
+      "personaId": "parent-1",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Not really my thing, and I’d only stop if there was a proper deal."
+    },
+    {
+      "personaId": "parent-1",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The facts don’t make it useful for me, and I’d still probably just keep scrolling."
+    },
+    {
+      "personaId": "parent-1",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t really need giant marshmallows, so I’d pass."
+    },
+    {
+      "personaId": "parent-1",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice but I’m not buying a whole bag just for that."
+    },
+    {
+      "personaId": "parent-1",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It looks like a treat, but it’s not something I’d be tempted to tap for."
+    },
+    {
+      "personaId": "parent-1",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "That doesn’t feel relevant enough to make me stop scrolling."
+    },
+    {
+      "personaId": "parent-2",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks like sugary BBQ fluff and I wouldn’t buy marshmallows for a vegan snack."
+    },
+    {
+      "personaId": "parent-2",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s'mores angle is nice, but it’s still just a bag of marshmallows and not something I’d tap."
+    },
+    {
+      "personaId": "parent-2",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin claim doesn’t really matter to me, and the product itself isn’t appealing."
+    },
+    {
+      "personaId": "parent-2",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are a bit better than the vague hype, but it’s still not something I’d want."
+    },
+    {
+      "personaId": "parent-2",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t need another sweet BBQ treat, especially one with no clear vegan appeal."
+    },
+    {
+      "personaId": "parent-2",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This feels like generic party-snack marketing, and I’d usually keep scrolling."
+    },
+    {
+      "personaId": "parent-3",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ stuff is nice but it feels like a novelty treat, not something I’d stop for."
+    },
+    {
+      "personaId": "parent-3",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A s'mores recipe could be handy for a family treat, and the bag size sounds useful."
+    },
+    {
+      "personaId": "parent-3",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s just fluffy marketing and I’m not really looking for marshmallows."
+    },
+    {
+      "personaId": "parent-3",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have time for random BBQ snacks unless I already needed them."
+    },
+    {
+      "personaId": "parent-3",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and fat info makes it feel a bit more practical for the kids."
+    },
+    {
+      "personaId": "parent-3",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American style/Belgium line doesn’t tell me much that helps me choose it."
+    },
+    {
+      "personaId": "parent-4",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not really in the market for marshmallows unless I’ve already got a BBQ on."
+    },
+    {
+      "personaId": "parent-4",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "That’s just a fancy way of saying marshmallows, and it doesn’t grab me."
+    },
+    {
+      "personaId": "parent-4",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This sounds like an easy thing to chuck in the basket for a BBQ or weekend treat."
+    },
+    {
+      "personaId": "parent-4",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds nice, but I’d usually just keep scrolling past sweets ads."
+    },
+    {
+      "personaId": "parent-4",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A s’mores recipe makes it feel a bit more like a proper treat I might actually buy."
+    },
+    {
+      "personaId": "parent-4",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition claims don’t really change much for me on a marshmallow ad."
+    },
+    {
+      "personaId": "parent-5",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "I’d probably ignore this because it’s just marshmallows and the American/Belgian angle doesn’t make me care."
+    },
+    {
+      "personaId": "parent-5",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds very BBQ-focused, but I’m not likely to buy a big bag of marshmallows just to pass around."
+    },
+    {
+      "personaId": "parent-5",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The fluffy wording is cute, but it doesn’t feel especially useful or relevant to my shopping."
+    },
+    {
+      "personaId": "parent-5",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "This is another generic marshmallow ad and I’d keep moving unless I was already looking for snacks."
+    },
+    {
+      "personaId": "parent-5",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "Gluten free and 0g fat catches my eye, and I’d want to check the nutrition details."
+    },
+    {
+      "personaId": "parent-5",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but a recipe on the back isn’t enough to make me stop for it."
+    },
+    {
+      "personaId": "parent-6",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks a bit novelty-heavy and I’m not really in the market for giant marshmallows."
+    },
+    {
+      "personaId": "parent-6",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health facts don’t make this any more appealing to me, so I’d keep moving."
+    },
+    {
+      "personaId": "parent-6",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ often enough to care about stocking up on these."
+    },
+    {
+      "personaId": "parent-6",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The styling sounds nice, but it’s still just marshmallows so I wouldn’t tap."
+    },
+    {
+      "personaId": "parent-6",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel a bit more useful, and I might try it if the price seems okay."
+    },
+    {
+      "personaId": "parent-6",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds like a BBQ crowd-pleaser, but I’m not enough of a marshmallow person to click."
+    },
+    {
+      "personaId": "parent-7",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "Looks fun for s'mores, but as a coeliac I’d need a clear gluten-free label before I’d tap."
+    },
+    {
+      "personaId": "parent-7",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s just a generic BBQ marshmallow ad and doesn’t tell me anything about gluten-free safety."
+    },
+    {
+      "personaId": "parent-7",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "This clearly says gluten free, so I’d tap to check the ingredients and label details."
+    },
+    {
+      "personaId": "parent-7",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding is vague and it doesn’t give me any useful gluten-free reassurance."
+    },
+    {
+      "personaId": "parent-7",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s all marketing and no clear gluten-free confirmation."
+    },
+    {
+      "personaId": "parent-7",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s about sharing at a BBQ, but I’d still want a proper gluten-free claim before buying."
+    },
+    {
+      "personaId": "parent-8",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Looks a bit niche and I’m not really buying marshmallows just because they’re American style."
+    },
+    {
+      "personaId": "parent-8",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health facts don’t make me care enough to stop on a marshmallow ad."
+    },
+    {
+      "personaId": "parent-8",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores sound nice, but I’d probably just keep scrolling unless I was specifically planning a BBQ."
+    },
+    {
+      "personaId": "parent-8",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ, so this feels irrelevant to me."
+    },
+    {
+      "personaId": "parent-8",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just marshmallows and doesn’t grab me."
+    },
+    {
+      "personaId": "parent-8",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ crowd-snacking isn’t really my situation, so I’d skip it."
+    },
+    {
+      "personaId": "parent-9",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "They look fun, but I’m not really buying giant marshmallows just for a s’mores recipe."
+    },
+    {
+      "personaId": "parent-9",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health claims don’t make marshmallows tempting enough for me to tap."
+    },
+    {
+      "personaId": "parent-9",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "I’m not especially drawn to the American-style angle, so I’d keep scrolling."
+    },
+    {
+      "personaId": "parent-9",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just marshmallows and I’d probably pass."
+    },
+    {
+      "personaId": "parent-9",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "tap",
+      "reason": "This feels like a straightforward BBQ treat and I might check the bag if I was planning a get-together."
+    },
+    {
+      "personaId": "parent-9",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not that interested in a crowd-sized marshmallow bag, so I’d move on."
+    },
+    {
+      "personaId": "parent-10",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d probably skip this because it’s just marshmallows and we don’t really need novelty BBQ stuff."
+    },
+    {
+      "personaId": "parent-10",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style wording doesn’t make it feel any more useful to me, so I’d scroll on."
+    },
+    {
+      "personaId": "parent-10",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds like a party product and I’m more likely to buy dependable basics than something like this."
+    },
+    {
+      "personaId": "parent-10",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores are a bit much for us, and I’d rather not buy something extra that might not get eaten."
+    },
+    {
+      "personaId": "parent-10",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are fine, but it still feels like an impulse treat I’d leave."
+    },
+    {
+      "personaId": "parent-10",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s just trying very hard to make marshmallows sound exciting, which wouldn’t pull me in."
+    },
+    {
+      "personaId": "parent-11",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit, and this is a bit too niche for a quick tap."
+    },
+    {
+      "personaId": "parent-11",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just marshmallows and I’d probably keep scrolling."
+    },
+    {
+      "personaId": "parent-11",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel more useful, and I’m always tempted by a weekend treat."
+    },
+    {
+      "personaId": "parent-11",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "We do BBQs sometimes, but I’m not especially drawn in by this one."
+    },
+    {
+      "personaId": "parent-11",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and low-fat angle plus the snacky format makes me more likely to click."
+    },
+    {
+      "personaId": "parent-11",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style/Belgian-produced line doesn’t really hook me enough to stop."
+    },
+    {
+      "personaId": "parent-12",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d probably scroll past unless I was actually shopping for BBQ marshmallows."
+    },
+    {
+      "personaId": "parent-12",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ-toasting ads aren’t very relevant to my usual food shop."
+    },
+    {
+      "personaId": "parent-12",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and nutrition details make me more likely to check the ingredients and facts."
+    },
+    {
+      "personaId": "parent-12",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The branding doesn’t tell me enough to make me stop and tap."
+    },
+    {
+      "personaId": "parent-12",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but I’d usually keep scrolling past a snack ad."
+    },
+    {
+      "personaId": "parent-12",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A s’mores recipe and a clear bag size make me want to see the details and ingredients."
+    },
+    {
+      "personaId": "parent-13",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t usually buy marshmallows just because they’re for a fire pit, and this feels like a one-off snack."
+    },
+    {
+      "personaId": "parent-13",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The wording is nice, but it’s still just marshmallows and I’d probably pick whichever bag is cheaper."
+    },
+    {
+      "personaId": "parent-13",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but I’m not likely to tap for giant marshmallows unless I already needed them."
+    },
+    {
+      "personaId": "parent-13",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This feels like BBQ-party fluff, and I don’t shop for marshmallows that often."
+    },
+    {
+      "personaId": "parent-13",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it more appealing, and I’d be curious to see if it’s a decent treat for home."
+    },
+    {
+      "personaId": "parent-13",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health stats don’t really matter to me here, so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "parent-14",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "It’s all about the health claims, and I’m not really interested in stopping for marshmallows because of that."
+    },
+    {
+      "personaId": "parent-14",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This sounds like something I could bring to a BBQ for the kids and everyone else to share."
+    },
+    {
+      "personaId": "parent-14",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel more useful, and I like things that give me an easy treat idea."
+    },
+    {
+      "personaId": "parent-14",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The wording is a bit too ad-like for me, even if it’s just marshmallows."
+    },
+    {
+      "personaId": "parent-14",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "tap",
+      "reason": "This is simple and straight to the point, and I might grab a bag for a BBQ or fire pit."
+    },
+    {
+      "personaId": "parent-14",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds overhyped and I’d just keep scrolling past it."
+    },
+    {
+      "personaId": "parent-15",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Not really my thing unless I’m already hosting a BBQ, and “get the crowd” feels a bit much."
+    },
+    {
+      "personaId": "parent-15",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts are fine, but giant marshmallows still feel like an occasional extra, not a must-have."
+    },
+    {
+      "personaId": "parent-15",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds nice enough, but I’m not tempted by marshmallows just because they’re “American style.”"
+    },
+    {
+      "personaId": "parent-15",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "They sound fun, but I’d still probably leave these as a one-off treat rather than tap now."
+    },
+    {
+      "personaId": "parent-15",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I rarely need a big bag of marshmallows on impulse, especially when my evenings are more jacket-potato than fire pit."
+    },
+    {
+      "personaId": "parent-15",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S’mores are tempting, but I’d only bother if I already had the ingredients and a reason to make them."
+    },
+    {
+      "personaId": "parent-16",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds a bit generic and BBQ-only, so I’m not especially tempted to tap."
+    },
+    {
+      "personaId": "parent-16",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s another straightforward marshmallow pitch and doesn’t feel particularly standout."
+    },
+    {
+      "personaId": "parent-16",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and 0g fat angle makes it feel a bit more interesting to me."
+    },
+    {
+      "personaId": "parent-16",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I like the s’mores recipe angle, so this feels more useful than the others."
+    },
+    {
+      "personaId": "parent-16",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style, Belgian-produced line is nice, but it’s not enough to grab me."
+    },
+    {
+      "personaId": "parent-16",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s playful, but it still just reads like standard sweet snack advertising."
+    },
+    {
+      "personaId": "parent-17",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks like a sugary treat I don't really need, so I'd keep moving."
+    },
+    {
+      "personaId": "parent-17",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The gluten-free and calorie talk doesn't make it any more appealing to me."
+    },
+    {
+      "personaId": "parent-17",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A bag of marshmallows and a s'mores recipe isn't something I'd bother with."
+    },
+    {
+      "personaId": "parent-17",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "They're just marshmallows, and the American style angle doesn't tempt me."
+    },
+    {
+      "personaId": "parent-17",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I'd skip this because it's just pushing another big bag of sweets."
+    },
+    {
+      "personaId": "parent-17",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds like a BBQ crowd-pleaser, but I wouldn't tap an ad for marshmallows."
+    },
+    {
+      "personaId": "parent-18",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I don’t really need marshmallows, and this just feels like a standard BBQ snack ad."
+    },
+    {
+      "personaId": "parent-18",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds fun for a barbecue, but I’d likely keep scrolling because it’s not something I’m specifically after."
+    },
+    {
+      "personaId": "parent-18",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s fine, but I’m not in the market for marshmallows just because it mentions a fire pit or BBQ."
+    },
+    {
+      "personaId": "parent-18",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail doesn’t grab me enough to make me tap."
+    },
+    {
+      "personaId": "parent-18",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "tap",
+      "reason": "The bold wording and clear product idea make it stand out, and I’d be curious to see the price."
+    },
+    {
+      "personaId": "parent-18",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The facts are clear and I like ads that show the nutrition upfront."
+    },
+    {
+      "personaId": "parent-19",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "Clear calorie and ingredient facts make this one worth a look, even if it’s a treat."
+    },
+    {
+      "personaId": "parent-19",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s just BBQ hype with no useful nutrition detail, so I’d skip it."
+    },
+    {
+      "personaId": "parent-19",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "I don’t need brandy wording for marshmallows without any nutrition info."
+    },
+    {
+      "personaId": "parent-19",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A recipe and bag size don’t tell me enough about sugar or carbs, so I’d move on."
+    },
+    {
+      "personaId": "parent-19",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s all invitation language and no clear nutrition facts, so I’d scroll past."
+    },
+    {
+      "personaId": "parent-19",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The copy is all sweet talk and doesn’t give the carb info I’d want."
+    },
+    {
+      "personaId": "parent-20",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "I don't really need giant marshmallows or a fire pit snack, so I'd keep scrolling."
+    },
+    {
+      "personaId": "parent-20",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It looks fun, but it's not the kind of thing I'd buy for my weekly budget."
+    },
+    {
+      "personaId": "parent-20",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I might tap for the s'mores recipe since that's a simple treat I could actually try with the kid."
+    },
+    {
+      "personaId": "parent-20",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health stats are fine, but giant mallows still aren't a regular buy for me."
+    },
+    {
+      "personaId": "parent-20",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "This is more of a BBQ treat than an everyday snack, so I'd pass."
+    },
+    {
+      "personaId": "parent-20",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds party-focused, and I don't really shop for this kind of crowd snack."
+    },
+    {
+      "personaId": "parent-21",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "Looks like a nice BBQ treat, but I’m not really tempted enough to click."
+    },
+    {
+      "personaId": "parent-21",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The facts are fine, but this is still just marshmallows and I’d probably keep scrolling."
+    },
+    {
+      "personaId": "parent-21",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel a bit more useful, so I’d have a look."
+    },
+    {
+      "personaId": "parent-21",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American/Belgian angle doesn’t really sell it to me."
+    },
+    {
+      "personaId": "parent-21",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This sounds like something I could actually buy for a BBQ, so I’d tap."
+    },
+    {
+      "personaId": "parent-21",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty enough, but I’m not that bothered about giant marshmallows."
+    },
+    {
+      "personaId": "parent-22",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t usually bother with sugary BBQ snacks, so this wouldn’t make me tap."
+    },
+    {
+      "personaId": "parent-22",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition claims don’t make marshmallows any more interesting to me."
+    },
+    {
+      "personaId": "parent-22",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It’s still just marshmallows, and the origin story doesn’t add much for me."
+    },
+    {
+      "personaId": "parent-22",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’m not looking for s’mores ingredients, so I’d keep scrolling."
+    },
+    {
+      "personaId": "parent-22",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds like a novelty sweet I’d never buy."
+    },
+    {
+      "personaId": "parent-22",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "A crowd-pleasing BBQ bag isn’t really my kind of thing."
+    },
+    {
+      "personaId": "parent-23",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The calorie and fat details are nice, but it still feels like a fairly ordinary marshmallow ad to me."
+    },
+    {
+      "personaId": "parent-23",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style/Belgium angle doesn’t really grab me, even if it sounds decent for BBQs."
+    },
+    {
+      "personaId": "parent-23",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A 300g bag plus a s'mores recipe is actually useful and makes it feel more tempting."
+    },
+    {
+      "personaId": "parent-23",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but the phrasing is a bit overblown and doesn’t stand out enough."
+    },
+    {
+      "personaId": "parent-23",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "tap",
+      "reason": "This is the most direct and practical one for a BBQ or fire pit, so I’d check it out."
+    },
+    {
+      "personaId": "parent-23",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s aimed at group BBQ vibes, but I’m not really sold just by the wording."
+    },
+    {
+      "personaId": "parent-24",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "It’s just marshmallows and I’m not really looking for a s’mores project."
+    },
+    {
+      "personaId": "parent-24",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The fact-style claims don’t make this any more useful to me, and I’d still just see a sweet snack."
+    },
+    {
+      "personaId": "parent-24",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds like a BBQ marshmallow and that’s not something I’d buy on impulse."
+    },
+    {
+      "personaId": "parent-24",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ in mind, so this feels easy to skip."
+    },
+    {
+      "personaId": "parent-24",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds over-the-top and sugary, which isn’t really my thing."
+    },
+    {
+      "personaId": "parent-24",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not planning a BBQ treat bag, so I’d move past this."
+    },
+    {
+      "personaId": "parent-25",
+      "segment": "parent",
+      "variantId": "r1-indulgence",
+      "decision": "tap",
+      "reason": "Looks fun and BBQ-friendly, and the supersized marshmallows feel like a playful treat I’d try."
+    },
+    {
+      "personaId": "parent-25",
+      "segment": "parent",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s basically just a marshmallow bag CTA, and I’d probably keep scrolling unless I was already shopping for BBQ stuff."
+    },
+    {
+      "personaId": "parent-25",
+      "segment": "parent",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This sounds like a good shareable BBQ snack for the family, so I’d be curious to see it."
+    },
+    {
+      "personaId": "parent-25",
+      "segment": "parent",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores angle catches my eye since I’d actually use that with the kids or at a weekend get-together."
+    },
+    {
+      "personaId": "parent-25",
+      "segment": "parent",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The production origin doesn’t really matter to me, so this feels like background noise."
+    },
+    {
+      "personaId": "parent-25",
+      "segment": "parent",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts aren’t enough to make me stop, and I’m not looking to cut sugar or carbs."
+    },
+    {
+      "personaId": "fitness-1",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Looks like a decent BBQ treat, but I’m not bothered enough to tap an ad for marshmallows."
+    },
+    {
+      "personaId": "fitness-1",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The copy is fine, but it’s still just giant marshmallows so I’d keep scrolling."
+    },
+    {
+      "personaId": "fitness-1",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and calorie info makes it a bit more useful and I might check that."
+    },
+    {
+      "personaId": "fitness-1",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I don’t really need a recipe on an ad, so I’d probably pass."
+    },
+    {
+      "personaId": "fitness-1",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This feels a bit generic, and I’m not likely to buy marshmallows from an Instagram ad."
+    },
+    {
+      "personaId": "fitness-1",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s a pretty standard product pitch, so I’d scroll past."
+    },
+    {
+      "personaId": "fitness-2",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Nice for a BBQ, but it’s still just marshmallows so I’d keep scrolling."
+    },
+    {
+      "personaId": "fitness-2",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is fun, but I’m not really tempted by a giant mallow ad."
+    },
+    {
+      "personaId": "fitness-2",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It sounds tasty enough, yet I probably wouldn’t stop for a bag of marshmallows."
+    },
+    {
+      "personaId": "fitness-2",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores angle and recipe make it feel more useful, so I’d give it a look."
+    },
+    {
+      "personaId": "fitness-2",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I can picture it at a BBQ, but it’s not enough to make me tap."
+    },
+    {
+      "personaId": "fitness-2",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and low-fat facts make it stand out a bit more, so I’d check it."
+    },
+    {
+      "personaId": "fitness-3",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "It’s just marshmallows and the “facts” angle doesn’t feel relevant enough for me to stop."
+    },
+    {
+      "personaId": "fitness-3",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Sweet treat, but it’s still just a BBQ marshmallow ad so I’d keep scrolling."
+    },
+    {
+      "personaId": "fitness-3",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The production detail doesn’t really tell me anything useful or tempting."
+    },
+    {
+      "personaId": "fitness-3",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ often, so this isn’t something I’d click."
+    },
+    {
+      "personaId": "fitness-3",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds more like a party BBQ item than something I’d buy for myself."
+    },
+    {
+      "personaId": "fitness-3",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I like sweet snacks and the s’mores recipe makes it a bit more interesting to me."
+    },
+    {
+      "personaId": "fitness-4",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I’m not really buying BBQ sweets and this just feels like another marshmallow ad."
+    },
+    {
+      "personaId": "fitness-4",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It looks repetitive and I’d probably just keep scrolling past it."
+    },
+    {
+      "personaId": "fitness-4",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A recipe on the back doesn’t make me want to tap when I’m just browsing."
+    },
+    {
+      "personaId": "fitness-4",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The packaging and production details don’t feel like a genuine discount or must-have."
+    },
+    {
+      "personaId": "fitness-4",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The calorie and gluten-free info isn’t enough to get me interested in these."
+    },
+    {
+      "personaId": "fitness-4",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’d only care if it were cheap, and this ad doesn’t show that."
+    },
+    {
+      "personaId": "fitness-5",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "I’d probably keep scrolling unless it clearly says gluten free, because I need to be careful with coeliac safety."
+    },
+    {
+      "personaId": "fitness-5",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds fun for a BBQ, but it doesn’t give me the allergen detail I’d want before tapping."
+    },
+    {
+      "personaId": "fitness-5",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "This is too vague for me and doesn’t reassure me about gluten or cross-contamination."
+    },
+    {
+      "personaId": "fitness-5",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "It clearly says gluten free and gives straightforward facts, so I’d check the label."
+    },
+    {
+      "personaId": "fitness-5",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "The s’mores angle is tempting, but I’d want clear gluten information before bothering."
+    },
+    {
+      "personaId": "fitness-5",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The production details don’t tell me enough about gluten, so I’d pass."
+    },
+    {
+      "personaId": "fitness-6",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Looks a bit too niche and I’m not usually stopping for marshmallow ads."
+    },
+    {
+      "personaId": "fitness-6",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The Belgium detail doesn’t really hook me, even though the product sounds decent."
+    },
+    {
+      "personaId": "fitness-6",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The 300g bag and s’mores recipe makes it feel like an easy BBQ treat I'd actually use."
+    },
+    {
+      "personaId": "fitness-6",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The facts are neat, but it still feels like a fairly boring food ad to me."
+    },
+    {
+      "personaId": "fitness-6",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s just asking me to buy marshmallows now, which I’d probably keep scrolling past."
+    },
+    {
+      "personaId": "fitness-6",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This feels like the sort of shareable BBQ snack I’d actually notice and maybe grab."
+    },
+    {
+      "personaId": "fitness-7",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’m vegan and marshmallows are usually gelatine-based, so this isn’t for me."
+    },
+    {
+      "personaId": "fitness-7",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s a BBQ sweet and I’d probably just keep scrolling past a sponsored snack ad."
+    },
+    {
+      "personaId": "fitness-7",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "The grilling angle doesn’t really tempt me, and I’m not looking for marshmallows."
+    },
+    {
+      "personaId": "fitness-7",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "A BBQ marshmallow bag feels like something I’d skip unless I was specifically shopping for it."
+    },
+    {
+      "personaId": "fitness-7",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The country-of-origin angle doesn’t make me interested enough to tap."
+    },
+    {
+      "personaId": "fitness-7",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition claims don’t change the fact that this looks like another marshmallow ad I’d pass."
+    },
+    {
+      "personaId": "fitness-8",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’m not really into s'mores and this feels like a niche sweet snack I wouldn’t bother with."
+    },
+    {
+      "personaId": "fitness-8",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ marshmallows aren’t something I’d usually buy or need."
+    },
+    {
+      "personaId": "fitness-8",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American-style angle doesn’t make it more relevant to me, so I’d keep scrolling."
+    },
+    {
+      "personaId": "fitness-8",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t often buy novelty sweets, even if I have a grill or BBQ."
+    },
+    {
+      "personaId": "fitness-8",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The health facts don’t tempt me, and I still wouldn’t pick marshmallows over my usual snacks."
+    },
+    {
+      "personaId": "fitness-8",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "This just looks like another oversized sweet, which isn’t really my thing."
+    },
+    {
+      "personaId": "fitness-9",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Looks like a BBQ treat but it’s not something I’d buy for my usual weekly food shop."
+    },
+    {
+      "personaId": "fitness-9",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "They sound fun, but I’d probably just keep scrolling unless they were on a really good intro offer."
+    },
+    {
+      "personaId": "fitness-9",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I don’t really buy marshmallows just for s’mores, so this wouldn’t grab me."
+    },
+    {
+      "personaId": "fitness-9",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s basically the same BBQ marshmallow pitch as the others, so I’d skip it."
+    },
+    {
+      "personaId": "fitness-9",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "A big bag for a barbecue sounds nice, but it’s not the kind of snack I’m looking for."
+    },
+    {
+      "personaId": "fitness-9",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and low-fat angle plus the calorie info makes it stand out a bit more than the others."
+    },
+    {
+      "personaId": "fitness-10",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "It’s just basic nutrition facts and marshmallow hype, so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "fitness-10",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The product sounds fine, but this doesn’t feel compelling enough to make me tap."
+    },
+    {
+      "personaId": "fitness-10",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t really need to buy giant marshmallows off an ad, even for a BBQ."
+    },
+    {
+      "personaId": "fitness-10",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s a bit fluffy and generic, and I’d skip past it."
+    },
+    {
+      "personaId": "fitness-10",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The recipe angle makes it more useful, and I’d be interested in something that saves prep time."
+    },
+    {
+      "personaId": "fitness-10",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s aimed at a crowd BBQ, but I’m not tempted enough to open it."
+    },
+    {
+      "personaId": "fitness-11",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don't really need marshmallows, and this feels a bit too barbecue-specific for me."
+    },
+    {
+      "personaId": "fitness-11",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "S'mores sound nice but this is still just a bag of marshmallows, so I'd keep scrolling."
+    },
+    {
+      "personaId": "fitness-11",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The fact-heavy angle doesn't make me any more interested in buying marshmallows."
+    },
+    {
+      "personaId": "fitness-11",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It's more of a BBQ party item than something I'd buy on impulse."
+    },
+    {
+      "personaId": "fitness-11",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The wording is punchy, but it's still not enough to make me tap on sweets."
+    },
+    {
+      "personaId": "fitness-11",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The origin detail doesn't make it feel more relevant or tempting to me."
+    },
+    {
+      "personaId": "fitness-12",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Looks a bit too much like a novelty BBQ thing, and I’m not really shopping for marshmallows."
+    },
+    {
+      "personaId": "fitness-12",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It sounds tempting, but I’d probably just keep scrolling unless I already had a BBQ on."
+    },
+    {
+      "personaId": "fitness-12",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American/Belgian angle doesn’t do much for me, so I’d skip it."
+    },
+    {
+      "personaId": "fitness-12",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "I’m not really in the mood for a sweet treat like this, even if it looks decent."
+    },
+    {
+      "personaId": "fitness-12",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "S’mores recipe makes it feel more useful, and I could see myself grabbing it for a weekend thing."
+    },
+    {
+      "personaId": "fitness-12",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts don’t make it stand out enough for me to tap."
+    },
+    {
+      "personaId": "fitness-13",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "I don’t really need marshmallows and the fact-heavy angle isn’t enough to grab me."
+    },
+    {
+      "personaId": "fitness-13",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "They sound fun, but it’s still just sweet marshmallows so I’d keep scrolling."
+    },
+    {
+      "personaId": "fitness-13",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This feels useful for a BBQ with friends, and I like ads that tell me how to use the product."
+    },
+    {
+      "personaId": "fitness-13",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The wording is fine, but it doesn’t give me much practical reason to stop."
+    },
+    {
+      "personaId": "fitness-13",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not tempted by another generic marshmallow ad, even if it suggests BBQ use."
+    },
+    {
+      "personaId": "fitness-13",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it a bit more appealing and specific, so I’d likely check it out."
+    },
+    {
+      "personaId": "fitness-14",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "I don’t really buy novelty sweets, and I’d just keep moving."
+    },
+    {
+      "personaId": "fitness-14",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not likely to grab marshmallows on impulse, even for a BBQ."
+    },
+    {
+      "personaId": "fitness-14",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "BBQ crowd-pleaser or not, it’s still just marshmallows and I’d skip it."
+    },
+    {
+      "personaId": "fitness-14",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "That’s the sort of aspirational food ad I usually ignore."
+    },
+    {
+      "personaId": "fitness-14",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The macro-style selling point doesn’t make me want to tap for a sweet treat."
+    },
+    {
+      "personaId": "fitness-14",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d rather not buy s'mores stuff unless I was already planning a BBQ."
+    },
+    {
+      "personaId": "fitness-15",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I’d save this because the s’mores recipe makes it feel like a fun, useful treat for a BBQ."
+    },
+    {
+      "personaId": "fitness-15",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t have a fire pit or BBQ often enough for this to feel relevant."
+    },
+    {
+      "personaId": "fitness-15",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds a bit generic, so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "fitness-15",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The ad leans on product details but doesn’t make it feel especially exciting to me."
+    },
+    {
+      "personaId": "fitness-15",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "I’d tap to check the facts since the gluten free and low-fat angle makes it seem like a lighter snack."
+    },
+    {
+      "personaId": "fitness-15",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds fine, but I’m not that into big marshmallow bags unless I already need them for a BBQ."
+    },
+    {
+      "personaId": "fitness-16",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Marshmallows are basically pure sugar, so I’d skip them for my low-carb shopping."
+    },
+    {
+      "personaId": "fitness-16",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Sounds like a sweet treat, but it doesn’t fit how I eat."
+    },
+    {
+      "personaId": "fitness-16",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s still just giant marshmallows, and I’d not be buying those."
+    },
+    {
+      "personaId": "fitness-16",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "A s'mores recipe doesn’t change that this is a high-sugar snack."
+    },
+    {
+      "personaId": "fitness-16",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The brand story isn’t enough to make me tap on a marshmallow ad."
+    },
+    {
+      "personaId": "fitness-16",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The calorie and fat facts plus gluten-free labelling make this feel more transparent, so I’d check it."
+    },
+    {
+      "personaId": "fitness-17",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I’d be tempted by the s’mores recipe and the big bag for an occasional sweet treat."
+    },
+    {
+      "personaId": "fitness-17",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds fine, but I’m not especially excited by marshmallows for a grill or BBQ."
+    },
+    {
+      "personaId": "fitness-17",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "The countdown-style urgency puts me off, so I’d ignore it."
+    },
+    {
+      "personaId": "fitness-17",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I don’t really buy food because it’s meant for a crowd at a BBQ."
+    },
+    {
+      "personaId": "fitness-17",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It’s just another marshmallow ad and I’d usually keep scrolling."
+    },
+    {
+      "personaId": "fitness-17",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and calorie info makes it feel more relevant to me."
+    },
+    {
+      "personaId": "fitness-18",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s a decent BBQ snack, but I’d probably just keep scrolling unless I was already shopping for one."
+    },
+    {
+      "personaId": "fitness-18",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The copy is fine, but it doesn’t feel exciting enough for me to tap."
+    },
+    {
+      "personaId": "fitness-18",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Sounds like a party food, but I’m not really looking for marshmallows right now."
+    },
+    {
+      "personaId": "fitness-18",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "The bold wording is fun, but I’d still scroll past because it’s not something I need."
+    },
+    {
+      "personaId": "fitness-18",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and 0g fat angle makes it feel like a low-risk snack I might actually check out."
+    },
+    {
+      "personaId": "fitness-18",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The s’mores recipe makes it feel useful and easy to try, so I’d be curious enough to tap."
+    },
+    {
+      "personaId": "fitness-19",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "Marshmallows aren't really something I'd stop for, and the BBQ angle doesn't make it more relevant to me."
+    },
+    {
+      "personaId": "fitness-19",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I don't need s'mores marshmallows, and ads like this are just a starting point anyway."
+    },
+    {
+      "personaId": "fitness-19",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It sounds like the same marshmallows with no useful detail I care about, so I'd keep scrolling."
+    },
+    {
+      "personaId": "fitness-19",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I usually pass food ads unless I'm actively shopping, and this one doesn't feel compelling."
+    },
+    {
+      "personaId": "fitness-19",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It's just generic sweet snacks, and I already keep my own treats stocked."
+    },
+    {
+      "personaId": "fitness-19",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten-free and nutrition details make this one a bit more useful to check, though I'd still verify the allergen info."
+    },
+    {
+      "personaId": "fitness-20",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "Looks like a decent BBQ snack, but I’m not buying marshmallows off Instagram."
+    },
+    {
+      "personaId": "fitness-20",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s trying to sell a group BBQ moment, but it doesn’t really grab me."
+    },
+    {
+      "personaId": "fitness-20",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I don’t cook much, and a s’mores recipe won’t make me tap."
+    },
+    {
+      "personaId": "fitness-20",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The Belgium/US angle doesn’t make it any more appealing to me."
+    },
+    {
+      "personaId": "fitness-20",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "Sounds overly sugary and a bit gimmicky, so I’d keep scrolling."
+    },
+    {
+      "personaId": "fitness-20",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and calorie info makes it feel more useful and straightforward than the others."
+    },
+    {
+      "personaId": "fitness-21",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d probably scroll past since I’m not really looking for marshmallows and I forget to do BBQ-style treats anyway."
+    },
+    {
+      "personaId": "fitness-21",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The gluten-free/fat-free angle is fine, but it still feels like a marshmallow ad I wouldn’t stop for."
+    },
+    {
+      "personaId": "fitness-21",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds fun, but I’d just keep moving unless I was already planning a treat for a BBQ."
+    },
+    {
+      "personaId": "fitness-21",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "I don’t usually buy things just for a BBQ crowd, so I’d skip it."
+    },
+    {
+      "personaId": "fitness-21",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "This feels like a generic snack ad, and I’m not tempted enough to tap."
+    },
+    {
+      "personaId": "fitness-21",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The packaging and origin detail aren’t enough to make me stop for marshmallows."
+    },
+    {
+      "personaId": "fitness-22",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "I’d probably skip it because giant marshmallows aren’t really my thing and the ad is a bit too sugary for me."
+    },
+    {
+      "personaId": "fitness-22",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I’m not that interested in buying marshmallows from an ad, even if I have a BBQ."
+    },
+    {
+      "personaId": "fitness-22",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It’s just marshmallows and the lifestyle angle doesn’t make me want to tap."
+    },
+    {
+      "personaId": "fitness-22",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "scroll",
+      "reason": "I’d pass because I don’t really go for s’mores and I prefer simple food I can see clearly."
+    },
+    {
+      "personaId": "fitness-22",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The nutrition facts don’t really matter to me here, and I still wouldn’t buy these."
+    },
+    {
+      "personaId": "fitness-22",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It sounds like a BBQ crowd food, but I’d still just scroll past."
+    },
+    {
+      "personaId": "fitness-23",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "tap",
+      "reason": "This sounds like an easy BBQ crowd-pleaser and I’m into a sweet treat like that."
+    },
+    {
+      "personaId": "fitness-23",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "scroll",
+      "reason": "The fact-heavy angle feels a bit dull and I’m not especially swayed by the nutrition callouts."
+    },
+    {
+      "personaId": "fitness-23",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "tap",
+      "reason": "The big indulgent wording makes it sound fun and very snackable for a weekend cookout."
+    },
+    {
+      "personaId": "fitness-23",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "It’s basically just describing the product without much of a hook for me."
+    },
+    {
+      "personaId": "fitness-23",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "A bag plus a s’mores recipe is tempting because it feels like an easy treat to try."
+    },
+    {
+      "personaId": "fitness-23",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "The urgent CTA feels a bit pushy, so I’d probably keep scrolling."
+    },
+    {
+      "personaId": "fitness-24",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "Looks like novelty BBQ sweets and I’m not that bothered by the American-style angle."
+    },
+    {
+      "personaId": "fitness-24",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "It’s just a marshmallow bag for a BBQ and that doesn’t really grab me."
+    },
+    {
+      "personaId": "fitness-24",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "The gluten free and 0g fat info is useful, and the portion size is clear."
+    },
+    {
+      "personaId": "fitness-24",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds a bit too hyped up for something I’d only buy if I was already planning a BBQ."
+    },
+    {
+      "personaId": "fitness-24",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "The 300g bag and s’mores recipe make it seem like decent value for a proper treat."
+    },
+    {
+      "personaId": "fitness-24",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "It’s another generic marshmallow ad and I’d usually keep scrolling."
+    },
+    {
+      "personaId": "fitness-25",
+      "segment": "fitness",
+      "variantId": "r1-value",
+      "decision": "tap",
+      "reason": "I’d tap this because s’mores sound fun and the recipe makes it feel useful."
+    },
+    {
+      "personaId": "fitness-25",
+      "segment": "fitness",
+      "variantId": "r1-scarcity",
+      "decision": "scroll",
+      "reason": "I don’t need a marshmallow ad pushed at me just because I might BBQ sometimes."
+    },
+    {
+      "personaId": "fitness-25",
+      "segment": "fitness",
+      "variantId": "r1-provenance",
+      "decision": "scroll",
+      "reason": "The American/Belgian angle doesn’t really make me want to stop."
+    },
+    {
+      "personaId": "fitness-25",
+      "segment": "fitness",
+      "variantId": "r1-indulgence",
+      "decision": "scroll",
+      "reason": "It sounds tasty, but it’s still just marshmallows so I’d likely keep scrolling."
+    },
+    {
+      "personaId": "fitness-25",
+      "segment": "fitness",
+      "variantId": "r1-health_halo",
+      "decision": "tap",
+      "reason": "I like seeing the nutrition facts and the gluten-free claim makes it stand out."
+    },
+    {
+      "personaId": "fitness-25",
+      "segment": "fitness",
+      "variantId": "r1-social_proof",
+      "decision": "scroll",
+      "reason": "This feels like generic BBQ-snack marketing, so I’d pass."
+    }
+  ],
+  "pooledEqual": {
+    "r1-social_proof": 0.07,
+    "r1-scarcity": 0.06,
+    "r1-health_halo": 0.41,
+    "r1-indulgence": 0.06,
+    "r1-provenance": 0.01,
+    "r1-value": 0.41
+  },
+  "pick": "r1-health_halo",
+  "sealedAt": "2026-10-03T12:28:27.889Z",
+  "sha256": "5ef17f31769361780c615757eabe7e76f68c9e6041dac02cae584c4b88aa5199"
+}

@@ -1,0 +1,65 @@
+{
+  "round": 1,
+  "variants": [
+    {
+      "id": "r1-social_proof",
+      "round": 1,
+      "lever": "social_proof",
+      "headline": "The bag to pass round at the BBQ",
+      "body": "Pink, white and made for toasting. Bring the 300g bag to the BBQ and get the crowd passing, skewering and toasting.",
+      "cta": "Get the crowd toasty",
+      "rationale": "Shared BBQ rituals create a social pull without invented popularity claims, using the colours, 300g size and toasting instructions.",
+      "parentId": null
+    },
+    {
+      "id": "r1-scarcity",
+      "round": 1,
+      "lever": "scarcity",
+      "headline": "Don't miss your next toast",
+      "body": "Got a fire pit, grill or BBQ? Grab a 300g bag of giant pink and white mallows now. Skewer, toast, get stuck in.",
+      "cta": "Grab a bag now",
+      "rationale": "Immediate action and don't-miss-out framing create urgency without stock claims, using the size, colours and suggested toasting methods.",
+      "parentId": null
+    },
+    {
+      "id": "r1-health_halo",
+      "round": 1,
+      "lever": "health_halo",
+      "headline": "Gluten free. 0g fat. Giant mallows.",
+      "body": "84 kcal per 25g serving. Gluten free. 0g fat. Those are the facts. Your next move? Skewer a giant mallow over the grill.",
+      "cta": "Check the facts",
+      "rationale": "Nutrition facts lead the pitch, using gluten-free status, 0g fat and 84 kcal per 25g serving without claiming broader health benefits.",
+      "parentId": null
+    },
+    {
+      "id": "r1-indulgence",
+      "round": 1,
+      "lever": "indulgence",
+      "headline": "Pillowy hunks. Supersized sweetness.",
+      "body": "Giant pink and white mallows, made for toasting. Skewer over the BBQ and dive into a bigger, bolder treat.",
+      "cta": "Toast your treat",
+      "rationale": "Texture, sweetness and pleasure drive the copy, drawing on the pack slogan, giant size, colours and toasting use.",
+      "parentId": null
+    },
+    {
+      "id": "r1-provenance",
+      "round": 1,
+      "lever": "provenance",
+      "headline": "American style. Produced in Belgium.",
+      "body": "American style, Belgian production. Giant pink and white toastin' marshmallows, made for your fire pit, grill or BBQ.",
+      "cta": "Meet your next toast",
+      "rationale": "The copy foregrounds Belgian production and distinguishes it from American style, using only the stated origin and product facts.",
+      "parentId": null
+    },
+    {
+      "id": "r1-value",
+      "round": 1,
+      "lever": "value",
+      "headline": "300g of giant toastin' marshmallows",
+      "body": "A 300g bag of pink and white giant mallows, plus a grilled s'mores recipe on the back. Bring the bag. Put the recipe to work.",
+      "cta": "Make s'mores",
+      "rationale": "Pack quantity and the included recipe establish what you get, using the 300g size, colours and back-of-pack recipe without implying a price.",
+      "parentId": null
+    }
+  ]
+}
