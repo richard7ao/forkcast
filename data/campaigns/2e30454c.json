@@ -1,0 +1,4842 @@
+{
+  "id": "2e30454c",
+  "name": "source-crop",
+  "createdAt": "2026-10-03T13:55:11.942Z",
+  "sourceImageUrl": "/generated/campaigns/2e30454c/source.jpg",
+  "product": {
+    "brand": "EPIC Snax Co.",
+    "name": "Giant Toastin' Marshmallows",
+    "price": "",
+    "imageUrl": "/generated/campaigns/2e30454c/source.jpg",
+    "facts": [
+      "American style giant toastin' marshmallows",
+      "Pink and white marshmallows",
+      "300g bag",
+      "Gluten free",
+      "Produced in Belgium",
+      "84 kcal per 25g serving",
+      "0g fat",
+      "Made for toasting: skewer a mallow over a fire pit, grill or BBQ",
+      "Grilled s'mores recipe on the back of the pack",
+      "Pack slogan: \"Delicious pillowy hunks of sweetness supersized for a bigger, bolder epic experience\"",
+      "American Style"
+    ]
+  },
+  "stage": "done",
+  "progress": {
+    "label": "Done",
+    "done": 1,
+    "total": 1
+  },
+  "generations": [
+    {
+      "gen": 0,
+      "ads": [
+        {
+          "id": "g0-social_proof-0",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "The campfire crowd's kind of giant.",
+          "body": "Pink, white and made for toasting. Bring the bag everyone grabs to the fire pit, then pass the skewers.",
+          "cta": "Join the circle",
+          "rationale": "The crowd framing and shared skewers suggest a group pick, using the pink and white colours, giant size and fire-pit toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-0.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "At a lakeside campsite, an unaltered pack stands front label to camera on a plain wooden camping table beside pink and white marshmallows and a metal skewer extending over a small campfire, with warm firelight and cool dusk creating an adventurous mood in a square composition with the pack prominent in the foreground.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 8,
+              "rate": 0.25,
+              "lo": 0.0865070033792796,
+              "hi": 0.5398716011915111
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 150,
+            "clicks": 1,
+            "ctr": 0.006666666666666667,
+            "lo": 0.0014885208984316157,
+            "hi": 0.029329025429553804
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-1",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "BBQ's on. Mallows are doing the rounds.",
+          "body": "Follow the crowd to the sweet bit: American style giant marshmallows, made for toasting over the BBQ. Skewer, toast, pass round.",
+          "cta": "Get toasting",
+          "rationale": "Following the crowd and passing mallows round signal social uptake, grounded in the American style, giant size and BBQ toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-1.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "In a sunny backyard BBQ setting, the unaltered pack faces front label to camera on a side table safely away from the heat, with a plain plate of pink and white marshmallows and one hand holding a skewered mallow over the BBQ, framed square with bright afternoon light and a relaxed weekend mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 11,
+              "rate": 0.2727272727272727,
+              "lo": 0.11468533801866812,
+              "hi": 0.5205115917986932
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 186,
+            "clicks": 2,
+            "ctr": 0.010752688172043012,
+            "lo": 0.0035643852536813396,
+            "hi": 0.031972503406868844
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-2",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "Your cue to join the grill-side gathering.",
+          "body": "Rain can stay outside. The patio crew is passing pink and white giant mallows. Grab a skewer and join them at the grill.",
+          "cta": "Pull up a chair",
+          "rationale": "The patio crew models choosing and sharing the product, using the pink and white colours, giant size and grill toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 11,
+              "rate": 0.09090909090909091,
+              "lo": 0.020547191664965797,
+              "hi": 0.3228072820062846
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 100,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.026347285857864715
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-3",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "Someone brings the bag. Everyone joins in.",
+          "body": "That's how a kitchen counter becomes s'mores central. Find the grilled s'mores recipe on the back of the pack and get in on the making.",
+          "cta": "Make s'mores",
+          "rationale": "A shared kitchen-making session frames the bag as a group choice, using the grilled s'mores recipe on the back of the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 9,
+              "rate": 0.4444444444444444,
+              "lo": 0.21803239302819488,
+              "hi": 0.696541512289793
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.5,
+              "parent": 1,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 560,
+            "clicks": 18,
+            "ctr": 0.03214285714285714,
+            "lo": 0.021956239370084937,
+            "hi": 0.04682927789890112
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-social_proof-4",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "Picked. Packed. Passed round.",
+          "body": "The picnic bag everyone reaches into. Pink and white giant marshmallows in a 300g bag—tip them into the bowl and join the pass-round.",
+          "cta": "Bring the bag",
+          "rationale": "Collective reaching and passing suggest an already-chosen picnic snack, using the pink and white colours, giant size and 300g bag.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-4.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a woodland picnic blanket, the unaltered pack stands front label to camera beside an open plain snack bowl holding pink and white marshmallows, with dappled sunlight, folded linen napkins and a loosely arranged square composition creating a carefree outdoor mood.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 10,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.21297179881198092
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 111,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.023798431085775798
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-5",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "The bowl that keeps making the rounds.",
+          "body": "You know the move: follow the hands reaching for the mallows. Pink and white giants in the middle. Remote to the side. Settle in.",
+          "cta": "Join movie night",
+          "rationale": "Hands reaching into a shared bowl create a social-choice cue, using the pink and white colours and giant size.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-5.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a living-room coffee table, the unaltered pack faces front label to camera beside a small bowl of pink and white marshmallows and an unmarked remote control, with soft lamplight, an out-of-focus sofa and a square composition creating an easygoing movie-night mood without showing any screen text.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 9,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.23116514786189163
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 109,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024224521461577386
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-6",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "Passed round, even when it's snowing.",
+          "body": "When the cabin crew reaches for pink and white giant mallows, pull up a chair. American style sweetness for a cosy catch-up.",
+          "cta": "Join the cabin crew",
+          "rationale": "The cabin crew reaching and sharing frames the mallows as a group pick, using the pink and white colours, giant size and American style.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 8,
+              "rate": 0.125,
+              "lo": 0.02839608135329466,
+              "hi": 0.41117182550289144
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 140,
+            "clicks": 1,
+            "ctr": 0.007142857142857143,
+            "lo": 0.0015949517651010475,
+            "hi": 0.03138210719229055
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-7",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "S'mores hit the table. Everyone leans in.",
+          "body": "Join the after-dinner pass-round. Giant marshmallows, shared s'mores, and a grilled s'mores recipe on the pack for the next get-together.",
+          "cta": "Pass the platter",
+          "rationale": "The collective lean-in and shared platter signal group enthusiasm, using the giant size and grilled s'mores recipe on the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 9,
+              "rate": 0.2222222222222222,
+              "lo": 0.0764878165873788,
+              "hi": 0.4963817100025609
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 148,
+            "clicks": 1,
+            "ctr": 0.006756756756756757,
+            "lo": 0.0015086553617276958,
+            "hi": 0.029717866603800887
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-0",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Fire lit? Don't miss the mallow moment.",
+          "body": "Go giant by the fire pit. Skewer a pink or white mallow and get toasting. Don't just picture it—grab your bag now.",
+          "cta": "Grab a bag now",
+          "rationale": "Immediate grab-and-toast language creates urgency using the giant size, pink and white colours, and fire-pit toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-0.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "At a lakeside campsite, an unaltered pack stands front label to camera on a plain wooden camping table beside pink and white marshmallows and a metal skewer extending over a small campfire, with warm firelight and cool dusk creating an adventurous mood in a square composition with the pack prominent in the foreground.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 12,
+              "rate": 0.4166666666666667,
+              "lo": 0.21996463110792727,
+              "hi": 0.6440366880792767
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 1,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 320,
+            "clicks": 7,
+            "ctr": 0.021875,
+            "lo": 0.01190240477247844,
+            "hi": 0.039866151454508635
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-1",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "BBQ calling. Grab the giant mallows.",
+          "body": "You've got the BBQ. Now grab the American style giant marshmallows made for toasting over it. Don't miss the mallow part.",
+          "cta": "Get toasting now",
+          "rationale": "Direct commands urge immediate action while using the American style, giant size and BBQ toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-1.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "In a sunny backyard BBQ setting, the unaltered pack faces front label to camera on a side table safely away from the heat, with a plain plate of pink and white marshmallows and one hand holding a skewered mallow over the BBQ, framed square with bright afternoon light and a relaxed weekend mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 11,
+              "rate": 0.36363636363636365,
+              "lo": 0.17512494831857622,
+              "hi": 0.6059932095718408
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.6666666666666666,
+              "parent": 0,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 272,
+            "clicks": 6,
+            "ctr": 0.022058823529411766,
+            "lo": 0.011448051469145026,
+            "hi": 0.04208563058242265
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-2",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Grey skies. Giant mallows. Go for it.",
+          "body": "Rainy patio mood? Bring on the grill and the giant toastin' marshmallows. Skip the 'maybe later'—grab a bag now.",
+          "cta": "Grab yours now",
+          "rationale": "Rejecting delay supplies urgency, grounded in the giant marshmallows and their suitability for grill toasting.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 10,
+              "rate": 0.1,
+              "lo": 0.022632329840006293,
+              "hi": 0.34774510920957846
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.3333333333333333,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 106,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024893054455813284
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-3",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Biscuits. Chocolate. Now grab the mallows.",
+          "body": "Stop saving s'mores ideas. Grab the giant mallows now—the grilled s'mores recipe is right on the back of the pack.",
+          "cta": "Make it happen",
+          "rationale": "The stop-saving hook pushes immediate action and uses the giant size and grilled s'mores recipe on the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 11,
+              "rate": 0.45454545454545453,
+              "lo": 0.24209040759667674,
+              "hi": 0.6849489783667956
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 0.6666666666666666,
+              "fitness": 0.6666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 455,
+            "clicks": 13,
+            "ctr": 0.02857142857142857,
+            "lo": 0.01824902736041041,
+            "hi": 0.04446813918770308
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-scarcity-4",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Don't scroll past your picnic mallows.",
+          "body": "Pink. White. Giant. Grab the 300g bag and bring it to the blanket. Don't leave this picnic idea in your feed.",
+          "cta": "Grab the bag",
+          "rationale": "The anti-scrolling hook turns interest into urgency while using the pink and white colours, giant size and 300g bag facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-4.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a woodland picnic blanket, the unaltered pack stands front label to camera beside an open plain snack bowl holding pink and white marshmallows, with dappled sunlight, folded linen napkins and a loosely arranged square composition creating a carefree outdoor mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 11,
+              "rate": 0.09090909090909091,
+              "lo": 0.020547191664965797,
+              "hi": 0.3228072820062846
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 146,
+            "clicks": 1,
+            "ctr": 0.00684931506849315,
+            "lo": 0.0015293419916829667,
+            "hi": 0.030117156527795307
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-5",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Press pause. Grab the giant mallows.",
+          "body": "Movie-night mood, meet pink and white giant marshmallows. Gluten free, too. Don't just watch from the sofa—go grab a bag.",
+          "cta": "Go grab yours",
+          "rationale": "The pause-and-grab commands encourage immediate action using the pink and white colours, giant size and gluten-free fact.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-5.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a living-room coffee table, the unaltered pack faces front label to camera beside a small bowl of pink and white marshmallows and an unmarked remote control, with soft lamplight, an out-of-focus sofa and a square composition creating an easygoing movie-night mood without showing any screen text.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 9,
+              "rate": 0.2222222222222222,
+              "lo": 0.0764878165873788,
+              "hi": 0.4963817100025609
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 111,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.023798431085775798
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-6",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Cold outside. Don't wait on giant mallows.",
+          "body": "Snug cabin plans? Go big on pink and white American style marshmallows. Grab your bag now, not 'sometime'.",
+          "cta": "Grab yours today",
+          "rationale": "The now-not-sometime contrast expresses urgency using the giant size, pink and white colours, and American style facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 12,
+              "rate": 0.4166666666666667,
+              "lo": 0.21996463110792727,
+              "hi": 0.6440366880792767
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 1,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.3333333333333333,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 103,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.025599534179816145
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-7",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Dessert's calling. Grab the giant mallows.",
+          "body": "Don't leave s'mores on the wish list. Grab a bag now and check the grilled s'mores recipe on the back. Giant mallow plans: activated.",
+          "cta": "Start with a bag",
+          "rationale": "The wish-list challenge and grab-now command create urgency using the giant size and back-of-pack grilled s'mores recipe.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 11,
+              "rate": 0.18181818181818182,
+              "lo": 0.06210964564779159,
+              "hi": 0.4271660560965143
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.6666666666666666,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 153,
+            "clicks": 2,
+            "ctr": 0.013071895424836602,
+            "lo": 0.004334857195889049,
+            "hi": 0.038733643204143645
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-0",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Big mallow. 0g fat. Campfire energy.",
+          "body": "Pink and white, gluten free, made for toasting. Skewer a giant mallow over the fire pit and let dusk do its thing.",
+          "cta": "Get toasting",
+          "rationale": "The nutrition-led hook spotlights 0g fat, while gluten-free, pink-and-white marshmallows and fire-pit toasting connect the facts to the campsite scene.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-0.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "At a lakeside campsite, an unaltered pack stands front label to camera on a plain wooden camping table beside pink and white marshmallows and a metal skewer extending over a small campfire, with warm firelight and cool dusk creating an adventurous mood in a square composition with the pack prominent in the foreground.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 10,
+              "rate": 0.1,
+              "lo": 0.022632329840006293,
+              "hi": 0.34774510920957846
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 175,
+            "clicks": 2,
+            "ctr": 0.011428571428571429,
+            "lo": 0.003788860881996623,
+            "hi": 0.03394776059721322
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-1",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Your BBQ has a sweet side.",
+          "body": "American style giant marshmallows. 84 kcal per 25g serving. 0g fat. Grab a skewer and give the BBQ a sweet finale.",
+          "cta": "Meet your BBQ snack",
+          "rationale": "The punchy nutrition statements foreground 84 kcal per 25g serving and 0g fat, supported by the American style and BBQ-toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-1.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "In a sunny backyard BBQ setting, the unaltered pack faces front label to camera on a side table safely away from the heat, with a plain plate of pink and white marshmallows and one hand holding a skewered mallow over the BBQ, framed square with bright afternoon light and a relaxed weekend mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 9,
+              "rate": 0.4444444444444444,
+              "lo": 0.21803239302819488,
+              "hi": 0.696541512289793
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0.6666666666666666,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 156,
+            "clicks": 1,
+            "ctr": 0.00641025641025641,
+            "lo": 0.0014312179428556358,
+            "hi": 0.028221247992196295
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-2",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Grey skies. Giant mallows. Gluten free.",
+          "body": "Keep it cosy by the grill with pink and white marshmallows: 0g fat, 84 kcal per 25g serving. Toast away.",
+          "cta": "Toast something epic",
+          "rationale": "The cosy framing leads with gluten-free status and reinforces the health halo with 0g fat and 84 kcal per 25g serving.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 10,
+              "rate": 0.4,
+              "lo": 0.19421393174129786,
+              "hi": 0.6483804280210985
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.5,
+              "parent": 0.6666666666666666,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 254,
+            "clicks": 5,
+            "ctr": 0.01968503937007874,
+            "lo": 0.009613556337838459,
+            "hi": 0.039882847184439595
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-3",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Check the mallow. Then make the s’more.",
+          "body": "The marshmallows? Gluten free. 0g fat. The grilled s’mores recipe? On the back of the pack. Your kitchen-counter project starts here.",
+          "cta": "Find the recipe",
+          "rationale": "The question-and-answer rhythm highlights gluten-free status and 0g fat specifically for the marshmallows, then points to the pack’s grilled s’mores recipe.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 11,
+              "rate": 0.36363636363636365,
+              "lo": 0.17512494831857622,
+              "hi": 0.6059932095718408
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.6666666666666666,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 381,
+            "clicks": 10,
+            "ctr": 0.026246719160104987,
+            "lo": 0.01575286053314668,
+            "hi": 0.04342271535206387
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-4",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Picnic mood: pink, white, gluten free.",
+          "body": "Giant American style marshmallows with 0g fat. A 300g bag for your blanket-side snack setup. Bring on the dappled sunshine.",
+          "cta": "Pick your mallows",
+          "rationale": "The picnic hook pairs gluten-free status with 0g fat, using the pink-and-white, American style, giant marshmallow and 300g bag facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-4.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a woodland picnic blanket, the unaltered pack stands front label to camera beside an open plain snack bowl holding pink and white marshmallows, with dappled sunlight, folded linen napkins and a loosely arranged square composition creating a carefree outdoor mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 10,
+              "rate": 0.2,
+              "lo": 0.06855179292535482,
+              "hi": 0.45923128636183375
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.6666666666666666,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 109,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024224521461577386
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-5",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Plot twist: 84 kcal per 25g serving.",
+          "body": "Movie-night marshmallows, with the facts up front: gluten free and 0g fat. Pink, white and ready for your coffee-table bowl.",
+          "cta": "Cue the mallows",
+          "rationale": "The movie-themed hook foregrounds 84 kcal per 25g serving, backed by gluten-free status, 0g fat and the pink-and-white marshmallow facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-5.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a living-room coffee table, the unaltered pack faces front label to camera beside a small bowl of pink and white marshmallows and an unmarked remote control, with soft lamplight, an out-of-focus sofa and a square composition creating an easygoing movie-night mood without showing any screen text.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 8,
+              "rate": 0.375,
+              "lo": 0.16115994929027644,
+              "hi": 0.652029352995119
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.5,
+              "parent": 0.5,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 270,
+            "clicks": 5,
+            "ctr": 0.018518518518518517,
+            "lo": 0.009042070664826771,
+            "hi": 0.037550317603822596
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-6",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Snug scene. Clear mallow facts.",
+          "body": "That giant pink marshmallow? Gluten free, with 0g fat and 84 kcal per 25g serving. Pair the cosy mood with a closer look at the pack.",
+          "cta": "Check the mallow",
+          "rationale": "The copy attaches gluten-free status, 0g fat and 84 kcal per 25g serving to the giant pink marshmallow rather than the hot chocolate.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 10,
+              "rate": 0.5,
+              "lo": 0.26925566160142683,
+              "hi": 0.7307443383985732
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.5,
+              "parent": 0.6666666666666666,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 524,
+            "clicks": 17,
+            "ctr": 0.03244274809160305,
+            "lo": 0.021920420959465406,
+            "hi": 0.0477693552302032
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-health_halo-7",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "S’mores plans. Gluten-free mallows.",
+          "body": "Start with giant marshmallows: 0g fat, 84 kcal per 25g serving. Follow the grilled s’mores recipe on the pack for your after-dark table.",
+          "cta": "Try the pack recipe",
+          "rationale": "The dessert framing highlights gluten-free marshmallows, 0g fat and 84 kcal per 25g serving without extending those claims to the assembled s’mores.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 10,
+              "rate": 0.4,
+              "lo": 0.19421393174129786,
+              "hi": 0.6483804280210985
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.3333333333333333,
+              "parent": 1,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 379,
+            "clicks": 10,
+            "ctr": 0.026385224274406333,
+            "lo": 0.015836324625588344,
+            "hi": 0.04364930963968163
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-indulgence-0",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Dusk falls. Dessert gets epic.",
+          "body": "Cool lake air. Warm firelight. Giant, pillowy sweetness. Skewer a pink or white mallow over the fire pit and make the evening a treat.",
+          "cta": "Toast something epic",
+          "rationale": "Sensory contrasts make campsite indulgence inviting, using the giant size, pink and white colours, pillowy sweetness slogan and fire-pit toasting guidance.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-0.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "At a lakeside campsite, an unaltered pack stands front label to camera on a plain wooden camping table beside pink and white marshmallows and a metal skewer extending over a small campfire, with warm firelight and cool dusk creating an adventurous mood in a square composition with the pack prominent in the foreground.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 11,
+              "rate": 0.36363636363636365,
+              "lo": 0.17512494831857622,
+              "hi": 0.6059932095718408
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.3333333333333333,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 241,
+            "clicks": 5,
+            "ctr": 0.02074688796680498,
+            "lo": 0.010133960486756879,
+            "hi": 0.04200272755778367
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-1",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Save room for giant sweetness.",
+          "body": "BBQ plans? Make them sweeter. Skewer a giant pink or white mallow over the BBQ and lean into that pillowy, supersized treat.",
+          "cta": "Bring on the sweet",
+          "rationale": "A conversational dessert hook encourages BBQ indulgence, drawing on the giant size, colours, pillowy sweetness slogan and BBQ toasting guidance.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-1.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "In a sunny backyard BBQ setting, the unaltered pack faces front label to camera on a side table safely away from the heat, with a plain plate of pink and white marshmallows and one hand holding a skewered mallow over the BBQ, framed square with bright afternoon light and a relaxed weekend mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 9,
+              "rate": 0.2222222222222222,
+              "lo": 0.0764878165873788,
+              "hi": 0.4963817100025609
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.6666666666666666,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 174,
+            "clicks": 2,
+            "ctr": 0.011494252873563218,
+            "lo": 0.0038106778413682565,
+            "hi": 0.034139499579011155
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-2",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Rain outside. Sweetness under cover.",
+          "body": "Let the rain do its thing. You've got a grill, giant marshmallows and a cosy excuse to linger over pillowy sweetness.",
+          "cta": "Toast and unwind",
+          "rationale": "The unhurried rhythm frames indulgence as a cosy pause, using the giant marshmallows, pillowy sweetness slogan and suitability for grill toasting.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 9,
+              "rate": 0.2222222222222222,
+              "lo": 0.0764878165873788,
+              "hi": 0.4963817100025609
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.5,
+              "parent": 0,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 184,
+            "clicks": 3,
+            "ctr": 0.016304347826086956,
+            "lo": 0.006533831728433626,
+            "hi": 0.04009575614908667
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-3",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Biscuits. Chocolate. Giant mallow energy.",
+          "body": "Feeling snack-playful? Follow the grilled s'mores recipe on the back of the pack. Giant, pillowy sweetness is the delicious part of the plan.",
+          "cta": "Make s'mores",
+          "rationale": "Playful snack-building puts pleasure first, using the giant size, pillowy sweetness slogan and grilled s'mores recipe on the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 10,
+              "rate": 0.4,
+              "lo": 0.19421393174129786,
+              "hi": 0.6483804280210985
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.5,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 209,
+            "clicks": 3,
+            "ctr": 0.014354066985645933,
+            "lo": 0.005750332888997494,
+            "hi": 0.035372847237784444
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-4",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Picnic rule: bring the pillowy stuff.",
+          "body": "Blanket down. Pink and white marshmallows out. Let giant hunks of sweetness set the mood for a carefree afternoon.",
+          "cta": "Pack some sweetness",
+          "rationale": "A cheeky picnic rule celebrates carefree indulgence, drawing on the pink and white colours, giant size and pillowy hunks of sweetness slogan.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-4.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a woodland picnic blanket, the unaltered pack stands front label to camera beside an open plain snack bowl holding pink and white marshmallows, with dappled sunlight, folded linen napkins and a loosely arranged square composition creating a carefree outdoor mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 12,
+              "rate": 0.08333333333333333,
+              "lo": 0.018813908635430837,
+              "hi": 0.30119268730058857
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.3333333333333333,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 107,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024666147552060154
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-5",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Plot twist: the snack gets supersized.",
+          "body": "Remote ready? Settle in with pink and white giant marshmallows. Pillowy hunks of sweetness for your very own treat scene.",
+          "cta": "Cue the sweetness",
+          "rationale": "Movie-language wordplay makes the snack the pleasure moment, using the giant size, pink and white colours and pillowy sweetness slogan.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-5.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a living-room coffee table, the unaltered pack faces front label to camera beside a small bowl of pink and white marshmallows and an unmarked remote control, with soft lamplight, an out-of-focus sofa and a square composition creating an easygoing movie-night mood without showing any screen text.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 9,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.23116514786189163
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 104,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.025359627068855764
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-6",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Snow outside. Sweet treat inside.",
+          "body": "Hot chocolate beside you. A giant pink mallow waiting. Give that snug cabin moment a little pillowy indulgence.",
+          "cta": "Settle into sweet",
+          "rationale": "The snowy contrast frames the marshmallow as a snug indulgence, using its giant size, pink colour and the pack's pillowy sweetness framing.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 11,
+              "rate": 0.36363636363636365,
+              "lo": 0.17512494831857622,
+              "hi": 0.6059932095718408
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.3333333333333333,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 251,
+            "clicks": 5,
+            "ctr": 0.0199203187250996,
+            "lo": 0.009728848724094217,
+            "hi": 0.04035283538254063
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-7",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Pass the s'mores. Keep the evening sweet.",
+          "body": "After sunset, bring on the giant marshmallow sweetness. The grilled s'mores recipe is on the back of the pack—dessert plans, made epic.",
+          "cta": "Make dessert epic",
+          "rationale": "An easygoing sharing invitation centres dessert pleasure, using the giant marshmallows, sweetness slogan and grilled s'mores recipe on the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 11,
+              "rate": 0.2727272727272727,
+              "lo": 0.11468533801866812,
+              "hi": 0.5205115917986932
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 188,
+            "clicks": 4,
+            "ctr": 0.02127659574468085,
+            "lo": 0.009586378764716876,
+            "hi": 0.046552513543483665
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-provenance-0",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "American style. Belgian-made. Fireside-ready.",
+          "body": "Produced in Belgium, made for toasting. Skewer a giant pink or white mallow over the fire pit and let the lakeside evening unfold.",
+          "cta": "Toast a mallow",
+          "rationale": "The hook contrasts American style with Belgian production, then connects the giant pink and white marshmallows to their stated fire-pit toasting use.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-0.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "At a lakeside campsite, an unaltered pack stands front label to camera on a plain wooden camping table beside pink and white marshmallows and a metal skewer extending over a small campfire, with warm firelight and cool dusk creating an adventurous mood in a square composition with the pack prominent in the foreground.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 10,
+              "rate": 0.3,
+              "lo": 0.12686685286055388,
+              "hi": 0.5583218666642386
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 99,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.026606339201635302
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-1",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "Your BBQ has a Belgian connection.",
+          "body": "American style, produced in Belgium. Giant pink and white marshmallows made for toasting over the BBQ. Weekend plans? Skewer at the ready.",
+          "cta": "Get BBQ-ready",
+          "rationale": "Belgian provenance anchors the backyard hook, supported by the American style, colours, giant size and stated BBQ toasting use.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-1.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "In a sunny backyard BBQ setting, the unaltered pack faces front label to camera on a side table safely away from the heat, with a plain plate of pink and white marshmallows and one hand holding a skewered mallow over the BBQ, framed square with bright afternoon light and a relaxed weekend mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 11,
+              "rate": 0.18181818181818182,
+              "lo": 0.06210964564779159,
+              "hi": 0.4271660560965143
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 140,
+            "clicks": 1,
+            "ctr": 0.007142857142857143,
+            "lo": 0.0015949517651010475,
+            "hi": 0.03138210719229055
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-2",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "Belgian-made. Patio pace.",
+          "body": "Rain outside. Grill under cover. American style giant marshmallows, produced in Belgium and made for toasting. Keep it cosy.",
+          "cta": "Toast over the grill",
+          "rationale": "The clipped rhythm pairs Belgian production with the sheltered patio scene, using the American style, giant size and grill-toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 10,
+              "rate": 0.2,
+              "lo": 0.06855179292535482,
+              "hi": 0.45923128636183375
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 107,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024666147552060154
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-3",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "Belgium on the bag. S’mores on the agenda.",
+          "body": "Produced in Belgium, American style. Grab the biscuits and chocolate, then follow the grilled s’mores recipe on the back of the pack.",
+          "cta": "Make grilled s’mores",
+          "rationale": "The pack becomes the provenance and preparation reference, using Belgian production, American style and the grilled s’mores recipe on its back.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 10,
+              "rate": 0.1,
+              "lo": 0.022632329840006293,
+              "hi": 0.34774510920957846
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 108,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024443339917588045
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-4",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "American style takes the scenic route.",
+          "body": "Produced in Belgium. Pink and white. Giant and pillowy. Bring the 300g bag to the picnic blanket and settle into that woodland mood.",
+          "cta": "Pack the picnic",
+          "rationale": "The travel-inspired hook foregrounds Belgian production and American style, with the colours, giant size, pack slogan’s pillowy description and 300g format.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-4.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a woodland picnic blanket, the unaltered pack stands front label to camera beside an open plain snack bowl holding pink and white marshmallows, with dappled sunlight, folded linen napkins and a loosely arranged square composition creating a carefree outdoor mood.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 11,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.19743324559819497
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 107,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024666147552060154
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-5",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "Tonight’s plot twist: produced in Belgium.",
+          "body": "American style giant marshmallows with a Belgian origin. Pink, white and pillowy—cue the bowl, the sofa and the remote.",
+          "cta": "Cue movie night",
+          "rationale": "A movie-themed reveal makes Belgian provenance the hook, backed by American style, giant size, pink and white colours and the pack’s pillowy description.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-5.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a living-room coffee table, the unaltered pack faces front label to camera beside a small bowl of pink and white marshmallows and an unmarked remote control, with soft lamplight, an out-of-focus sofa and a square composition creating an easygoing movie-night mood without showing any screen text.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 12,
+              "rate": 0.16666666666666666,
+              "lo": 0.05677543170572946,
+              "hi": 0.3992298450430861
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.3333333333333333,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 107,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024666147552060154
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-6",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "Cabin mood. Giant Belgian-made mallows.",
+          "body": "Produced in Belgium, American style. A giant pink mallow beside your hot chocolate? That’s a snug sort of winter scene.",
+          "cta": "Get cosy",
+          "rationale": "The cabin framing keeps Belgian production prominent while drawing on the American style, giant size and pink marshmallow facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 10,
+              "rate": 0.2,
+              "lo": 0.06855179292535482,
+              "hi": 0.45923128636183375
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 1,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 134,
+            "clicks": 1,
+            "ctr": 0.007462686567164179,
+            "lo": 0.001666443280285439,
+            "hi": 0.032757972176165724
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-7",
+          "round": 1,
+          "lever": "provenance",
+          "headline": "From Belgium to your dessert table.",
+          "body": "American style marshmallows, produced in Belgium. Grilled s’mores recipe on the pack; shared-dessert mood at the table. Pass the platter.",
+          "cta": "Plan your s’mores",
+          "rationale": "The origin-to-table hook centres Belgian production, while American style and the pack’s grilled s’mores recipe connect it to the dessert scene.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 8,
+              "rate": 0.125,
+              "lo": 0.02839608135329466,
+              "hi": 0.41117182550289144
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 123,
+            "clicks": 1,
+            "ctr": 0.008130081300813009,
+            "lo": 0.001815647081159822,
+            "hi": 0.03562110266890188
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-0",
+          "round": 1,
+          "lever": "value",
+          "headline": "Big mallows. Campsite mood.",
+          "body": "A 300g bag of pink and white giants for your lakeside setup. American style and made for toasting over a fire pit. Skewer up.",
+          "cta": "Bring the bag",
+          "rationale": "The copy foregrounds the 300g bag and giant marshmallow size, using the pink and white, American style and fire-pit toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-0.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "At a lakeside campsite, an unaltered pack stands front label to camera on a plain wooden camping table beside pink and white marshmallows and a metal skewer extending over a small campfire, with warm firelight and cool dusk creating an adventurous mood in a square composition with the pack prominent in the foreground.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 9,
+              "rate": 0.5555555555555556,
+              "lo": 0.30345848771020695,
+              "hi": 0.7819676069718051
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 1,
+              "parent": 0.5,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 387,
+            "clicks": 9,
+            "ctr": 0.023255813953488372,
+            "lo": 0.013578289739379336,
+            "hi": 0.039554132321583155
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-1",
+          "round": 1,
+          "lever": "value",
+          "headline": "Your BBQ has a giant sidekick.",
+          "body": "Bring 300g of giant American style marshmallows to the BBQ table. Pink, white and ready for a skewer—not a supporting role.",
+          "cta": "Go giant",
+          "rationale": "The copy presents the 300g amount and giant size as the appeal, using the American style, colours and BBQ-toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-1.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "In a sunny backyard BBQ setting, the unaltered pack faces front label to camera on a side table safely away from the heat, with a plain plate of pink and white marshmallows and one hand holding a skewered mallow over the BBQ, framed square with bright afternoon light and a relaxed weekend mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 10,
+              "rate": 0.4,
+              "lo": 0.19421393174129786,
+              "hi": 0.6483804280210985
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 147,
+            "clicks": 1,
+            "ctr": 0.006802721088435374,
+            "lo": 0.001518928245919893,
+            "hi": 0.02991617932573596
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-2",
+          "round": 1,
+          "lever": "value",
+          "headline": "Rain check? Toast instead.",
+          "body": "Make room for 300g of giant marshmallows. Pink and white, made for toasting over a grill. Big-mallow plans for a quiet patio afternoon.",
+          "cta": "Get toasting",
+          "rationale": "The copy anchors the cosy patio moment in the 300g bag and giant size, using the colour and grill-toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 10,
+              "rate": 0.5,
+              "lo": 0.26925566160142683,
+              "hi": 0.7307443383985732
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0.5,
+              "parent": 1,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 697,
+            "clicks": 23,
+            "ctr": 0.03299856527977044,
+            "lo": 0.023549925295813803,
+            "hi": 0.046059343825457524
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-value-3",
+          "round": 1,
+          "lever": "value",
+          "headline": "300g of s’more-making potential.",
+          "body": "Giant American style marshmallows, plus a grilled s’mores recipe on the back of the pack. Your kitchen project comes in pink and white.",
+          "cta": "Try the recipe",
+          "rationale": "The copy pairs the 300g quantity and giant marshmallows with the included grilled s’mores recipe, using the American style and colour facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 9,
+              "rate": 0.4444444444444444,
+              "lo": 0.21803239302819488,
+              "hi": 0.696541512289793
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.5,
+              "parent": 0.5,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 314,
+            "clicks": 7,
+            "ctr": 0.022292993630573247,
+            "lo": 0.012130666653001044,
+            "hi": 0.040618645583796464
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-4",
+          "round": 1,
+          "lever": "value",
+          "headline": "Go big on the picnic blanket.",
+          "body": "Blanket down. Bag open. 300g of giant pink and white marshmallows in the picnic lineup. American style, with supersized snack energy.",
+          "cta": "Pack your picnic",
+          "rationale": "The copy makes the 300g amount and giant size the picnic draw, using the pink and white and American style facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-4.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a woodland picnic blanket, the unaltered pack stands front label to camera beside an open plain snack bowl holding pink and white marshmallows, with dappled sunlight, folded linen napkins and a loosely arranged square composition creating a carefree outdoor mood.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 11,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.19743324559819497
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 106,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.024893054455813284
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-5",
+          "round": 1,
+          "lever": "value",
+          "headline": "Movie-night snacks, supersized.",
+          "body": "The remote can stay small. Your mallows? Giant. Settle in with a 300g bag of pink and white American style marshmallows.",
+          "cta": "Pick your snack",
+          "rationale": "The copy contrasts the remote with the giant marshmallows to highlight size and the 300g amount, using the colour and American style facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-5.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a living-room coffee table, the unaltered pack faces front label to camera beside a small bowl of pink and white marshmallows and an unmarked remote control, with soft lamplight, an out-of-focus sofa and a square composition creating an easygoing movie-night mood without showing any screen text.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 10,
+              "rate": 0.3,
+              "lo": 0.12686685286055388,
+              "hi": 0.5583218666642386
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.5,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 199,
+            "clicks": 3,
+            "ctr": 0.01507537688442211,
+            "lo": 0.006040047560307404,
+            "hi": 0.037121900626416314
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-6",
+          "round": 1,
+          "lever": "value",
+          "headline": "Winter mood. Supersized sweetness.",
+          "body": "Give that snowy-window setup a giant pink mallow moment. The bag brings 300g of pink and white American style marshmallows.",
+          "cta": "Make it giant",
+          "rationale": "The copy moves from the pictured giant pink marshmallow to the full 300g bag, using the size, colour and American style facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 9,
+              "rate": 0.1111111111111111,
+              "lo": 0.02518859990761188,
+              "hi": 0.3768287373183038
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 111,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.023798431085775798
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-7",
+          "round": 1,
+          "lever": "value",
+          "headline": "Put 300g on dessert duty.",
+          "body": "A bag of giant pink and white marshmallows. A grilled s’mores recipe on the back. Bring supersized sweetness to the after-dark table.",
+          "cta": "Plan s’mores",
+          "rationale": "The copy highlights the 300g amount, giant marshmallow size and on-pack grilled s’mores recipe as the bag’s dessert appeal.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 8,
+              "rate": 0.25,
+              "lo": 0.0865070033792796,
+              "hi": 0.5398716011915111
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 238,
+            "clicks": 4,
+            "ctr": 0.01680672268907563,
+            "lo": 0.007566589931519114,
+            "hi": 0.03691100467792201
+          },
+          "status": "culled"
+        }
+      ],
+      "survivorIds": [
+        "g0-value-2",
+        "g0-health_halo-6",
+        "g0-social_proof-3",
+        "g0-scarcity-3",
+        "g0-health_halo-7",
+        "g0-indulgence-7"
+      ],
+      "sealedSha256": "3a579b36abc9915e13c9bbcbf550f590951c2de247dca7a78c3d5cfbd0a109a8",
+      "tokens": 129103,
+      "seconds": 168,
+      "timeline": [
+        {
+          "step": 1,
+          "impressionsByAd": {
+            "g0-social_proof-0": 10,
+            "g0-social_proof-1": 10,
+            "g0-social_proof-2": 8,
+            "g0-social_proof-3": 14,
+            "g0-social_proof-4": 9,
+            "g0-social_proof-5": 10,
+            "g0-social_proof-6": 12,
+            "g0-social_proof-7": 10,
+            "g0-scarcity-0": 12,
+            "g0-scarcity-1": 9,
+            "g0-scarcity-2": 12,
+            "g0-scarcity-3": 9,
+            "g0-scarcity-4": 9,
+            "g0-scarcity-5": 10,
+            "g0-scarcity-6": 11,
+            "g0-scarcity-7": 10,
+            "g0-health_halo-0": 9,
+            "g0-health_halo-1": 10,
+            "g0-health_halo-2": 9,
+            "g0-health_halo-3": 14,
+            "g0-health_halo-4": 9,
+            "g0-health_halo-5": 9,
+            "g0-health_halo-6": 10,
+            "g0-health_halo-7": 9,
+            "g0-indulgence-0": 11,
+            "g0-indulgence-1": 12,
+            "g0-indulgence-2": 10,
+            "g0-indulgence-3": 14,
+            "g0-indulgence-4": 10,
+            "g0-indulgence-5": 8,
+            "g0-indulgence-6": 9,
+            "g0-indulgence-7": 8,
+            "g0-provenance-0": 10,
+            "g0-provenance-1": 11,
+            "g0-provenance-2": 11,
+            "g0-provenance-3": 11,
+            "g0-provenance-4": 9,
+            "g0-provenance-5": 9,
+            "g0-provenance-6": 11,
+            "g0-provenance-7": 9,
+            "g0-value-0": 20,
+            "g0-value-1": 11,
+            "g0-value-2": 10,
+            "g0-value-3": 10,
+            "g0-value-4": 13,
+            "g0-value-5": 10,
+            "g0-value-6": 10,
+            "g0-value-7": 9
+          }
+        },
+        {
+          "step": 2,
+          "impressionsByAd": {
+            "g0-social_proof-0": 21,
+            "g0-social_proof-1": 21,
+            "g0-social_proof-2": 19,
+            "g0-social_proof-3": 27,
+            "g0-social_proof-4": 21,
+            "g0-social_proof-5": 17,
+            "g0-social_proof-6": 21,
+            "g0-social_proof-7": 18,
+            "g0-scarcity-0": 27,
+            "g0-scarcity-1": 19,
+            "g0-scarcity-2": 20,
+            "g0-scarcity-3": 17,
+            "g0-scarcity-4": 18,
+            "g0-scarcity-5": 19,
+            "g0-scarcity-6": 23,
+            "g0-scarcity-7": 20,
+            "g0-health_halo-0": 17,
+            "g0-health_halo-1": 24,
+            "g0-health_halo-2": 18,
+            "g0-health_halo-3": 25,
+            "g0-health_halo-4": 21,
+            "g0-health_halo-5": 21,
+            "g0-health_halo-6": 20,
+            "g0-health_halo-7": 17,
+            "g0-indulgence-0": 21,
+            "g0-indulgence-1": 18,
+            "g0-indulgence-2": 19,
+            "g0-indulgence-3": 29,
+            "g0-indulgence-4": 19,
+            "g0-indulgence-5": 16,
+            "g0-indulgence-6": 20,
+            "g0-indulgence-7": 18,
+            "g0-provenance-0": 20,
+            "g0-provenance-1": 19,
+            "g0-provenance-2": 21,
+            "g0-provenance-3": 18,
+            "g0-provenance-4": 20,
+            "g0-provenance-5": 19,
+            "g0-provenance-6": 17,
+            "g0-provenance-7": 19,
+            "g0-value-0": 43,
+            "g0-value-1": 21,
+            "g0-value-2": 32,
+            "g0-value-3": 18,
+            "g0-value-4": 18,
+            "g0-value-5": 18,
+            "g0-value-6": 17,
+            "g0-value-7": 29
+          }
+        },
+        {
+          "step": 3,
+          "impressionsByAd": {
+            "g0-social_proof-0": 26,
+            "g0-social_proof-1": 26,
+            "g0-social_proof-2": 29,
+            "g0-social_proof-3": 48,
+            "g0-social_proof-4": 28,
+            "g0-social_proof-5": 29,
+            "g0-social_proof-6": 27,
+            "g0-social_proof-7": 25,
+            "g0-scarcity-0": 37,
+            "g0-scarcity-1": 26,
+            "g0-scarcity-2": 25,
+            "g0-scarcity-3": 28,
+            "g0-scarcity-4": 26,
+            "g0-scarcity-5": 26,
+            "g0-scarcity-6": 28,
+            "g0-scarcity-7": 26,
+            "g0-health_halo-0": 39,
+            "g0-health_halo-1": 41,
+            "g0-health_halo-2": 35,
+            "g0-health_halo-3": 41,
+            "g0-health_halo-4": 23,
+            "g0-health_halo-5": 36,
+            "g0-health_halo-6": 36,
+            "g0-health_halo-7": 57,
+            "g0-indulgence-0": 27,
+            "g0-indulgence-1": 28,
+            "g0-indulgence-2": 30,
+            "g0-indulgence-3": 38,
+            "g0-indulgence-4": 25,
+            "g0-indulgence-5": 25,
+            "g0-indulgence-6": 27,
+            "g0-indulgence-7": 25,
+            "g0-provenance-0": 28,
+            "g0-provenance-1": 26,
+            "g0-provenance-2": 27,
+            "g0-provenance-3": 25,
+            "g0-provenance-4": 30,
+            "g0-provenance-5": 29,
+            "g0-provenance-6": 29,
+            "g0-provenance-7": 27,
+            "g0-value-0": 68,
+            "g0-value-1": 30,
+            "g0-value-2": 48,
+            "g0-value-3": 23,
+            "g0-value-4": 29,
+            "g0-value-5": 25,
+            "g0-value-6": 27,
+            "g0-value-7": 36
+          }
+        },
+        {
+          "step": 4,
+          "impressionsByAd": {
+            "g0-social_proof-0": 31,
+            "g0-social_proof-1": 33,
+            "g0-social_proof-2": 39,
+            "g0-social_proof-3": 72,
+            "g0-social_proof-4": 32,
+            "g0-social_proof-5": 33,
+            "g0-social_proof-6": 32,
+            "g0-social_proof-7": 34,
+            "g0-scarcity-0": 48,
+            "g0-scarcity-1": 36,
+            "g0-scarcity-2": 31,
+            "g0-scarcity-3": 45,
+            "g0-scarcity-4": 43,
+            "g0-scarcity-5": 35,
+            "g0-scarcity-6": 31,
+            "g0-scarcity-7": 34,
+            "g0-health_halo-0": 49,
+            "g0-health_halo-1": 49,
+            "g0-health_halo-2": 71,
+            "g0-health_halo-3": 59,
+            "g0-health_halo-4": 31,
+            "g0-health_halo-5": 45,
+            "g0-health_halo-6": 68,
+            "g0-health_halo-7": 71,
+            "g0-indulgence-0": 33,
+            "g0-indulgence-1": 35,
+            "g0-indulgence-2": 33,
+            "g0-indulgence-3": 45,
+            "g0-indulgence-4": 33,
+            "g0-indulgence-5": 34,
+            "g0-indulgence-6": 32,
+            "g0-indulgence-7": 34,
+            "g0-provenance-0": 36,
+            "g0-provenance-1": 31,
+            "g0-provenance-2": 32,
+            "g0-provenance-3": 37,
+            "g0-provenance-4": 33,
+            "g0-provenance-5": 35,
+            "g0-provenance-6": 31,
+            "g0-provenance-7": 33,
+            "g0-value-0": 83,
+            "g0-value-1": 38,
+            "g0-value-2": 71,
+            "g0-value-3": 35,
+            "g0-value-4": 34,
+            "g0-value-5": 36,
+            "g0-value-6": 33,
+            "g0-value-7": 71
+          }
+        },
+        {
+          "step": 5,
+          "impressionsByAd": {
+            "g0-social_proof-0": 38,
+            "g0-social_proof-1": 35,
+            "g0-social_proof-2": 43,
+            "g0-social_proof-3": 79,
+            "g0-social_proof-4": 43,
+            "g0-social_proof-5": 44,
+            "g0-social_proof-6": 41,
+            "g0-social_proof-7": 42,
+            "g0-scarcity-0": 59,
+            "g0-scarcity-1": 43,
+            "g0-scarcity-2": 39,
+            "g0-scarcity-3": 62,
+            "g0-scarcity-4": 55,
+            "g0-scarcity-5": 41,
+            "g0-scarcity-6": 43,
+            "g0-scarcity-7": 53,
+            "g0-health_halo-0": 62,
+            "g0-health_halo-1": 56,
+            "g0-health_halo-2": 83,
+            "g0-health_halo-3": 87,
+            "g0-health_halo-4": 39,
+            "g0-health_halo-5": 57,
+            "g0-health_halo-6": 87,
+            "g0-health_halo-7": 87,
+            "g0-indulgence-0": 49,
+            "g0-indulgence-1": 41,
+            "g0-indulgence-2": 37,
+            "g0-indulgence-3": 59,
+            "g0-indulgence-4": 45,
+            "g0-indulgence-5": 39,
+            "g0-indulgence-6": 37,
+            "g0-indulgence-7": 39,
+            "g0-provenance-0": 42,
+            "g0-provenance-1": 38,
+            "g0-provenance-2": 41,
+            "g0-provenance-3": 42,
+            "g0-provenance-4": 41,
+            "g0-provenance-5": 41,
+            "g0-provenance-6": 38,
+            "g0-provenance-7": 37,
+            "g0-value-0": 105,
+            "g0-value-1": 43,
+            "g0-value-2": 112,
+            "g0-value-3": 39,
+            "g0-value-4": 40,
+            "g0-value-5": 41,
+            "g0-value-6": 39,
+            "g0-value-7": 97
+          }
+        },
+        {
+          "step": 6,
+          "impressionsByAd": {
+            "g0-social_proof-0": 59,
+            "g0-social_proof-1": 61,
+            "g0-social_proof-2": 49,
+            "g0-social_proof-3": 96,
+            "g0-social_proof-4": 50,
+            "g0-social_proof-5": 47,
+            "g0-social_proof-6": 45,
+            "g0-social_proof-7": 45,
+            "g0-scarcity-0": 72,
+            "g0-scarcity-1": 50,
+            "g0-scarcity-2": 46,
+            "g0-scarcity-3": 79,
+            "g0-scarcity-4": 65,
+            "g0-scarcity-5": 47,
+            "g0-scarcity-6": 50,
+            "g0-scarcity-7": 65,
+            "g0-health_halo-0": 65,
+            "g0-health_halo-1": 64,
+            "g0-health_halo-2": 99,
+            "g0-health_halo-3": 107,
+            "g0-health_halo-4": 49,
+            "g0-health_halo-5": 66,
+            "g0-health_halo-6": 100,
+            "g0-health_halo-7": 109,
+            "g0-indulgence-0": 65,
+            "g0-indulgence-1": 45,
+            "g0-indulgence-2": 51,
+            "g0-indulgence-3": 70,
+            "g0-indulgence-4": 49,
+            "g0-indulgence-5": 50,
+            "g0-indulgence-6": 47,
+            "g0-indulgence-7": 49,
+            "g0-provenance-0": 44,
+            "g0-provenance-1": 44,
+            "g0-provenance-2": 48,
+            "g0-provenance-3": 49,
+            "g0-provenance-4": 48,
+            "g0-provenance-5": 48,
+            "g0-provenance-6": 42,
+            "g0-provenance-7": 48,
+            "g0-value-0": 128,
+            "g0-value-1": 49,
+            "g0-value-2": 146,
+            "g0-value-3": 48,
+            "g0-value-4": 45,
+            "g0-value-5": 46,
+            "g0-value-6": 43,
+            "g0-value-7": 113
+          }
+        },
+        {
+          "step": 7,
+          "impressionsByAd": {
+            "g0-social_proof-0": 73,
+            "g0-social_proof-1": 72,
+            "g0-social_proof-2": 54,
+            "g0-social_proof-3": 107,
+            "g0-social_proof-4": 53,
+            "g0-social_proof-5": 52,
+            "g0-social_proof-6": 50,
+            "g0-social_proof-7": 68,
+            "g0-scarcity-0": 89,
+            "g0-scarcity-1": 59,
+            "g0-scarcity-2": 53,
+            "g0-scarcity-3": 88,
+            "g0-scarcity-4": 75,
+            "g0-scarcity-5": 52,
+            "g0-scarcity-6": 57,
+            "g0-scarcity-7": 76,
+            "g0-health_halo-0": 75,
+            "g0-health_halo-1": 72,
+            "g0-health_halo-2": 109,
+            "g0-health_halo-3": 128,
+            "g0-health_halo-4": 56,
+            "g0-health_halo-5": 77,
+            "g0-health_halo-6": 121,
+            "g0-health_halo-7": 127,
+            "g0-indulgence-0": 76,
+            "g0-indulgence-1": 61,
+            "g0-indulgence-2": 84,
+            "g0-indulgence-3": 82,
+            "g0-indulgence-4": 52,
+            "g0-indulgence-5": 56,
+            "g0-indulgence-6": 55,
+            "g0-indulgence-7": 54,
+            "g0-provenance-0": 50,
+            "g0-provenance-1": 53,
+            "g0-provenance-2": 56,
+            "g0-provenance-3": 53,
+            "g0-provenance-4": 52,
+            "g0-provenance-5": 55,
+            "g0-provenance-6": 55,
+            "g0-provenance-7": 56,
+            "g0-value-0": 152,
+            "g0-value-1": 56,
+            "g0-value-2": 166,
+            "g0-value-3": 54,
+            "g0-value-4": 55,
+            "g0-value-5": 49,
+            "g0-value-6": 50,
+            "g0-value-7": 125
+          }
+        },
+        {
+          "step": 8,
+          "impressionsByAd": {
+            "g0-social_proof-0": 89,
+            "g0-social_proof-1": 82,
+            "g0-social_proof-2": 56,
+            "g0-social_proof-3": 123,
+            "g0-social_proof-4": 62,
+            "g0-social_proof-5": 58,
+            "g0-social_proof-6": 60,
+            "g0-social_proof-7": 80,
+            "g0-scarcity-0": 100,
+            "g0-scarcity-1": 62,
+            "g0-scarcity-2": 57,
+            "g0-scarcity-3": 106,
+            "g0-scarcity-4": 81,
+            "g0-scarcity-5": 57,
+            "g0-scarcity-6": 59,
+            "g0-scarcity-7": 84,
+            "g0-health_halo-0": 81,
+            "g0-health_halo-1": 85,
+            "g0-health_halo-2": 121,
+            "g0-health_halo-3": 141,
+            "g0-health_halo-4": 62,
+            "g0-health_halo-5": 83,
+            "g0-health_halo-6": 136,
+            "g0-health_halo-7": 151,
+            "g0-indulgence-0": 82,
+            "g0-indulgence-1": 75,
+            "g0-indulgence-2": 102,
+            "g0-indulgence-3": 97,
+            "g0-indulgence-4": 61,
+            "g0-indulgence-5": 60,
+            "g0-indulgence-6": 57,
+            "g0-indulgence-7": 56,
+            "g0-provenance-0": 55,
+            "g0-provenance-1": 58,
+            "g0-provenance-2": 62,
+            "g0-provenance-3": 60,
+            "g0-provenance-4": 61,
+            "g0-provenance-5": 60,
+            "g0-provenance-6": 58,
+            "g0-provenance-7": 59,
+            "g0-value-0": 176,
+            "g0-value-1": 61,
+            "g0-value-2": 245,
+            "g0-value-3": 62,
+            "g0-value-4": 63,
+            "g0-value-5": 55,
+            "g0-value-6": 57,
+            "g0-value-7": 142
+          }
+        },
+        {
+          "step": 9,
+          "impressionsByAd": {
+            "g0-social_proof-0": 94,
+            "g0-social_proof-1": 91,
+            "g0-social_proof-2": 58,
+            "g0-social_proof-3": 140,
+            "g0-social_proof-4": 70,
+            "g0-social_proof-5": 66,
+            "g0-social_proof-6": 69,
+            "g0-social_proof-7": 88,
+            "g0-scarcity-0": 115,
+            "g0-scarcity-1": 68,
+            "g0-scarcity-2": 66,
+            "g0-scarcity-3": 133,
+            "g0-scarcity-4": 92,
+            "g0-scarcity-5": 65,
+            "g0-scarcity-6": 62,
+            "g0-scarcity-7": 94,
+            "g0-health_halo-0": 87,
+            "g0-health_halo-1": 93,
+            "g0-health_halo-2": 130,
+            "g0-health_halo-3": 156,
+            "g0-health_halo-4": 68,
+            "g0-health_halo-5": 107,
+            "g0-health_halo-6": 150,
+            "g0-health_halo-7": 170,
+            "g0-indulgence-0": 90,
+            "g0-indulgence-1": 87,
+            "g0-indulgence-2": 109,
+            "g0-indulgence-3": 112,
+            "g0-indulgence-4": 66,
+            "g0-indulgence-5": 64,
+            "g0-indulgence-6": 62,
+            "g0-indulgence-7": 63,
+            "g0-provenance-0": 63,
+            "g0-provenance-1": 65,
+            "g0-provenance-2": 70,
+            "g0-provenance-3": 65,
+            "g0-provenance-4": 64,
+            "g0-provenance-5": 65,
+            "g0-provenance-6": 62,
+            "g0-provenance-7": 60,
+            "g0-value-0": 217,
+            "g0-value-1": 66,
+            "g0-value-2": 305,
+            "g0-value-3": 66,
+            "g0-value-4": 68,
+            "g0-value-5": 61,
+            "g0-value-6": 63,
+            "g0-value-7": 155
+          }
+        },
+        {
+          "step": 10,
+          "impressionsByAd": {
+            "g0-social_proof-0": 98,
+            "g0-social_proof-1": 96,
+            "g0-social_proof-2": 62,
+            "g0-social_proof-3": 159,
+            "g0-social_proof-4": 73,
+            "g0-social_proof-5": 71,
+            "g0-social_proof-6": 74,
+            "g0-social_proof-7": 93,
+            "g0-scarcity-0": 156,
+            "g0-scarcity-1": 73,
+            "g0-scarcity-2": 69,
+            "g0-scarcity-3": 211,
+            "g0-scarcity-4": 105,
+            "g0-scarcity-5": 67,
+            "g0-scarcity-6": 68,
+            "g0-scarcity-7": 100,
+            "g0-health_halo-0": 92,
+            "g0-health_halo-1": 98,
+            "g0-health_halo-2": 141,
+            "g0-health_halo-3": 159,
+            "g0-health_halo-4": 71,
+            "g0-health_halo-5": 127,
+            "g0-health_halo-6": 161,
+            "g0-health_halo-7": 195,
+            "g0-indulgence-0": 98,
+            "g0-indulgence-1": 94,
+            "g0-indulgence-2": 117,
+            "g0-indulgence-3": 119,
+            "g0-indulgence-4": 71,
+            "g0-indulgence-5": 70,
+            "g0-indulgence-6": 66,
+            "g0-indulgence-7": 66,
+            "g0-provenance-0": 64,
+            "g0-provenance-1": 69,
+            "g0-provenance-2": 75,
+            "g0-provenance-3": 71,
+            "g0-provenance-4": 72,
+            "g0-provenance-5": 68,
+            "g0-provenance-6": 65,
+            "g0-provenance-7": 68,
+            "g0-value-0": 244,
+            "g0-value-1": 74,
+            "g0-value-2": 346,
+            "g0-value-3": 84,
+            "g0-value-4": 76,
+            "g0-value-5": 67,
+            "g0-value-6": 71,
+            "g0-value-7": 166
+          }
+        },
+        {
+          "step": 11,
+          "impressionsByAd": {
+            "g0-social_proof-0": 107,
+            "g0-social_proof-1": 109,
+            "g0-social_proof-2": 69,
+            "g0-social_proof-3": 172,
+            "g0-social_proof-4": 77,
+            "g0-social_proof-5": 76,
+            "g0-social_proof-6": 79,
+            "g0-social_proof-7": 97,
+            "g0-scarcity-0": 182,
+            "g0-scarcity-1": 78,
+            "g0-scarcity-2": 71,
+            "g0-scarcity-3": 258,
+            "g0-scarcity-4": 111,
+            "g0-scarcity-5": 75,
+            "g0-scarcity-6": 74,
+            "g0-scarcity-7": 106,
+            "g0-health_halo-0": 112,
+            "g0-health_halo-1": 104,
+            "g0-health_halo-2": 154,
+            "g0-health_halo-3": 182,
+            "g0-health_halo-4": 77,
+            "g0-health_halo-5": 144,
+            "g0-health_halo-6": 183,
+            "g0-health_halo-7": 226,
+            "g0-indulgence-0": 102,
+            "g0-indulgence-1": 99,
+            "g0-indulgence-2": 129,
+            "g0-indulgence-3": 129,
+            "g0-indulgence-4": 73,
+            "g0-indulgence-5": 75,
+            "g0-indulgence-6": 73,
+            "g0-indulgence-7": 69,
+            "g0-provenance-0": 69,
+            "g0-provenance-1": 79,
+            "g0-provenance-2": 83,
+            "g0-provenance-3": 75,
+            "g0-provenance-4": 76,
+            "g0-provenance-5": 73,
+            "g0-provenance-6": 71,
+            "g0-provenance-7": 71,
+            "g0-value-0": 266,
+            "g0-value-1": 89,
+            "g0-value-2": 377,
+            "g0-value-3": 95,
+            "g0-value-4": 77,
+            "g0-value-5": 72,
+            "g0-value-6": 77,
+            "g0-value-7": 178
+          }
+        },
+        {
+          "step": 12,
+          "impressionsByAd": {
+            "g0-social_proof-0": 111,
+            "g0-social_proof-1": 128,
+            "g0-social_proof-2": 76,
+            "g0-social_proof-3": 203,
+            "g0-social_proof-4": 79,
+            "g0-social_proof-5": 79,
+            "g0-social_proof-6": 83,
+            "g0-social_proof-7": 101,
+            "g0-scarcity-0": 197,
+            "g0-scarcity-1": 85,
+            "g0-scarcity-2": 75,
+            "g0-scarcity-3": 297,
+            "g0-scarcity-4": 115,
+            "g0-scarcity-5": 79,
+            "g0-scarcity-6": 78,
+            "g0-scarcity-7": 113,
+            "g0-health_halo-0": 124,
+            "g0-health_halo-1": 114,
+            "g0-health_halo-2": 168,
+            "g0-health_halo-3": 202,
+            "g0-health_halo-4": 80,
+            "g0-health_halo-5": 154,
+            "g0-health_halo-6": 215,
+            "g0-health_halo-7": 239,
+            "g0-indulgence-0": 105,
+            "g0-indulgence-1": 108,
+            "g0-indulgence-2": 132,
+            "g0-indulgence-3": 140,
+            "g0-indulgence-4": 79,
+            "g0-indulgence-5": 79,
+            "g0-indulgence-6": 87,
+            "g0-indulgence-7": 78,
+            "g0-provenance-0": 75,
+            "g0-provenance-1": 92,
+            "g0-provenance-2": 84,
+            "g0-provenance-3": 81,
+            "g0-provenance-4": 79,
+            "g0-provenance-5": 78,
+            "g0-provenance-6": 77,
+            "g0-provenance-7": 76,
+            "g0-value-0": 294,
+            "g0-value-1": 104,
+            "g0-value-2": 405,
+            "g0-value-3": 107,
+            "g0-value-4": 83,
+            "g0-value-5": 92,
+            "g0-value-6": 82,
+            "g0-value-7": 188
+          }
+        },
+        {
+          "step": 13,
+          "impressionsByAd": {
+            "g0-social_proof-0": 114,
+            "g0-social_proof-1": 134,
+            "g0-social_proof-2": 80,
+            "g0-social_proof-3": 277,
+            "g0-social_proof-4": 82,
+            "g0-social_proof-5": 82,
+            "g0-social_proof-6": 87,
+            "g0-social_proof-7": 109,
+            "g0-scarcity-0": 207,
+            "g0-scarcity-1": 113,
+            "g0-scarcity-2": 83,
+            "g0-scarcity-3": 319,
+            "g0-scarcity-4": 120,
+            "g0-scarcity-5": 85,
+            "g0-scarcity-6": 83,
+            "g0-scarcity-7": 120,
+            "g0-health_halo-0": 137,
+            "g0-health_halo-1": 117,
+            "g0-health_halo-2": 181,
+            "g0-health_halo-3": 218,
+            "g0-health_halo-4": 83,
+            "g0-health_halo-5": 172,
+            "g0-health_halo-6": 236,
+            "g0-health_halo-7": 253,
+            "g0-indulgence-0": 109,
+            "g0-indulgence-1": 112,
+            "g0-indulgence-2": 144,
+            "g0-indulgence-3": 146,
+            "g0-indulgence-4": 82,
+            "g0-indulgence-5": 81,
+            "g0-indulgence-6": 98,
+            "g0-indulgence-7": 84,
+            "g0-provenance-0": 80,
+            "g0-provenance-1": 103,
+            "g0-provenance-2": 88,
+            "g0-provenance-3": 85,
+            "g0-provenance-4": 81,
+            "g0-provenance-5": 83,
+            "g0-provenance-6": 83,
+            "g0-provenance-7": 81,
+            "g0-value-0": 312,
+            "g0-value-1": 111,
+            "g0-value-2": 444,
+            "g0-value-3": 127,
+            "g0-value-4": 85,
+            "g0-value-5": 108,
+            "g0-value-6": 84,
+            "g0-value-7": 197
+          }
+        },
+        {
+          "step": 14,
+          "impressionsByAd": {
+            "g0-social_proof-0": 121,
+            "g0-social_proof-1": 141,
+            "g0-social_proof-2": 82,
+            "g0-social_proof-3": 356,
+            "g0-social_proof-4": 87,
+            "g0-social_proof-5": 86,
+            "g0-social_proof-6": 91,
+            "g0-social_proof-7": 113,
+            "g0-scarcity-0": 224,
+            "g0-scarcity-1": 140,
+            "g0-scarcity-2": 84,
+            "g0-scarcity-3": 333,
+            "g0-scarcity-4": 126,
+            "g0-scarcity-5": 90,
+            "g0-scarcity-6": 88,
+            "g0-scarcity-7": 126,
+            "g0-health_halo-0": 142,
+            "g0-health_halo-1": 121,
+            "g0-health_halo-2": 191,
+            "g0-health_halo-3": 232,
+            "g0-health_halo-4": 90,
+            "g0-health_halo-5": 184,
+            "g0-health_halo-6": 255,
+            "g0-health_halo-7": 273,
+            "g0-indulgence-0": 113,
+            "g0-indulgence-1": 117,
+            "g0-indulgence-2": 147,
+            "g0-indulgence-3": 154,
+            "g0-indulgence-4": 85,
+            "g0-indulgence-5": 84,
+            "g0-indulgence-6": 123,
+            "g0-indulgence-7": 91,
+            "g0-provenance-0": 85,
+            "g0-provenance-1": 115,
+            "g0-provenance-2": 90,
+            "g0-provenance-3": 90,
+            "g0-provenance-4": 85,
+            "g0-provenance-5": 84,
+            "g0-provenance-6": 86,
+            "g0-provenance-7": 84,
+            "g0-value-0": 321,
+            "g0-value-1": 115,
+            "g0-value-2": 463,
+            "g0-value-3": 179,
+            "g0-value-4": 87,
+            "g0-value-5": 133,
+            "g0-value-6": 89,
+            "g0-value-7": 204
+          }
+        },
+        {
+          "step": 15,
+          "impressionsByAd": {
+            "g0-social_proof-0": 129,
+            "g0-social_proof-1": 149,
+            "g0-social_proof-2": 85,
+            "g0-social_proof-3": 396,
+            "g0-social_proof-4": 92,
+            "g0-social_proof-5": 88,
+            "g0-social_proof-6": 94,
+            "g0-social_proof-7": 118,
+            "g0-scarcity-0": 241,
+            "g0-scarcity-1": 162,
+            "g0-scarcity-2": 86,
+            "g0-scarcity-3": 358,
+            "g0-scarcity-4": 130,
+            "g0-scarcity-5": 92,
+            "g0-scarcity-6": 90,
+            "g0-scarcity-7": 129,
+            "g0-health_halo-0": 152,
+            "g0-health_halo-1": 129,
+            "g0-health_halo-2": 207,
+            "g0-health_halo-3": 251,
+            "g0-health_halo-4": 91,
+            "g0-health_halo-5": 205,
+            "g0-health_halo-6": 290,
+            "g0-health_halo-7": 285,
+            "g0-indulgence-0": 117,
+            "g0-indulgence-1": 138,
+            "g0-indulgence-2": 151,
+            "g0-indulgence-3": 161,
+            "g0-indulgence-4": 89,
+            "g0-indulgence-5": 88,
+            "g0-indulgence-6": 148,
+            "g0-indulgence-7": 99,
+            "g0-provenance-0": 89,
+            "g0-provenance-1": 120,
+            "g0-provenance-2": 96,
+            "g0-provenance-3": 93,
+            "g0-provenance-4": 91,
+            "g0-provenance-5": 87,
+            "g0-provenance-6": 98,
+            "g0-provenance-7": 87,
+            "g0-value-0": 337,
+            "g0-value-1": 121,
+            "g0-value-2": 488,
+            "g0-value-3": 203,
+            "g0-value-4": 91,
+            "g0-value-5": 155,
+            "g0-value-6": 92,
+            "g0-value-7": 212
+          }
+        },
+        {
+          "step": 16,
+          "impressionsByAd": {
+            "g0-social_proof-0": 134,
+            "g0-social_proof-1": 157,
+            "g0-social_proof-2": 90,
+            "g0-social_proof-3": 427,
+            "g0-social_proof-4": 97,
+            "g0-social_proof-5": 94,
+            "g0-social_proof-6": 113,
+            "g0-social_proof-7": 126,
+            "g0-scarcity-0": 257,
+            "g0-scarcity-1": 182,
+            "g0-scarcity-2": 92,
+            "g0-scarcity-3": 378,
+            "g0-scarcity-4": 133,
+            "g0-scarcity-5": 96,
+            "g0-scarcity-6": 93,
+            "g0-scarcity-7": 136,
+            "g0-health_halo-0": 153,
+            "g0-health_halo-1": 137,
+            "g0-health_halo-2": 217,
+            "g0-health_halo-3": 270,
+            "g0-health_halo-4": 95,
+            "g0-health_halo-5": 223,
+            "g0-health_halo-6": 350,
+            "g0-health_halo-7": 297,
+            "g0-indulgence-0": 124,
+            "g0-indulgence-1": 149,
+            "g0-indulgence-2": 163,
+            "g0-indulgence-3": 171,
+            "g0-indulgence-4": 90,
+            "g0-indulgence-5": 91,
+            "g0-indulgence-6": 166,
+            "g0-indulgence-7": 107,
+            "g0-provenance-0": 92,
+            "g0-provenance-1": 127,
+            "g0-provenance-2": 98,
+            "g0-provenance-3": 96,
+            "g0-provenance-4": 94,
+            "g0-provenance-5": 91,
+            "g0-provenance-6": 107,
+            "g0-provenance-7": 93,
+            "g0-value-0": 348,
+            "g0-value-1": 126,
+            "g0-value-2": 521,
+            "g0-value-3": 221,
+            "g0-value-4": 95,
+            "g0-value-5": 170,
+            "g0-value-6": 94,
+            "g0-value-7": 219
+          }
+        },
+        {
+          "step": 17,
+          "impressionsByAd": {
+            "g0-social_proof-0": 136,
+            "g0-social_proof-1": 166,
+            "g0-social_proof-2": 92,
+            "g0-social_proof-3": 456,
+            "g0-social_proof-4": 100,
+            "g0-social_proof-5": 97,
+            "g0-social_proof-6": 117,
+            "g0-social_proof-7": 131,
+            "g0-scarcity-0": 277,
+            "g0-scarcity-1": 200,
+            "g0-scarcity-2": 97,
+            "g0-scarcity-3": 395,
+            "g0-scarcity-4": 137,
+            "g0-scarcity-5": 99,
+            "g0-scarcity-6": 95,
+            "g0-scarcity-7": 139,
+            "g0-health_halo-0": 158,
+            "g0-health_halo-1": 143,
+            "g0-health_halo-2": 226,
+            "g0-health_halo-3": 297,
+            "g0-health_halo-4": 96,
+            "g0-health_halo-5": 230,
+            "g0-health_halo-6": 414,
+            "g0-health_halo-7": 304,
+            "g0-indulgence-0": 134,
+            "g0-indulgence-1": 155,
+            "g0-indulgence-2": 170,
+            "g0-indulgence-3": 185,
+            "g0-indulgence-4": 97,
+            "g0-indulgence-5": 95,
+            "g0-indulgence-6": 201,
+            "g0-indulgence-7": 128,
+            "g0-provenance-0": 93,
+            "g0-provenance-1": 130,
+            "g0-provenance-2": 100,
+            "g0-provenance-3": 98,
+            "g0-provenance-4": 97,
+            "g0-provenance-5": 96,
+            "g0-provenance-6": 115,
+            "g0-provenance-7": 96,
+            "g0-value-0": 360,
+            "g0-value-1": 132,
+            "g0-value-2": 556,
+            "g0-value-3": 256,
+            "g0-value-4": 101,
+            "g0-value-5": 181,
+            "g0-value-6": 99,
+            "g0-value-7": 223
+          }
+        },
+        {
+          "step": 18,
+          "impressionsByAd": {
+            "g0-social_proof-0": 138,
+            "g0-social_proof-1": 172,
+            "g0-social_proof-2": 93,
+            "g0-social_proof-3": 484,
+            "g0-social_proof-4": 103,
+            "g0-social_proof-5": 100,
+            "g0-social_proof-6": 123,
+            "g0-social_proof-7": 140,
+            "g0-scarcity-0": 295,
+            "g0-scarcity-1": 221,
+            "g0-scarcity-2": 103,
+            "g0-scarcity-3": 416,
+            "g0-scarcity-4": 138,
+            "g0-scarcity-5": 104,
+            "g0-scarcity-6": 96,
+            "g0-scarcity-7": 140,
+            "g0-health_halo-0": 168,
+            "g0-health_halo-1": 147,
+            "g0-health_halo-2": 237,
+            "g0-health_halo-3": 332,
+            "g0-health_halo-4": 102,
+            "g0-health_halo-5": 246,
+            "g0-health_halo-6": 440,
+            "g0-health_halo-7": 316,
+            "g0-indulgence-0": 184,
+            "g0-indulgence-1": 160,
+            "g0-indulgence-2": 172,
+            "g0-indulgence-3": 192,
+            "g0-indulgence-4": 102,
+            "g0-indulgence-5": 99,
+            "g0-indulgence-6": 224,
+            "g0-indulgence-7": 158,
+            "g0-provenance-0": 94,
+            "g0-provenance-1": 132,
+            "g0-provenance-2": 100,
+            "g0-provenance-3": 101,
+            "g0-provenance-4": 99,
+            "g0-provenance-5": 102,
+            "g0-provenance-6": 127,
+            "g0-provenance-7": 99,
+            "g0-value-0": 371,
+            "g0-value-1": 138,
+            "g0-value-2": 596,
+            "g0-value-3": 274,
+            "g0-value-4": 102,
+            "g0-value-5": 187,
+            "g0-value-6": 103,
+            "g0-value-7": 230
+          }
+        },
+        {
+          "step": 19,
+          "impressionsByAd": {
+            "g0-social_proof-0": 143,
+            "g0-social_proof-1": 177,
+            "g0-social_proof-2": 98,
+            "g0-social_proof-3": 514,
+            "g0-social_proof-4": 106,
+            "g0-social_proof-5": 105,
+            "g0-social_proof-6": 134,
+            "g0-social_proof-7": 145,
+            "g0-scarcity-0": 302,
+            "g0-scarcity-1": 252,
+            "g0-scarcity-2": 104,
+            "g0-scarcity-3": 429,
+            "g0-scarcity-4": 143,
+            "g0-scarcity-5": 105,
+            "g0-scarcity-6": 100,
+            "g0-scarcity-7": 141,
+            "g0-health_halo-0": 172,
+            "g0-health_halo-1": 152,
+            "g0-health_halo-2": 245,
+            "g0-health_halo-3": 362,
+            "g0-health_halo-4": 104,
+            "g0-health_halo-5": 256,
+            "g0-health_halo-6": 487,
+            "g0-health_halo-7": 350,
+            "g0-indulgence-0": 224,
+            "g0-indulgence-1": 167,
+            "g0-indulgence-2": 177,
+            "g0-indulgence-3": 200,
+            "g0-indulgence-4": 104,
+            "g0-indulgence-5": 101,
+            "g0-indulgence-6": 240,
+            "g0-indulgence-7": 176,
+            "g0-provenance-0": 95,
+            "g0-provenance-1": 137,
+            "g0-provenance-2": 105,
+            "g0-provenance-3": 103,
+            "g0-provenance-4": 103,
+            "g0-provenance-5": 104,
+            "g0-provenance-6": 129,
+            "g0-provenance-7": 109,
+            "g0-value-0": 377,
+            "g0-value-1": 143,
+            "g0-value-2": 650,
+            "g0-value-3": 291,
+            "g0-value-4": 103,
+            "g0-value-5": 194,
+            "g0-value-6": 108,
+            "g0-value-7": 234
+          }
+        },
+        {
+          "step": 20,
+          "impressionsByAd": {
+            "g0-social_proof-0": 150,
+            "g0-social_proof-1": 186,
+            "g0-social_proof-2": 100,
+            "g0-social_proof-3": 560,
+            "g0-social_proof-4": 111,
+            "g0-social_proof-5": 109,
+            "g0-social_proof-6": 140,
+            "g0-social_proof-7": 148,
+            "g0-scarcity-0": 320,
+            "g0-scarcity-1": 272,
+            "g0-scarcity-2": 106,
+            "g0-scarcity-3": 455,
+            "g0-scarcity-4": 146,
+            "g0-scarcity-5": 111,
+            "g0-scarcity-6": 103,
+            "g0-scarcity-7": 153,
+            "g0-health_halo-0": 175,
+            "g0-health_halo-1": 156,
+            "g0-health_halo-2": 254,
+            "g0-health_halo-3": 381,
+            "g0-health_halo-4": 109,
+            "g0-health_halo-5": 270,
+            "g0-health_halo-6": 524,
+            "g0-health_halo-7": 379,
+            "g0-indulgence-0": 241,
+            "g0-indulgence-1": 174,
+            "g0-indulgence-2": 184,
+            "g0-indulgence-3": 209,
+            "g0-indulgence-4": 107,
+            "g0-indulgence-5": 104,
+            "g0-indulgence-6": 251,
+            "g0-indulgence-7": 188,
+            "g0-provenance-0": 99,
+            "g0-provenance-1": 140,
+            "g0-provenance-2": 107,
+            "g0-provenance-3": 108,
+            "g0-provenance-4": 107,
+            "g0-provenance-5": 107,
+            "g0-provenance-6": 134,
+            "g0-provenance-7": 123,
+            "g0-value-0": 387,
+            "g0-value-1": 147,
+            "g0-value-2": 697,
+            "g0-value-3": 314,
+            "g0-value-4": 106,
+            "g0-value-5": 199,
+            "g0-value-6": 111,
+            "g0-value-7": 238
+          }
+        }
+      ]
+    },
+    {
+      "gen": 1,
+      "ads": [
+        {
+          "id": "g0-value-2",
+          "round": 1,
+          "lever": "value",
+          "headline": "Rain check? Toast instead.",
+          "body": "Make room for 300g of giant marshmallows. Pink and white, made for toasting over a grill. Big-mallow plans for a quiet patio afternoon.",
+          "cta": "Get toasting",
+          "rationale": "The copy anchors the cosy patio moment in the 300g bag and giant size, using the colour and grill-toasting facts.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 16,
+              "rate": 0.1875,
+              "lo": 0.07752344498439956,
+              "hi": 0.3878894366940971
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 254,
+            "clicks": 4,
+            "ctr": 0.015748031496062992,
+            "lo": 0.007088660237945892,
+            "hi": 0.0346167301984492
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-6",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "Snug scene. Clear mallow facts.",
+          "body": "That giant pink marshmallow? Gluten free, with 0g fat and 84 kcal per 25g serving. Pair the cosy mood with a closer look at the pack.",
+          "cta": "Check the mallow",
+          "rationale": "The copy attaches gluten-free status, 0g fat and 84 kcal per 25g serving to the giant pink marshmallow rather than the hot chocolate.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 9,
+              "n": 15,
+              "rate": 0.6,
+              "lo": 0.3925894904536016,
+              "hi": 0.7768443604530813
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0.75,
+              "parent": 0.5,
+              "fitness": 1
+            }
+          },
+          "experiment": {
+            "impressions": 282,
+            "clicks": 5,
+            "ctr": 0.01773049645390071,
+            "lo": 0.008656142617713627,
+            "hi": 0.03597243522850512
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-3",
+          "round": 1,
+          "lever": "social_proof",
+          "headline": "Someone brings the bag. Everyone joins in.",
+          "body": "That's how a kitchen counter becomes s'mores central. Find the grilled s'mores recipe on the back of the pack and get in on the making.",
+          "cta": "Make s'mores",
+          "rationale": "A shared kitchen-making session frames the bag as a group choice, using the grilled s'mores recipe on the back of the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 16,
+              "rate": 0.1875,
+              "lo": 0.07752344498439956,
+              "hi": 0.3878894366940971
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.25,
+              "parent": 0.25,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 248,
+            "clicks": 3,
+            "ctr": 0.012096774193548387,
+            "lo": 0.004844157378613876,
+            "hi": 0.029881872839447293
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-3",
+          "round": 1,
+          "lever": "scarcity",
+          "headline": "Biscuits. Chocolate. Now grab the mallows.",
+          "body": "Stop saving s'mores ideas. Grab the giant mallows now—the grilled s'mores recipe is right on the back of the pack.",
+          "cta": "Make it happen",
+          "rationale": "The stop-saving hook pushes immediate action and uses the giant size and grilled s'mores recipe on the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 15,
+              "rate": 0.13333333333333333,
+              "lo": 0.04514682181062529,
+              "hi": 0.33359572486487077
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 179,
+            "clicks": 1,
+            "ctr": 0.00558659217877095,
+            "lo": 0.001247172475722303,
+            "hi": 0.024651941216297543
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-7",
+          "round": 1,
+          "lever": "health_halo",
+          "headline": "S’mores plans. Gluten-free mallows.",
+          "body": "Start with giant marshmallows: 0g fat, 84 kcal per 25g serving. Follow the grilled s’mores recipe on the pack for your after-dark table.",
+          "cta": "Try the pack recipe",
+          "rationale": "The dessert framing highlights gluten-free marshmallows, 0g fat and 84 kcal per 25g serving without extending those claims to the assembled s’mores.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 16,
+              "rate": 0.25,
+              "lo": 0.11754788555057688,
+              "hi": 0.4547824197922204
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0.25,
+              "parent": 0,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 271,
+            "clicks": 4,
+            "ctr": 0.014760147601476014,
+            "lo": 0.0066428532311800445,
+            "hi": 0.0324721973052486
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-7",
+          "round": 1,
+          "lever": "indulgence",
+          "headline": "Pass the s'mores. Keep the evening sweet.",
+          "body": "After sunset, bring on the giant marshmallow sweetness. The grilled s'mores recipe is on the back of the pack—dessert plans, made epic.",
+          "cta": "Make dessert epic",
+          "rationale": "An easygoing sharing invitation centres dessert pleasure, using the giant marshmallows, sweetness slogan and grilled s'mores recipe on the pack.",
+          "parentId": null,
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 0,
+          "parentIds": [],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 16,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.1446606106855946
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 131,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.02023861677138334
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-value-2-c1",
+          "round": 2,
+          "lever": "value",
+          "headline": "Grey skies. Giant mallow plans.",
+          "body": "A quiet patio afternoon calls for 300g of giant pink and white marshmallows. Grab a skewer and get the grill going.",
+          "cta": "Get toasting",
+          "rationale": "The 300g bag anchors the value lever, using the giant size, pink and white colours, and grill-toasting facts.",
+          "parentId": "g0-value-2",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-value-2"
+          ],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 16,
+              "rate": 0.0625,
+              "lo": 0.014067455458643852,
+              "hi": 0.23751057889125143
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 128,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.020703138971596754
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-value-2-c2",
+          "round": 2,
+          "lever": "value",
+          "headline": "Make room on the patio.",
+          "body": "Bring the skewers. Bring the 300g bag. Giant pink and white marshmallows, made for toasting over the grill.",
+          "cta": "Get toasting",
+          "rationale": "The bag size makes value tangible, supported by the giant marshmallows, pink and white colours, and skewer-and-grill toasting facts.",
+          "parentId": "g0-value-2",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-value-2"
+          ],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 16,
+              "rate": 0.25,
+              "lo": 0.11754788555057688,
+              "hi": 0.4547824197922204
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.25,
+              "parent": 0.5,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 372,
+            "clicks": 7,
+            "ctr": 0.01881720430107527,
+            "lo": 0.010233525752433319,
+            "hi": 0.03435082540658528
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g1-value-2-c3",
+          "round": 2,
+          "lever": "value",
+          "headline": "Small patio. Giant toastin’ plans.",
+          "body": "Go big with 300g of American style giant marshmallows. Toast over the grill, or try the grilled s’mores recipe on the pack.",
+          "cta": "Get toasting",
+          "rationale": "The 300g quantity leads the value message, while American style, giant size, grill toasting and the pack’s grilled s’mores recipe add specificity.",
+          "parentId": "g0-value-2",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-2.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-value-2"
+          ],
+          "scene": "On a rain-sheltered patio, the unaltered pack stands front label to camera beside metal skewers and a plain plate while a marshmallow toasts over a tabletop grill farther back, with soft overcast light, rain-blurred greenery and a tight square composition creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 16,
+              "rate": 0.3125,
+              "lo": 0.16125589623965328,
+              "hi": 0.5179918327674446
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0.5,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 448,
+            "clicks": 10,
+            "ctr": 0.022321428571428572,
+            "lo": 0.013388932052356953,
+            "hi": 0.03698985975545171
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g1-value-2-s1",
+          "round": 2,
+          "lever": "value",
+          "headline": "Rain check? Toast instead.",
+          "body": "Make room for 300g of giant marshmallows. Pink and white, made for toasting over a grill. Big-mallow plans for a quiet patio afternoon.",
+          "cta": "Get toasting",
+          "rationale": "Scene mutation of g0-value-2: same copy, new scene.",
+          "parentId": "g0-value-2",
+          "imageUrl": "/generated/campaigns/2e30454c/g1-value-2-s1.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-value-2"
+          ],
+          "scene": "On a covered garden veranda, the unaltered pack stands exactly as it is with its front label to camera beside metal skewers and a plain plate, while a marshmallow toasts over a tabletop grill farther back, with soft post-rain daylight, wet foliage and a tight square composition from table height creating a quiet, cosy mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 15,
+              "rate": 0.2,
+              "lo": 0.08289195751464395,
+              "hi": 0.4088064897653074
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.25,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 203,
+            "clicks": 3,
+            "ctr": 0.014778325123152709,
+            "lo": 0.005920727715164751,
+            "hi": 0.03640192666503632
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-health_halo-6-c1",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "Big mallow. Clear nutrition.",
+          "body": "Giant, pink and gluten free. The marshmallow facts? 0g fat and 84 kcal per 25g serving. Cosy mood, label worth a look.",
+          "cta": "Check the mallow",
+          "rationale": "The nutrition-led hook pairs the giant pink marshmallow with its gluten-free status, 0g fat and 84 kcal per 25g serving.",
+          "parentId": "g0-health_halo-6",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-6"
+          ],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 11,
+              "n": 16,
+              "rate": 0.6875,
+              "lo": 0.48200816723255535,
+              "hi": 0.8387441037603467
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0.75,
+              "parent": 0.75,
+              "fitness": 1
+            }
+          },
+          "experiment": {
+            "impressions": 2361,
+            "clicks": 87,
+            "ctr": 0.036848792884371026,
+            "lo": 0.03098276966591464,
+            "hi": 0.043775268402715305
+          },
+          "status": "winner"
+        },
+        {
+          "id": "g1-health_halo-6-c2",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "Gluten free looks cosy.",
+          "body": "Snow outside. Pink mallow inside. These giant marshmallows are gluten free, with 0g fat and 84 kcal per 25g serving.",
+          "cta": "Check the mallow",
+          "rationale": "The cosy scene frames the health-halo lever through the marshmallows’ gluten-free status, 0g fat and 84 kcal per 25g serving.",
+          "parentId": "g0-health_halo-6",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-6"
+          ],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 7,
+              "n": 16,
+              "rate": 0.4375,
+              "lo": 0.2576449752005444,
+              "hi": 0.6354376011351549
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.5,
+              "parent": 0.5,
+              "fitness": 0.75
+            }
+          },
+          "experiment": {
+            "impressions": 424,
+            "clicks": 10,
+            "ctr": 0.02358490566037736,
+            "lo": 0.014149524944193966,
+            "hi": 0.03906281251928573
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-health_halo-6-c3",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "Check the serving. Keep the cosy.",
+          "body": "Here's the mallow maths: 84 kcal per 25g serving, 0g fat and gluten free. A closer look at that giant pink marshmallow? Go on.",
+          "cta": "Check the mallow",
+          "rationale": "The serving-focused hook expresses the health-halo lever using 84 kcal per 25g serving, 0g fat and gluten-free status.",
+          "parentId": "g0-health_halo-6",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-6.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-6"
+          ],
+          "scene": "Beside a snowy cabin window, the unaltered pack stands front label to camera next to a plain mug of hot chocolate, a giant pink marshmallow on a saucer and a teaspoon, with cool daylight balanced by a warm lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 7,
+              "n": 14,
+              "rate": 0.5,
+              "lo": 0.29876693448696756,
+              "hi": 0.7012330655130324
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.5,
+              "parent": 0.25,
+              "fitness": 1
+            }
+          },
+          "experiment": {
+            "impressions": 157,
+            "clicks": 1,
+            "ctr": 0.006369426751592357,
+            "lo": 0.0014220936541879756,
+            "hi": 0.028044703230901365
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-health_halo-6-s1",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "Snug scene. Clear mallow facts.",
+          "body": "That giant pink marshmallow? Gluten free, with 0g fat and 84 kcal per 25g serving. Pair the cosy mood with a closer look at the pack.",
+          "cta": "Check the mallow",
+          "rationale": "Scene mutation of g0-health_halo-6: same copy, new scene.",
+          "parentId": "g0-health_halo-6",
+          "imageUrl": "/generated/campaigns/2e30454c/g1-health_halo-6-s1.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-6"
+          ],
+          "scene": "On a wooden table beside a frost-edged chalet window, the unaltered pack stands exactly as it is with its front label to camera next to an unmarked mug of hot chocolate, a giant pink marshmallow on a plain saucer and a teaspoon, with blue morning daylight balanced by a warm wall lamp and a close square composition creating a snug winter mood.",
+          "fitness": {
+            "ai": {
+              "taps": 9,
+              "n": 16,
+              "rate": 0.5625,
+              "lo": 0.3645623988648451,
+              "hi": 0.7423550247994556
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 1,
+              "parent": 0.25,
+              "fitness": 0.75
+            }
+          },
+          "experiment": {
+            "impressions": 288,
+            "clicks": 4,
+            "ctr": 0.013888888888888888,
+            "lo": 0.006249802525153815,
+            "hi": 0.030577865563252676
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-social_proof-3-c1",
+          "round": 2,
+          "lever": "social_proof",
+          "headline": "The bag lands. The s’mores session starts.",
+          "body": "Out come the biscuits and chocolate. Round go the pink and white mallows. Get making with the grilled s’mores recipe on the back of the pack.",
+          "cta": "Make s'mores",
+          "rationale": "The shared kitchen ritual expresses social proof, using the pink and white marshmallows and the grilled s’mores recipe on the pack.",
+          "parentId": "g0-social_proof-3",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-social_proof-3"
+          ],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 16,
+              "rate": 0.125,
+              "lo": 0.04226207137767879,
+              "hi": 0.3162333866365172
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.25,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 122,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.02169923225441594
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-social_proof-3-c2",
+          "round": 2,
+          "lever": "social_proof",
+          "headline": "The bag gets passed. The s’mores get made.",
+          "body": "Pass the mallows, pull up the grilled s’mores recipe on the back of the pack, and join the kitchen-counter crew.",
+          "cta": "Make s'mores",
+          "rationale": "Passing the bag and joining the crew frame participation as social proof, grounded in the grilled s’mores recipe on the pack.",
+          "parentId": "g0-social_proof-3",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-social_proof-3"
+          ],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 15,
+              "rate": 0.06666666666666667,
+              "lo": 0.015014407954798678,
+              "hi": 0.2507722381162421
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 122,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.02169923225441594
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-social_proof-3-c3",
+          "round": 2,
+          "lever": "social_proof",
+          "headline": "Someone brings mallows. The kitchen gets busy.",
+          "body": "A bag of giant toastin’ marshmallows. A counter full of collaborators. Follow the grilled s’mores recipe on the back of the pack and get stuck in.",
+          "cta": "Make s'mores",
+          "rationale": "The collaborative snack-making scene expresses social proof, using the giant toastin’ marshmallows and the grilled s’mores recipe on the pack.",
+          "parentId": "g0-social_proof-3",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-social_proof-3"
+          ],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 16,
+              "rate": 0.125,
+              "lo": 0.04226207137767879,
+              "hi": 0.3162333866365172
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 175,
+            "clicks": 1,
+            "ctr": 0.005714285714285714,
+            "lo": 0.00127570241521552,
+            "hi": 0.025206376625154667
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-social_proof-3-s1",
+          "round": 2,
+          "lever": "social_proof",
+          "headline": "Someone brings the bag. Everyone joins in.",
+          "body": "That's how a kitchen counter becomes s'mores central. Find the grilled s'mores recipe on the back of the pack and get in on the making.",
+          "cta": "Make s'mores",
+          "rationale": "Scene mutation of g0-social_proof-3: same copy, new scene.",
+          "parentId": "g0-social_proof-3",
+          "imageUrl": "/generated/campaigns/2e30454c/g1-social_proof-3-s1.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-social_proof-3"
+          ],
+          "scene": "On a kitchen island beside a sunlit window, the unaltered pack stands exactly as it is with its front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm morning light and a square composition angled down from just above the pack creating a playful snack-making mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 16,
+              "rate": 0.1875,
+              "lo": 0.07752344498439956,
+              "hi": 0.3878894366940971
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 220,
+            "clicks": 3,
+            "ctr": 0.013636363636363636,
+            "lo": 0.005462138699681408,
+            "hi": 0.03362986610800172
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-scarcity-3-c1",
+          "round": 2,
+          "lever": "scarcity",
+          "headline": "S’mores on your mind? Grab the mallows now.",
+          "body": "Stop saving it for later. Grab the giant mallows now and follow the grilled s’mores recipe on the back of the pack.",
+          "cta": "Make it happen",
+          "rationale": "The direct call to act now creates urgency without false scarcity, using the giant marshmallows and back-of-pack grilled s’mores recipe.",
+          "parentId": "g0-scarcity-3",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-scarcity-3"
+          ],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 16,
+              "rate": 0.1875,
+              "lo": 0.07752344498439956,
+              "hi": 0.3878894366940971
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0.25,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 202,
+            "clicks": 2,
+            "ctr": 0.009900990099009901,
+            "lo": 0.0032815901120503473,
+            "hi": 0.02947770458872849
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-scarcity-3-c2",
+          "round": 2,
+          "lever": "scarcity",
+          "headline": "Biscuits? Chocolate? Don’t forget the mallows.",
+          "body": "Grab the pink and white giant mallows now. Your grilled s’mores instructions? Right on the back of the pack.",
+          "cta": "Make it happen",
+          "rationale": "The ingredient checklist prompts an immediate grab without inventing availability, using the pink and white giant marshmallows and printed recipe.",
+          "parentId": "g0-scarcity-3",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-scarcity-3"
+          ],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 1,
+              "n": 16,
+              "rate": 0.0625,
+              "lo": 0.014067455458643852,
+              "hi": 0.23751057889125143
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 124,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.021356719224677752
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-scarcity-3-c3",
+          "round": 2,
+          "lever": "scarcity",
+          "headline": "Less scrolling. More toasting. Grab the mallows.",
+          "body": "Make your move: grab the giant mallows, skewer, then toast over a fire pit, grill or BBQ. S’mores recipe? Back of the pack.",
+          "cta": "Make it happen",
+          "rationale": "The shift from scrolling to action supplies urgency, using the giant marshmallows, stated toasting methods and back-of-pack s’mores recipe.",
+          "parentId": "g0-scarcity-3",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-3.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-scarcity-3"
+          ],
+          "scene": "On a home kitchen counter, the unaltered pack faces front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm late-afternoon window light and a square overhead-angled composition suggesting a playful snack-making session.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 15,
+              "rate": 0.3333333333333333,
+              "lo": 0.17276426847967663,
+              "hi": 0.5448459800091853
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 1,
+              "young_pro": 0,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 311,
+            "clicks": 5,
+            "ctr": 0.01607717041800643,
+            "lo": 0.007846775236243062,
+            "hi": 0.032656192470545485
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-scarcity-3-s1",
+          "round": 2,
+          "lever": "scarcity",
+          "headline": "Biscuits. Chocolate. Now grab the mallows.",
+          "body": "Stop saving s'mores ideas. Grab the giant mallows now—the grilled s'mores recipe is right on the back of the pack.",
+          "cta": "Make it happen",
+          "rationale": "Scene mutation of g0-scarcity-3: same copy, new scene.",
+          "parentId": "g0-scarcity-3",
+          "imageUrl": "/generated/campaigns/2e30454c/g1-scarcity-3-s1.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-scarcity-3"
+          ],
+          "scene": "On a compact apartment kitchen counter, the unaltered pack stands exactly as it is with its front label to camera beside plain biscuits, chocolate squares and an assembled marshmallow s’more on an unmarked ceramic plate, with warm under-cabinet light and a close square composition from a shallow elevated angle creating a playful evening snack-making mood.",
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 16,
+              "rate": 0.3125,
+              "lo": 0.16125589623965328,
+              "hi": 0.5179918327674446
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.25,
+              "parent": 0.25,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 329,
+            "clicks": 7,
+            "ctr": 0.02127659574468085,
+            "lo": 0.011575677026133836,
+            "hi": 0.03878827099078868
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g1-health_halo-7-c1",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "Giant mallows. Gluten-free. S’mores next.",
+          "body": "Go big on the mallows: 0g fat, 84 kcal per 25g serving. Your after-dark dessert plan? The grilled s’mores recipe on the back of the pack.",
+          "cta": "Try the pack recipe",
+          "rationale": "Pairs the giant-mallow appeal with the gluten-free, 0g fat and serving-calorie facts to express the health-halo lever.",
+          "parentId": "g0-health_halo-7",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-7"
+          ],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 8,
+              "n": 16,
+              "rate": 0.5,
+              "lo": 0.3098286228913545,
+              "hi": 0.6901713771086455
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.5,
+              "parent": 0.5,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 1205,
+            "clicks": 40,
+            "ctr": 0.03319502074688797,
+            "lo": 0.025696788757828694,
+            "hi": 0.04278512926522662
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g1-health_halo-7-c2",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "S’mores night? Check the mallow facts.",
+          "body": "Gluten-free giant marshmallows, 0g fat and 84 kcal per 25g serving. Bring on the pink and white. Get grilling with the recipe on the pack.",
+          "cta": "Try the pack recipe",
+          "rationale": "Makes nutrition the hook using gluten-free, 0g fat and 84 kcal per 25g serving, then connects the pink and white mallows to the pack recipe.",
+          "parentId": "g0-health_halo-7",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-7"
+          ],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 6,
+              "n": 14,
+              "rate": 0.42857142857142855,
+              "lo": 0.24063650291388505,
+              "hi": 0.6396462094608419
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0.5,
+              "parent": 0.5,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 380,
+            "clicks": 8,
+            "ctr": 0.021052631578947368,
+            "lo": 0.011901495806846825,
+            "hi": 0.036976817514716376
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-health_halo-7-c3",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "Pink, white and gluten-free.",
+          "body": "Meet your giant toastin’ mallows: 0g fat, 84 kcal per 25g serving. Skewer over a BBQ, then follow the grilled s’mores recipe on the pack.",
+          "cta": "Try the pack recipe",
+          "rationale": "Leads with colour and gluten-free status, reinforces the nutrition facts, and uses the stated BBQ toasting method and pack recipe.",
+          "parentId": "g0-health_halo-7",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-7"
+          ],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 15,
+              "rate": 0.2,
+              "lo": 0.08289195751464395,
+              "hi": 0.4088064897653074
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.6666666666666666,
+              "parent": 0,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 201,
+            "clicks": 2,
+            "ctr": 0.009950248756218905,
+            "lo": 0.003297943601653216,
+            "hi": 0.029622167622352057
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-health_halo-7-s1",
+          "round": 2,
+          "lever": "health_halo",
+          "headline": "S’mores plans. Gluten-free mallows.",
+          "body": "Start with giant marshmallows: 0g fat, 84 kcal per 25g serving. Follow the grilled s’mores recipe on the pack for your after-dark table.",
+          "cta": "Try the pack recipe",
+          "rationale": "Scene mutation of g0-health_halo-7: same copy, new scene.",
+          "parentId": "g0-health_halo-7",
+          "imageUrl": "/generated/campaigns/2e30454c/g1-health_halo-7-s1.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-health_halo-7"
+          ],
+          "scene": "On a lakeside cottage dining table after sunset, the unaltered pack stands exactly as it is with its front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle shaded-lamp light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 16,
+              "rate": 0.1875,
+              "lo": 0.07752344498439956,
+              "hi": 0.3878894366940971
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.5,
+              "parent": 0,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 170,
+            "clicks": 2,
+            "ctr": 0.011764705882352941,
+            "lo": 0.003900517446095538,
+            "hi": 0.03492861431117812
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-indulgence-7-c1",
+          "round": 2,
+          "lever": "indulgence",
+          "headline": "Dark outside. Sweet plans inside.",
+          "body": "Keep the evening sweet with giant pink and white marshmallows. Find the grilled s'mores recipe on the back of the pack.",
+          "cta": "Make dessert epic",
+          "rationale": "The evening-dessert hook invites indulgence using the giant size, pink and white colours, and back-of-pack grilled s'mores recipe.",
+          "parentId": "g0-indulgence-7",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-indulgence-7"
+          ],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 16,
+              "rate": 0.125,
+              "lo": 0.04226207137767879,
+              "hi": 0.3162333866365172
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.25,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.25
+            }
+          },
+          "experiment": {
+            "impressions": 162,
+            "clicks": 1,
+            "ctr": 0.006172839506172839,
+            "lo": 0.001378163377373608,
+            "hi": 0.027194106519856924
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-indulgence-7-c2",
+          "round": 2,
+          "lever": "indulgence",
+          "headline": "Big mallows. Pillowy pleasure.",
+          "body": "Pass the platter and lean into the sweetness. Giant, American style marshmallows, with a grilled s'mores recipe on the back of the pack.",
+          "cta": "Make dessert epic",
+          "rationale": "Pillowy texture and shared sweetness express indulgence using the pack slogan, giant size, American style and grilled s'mores recipe.",
+          "parentId": "g0-indulgence-7",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-indulgence-7"
+          ],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 16,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.1446606106855946
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 120,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.022052910604837862
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-indulgence-7-c3",
+          "round": 2,
+          "lever": "indulgence",
+          "headline": "Dessert plans? Make them s'mores.",
+          "body": "Toast a giant mallow over the BBQ, then bring on the sweet evening. The grilled s'mores recipe is waiting on the back of the pack.",
+          "cta": "Make dessert epic",
+          "rationale": "The dessert invitation centres sweet pleasure using the giant size, suitability for BBQ toasting and back-of-pack grilled s'mores recipe.",
+          "parentId": "g0-indulgence-7",
+          "imageUrl": "/generated/campaigns/2e30454c/scene-7.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-indulgence-7"
+          ],
+          "scene": "On a beach-house dining table after sunset, the unaltered pack faces front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with gentle pendant light, dark windows and a spacious square composition creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 2,
+              "n": 15,
+              "rate": 0.13333333333333333,
+              "lo": 0.04514682181062529,
+              "hi": 0.33359572486487077
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 119,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.022234108787958527
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g1-indulgence-7-s1",
+          "round": 2,
+          "lever": "indulgence",
+          "headline": "Pass the s'mores. Keep the evening sweet.",
+          "body": "After sunset, bring on the giant marshmallow sweetness. The grilled s'mores recipe is on the back of the pack—dessert plans, made epic.",
+          "cta": "Make dessert epic",
+          "rationale": "Scene mutation of g0-indulgence-7: same copy, new scene.",
+          "parentId": "g0-indulgence-7",
+          "imageUrl": "/generated/campaigns/2e30454c/g1-indulgence-7-s1.png",
+          "gen": 1,
+          "parentIds": [
+            "g0-indulgence-7"
+          ],
+          "scene": "On an enclosed seaside porch table at blue hour, the unaltered pack stands exactly as it is with its front label to camera beside a plain platter of assembled s’mores, chocolate pieces and pink and white marshmallows, with warm pendant light balanced by cool dusk beyond the windows and a spacious square composition from table height creating a mellow shared-dessert mood.",
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 15,
+              "rate": 0.2,
+              "lo": 0.08289195751464395,
+              "hi": 0.4088064897653074
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0,
+              "parent": 0.25,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 292,
+            "clicks": 5,
+            "ctr": 0.017123287671232876,
+            "lo": 0.00835883730876329,
+            "hi": 0.03475539830959572
+          },
+          "status": "survivor"
+        }
+      ],
+      "survivorIds": [
+        "g1-health_halo-6-c1",
+        "g1-health_halo-7-c1",
+        "g1-value-2-c3",
+        "g1-scarcity-3-s1",
+        "g1-value-2-c2",
+        "g1-indulgence-7-s1"
+      ],
+      "sealedSha256": "44d4de8f7943f42416e7bb04d51a2bb27f672cea92c413b359517d93e737bd64",
+      "tokens": 109153,
+      "seconds": 106,
+      "timeline": [
+        {
+          "step": 1,
+          "impressionsByAd": {
+            "g0-value-2": 22,
+            "g0-health_halo-6": 15,
+            "g0-social_proof-3": 20,
+            "g0-scarcity-3": 16,
+            "g0-health_halo-7": 16,
+            "g0-indulgence-7": 17,
+            "g1-value-2-c1": 15,
+            "g1-value-2-c2": 13,
+            "g1-value-2-c3": 13,
+            "g1-value-2-s1": 15,
+            "g1-health_halo-6-c1": 16,
+            "g1-health_halo-6-c2": 15,
+            "g1-health_halo-6-c3": 15,
+            "g1-health_halo-6-s1": 17,
+            "g1-social_proof-3-c1": 14,
+            "g1-social_proof-3-c2": 17,
+            "g1-social_proof-3-c3": 16,
+            "g1-social_proof-3-s1": 17,
+            "g1-scarcity-3-c1": 24,
+            "g1-scarcity-3-c2": 16,
+            "g1-scarcity-3-c3": 19,
+            "g1-scarcity-3-s1": 15,
+            "g1-health_halo-7-c1": 14,
+            "g1-health_halo-7-c2": 25,
+            "g1-health_halo-7-c3": 16,
+            "g1-health_halo-7-s1": 16,
+            "g1-indulgence-7-c1": 16,
+            "g1-indulgence-7-c2": 17,
+            "g1-indulgence-7-c3": 17,
+            "g1-indulgence-7-s1": 16
+          }
+        },
+        {
+          "step": 2,
+          "impressionsByAd": {
+            "g0-value-2": 39,
+            "g0-health_halo-6": 25,
+            "g0-social_proof-3": 28,
+            "g0-scarcity-3": 26,
+            "g0-health_halo-7": 28,
+            "g0-indulgence-7": 26,
+            "g1-value-2-c1": 31,
+            "g1-value-2-c2": 27,
+            "g1-value-2-c3": 27,
+            "g1-value-2-s1": 44,
+            "g1-health_halo-6-c1": 31,
+            "g1-health_halo-6-c2": 41,
+            "g1-health_halo-6-c3": 28,
+            "g1-health_halo-6-s1": 29,
+            "g1-social_proof-3-c1": 26,
+            "g1-social_proof-3-c2": 26,
+            "g1-social_proof-3-c3": 32,
+            "g1-social_proof-3-s1": 30,
+            "g1-scarcity-3-c1": 41,
+            "g1-scarcity-3-c2": 29,
+            "g1-scarcity-3-c3": 49,
+            "g1-scarcity-3-s1": 30,
+            "g1-health_halo-7-c1": 59,
+            "g1-health_halo-7-c2": 83,
+            "g1-health_halo-7-c3": 29,
+            "g1-health_halo-7-s1": 29,
+            "g1-indulgence-7-c1": 26,
+            "g1-indulgence-7-c2": 25,
+            "g1-indulgence-7-c3": 29,
+            "g1-indulgence-7-s1": 27
+          }
+        },
+        {
+          "step": 3,
+          "impressionsByAd": {
+            "g0-value-2": 56,
+            "g0-health_halo-6": 39,
+            "g0-social_proof-3": 39,
+            "g0-scarcity-3": 39,
+            "g0-health_halo-7": 39,
+            "g0-indulgence-7": 40,
+            "g1-value-2-c1": 42,
+            "g1-value-2-c2": 58,
+            "g1-value-2-c3": 39,
+            "g1-value-2-s1": 56,
+            "g1-health_halo-6-c1": 42,
+            "g1-health_halo-6-c2": 80,
+            "g1-health_halo-6-c3": 37,
+            "g1-health_halo-6-s1": 39,
+            "g1-social_proof-3-c1": 43,
+            "g1-social_proof-3-c2": 38,
+            "g1-social_proof-3-c3": 41,
+            "g1-social_proof-3-s1": 42,
+            "g1-scarcity-3-c1": 62,
+            "g1-scarcity-3-c2": 44,
+            "g1-scarcity-3-c3": 79,
+            "g1-scarcity-3-s1": 38,
+            "g1-health_halo-7-c1": 97,
+            "g1-health_halo-7-c2": 119,
+            "g1-health_halo-7-c3": 43,
+            "g1-health_halo-7-s1": 45,
+            "g1-indulgence-7-c1": 45,
+            "g1-indulgence-7-c2": 40,
+            "g1-indulgence-7-c3": 41,
+            "g1-indulgence-7-s1": 38
+          }
+        },
+        {
+          "step": 4,
+          "impressionsByAd": {
+            "g0-value-2": 81,
+            "g0-health_halo-6": 63,
+            "g0-social_proof-3": 52,
+            "g0-scarcity-3": 55,
+            "g0-health_halo-7": 47,
+            "g0-indulgence-7": 50,
+            "g1-value-2-c1": 53,
+            "g1-value-2-c2": 85,
+            "g1-value-2-c3": 56,
+            "g1-value-2-s1": 77,
+            "g1-health_halo-6-c1": 53,
+            "g1-health_halo-6-c2": 94,
+            "g1-health_halo-6-c3": 50,
+            "g1-health_halo-6-s1": 57,
+            "g1-social_proof-3-c1": 54,
+            "g1-social_proof-3-c2": 54,
+            "g1-social_proof-3-c3": 50,
+            "g1-social_proof-3-s1": 55,
+            "g1-scarcity-3-c1": 78,
+            "g1-scarcity-3-c2": 52,
+            "g1-scarcity-3-c3": 116,
+            "g1-scarcity-3-s1": 49,
+            "g1-health_halo-7-c1": 129,
+            "g1-health_halo-7-c2": 154,
+            "g1-health_halo-7-c3": 73,
+            "g1-health_halo-7-s1": 54,
+            "g1-indulgence-7-c1": 54,
+            "g1-indulgence-7-c2": 51,
+            "g1-indulgence-7-c3": 51,
+            "g1-indulgence-7-s1": 53
+          }
+        },
+        {
+          "step": 5,
+          "impressionsByAd": {
+            "g0-value-2": 89,
+            "g0-health_halo-6": 103,
+            "g0-social_proof-3": 91,
+            "g0-scarcity-3": 82,
+            "g0-health_halo-7": 57,
+            "g0-indulgence-7": 57,
+            "g1-value-2-c1": 65,
+            "g1-value-2-c2": 100,
+            "g1-value-2-c3": 96,
+            "g1-value-2-s1": 92,
+            "g1-health_halo-6-c1": 61,
+            "g1-health_halo-6-c2": 105,
+            "g1-health_halo-6-c3": 57,
+            "g1-health_halo-6-s1": 95,
+            "g1-social_proof-3-c1": 60,
+            "g1-social_proof-3-c2": 62,
+            "g1-social_proof-3-c3": 62,
+            "g1-social_proof-3-s1": 71,
+            "g1-scarcity-3-c1": 85,
+            "g1-scarcity-3-c2": 64,
+            "g1-scarcity-3-c3": 129,
+            "g1-scarcity-3-s1": 60,
+            "g1-health_halo-7-c1": 202,
+            "g1-health_halo-7-c2": 171,
+            "g1-health_halo-7-c3": 84,
+            "g1-health_halo-7-s1": 58,
+            "g1-indulgence-7-c1": 62,
+            "g1-indulgence-7-c2": 58,
+            "g1-indulgence-7-c3": 57,
+            "g1-indulgence-7-s1": 65
+          }
+        },
+        {
+          "step": 6,
+          "impressionsByAd": {
+            "g0-value-2": 98,
+            "g0-health_halo-6": 126,
+            "g0-social_proof-3": 112,
+            "g0-scarcity-3": 97,
+            "g0-health_halo-7": 85,
+            "g0-indulgence-7": 64,
+            "g1-value-2-c1": 70,
+            "g1-value-2-c2": 137,
+            "g1-value-2-c3": 137,
+            "g1-value-2-s1": 101,
+            "g1-health_halo-6-c1": 104,
+            "g1-health_halo-6-c2": 114,
+            "g1-health_halo-6-c3": 67,
+            "g1-health_halo-6-s1": 109,
+            "g1-social_proof-3-c1": 66,
+            "g1-social_proof-3-c2": 66,
+            "g1-social_proof-3-c3": 68,
+            "g1-social_proof-3-s1": 88,
+            "g1-scarcity-3-c1": 95,
+            "g1-scarcity-3-c2": 68,
+            "g1-scarcity-3-c3": 141,
+            "g1-scarcity-3-s1": 67,
+            "g1-health_halo-7-c1": 294,
+            "g1-health_halo-7-c2": 191,
+            "g1-health_halo-7-c3": 97,
+            "g1-health_halo-7-s1": 67,
+            "g1-indulgence-7-c1": 66,
+            "g1-indulgence-7-c2": 65,
+            "g1-indulgence-7-c3": 69,
+            "g1-indulgence-7-s1": 71
+          }
+        },
+        {
+          "step": 7,
+          "impressionsByAd": {
+            "g0-value-2": 116,
+            "g0-health_halo-6": 143,
+            "g0-social_proof-3": 123,
+            "g0-scarcity-3": 105,
+            "g0-health_halo-7": 117,
+            "g0-indulgence-7": 72,
+            "g1-value-2-c1": 74,
+            "g1-value-2-c2": 181,
+            "g1-value-2-c3": 165,
+            "g1-value-2-s1": 106,
+            "g1-health_halo-6-c1": 156,
+            "g1-health_halo-6-c2": 151,
+            "g1-health_halo-6-c3": 75,
+            "g1-health_halo-6-s1": 141,
+            "g1-social_proof-3-c1": 75,
+            "g1-social_proof-3-c2": 73,
+            "g1-social_proof-3-c3": 79,
+            "g1-social_proof-3-s1": 100,
+            "g1-scarcity-3-c1": 102,
+            "g1-scarcity-3-c2": 75,
+            "g1-scarcity-3-c3": 153,
+            "g1-scarcity-3-s1": 74,
+            "g1-health_halo-7-c1": 375,
+            "g1-health_halo-7-c2": 206,
+            "g1-health_halo-7-c3": 100,
+            "g1-health_halo-7-s1": 69,
+            "g1-indulgence-7-c1": 70,
+            "g1-indulgence-7-c2": 74,
+            "g1-indulgence-7-c3": 73,
+            "g1-indulgence-7-s1": 77
+          }
+        },
+        {
+          "step": 8,
+          "impressionsByAd": {
+            "g0-value-2": 124,
+            "g0-health_halo-6": 160,
+            "g0-social_proof-3": 138,
+            "g0-scarcity-3": 113,
+            "g0-health_halo-7": 128,
+            "g0-indulgence-7": 79,
+            "g1-value-2-c1": 81,
+            "g1-value-2-c2": 202,
+            "g1-value-2-c3": 200,
+            "g1-value-2-s1": 112,
+            "g1-health_halo-6-c1": 192,
+            "g1-health_halo-6-c2": 191,
+            "g1-health_halo-6-c3": 82,
+            "g1-health_halo-6-s1": 173,
+            "g1-social_proof-3-c1": 79,
+            "g1-social_proof-3-c2": 79,
+            "g1-social_proof-3-c3": 100,
+            "g1-social_proof-3-s1": 122,
+            "g1-scarcity-3-c1": 113,
+            "g1-scarcity-3-c2": 80,
+            "g1-scarcity-3-c3": 170,
+            "g1-scarcity-3-s1": 82,
+            "g1-health_halo-7-c1": 461,
+            "g1-health_halo-7-c2": 224,
+            "g1-health_halo-7-c3": 109,
+            "g1-health_halo-7-s1": 95,
+            "g1-indulgence-7-c1": 75,
+            "g1-indulgence-7-c2": 78,
+            "g1-indulgence-7-c3": 77,
+            "g1-indulgence-7-s1": 81
+          }
+        },
+        {
+          "step": 9,
+          "impressionsByAd": {
+            "g0-value-2": 146,
+            "g0-health_halo-6": 181,
+            "g0-social_proof-3": 161,
+            "g0-scarcity-3": 119,
+            "g0-health_halo-7": 139,
+            "g0-indulgence-7": 85,
+            "g1-value-2-c1": 87,
+            "g1-value-2-c2": 227,
+            "g1-value-2-c3": 220,
+            "g1-value-2-s1": 121,
+            "g1-health_halo-6-c1": 275,
+            "g1-health_halo-6-c2": 218,
+            "g1-health_halo-6-c3": 90,
+            "g1-health_halo-6-s1": 192,
+            "g1-social_proof-3-c1": 83,
+            "g1-social_proof-3-c2": 86,
+            "g1-social_proof-3-c3": 113,
+            "g1-social_proof-3-s1": 143,
+            "g1-scarcity-3-c1": 122,
+            "g1-scarcity-3-c2": 85,
+            "g1-scarcity-3-c3": 191,
+            "g1-scarcity-3-s1": 90,
+            "g1-health_halo-7-c1": 532,
+            "g1-health_halo-7-c2": 237,
+            "g1-health_halo-7-c3": 115,
+            "g1-health_halo-7-s1": 107,
+            "g1-indulgence-7-c1": 83,
+            "g1-indulgence-7-c2": 83,
+            "g1-indulgence-7-c3": 82,
+            "g1-indulgence-7-s1": 87
+          }
+        },
+        {
+          "step": 10,
+          "impressionsByAd": {
+            "g0-value-2": 163,
+            "g0-health_halo-6": 196,
+            "g0-social_proof-3": 170,
+            "g0-scarcity-3": 122,
+            "g0-health_halo-7": 144,
+            "g0-indulgence-7": 88,
+            "g1-value-2-c1": 93,
+            "g1-value-2-c2": 233,
+            "g1-value-2-c3": 225,
+            "g1-value-2-s1": 126,
+            "g1-health_halo-6-c1": 608,
+            "g1-health_halo-6-c2": 230,
+            "g1-health_halo-6-c3": 94,
+            "g1-health_halo-6-s1": 200,
+            "g1-social_proof-3-c1": 89,
+            "g1-social_proof-3-c2": 87,
+            "g1-social_proof-3-c3": 118,
+            "g1-social_proof-3-s1": 146,
+            "g1-scarcity-3-c1": 122,
+            "g1-scarcity-3-c2": 89,
+            "g1-scarcity-3-c3": 199,
+            "g1-scarcity-3-s1": 91,
+            "g1-health_halo-7-c1": 546,
+            "g1-health_halo-7-c2": 241,
+            "g1-health_halo-7-c3": 121,
+            "g1-health_halo-7-s1": 114,
+            "g1-indulgence-7-c1": 87,
+            "g1-indulgence-7-c2": 85,
+            "g1-indulgence-7-c3": 84,
+            "g1-indulgence-7-s1": 89
+          }
+        },
+        {
+          "step": 11,
+          "impressionsByAd": {
+            "g0-value-2": 177,
+            "g0-health_halo-6": 212,
+            "g0-social_proof-3": 183,
+            "g0-scarcity-3": 124,
+            "g0-health_halo-7": 159,
+            "g0-indulgence-7": 91,
+            "g1-value-2-c1": 97,
+            "g1-value-2-c2": 243,
+            "g1-value-2-c3": 248,
+            "g1-value-2-s1": 129,
+            "g1-health_halo-6-c1": 801,
+            "g1-health_halo-6-c2": 246,
+            "g1-health_halo-6-c3": 98,
+            "g1-health_halo-6-s1": 215,
+            "g1-social_proof-3-c1": 91,
+            "g1-social_proof-3-c2": 92,
+            "g1-social_proof-3-c3": 129,
+            "g1-social_proof-3-s1": 159,
+            "g1-scarcity-3-c1": 129,
+            "g1-scarcity-3-c2": 94,
+            "g1-scarcity-3-c3": 214,
+            "g1-scarcity-3-s1": 94,
+            "g1-health_halo-7-c1": 583,
+            "g1-health_halo-7-c2": 251,
+            "g1-health_halo-7-c3": 130,
+            "g1-health_halo-7-s1": 122,
+            "g1-indulgence-7-c1": 114,
+            "g1-indulgence-7-c2": 93,
+            "g1-indulgence-7-c3": 90,
+            "g1-indulgence-7-s1": 92
+          }
+        },
+        {
+          "step": 12,
+          "impressionsByAd": {
+            "g0-value-2": 190,
+            "g0-health_halo-6": 223,
+            "g0-social_proof-3": 193,
+            "g0-scarcity-3": 138,
+            "g0-health_halo-7": 178,
+            "g0-indulgence-7": 98,
+            "g1-value-2-c1": 99,
+            "g1-value-2-c2": 258,
+            "g1-value-2-c3": 257,
+            "g1-value-2-s1": 136,
+            "g1-health_halo-6-c1": 996,
+            "g1-health_halo-6-c2": 260,
+            "g1-health_halo-6-c3": 100,
+            "g1-health_halo-6-s1": 228,
+            "g1-social_proof-3-c1": 93,
+            "g1-social_proof-3-c2": 98,
+            "g1-social_proof-3-c3": 136,
+            "g1-social_proof-3-s1": 169,
+            "g1-scarcity-3-c1": 135,
+            "g1-scarcity-3-c2": 97,
+            "g1-scarcity-3-c3": 222,
+            "g1-scarcity-3-s1": 97,
+            "g1-health_halo-7-c1": 634,
+            "g1-health_halo-7-c2": 274,
+            "g1-health_halo-7-c3": 135,
+            "g1-health_halo-7-s1": 138,
+            "g1-indulgence-7-c1": 130,
+            "g1-indulgence-7-c2": 99,
+            "g1-indulgence-7-c3": 94,
+            "g1-indulgence-7-s1": 95
+          }
+        },
+        {
+          "step": 13,
+          "impressionsByAd": {
+            "g0-value-2": 203,
+            "g0-health_halo-6": 233,
+            "g0-social_proof-3": 204,
+            "g0-scarcity-3": 141,
+            "g0-health_halo-7": 194,
+            "g0-indulgence-7": 104,
+            "g1-value-2-c1": 106,
+            "g1-value-2-c2": 296,
+            "g1-value-2-c3": 275,
+            "g1-value-2-s1": 138,
+            "g1-health_halo-6-c1": 1183,
+            "g1-health_halo-6-c2": 277,
+            "g1-health_halo-6-c3": 101,
+            "g1-health_halo-6-s1": 238,
+            "g1-social_proof-3-c1": 100,
+            "g1-social_proof-3-c2": 101,
+            "g1-social_proof-3-c3": 145,
+            "g1-social_proof-3-s1": 173,
+            "g1-scarcity-3-c1": 144,
+            "g1-scarcity-3-c2": 100,
+            "g1-scarcity-3-c3": 233,
+            "g1-scarcity-3-s1": 114,
+            "g1-health_halo-7-c1": 679,
+            "g1-health_halo-7-c2": 289,
+            "g1-health_halo-7-c3": 143,
+            "g1-health_halo-7-s1": 146,
+            "g1-indulgence-7-c1": 137,
+            "g1-indulgence-7-c2": 106,
+            "g1-indulgence-7-c3": 101,
+            "g1-indulgence-7-s1": 96
+          }
+        },
+        {
+          "step": 14,
+          "impressionsByAd": {
+            "g0-value-2": 214,
+            "g0-health_halo-6": 248,
+            "g0-social_proof-3": 214,
+            "g0-scarcity-3": 150,
+            "g0-health_halo-7": 215,
+            "g0-indulgence-7": 111,
+            "g1-value-2-c1": 109,
+            "g1-value-2-c2": 311,
+            "g1-value-2-c3": 294,
+            "g1-value-2-s1": 147,
+            "g1-health_halo-6-c1": 1382,
+            "g1-health_halo-6-c2": 286,
+            "g1-health_halo-6-c3": 103,
+            "g1-health_halo-6-s1": 244,
+            "g1-social_proof-3-c1": 104,
+            "g1-social_proof-3-c2": 102,
+            "g1-social_proof-3-c3": 150,
+            "g1-social_proof-3-s1": 181,
+            "g1-scarcity-3-c1": 161,
+            "g1-scarcity-3-c2": 105,
+            "g1-scarcity-3-c3": 246,
+            "g1-scarcity-3-s1": 127,
+            "g1-health_halo-7-c1": 717,
+            "g1-health_halo-7-c2": 299,
+            "g1-health_halo-7-c3": 146,
+            "g1-health_halo-7-s1": 149,
+            "g1-indulgence-7-c1": 141,
+            "g1-indulgence-7-c2": 107,
+            "g1-indulgence-7-c3": 107,
+            "g1-indulgence-7-s1": 130
+          }
+        },
+        {
+          "step": 15,
+          "impressionsByAd": {
+            "g0-value-2": 220,
+            "g0-health_halo-6": 254,
+            "g0-social_proof-3": 219,
+            "g0-scarcity-3": 155,
+            "g0-health_halo-7": 229,
+            "g0-indulgence-7": 113,
+            "g1-value-2-c1": 111,
+            "g1-value-2-c2": 330,
+            "g1-value-2-c3": 326,
+            "g1-value-2-s1": 152,
+            "g1-health_halo-6-c1": 1547,
+            "g1-health_halo-6-c2": 305,
+            "g1-health_halo-6-c3": 123,
+            "g1-health_halo-6-s1": 254,
+            "g1-social_proof-3-c1": 108,
+            "g1-social_proof-3-c2": 105,
+            "g1-social_proof-3-c3": 153,
+            "g1-social_proof-3-s1": 192,
+            "g1-scarcity-3-c1": 171,
+            "g1-scarcity-3-c2": 108,
+            "g1-scarcity-3-c3": 259,
+            "g1-scarcity-3-s1": 132,
+            "g1-health_halo-7-c1": 768,
+            "g1-health_halo-7-c2": 314,
+            "g1-health_halo-7-c3": 148,
+            "g1-health_halo-7-s1": 153,
+            "g1-indulgence-7-c1": 146,
+            "g1-indulgence-7-c2": 111,
+            "g1-indulgence-7-c3": 108,
+            "g1-indulgence-7-s1": 186
+          }
+        },
+        {
+          "step": 16,
+          "impressionsByAd": {
+            "g0-value-2": 228,
+            "g0-health_halo-6": 257,
+            "g0-social_proof-3": 226,
+            "g0-scarcity-3": 164,
+            "g0-health_halo-7": 236,
+            "g0-indulgence-7": 119,
+            "g1-value-2-c1": 114,
+            "g1-value-2-c2": 338,
+            "g1-value-2-c3": 350,
+            "g1-value-2-s1": 154,
+            "g1-health_halo-6-c1": 1730,
+            "g1-health_halo-6-c2": 332,
+            "g1-health_halo-6-c3": 131,
+            "g1-health_halo-6-s1": 262,
+            "g1-social_proof-3-c1": 109,
+            "g1-social_proof-3-c2": 107,
+            "g1-social_proof-3-c3": 160,
+            "g1-social_proof-3-s1": 195,
+            "g1-scarcity-3-c1": 180,
+            "g1-scarcity-3-c2": 112,
+            "g1-scarcity-3-c3": 275,
+            "g1-scarcity-3-s1": 140,
+            "g1-health_halo-7-c1": 839,
+            "g1-health_halo-7-c2": 323,
+            "g1-health_halo-7-c3": 162,
+            "g1-health_halo-7-s1": 157,
+            "g1-indulgence-7-c1": 153,
+            "g1-indulgence-7-c2": 111,
+            "g1-indulgence-7-c3": 110,
+            "g1-indulgence-7-s1": 226
+          }
+        },
+        {
+          "step": 17,
+          "impressionsByAd": {
+            "g0-value-2": 239,
+            "g0-health_halo-6": 262,
+            "g0-social_proof-3": 232,
+            "g0-scarcity-3": 166,
+            "g0-health_halo-7": 250,
+            "g0-indulgence-7": 122,
+            "g1-value-2-c1": 120,
+            "g1-value-2-c2": 351,
+            "g1-value-2-c3": 371,
+            "g1-value-2-s1": 164,
+            "g1-health_halo-6-c1": 1894,
+            "g1-health_halo-6-c2": 351,
+            "g1-health_halo-6-c3": 134,
+            "g1-health_halo-6-s1": 270,
+            "g1-social_proof-3-c1": 116,
+            "g1-social_proof-3-c2": 111,
+            "g1-social_proof-3-c3": 163,
+            "g1-social_proof-3-s1": 200,
+            "g1-scarcity-3-c1": 185,
+            "g1-scarcity-3-c2": 117,
+            "g1-scarcity-3-c3": 284,
+            "g1-scarcity-3-s1": 152,
+            "g1-health_halo-7-c1": 927,
+            "g1-health_halo-7-c2": 337,
+            "g1-health_halo-7-c3": 176,
+            "g1-health_halo-7-s1": 161,
+            "g1-indulgence-7-c1": 154,
+            "g1-indulgence-7-c2": 117,
+            "g1-indulgence-7-c3": 115,
+            "g1-indulgence-7-s1": 259
+          }
+        },
+        {
+          "step": 18,
+          "impressionsByAd": {
+            "g0-value-2": 240,
+            "g0-health_halo-6": 265,
+            "g0-social_proof-3": 237,
+            "g0-scarcity-3": 172,
+            "g0-health_halo-7": 256,
+            "g0-indulgence-7": 127,
+            "g1-value-2-c1": 122,
+            "g1-value-2-c2": 360,
+            "g1-value-2-c3": 410,
+            "g1-value-2-s1": 177,
+            "g1-health_halo-6-c1": 2028,
+            "g1-health_halo-6-c2": 365,
+            "g1-health_halo-6-c3": 145,
+            "g1-health_halo-6-s1": 277,
+            "g1-social_proof-3-c1": 118,
+            "g1-social_proof-3-c2": 116,
+            "g1-social_proof-3-c3": 169,
+            "g1-social_proof-3-s1": 202,
+            "g1-scarcity-3-c1": 192,
+            "g1-scarcity-3-c2": 120,
+            "g1-scarcity-3-c3": 292,
+            "g1-scarcity-3-s1": 228,
+            "g1-health_halo-7-c1": 1017,
+            "g1-health_halo-7-c2": 350,
+            "g1-health_halo-7-c3": 187,
+            "g1-health_halo-7-s1": 163,
+            "g1-indulgence-7-c1": 157,
+            "g1-indulgence-7-c2": 117,
+            "g1-indulgence-7-c3": 116,
+            "g1-indulgence-7-s1": 275
+          }
+        },
+        {
+          "step": 19,
+          "impressionsByAd": {
+            "g0-value-2": 246,
+            "g0-health_halo-6": 273,
+            "g0-social_proof-3": 241,
+            "g0-scarcity-3": 173,
+            "g0-health_halo-7": 261,
+            "g0-indulgence-7": 130,
+            "g1-value-2-c1": 125,
+            "g1-value-2-c2": 366,
+            "g1-value-2-c3": 437,
+            "g1-value-2-s1": 181,
+            "g1-health_halo-6-c1": 2180,
+            "g1-health_halo-6-c2": 385,
+            "g1-health_halo-6-c3": 152,
+            "g1-health_halo-6-s1": 285,
+            "g1-social_proof-3-c1": 120,
+            "g1-social_proof-3-c2": 118,
+            "g1-social_proof-3-c3": 175,
+            "g1-social_proof-3-s1": 205,
+            "g1-scarcity-3-c1": 196,
+            "g1-scarcity-3-c2": 120,
+            "g1-scarcity-3-c3": 301,
+            "g1-scarcity-3-s1": 298,
+            "g1-health_halo-7-c1": 1120,
+            "g1-health_halo-7-c2": 370,
+            "g1-health_halo-7-c3": 193,
+            "g1-health_halo-7-s1": 168,
+            "g1-indulgence-7-c1": 160,
+            "g1-indulgence-7-c2": 120,
+            "g1-indulgence-7-c3": 118,
+            "g1-indulgence-7-s1": 283
+          }
+        },
+        {
+          "step": 20,
+          "impressionsByAd": {
+            "g0-value-2": 254,
+            "g0-health_halo-6": 282,
+            "g0-social_proof-3": 248,
+            "g0-scarcity-3": 179,
+            "g0-health_halo-7": 271,
+            "g0-indulgence-7": 131,
+            "g1-value-2-c1": 128,
+            "g1-value-2-c2": 372,
+            "g1-value-2-c3": 448,
+            "g1-value-2-s1": 203,
+            "g1-health_halo-6-c1": 2361,
+            "g1-health_halo-6-c2": 424,
+            "g1-health_halo-6-c3": 157,
+            "g1-health_halo-6-s1": 288,
+            "g1-social_proof-3-c1": 122,
+            "g1-social_proof-3-c2": 122,
+            "g1-social_proof-3-c3": 175,
+            "g1-social_proof-3-s1": 220,
+            "g1-scarcity-3-c1": 202,
+            "g1-scarcity-3-c2": 124,
+            "g1-scarcity-3-c3": 311,
+            "g1-scarcity-3-s1": 329,
+            "g1-health_halo-7-c1": 1205,
+            "g1-health_halo-7-c2": 380,
+            "g1-health_halo-7-c3": 201,
+            "g1-health_halo-7-s1": 170,
+            "g1-indulgence-7-c1": 162,
+            "g1-indulgence-7-c2": 120,
+            "g1-indulgence-7-c3": 119,
+            "g1-indulgence-7-s1": 292
+          }
+        }
+      ]
+    }
+  ],
+  "winnerId": "g1-health_halo-6-c1"
+}
