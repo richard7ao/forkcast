@@ -1,0 +1,1304 @@
+{
+  "id": "fd7b9e28",
+  "name": "LOWRISE HAZY PALE",
+  "createdAt": "2026-10-03T18:22:26.446Z",
+  "sourceImageUrl": "/generated/campaigns/fd7b9e28/source.jpg",
+  "product": {
+    "brand": "LOWRISE",
+    "name": "HAZY PALE",
+    "price": "",
+    "imageUrl": "/generated/campaigns/fd7b9e28/source.jpg",
+    "facts": [
+      "LOW CALS",
+      "FULL VIBE",
+      "84 CALORIES",
+      "4% ABV",
+      "GLUTEN FREE"
+    ]
+  },
+  "stage": "done",
+  "progress": {
+    "label": "Done",
+    "done": 1,
+    "total": 1
+  },
+  "generations": [
+    {
+      "gen": 0,
+      "ads": [
+        {
+          "id": "g0-social_proof-0",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "social_proof",
+          "scene": "On a kitchen counter during taco night, lime wedges and tacos on plain plates surround the unchanged pack with its front label facing camera, warm pendant light creating an easygoing mood in a centered square composition.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-0.png",
+          "headline": "Pass it like the lime.",
+          "body": "The taco-table pick. Tacos round, limes round, this round. LOW CALS. FULL VIBE. 84 CALORIES.",
+          "cta": "Make it your pick",
+          "rationale": "The shared taco-table pick signals group preference and passing it round, using LOW CALS, FULL VIBE and 84 CALORIES.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 6,
+              "n": 24,
+              "rate": 0.25,
+              "lo": 0.13518743084348225,
+              "hi": 0.415475762200035
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 150,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.017720486143228464
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-1",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "scarcity",
+          "scene": "On a shaded picnic blanket, sandwiches in unprinted paper and a bowl of cherries flank the unchanged pack with its front label facing camera, dappled afternoon light giving the square composition a relaxed weekend mood.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-1.png",
+          "headline": "Blanket down. Don't miss out.",
+          "body": "Sandwiches, cherries, picnic mode. Bring the FULL VIBE with 84 CALORIES. Stop hovering—grab it now.",
+          "cta": "Grab it now",
+          "rationale": "Direct commands create immediate urgency around the picnic scene, using FULL VIBE and 84 CALORIES.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 23,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.10526812294005003
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 160,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.01663137551298423
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-2",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "health_halo",
+          "scene": "On a rooftop dinner table, pizza slices and plain napkins sit beside the unchanged pack with its front label facing camera, sunset light creating a celebratory mood in a square composition framed by distant rooftops.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-2.png",
+          "headline": "Low cals. Rooftop energy.",
+          "body": "Pizza on the table. Sunset doing its thing. Your pour? 84 calories, 4% ABV, gluten free. Full vibe.",
+          "cta": "Make rooftop plans",
+          "rationale": "Leads with low cals for the rooftop occasion, then reinforces the nutrition-led angle with 84 calories and gluten free alongside 4% ABV.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 23,
+              "rate": 0.13043478260869565,
+              "lo": 0.053350499870372506,
+              "hi": 0.28532593882444707
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.16666666666666666,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.4
+            }
+          },
+          "experiment": {
+            "impressions": 253,
+            "clicks": 2,
+            "ctr": 0.007905138339920948,
+            "lo": 0.002619209816739467,
+            "hi": 0.023606316155908226
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-3",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "indulgence",
+          "scene": "On a backyard barbecue table, grilled corn and skewers on an unmarked platter accompany the unchanged pack with its front label facing camera, late-afternoon side light lending the square composition a casual summer mood.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-3.png",
+          "headline": "Char. Crunch. FULL VIBE.",
+          "body": "Corn off the grill. Skewers within reach. A sip between bites. LOW CALS. FULL VIBE. 84 CALORIES. Treat yourself.",
+          "cta": "Make it a treat",
+          "rationale": "Sensory barbecue cues frame each sip as a pleasure between bites, using LOW CALS, FULL VIBE and 84 CALORIES.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 23,
+              "rate": 0.21739130434782608,
+              "lo": 0.11004775878933049,
+              "hi": 0.3842342237420021
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.16666666666666666,
+              "parent": 0.16666666666666666,
+              "fitness": 0.2
+            }
+          },
+          "experiment": {
+            "impressions": 485,
+            "clicks": 9,
+            "ctr": 0.018556701030927835,
+            "lo": 0.010826703614038707,
+            "hi": 0.03162925128215106
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-provenance-4",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "provenance",
+          "scene": "On a coffee table for movie night, popcorn in a plain bowl sits beside the unchanged pack with its front label facing camera, soft lamplight and an unlit television creating a cozy, low-angle square composition.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-4.png",
+          "headline": "The label does the talking.",
+          "body": "Popcorn ready. Lamplight low. FULL VIBE. Straight from the pack: 84 CALORIES, 4% ABV, GLUTEN FREE.",
+          "cta": "Meet your movie mood",
+          "rationale": "Without verified origin or production details, this uses the label as its source of truth, highlighting FULL VIBE, 84 CALORIES, 4% ABV and GLUTEN FREE.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 16,
+              "n": 24,
+              "rate": 0.6666666666666666,
+              "lo": 0.4987750610501295,
+              "hi": 0.8007828102541922
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.8333333333333334,
+              "young_pro": 0.3333333333333333,
+              "parent": 0.8333333333333334,
+              "fitness": 0.6666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 4692,
+            "clicks": 161,
+            "ctr": 0.03431372549019608,
+            "lo": 0.030203587059606726,
+            "hi": 0.03896070635320606
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-value-5",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "value",
+          "scene": "On a balcony bistro table, olives and potato chips in plain ceramic bowls surround the unchanged pack with its front label facing camera, blue-hour light creating a quiet wind-down mood in a tightly framed square composition.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-5.png",
+          "headline": "Get the vibe. Keep the cals low.",
+          "body": "Your wind-down lineup: full vibe, 84 calories, 4% ABV and gluten free. Pull up to the balcony table.",
+          "cta": "Take a breather",
+          "rationale": "Frames value as the benefits you get for your balcony wind-down, using FULL VIBE, LOW CALS, 84 CALORIES, 4% ABV and GLUTEN FREE without implying a price.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 9,
+              "n": 24,
+              "rate": 0.375,
+              "lo": 0.2330411101133068,
+              "hi": 0.5422904864084519
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.16666666666666666,
+              "parent": 0.6666666666666666,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 652,
+            "clicks": 15,
+            "ctr": 0.023006134969325152,
+            "lo": 0.01513955434924758,
+            "hi": 0.0348157290162904
+          },
+          "status": "survivor"
+        },
+        {
+          "id": "g0-social_proof-6",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "social_proof",
+          "scene": "On a beach picnic tray, sandwiches and cucumber slices accompany the unchanged pack with its front label facing camera, bright coastal light and a folded plain towel creating a breezy square composition with ample sandy negative space.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-6.png",
+          "headline": "Look what your mates packed.",
+          "body": "The beach crew's picnic pick. Sandwiches out. Towel down. Pass it round. 4% ABV. FULL VIBE.",
+          "cta": "Join the picnic",
+          "rationale": "The mates-led picnic framing makes the pack a shared group choice, using 4% ABV and FULL VIBE.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 22,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.1095289509340333
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 156,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.017050549908234423
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-7",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "scarcity",
+          "scene": "On a campsite folding table, foil-wrapped potatoes and a plain enamel plate frame the unchanged pack with its front label facing camera, lantern light creating a snug evening mood in a square composition against dark canvas.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-7.png",
+          "headline": "Lantern lit? Make your move.",
+          "body": "Foil-wrapped potatoes. Lantern glow. LOW CALS. FULL VIBE. Don't leave it at 'maybe'—grab it now.",
+          "cta": "Make your move",
+          "rationale": "The campsite details set the mood while the push past hesitation creates urgency, using LOW CALS and FULL VIBE.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 23,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.10526812294005003
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 161,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.016529782578252696
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-8",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "health_halo",
+          "scene": "On a dining table set for curry night, rice and curry in plain bowls flank the unchanged pack with its front label facing camera, warm overhead light creating a welcoming square composition with layered foreground dishes.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-8.png",
+          "headline": "Your curry-night pour: gluten free.",
+          "body": "Pass the rice. Bring the full vibe. Gluten free, low cals, 84 calories and 4% ABV—now that's a dinner-table introduction.",
+          "cta": "Meet your next pour",
+          "rationale": "Makes gluten free the curry-night hook, supported by low cals and 84 calories while stating 4% ABV.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 10,
+              "n": 21,
+              "rate": 0.47619047619047616,
+              "lo": 0.31014816332604134,
+              "hi": 0.647668467678102
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0.4,
+              "parent": 0.75,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 393,
+            "clicks": 6,
+            "ctr": 0.015267175572519083,
+            "lo": 0.007914378120625745,
+            "hi": 0.029249637767178843
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-9",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "indulgence",
+          "scene": "On a small apartment kitchen table, dumplings and a plain dipping bowl sit beside the unchanged pack with its front label facing camera, gentle window light giving the close square composition an intimate weeknight mood.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-9.png",
+          "headline": "Dumplings deserve a little indulgence.",
+          "body": "Dip, sip, settle in. Your kitchen table just became treat territory. LOW CALS. FULL VIBE. 4% ABV.",
+          "cta": "Lean into pleasure",
+          "rationale": "The intimate dipping-and-sipping ritual turns dinner into an indulgence, using LOW CALS, FULL VIBE and 4% ABV.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 9,
+              "n": 22,
+              "rate": 0.4090909090909091,
+              "lo": 0.25602604753099534,
+              "hi": 0.5820701253661018
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.6666666666666666,
+              "young_pro": 0,
+              "parent": 0.3333333333333333,
+              "fitness": 0.5
+            }
+          },
+          "experiment": {
+            "impressions": 386,
+            "clicks": 5,
+            "ctr": 0.012953367875647668,
+            "lo": 0.0063187954845603175,
+            "hi": 0.026369210830752124
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-10",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "provenance",
+          "scene": "On a patio table after dusk, nachos on an unmarked platter surround the unchanged pack with its front label facing camera, soft string lights creating a festive square composition with the food loosely framing the foreground.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-10.png",
+          "headline": "Nachos out. Facts up front.",
+          "body": "Under the string lights, keep it label-level honest: LOW CALS. FULL VIBE. 84 CALORIES. Let the patio supply the backstory.",
+          "cta": "Set the patio mood",
+          "rationale": "This substitutes visible pack facts for unsupported manufacturing provenance, using LOW CALS, FULL VIBE and 84 CALORIES in the patio setting.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 22,
+              "rate": 0.13636363636363635,
+              "lo": 0.05583705192327683,
+              "hi": 0.29654763966511105
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0.4,
+              "fitness": 0.16666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 158,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.016838354380304035
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-11",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "value",
+          "scene": "On a tidy desk during a dinner break, a noodle bowl and plain chopsticks accompany the unchanged pack with its front label facing camera, focused desk-lamp light creating a quiet square composition with generous negative space.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-11.png",
+          "headline": "Your dinner break. The full rundown.",
+          "body": "84 calories. 4% ABV. Gluten free. Low cals, full vibe—here's what you get alongside that noodle bowl.",
+          "cta": "Meet your break",
+          "rationale": "Uses a punchy benefit inventory to express value during a desk dinner break, drawing on all the supplied pack facts without inventing price or quantity.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 6,
+              "n": 23,
+              "rate": 0.2608695652173913,
+              "lo": 0.14136647833579039,
+              "hi": 0.43071827611379865
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.16666666666666666,
+              "parent": 0.2,
+              "fitness": 0.16666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 213,
+            "clicks": 1,
+            "ctr": 0.004694835680751174,
+            "lo": 0.001047960570622732,
+            "hi": 0.020768884832745117
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-12",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "social_proof",
+          "scene": "On a garden bench picnic board, vegetable tart slices and plain linen sit beside the unchanged pack with its front label facing camera, soft overcast light creating a peaceful square composition backed by blurred greenery.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-12.png",
+          "headline": "Good picks get passed along.",
+          "body": "That picnic-table move: try your mate's pick, then pass it along. Tart slices optional. GLUTEN FREE. 84 CALORIES.",
+          "cta": "Your picnic pick",
+          "rationale": "Choosing what a mate has picked frames social discovery and sharing, using GLUTEN FREE and 84 CALORIES.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 0,
+              "n": 21,
+              "rate": 0,
+              "lo": 0,
+              "hi": 0.1141492510870127
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0
+            }
+          },
+          "experiment": {
+            "impressions": 155,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.017158665941900443
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-13",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "scarcity",
+          "scene": "On a kitchen island during burger night, a burger and fries on a plain tray flank the unchanged pack with its front label facing camera, crisp overhead light creating a lively square composition with a slightly elevated viewpoint.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-13.png",
+          "headline": "Burger night. Skip the hesitation.",
+          "body": "Burger? Ready. Fries? Ready. You? Don't just scroll past. 4% ABV. FULL VIBE. Get in on it now.",
+          "cta": "Get in on it",
+          "rationale": "Quick questions build momentum into an immediate action prompt, using 4% ABV and FULL VIBE.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 5,
+              "n": 22,
+              "rate": 0.22727272727272727,
+              "lo": 0.11527190584624275,
+              "hi": 0.39901661284504814
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.2,
+              "young_pro": 0.2,
+              "parent": 0.16666666666666666,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 157,
+            "clicks": 0,
+            "ctr": 0,
+            "lo": 0,
+            "hi": 0.01694378781263888
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-health_halo-14",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "health_halo",
+          "scene": "On a dining-room sideboard during a gathering, a plain platter of flatbread and dips sits beside the unchanged pack with its front label facing camera, candlelight creating an understated festive mood in an asymmetrical square composition.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-14.png",
+          "headline": "84 calories. Cue the candlelight.",
+          "body": "Flatbread, dips, a little glow. Add a low-cals pour with full vibe: gluten free, 4% ABV. Let the evening unfold.",
+          "cta": "Bring the full vibe",
+          "rationale": "Spotlights 84 calories for the gathering, then reinforces low cals and gluten free alongside full vibe and 4% ABV.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 3,
+              "n": 24,
+              "rate": 0.125,
+              "lo": 0.05107610329376594,
+              "hi": 0.27491868627151006
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.3333333333333333,
+              "young_pro": 0,
+              "parent": 0,
+              "fitness": 0.16666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 200,
+            "clicks": 1,
+            "ctr": 0.005,
+            "lo": 0.0011161263729983998,
+            "hi": 0.022099883116606066
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-indulgence-15",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "indulgence",
+          "scene": "On a covered porch during rain, pretzels in a plain bowl accompany the unchanged pack with its front label facing camera, cool daylight and soft interior spill creating a contemplative square composition against blurred wet windows.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-15.png",
+          "headline": "Let the rain rush. You can linger.",
+          "body": "Pretzels to crunch. Rain to watch. Settle into a porch-side sip: FULL VIBE. 84 CALORIES. GLUTEN FREE.",
+          "cta": "Savour the moment",
+          "rationale": "Crunch and slow sipping create a contemplative treat moment, using FULL VIBE, 84 CALORIES and GLUTEN FREE.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 6,
+              "n": 23,
+              "rate": 0.2608695652173913,
+              "lo": 0.14136647833579039,
+              "hi": 0.43071827611379865
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.5,
+              "young_pro": 0.3333333333333333,
+              "parent": 0,
+              "fitness": 0.2
+            }
+          },
+          "experiment": {
+            "impressions": 261,
+            "clicks": 2,
+            "ctr": 0.007662835249042145,
+            "lo": 0.002538824752407246,
+            "hi": 0.022891102379519294
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-provenance-16",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "provenance",
+          "scene": "On a low living-room table for game night, plain wooden dominoes and a bowl of chips surround the unchanged pack with its front label facing camera, warm lamplight creating a playful square composition with diagonal prop placement.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-16.png",
+          "headline": "Your move. Read the label.",
+          "body": "Dominoes get the drama. The pack gives you the facts: 4% ABV. GLUTEN FREE. FULL VIBE. Chips within reach? Game on.",
+          "cta": "Bring the game vibe",
+          "rationale": "This grounds its source-focused angle in the pack rather than inventing where or how it is made, using 4% ABV, GLUTEN FREE and FULL VIBE.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 6,
+              "n": 23,
+              "rate": 0.2608695652173913,
+              "lo": 0.14136647833579039,
+              "hi": 0.43071827611379865
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.2,
+              "young_pro": 0.6666666666666666,
+              "parent": 0,
+              "fitness": 0.16666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 392,
+            "clicks": 5,
+            "ctr": 0.012755102040816327,
+            "lo": 0.006221870303102964,
+            "hi": 0.02596923952350786
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-value-17",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "value",
+          "scene": "On a lakeside picnic table, a pasta salad in a plain bowl and folded cloth napkin flank the unchanged pack with its front label facing camera, golden evening light creating a leisurely square composition with water softly blurred behind.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-17.png",
+          "headline": "The picnic checklist looks good.",
+          "body": "Full vibe? Check. Low cals? Check. Plus 84 calories, 4% ABV and gluten free. Here's what comes to your lakeside table.",
+          "cta": "Plan your picnic",
+          "rationale": "Turns the supplied FULL VIBE, LOW CALS, 84 CALORIES, 4% ABV and GLUTEN FREE facts into a picnic checklist that emphasizes what you get without unsupported price or pack-size claims.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 24,
+              "rate": 0.16666666666666666,
+              "lo": 0.07709752600051359,
+              "hi": 0.3237867313908429
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.16666666666666666,
+              "parent": 0.16666666666666666,
+              "fitness": 0.3333333333333333
+            }
+          },
+          "experiment": {
+            "impressions": 236,
+            "clicks": 2,
+            "ctr": 0.00847457627118644,
+            "lo": 0.002808148895335561,
+            "hi": 0.025285088382609143
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-social_proof-18",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "social_proof",
+          "scene": "On a kitchen pass before dinner, roasted vegetables and a serving spoon on a plain platter frame the unchanged pack with its front label facing camera, directional window light creating an anticipatory square composition with strong natural shadows.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-18.png",
+          "headline": "Dinner's nearly ready. The gang's pick is too.",
+          "body": "Roast veg on the pass. The group's go-to beside it. Now send it round. LOW CALS. FULL VIBE. 4% ABV.",
+          "cta": "Bring it to dinner",
+          "rationale": "Calling it the gang's pick and the group's go-to supplies subjective social proof, using LOW CALS, FULL VIBE and 4% ABV.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 23,
+              "rate": 0.17391304347826086,
+              "lo": 0.08056071312962088,
+              "hi": 0.33591849748345515
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0,
+              "young_pro": 0.16666666666666666,
+              "parent": 0.4,
+              "fitness": 0.16666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 311,
+            "clicks": 3,
+            "ctr": 0.00964630225080386,
+            "lo": 0.0038612324561837965,
+            "hi": 0.023890944123784667
+          },
+          "status": "culled"
+        },
+        {
+          "id": "g0-scarcity-19",
+          "gen": 0,
+          "parentIds": [],
+          "lever": "scarcity",
+          "scene": "On a conservatory lunch table, quiche and leafy salad on plain ceramics accompany the unchanged pack with its front label facing camera, diffused midday light creating an airy square composition bordered by softly blurred plants.",
+          "imageUrl": "/generated/campaigns/fd7b9e28/scene-19.png",
+          "headline": "Don't let lunch steal the spotlight.",
+          "body": "Quiche and salad have their moment. Claim yours: grab a GLUTEN FREE pour with 84 CALORIES. Don't miss out.",
+          "cta": "Grab yours now",
+          "rationale": "The lunch-table spotlight framing and direct don't-miss-out prompt create urgency, using GLUTEN FREE and 84 CALORIES.",
+          "round": 1,
+          "parentId": null,
+          "fitness": {
+            "ai": {
+              "taps": 4,
+              "n": 23,
+              "rate": 0.17391304347826086,
+              "lo": 0.08056071312962088,
+              "hi": 0.33591849748345515
+            },
+            "human": null,
+            "aiBySegment": {
+              "student": 0.16666666666666666,
+              "young_pro": 0,
+              "parent": 0.4,
+              "fitness": 0.16666666666666666
+            }
+          },
+          "experiment": {
+            "impressions": 429,
+            "clicks": 7,
+            "ctr": 0.016317016317016316,
+            "lo": 0.008870217102485005,
+            "hi": 0.0298274707511881
+          },
+          "status": "survivor"
+        }
+      ],
+      "survivorIds": [
+        "g0-provenance-4",
+        "g0-value-5",
+        "g0-indulgence-3",
+        "g0-scarcity-19"
+      ],
+      "sealedSha256": "ac666831a87ed2ab7d0a7abca466040887fbe061bc0a8d3847517c827f694ac9",
+      "tokens": 150037,
+      "seconds": 184,
+      "timeline": [
+        {
+          "step": 1,
+          "impressionsByAd": {
+            "g0-social_proof-0": 22,
+            "g0-scarcity-1": 22,
+            "g0-health_halo-2": 24,
+            "g0-indulgence-3": 22,
+            "g0-provenance-4": 19,
+            "g0-value-5": 48,
+            "g0-social_proof-6": 24,
+            "g0-scarcity-7": 20,
+            "g0-health_halo-8": 21,
+            "g0-indulgence-9": 31,
+            "g0-provenance-10": 23,
+            "g0-value-11": 27,
+            "g0-social_proof-12": 22,
+            "g0-scarcity-13": 19,
+            "g0-health_halo-14": 23,
+            "g0-indulgence-15": 36,
+            "g0-provenance-16": 20,
+            "g0-value-17": 21,
+            "g0-social_proof-18": 31,
+            "g0-scarcity-19": 25
+          }
+        },
+        {
+          "step": 2,
+          "impressionsByAd": {
+            "g0-social_proof-0": 43,
+            "g0-scarcity-1": 39,
+            "g0-health_halo-2": 41,
+            "g0-indulgence-3": 42,
+            "g0-provenance-4": 85,
+            "g0-value-5": 90,
+            "g0-social_proof-6": 43,
+            "g0-scarcity-7": 39,
+            "g0-health_halo-8": 36,
+            "g0-indulgence-9": 56,
+            "g0-provenance-10": 43,
+            "g0-value-11": 57,
+            "g0-social_proof-12": 36,
+            "g0-scarcity-13": 41,
+            "g0-health_halo-14": 40,
+            "g0-indulgence-15": 57,
+            "g0-provenance-16": 44,
+            "g0-value-17": 36,
+            "g0-social_proof-18": 90,
+            "g0-scarcity-19": 42
+          }
+        },
+        {
+          "step": 3,
+          "impressionsByAd": {
+            "g0-social_proof-0": 57,
+            "g0-scarcity-1": 54,
+            "g0-health_halo-2": 57,
+            "g0-indulgence-3": 58,
+            "g0-provenance-4": 143,
+            "g0-value-5": 127,
+            "g0-social_proof-6": 59,
+            "g0-scarcity-7": 53,
+            "g0-health_halo-8": 52,
+            "g0-indulgence-9": 119,
+            "g0-provenance-10": 59,
+            "g0-value-11": 87,
+            "g0-social_proof-12": 54,
+            "g0-scarcity-13": 55,
+            "g0-health_halo-14": 54,
+            "g0-indulgence-15": 87,
+            "g0-provenance-16": 84,
+            "g0-value-17": 54,
+            "g0-social_proof-18": 130,
+            "g0-scarcity-19": 57
+          }
+        },
+        {
+          "step": 4,
+          "impressionsByAd": {
+            "g0-social_proof-0": 70,
+            "g0-scarcity-1": 72,
+            "g0-health_halo-2": 82,
+            "g0-indulgence-3": 86,
+            "g0-provenance-4": 205,
+            "g0-value-5": 189,
+            "g0-social_proof-6": 72,
+            "g0-scarcity-7": 71,
+            "g0-health_halo-8": 78,
+            "g0-indulgence-9": 149,
+            "g0-provenance-10": 71,
+            "g0-value-11": 104,
+            "g0-social_proof-12": 73,
+            "g0-scarcity-13": 66,
+            "g0-health_halo-14": 77,
+            "g0-indulgence-15": 102,
+            "g0-provenance-16": 136,
+            "g0-value-17": 68,
+            "g0-social_proof-18": 157,
+            "g0-scarcity-19": 72
+          }
+        },
+        {
+          "step": 5,
+          "impressionsByAd": {
+            "g0-social_proof-0": 84,
+            "g0-scarcity-1": 88,
+            "g0-health_halo-2": 112,
+            "g0-indulgence-3": 108,
+            "g0-provenance-4": 237,
+            "g0-value-5": 255,
+            "g0-social_proof-6": 82,
+            "g0-scarcity-7": 81,
+            "g0-health_halo-8": 137,
+            "g0-indulgence-9": 192,
+            "g0-provenance-10": 84,
+            "g0-value-11": 125,
+            "g0-social_proof-12": 84,
+            "g0-scarcity-13": 83,
+            "g0-health_halo-14": 84,
+            "g0-indulgence-15": 141,
+            "g0-provenance-16": 171,
+            "g0-value-17": 86,
+            "g0-social_proof-18": 180,
+            "g0-scarcity-19": 86
+          }
+        },
+        {
+          "step": 6,
+          "impressionsByAd": {
+            "g0-social_proof-0": 98,
+            "g0-scarcity-1": 99,
+            "g0-health_halo-2": 134,
+            "g0-indulgence-3": 139,
+            "g0-provenance-4": 290,
+            "g0-value-5": 296,
+            "g0-social_proof-6": 94,
+            "g0-scarcity-7": 103,
+            "g0-health_halo-8": 177,
+            "g0-indulgence-9": 242,
+            "g0-provenance-10": 100,
+            "g0-value-11": 137,
+            "g0-social_proof-12": 97,
+            "g0-scarcity-13": 100,
+            "g0-health_halo-14": 100,
+            "g0-indulgence-15": 172,
+            "g0-provenance-16": 216,
+            "g0-value-17": 105,
+            "g0-social_proof-18": 204,
+            "g0-scarcity-19": 97
+          }
+        },
+        {
+          "step": 7,
+          "impressionsByAd": {
+            "g0-social_proof-0": 108,
+            "g0-scarcity-1": 109,
+            "g0-health_halo-2": 155,
+            "g0-indulgence-3": 211,
+            "g0-provenance-4": 369,
+            "g0-value-5": 333,
+            "g0-social_proof-6": 102,
+            "g0-scarcity-7": 114,
+            "g0-health_halo-8": 188,
+            "g0-indulgence-9": 275,
+            "g0-provenance-10": 113,
+            "g0-value-11": 156,
+            "g0-social_proof-12": 112,
+            "g0-scarcity-13": 110,
+            "g0-health_halo-14": 111,
+            "g0-indulgence-15": 191,
+            "g0-provenance-16": 269,
+            "g0-value-17": 134,
+            "g0-social_proof-18": 233,
+            "g0-scarcity-19": 107
+          }
+        },
+        {
+          "step": 8,
+          "impressionsByAd": {
+            "g0-social_proof-0": 119,
+            "g0-scarcity-1": 120,
+            "g0-health_halo-2": 165,
+            "g0-indulgence-3": 258,
+            "g0-provenance-4": 504,
+            "g0-value-5": 364,
+            "g0-social_proof-6": 117,
+            "g0-scarcity-7": 124,
+            "g0-health_halo-8": 229,
+            "g0-indulgence-9": 303,
+            "g0-provenance-10": 124,
+            "g0-value-11": 173,
+            "g0-social_proof-12": 127,
+            "g0-scarcity-13": 117,
+            "g0-health_halo-14": 118,
+            "g0-indulgence-15": 210,
+            "g0-provenance-16": 307,
+            "g0-value-17": 151,
+            "g0-social_proof-18": 254,
+            "g0-scarcity-19": 116
+          }
+        },
+        {
+          "step": 9,
+          "impressionsByAd": {
+            "g0-social_proof-0": 125,
+            "g0-scarcity-1": 126,
+            "g0-health_halo-2": 178,
+            "g0-indulgence-3": 283,
+            "g0-provenance-4": 768,
+            "g0-value-5": 406,
+            "g0-social_proof-6": 123,
+            "g0-scarcity-7": 134,
+            "g0-health_halo-8": 249,
+            "g0-indulgence-9": 322,
+            "g0-provenance-10": 128,
+            "g0-value-11": 178,
+            "g0-social_proof-12": 132,
+            "g0-scarcity-13": 126,
+            "g0-health_halo-14": 122,
+            "g0-indulgence-15": 221,
+            "g0-provenance-16": 334,
+            "g0-value-17": 159,
+            "g0-social_proof-18": 262,
+            "g0-scarcity-19": 124
+          }
+        },
+        {
+          "step": 10,
+          "impressionsByAd": {
+            "g0-social_proof-0": 128,
+            "g0-scarcity-1": 129,
+            "g0-health_halo-2": 184,
+            "g0-indulgence-3": 290,
+            "g0-provenance-4": 1099,
+            "g0-value-5": 436,
+            "g0-social_proof-6": 128,
+            "g0-scarcity-7": 136,
+            "g0-health_halo-8": 256,
+            "g0-indulgence-9": 331,
+            "g0-provenance-10": 131,
+            "g0-value-11": 181,
+            "g0-social_proof-12": 134,
+            "g0-scarcity-13": 132,
+            "g0-health_halo-14": 126,
+            "g0-indulgence-15": 229,
+            "g0-provenance-16": 343,
+            "g0-value-17": 164,
+            "g0-social_proof-18": 266,
+            "g0-scarcity-19": 177
+          }
+        },
+        {
+          "step": 11,
+          "impressionsByAd": {
+            "g0-social_proof-0": 131,
+            "g0-scarcity-1": 135,
+            "g0-health_halo-2": 197,
+            "g0-indulgence-3": 313,
+            "g0-provenance-4": 1408,
+            "g0-value-5": 464,
+            "g0-social_proof-6": 130,
+            "g0-scarcity-7": 138,
+            "g0-health_halo-8": 262,
+            "g0-indulgence-9": 340,
+            "g0-provenance-10": 136,
+            "g0-value-11": 188,
+            "g0-social_proof-12": 137,
+            "g0-scarcity-13": 138,
+            "g0-health_halo-14": 134,
+            "g0-indulgence-15": 236,
+            "g0-provenance-16": 356,
+            "g0-value-17": 168,
+            "g0-social_proof-18": 271,
+            "g0-scarcity-19": 218
+          }
+        },
+        {
+          "step": 12,
+          "impressionsByAd": {
+            "g0-social_proof-0": 132,
+            "g0-scarcity-1": 138,
+            "g0-health_halo-2": 212,
+            "g0-indulgence-3": 374,
+            "g0-provenance-4": 1681,
+            "g0-value-5": 492,
+            "g0-social_proof-6": 137,
+            "g0-scarcity-7": 141,
+            "g0-health_halo-8": 276,
+            "g0-indulgence-9": 353,
+            "g0-provenance-10": 138,
+            "g0-value-11": 194,
+            "g0-social_proof-12": 138,
+            "g0-scarcity-13": 144,
+            "g0-health_halo-14": 148,
+            "g0-indulgence-15": 240,
+            "g0-provenance-16": 360,
+            "g0-value-17": 176,
+            "g0-social_proof-18": 275,
+            "g0-scarcity-19": 251
+          }
+        },
+        {
+          "step": 13,
+          "impressionsByAd": {
+            "g0-social_proof-0": 135,
+            "g0-scarcity-1": 139,
+            "g0-health_halo-2": 219,
+            "g0-indulgence-3": 407,
+            "g0-provenance-4": 1984,
+            "g0-value-5": 512,
+            "g0-social_proof-6": 139,
+            "g0-scarcity-7": 145,
+            "g0-health_halo-8": 289,
+            "g0-indulgence-9": 362,
+            "g0-provenance-10": 143,
+            "g0-value-11": 197,
+            "g0-social_proof-12": 142,
+            "g0-scarcity-13": 148,
+            "g0-health_halo-14": 162,
+            "g0-indulgence-15": 244,
+            "g0-provenance-16": 364,
+            "g0-value-17": 198,
+            "g0-social_proof-18": 284,
+            "g0-scarcity-19": 287
+          }
+        },
+        {
+          "step": 14,
+          "impressionsByAd": {
+            "g0-social_proof-0": 140,
+            "g0-scarcity-1": 141,
+            "g0-health_halo-2": 227,
+            "g0-indulgence-3": 425,
+            "g0-provenance-4": 2334,
+            "g0-value-5": 526,
+            "g0-social_proof-6": 141,
+            "g0-scarcity-7": 147,
+            "g0-health_halo-8": 315,
+            "g0-indulgence-9": 368,
+            "g0-provenance-10": 146,
+            "g0-value-11": 200,
+            "g0-social_proof-12": 144,
+            "g0-scarcity-13": 149,
+            "g0-health_halo-14": 173,
+            "g0-indulgence-15": 246,
+            "g0-provenance-16": 368,
+            "g0-value-17": 207,
+            "g0-social_proof-18": 289,
+            "g0-scarcity-19": 314
+          }
+        },
+        {
+          "step": 15,
+          "impressionsByAd": {
+            "g0-social_proof-0": 143,
+            "g0-scarcity-1": 143,
+            "g0-health_halo-2": 231,
+            "g0-indulgence-3": 441,
+            "g0-provenance-4": 2706,
+            "g0-value-5": 533,
+            "g0-social_proof-6": 144,
+            "g0-scarcity-7": 150,
+            "g0-health_halo-8": 335,
+            "g0-indulgence-9": 373,
+            "g0-provenance-10": 148,
+            "g0-value-11": 202,
+            "g0-social_proof-12": 147,
+            "g0-scarcity-13": 152,
+            "g0-health_halo-14": 180,
+            "g0-indulgence-15": 250,
+            "g0-provenance-16": 372,
+            "g0-value-17": 212,
+            "g0-social_proof-18": 294,
+            "g0-scarcity-19": 344
+          }
+        },
+        {
+          "step": 16,
+          "impressionsByAd": {
+            "g0-social_proof-0": 146,
+            "g0-scarcity-1": 146,
+            "g0-health_halo-2": 239,
+            "g0-indulgence-3": 452,
+            "g0-provenance-4": 3056,
+            "g0-value-5": 559,
+            "g0-social_proof-6": 147,
+            "g0-scarcity-7": 151,
+            "g0-health_halo-8": 359,
+            "g0-indulgence-9": 375,
+            "g0-provenance-10": 151,
+            "g0-value-11": 205,
+            "g0-social_proof-12": 149,
+            "g0-scarcity-13": 153,
+            "g0-health_halo-14": 185,
+            "g0-indulgence-15": 253,
+            "g0-provenance-16": 383,
+            "g0-value-17": 216,
+            "g0-social_proof-18": 300,
+            "g0-scarcity-19": 375
+          }
+        },
+        {
+          "step": 17,
+          "impressionsByAd": {
+            "g0-social_proof-0": 146,
+            "g0-scarcity-1": 148,
+            "g0-health_halo-2": 242,
+            "g0-indulgence-3": 458,
+            "g0-provenance-4": 3464,
+            "g0-value-5": 589,
+            "g0-social_proof-6": 148,
+            "g0-scarcity-7": 152,
+            "g0-health_halo-8": 372,
+            "g0-indulgence-9": 378,
+            "g0-provenance-10": 152,
+            "g0-value-11": 205,
+            "g0-social_proof-12": 151,
+            "g0-scarcity-13": 153,
+            "g0-health_halo-14": 189,
+            "g0-indulgence-15": 256,
+            "g0-provenance-16": 384,
+            "g0-value-17": 220,
+            "g0-social_proof-18": 302,
+            "g0-scarcity-19": 391
+          }
+        },
+        {
+          "step": 18,
+          "impressionsByAd": {
+            "g0-social_proof-0": 147,
+            "g0-scarcity-1": 149,
+            "g0-health_halo-2": 248,
+            "g0-indulgence-3": 464,
+            "g0-provenance-4": 3886,
+            "g0-value-5": 606,
+            "g0-social_proof-6": 150,
+            "g0-scarcity-7": 157,
+            "g0-health_halo-8": 379,
+            "g0-indulgence-9": 381,
+            "g0-provenance-10": 152,
+            "g0-value-11": 206,
+            "g0-social_proof-12": 152,
+            "g0-scarcity-13": 154,
+            "g0-health_halo-14": 192,
+            "g0-indulgence-15": 258,
+            "g0-provenance-16": 387,
+            "g0-value-17": 226,
+            "g0-social_proof-18": 305,
+            "g0-scarcity-19": 401
+          }
+        },
+        {
+          "step": 19,
+          "impressionsByAd": {
+            "g0-social_proof-0": 150,
+            "g0-scarcity-1": 155,
+            "g0-health_halo-2": 251,
+            "g0-indulgence-3": 471,
+            "g0-provenance-4": 4288,
+            "g0-value-5": 630,
+            "g0-social_proof-6": 154,
+            "g0-scarcity-7": 159,
+            "g0-health_halo-8": 386,
+            "g0-indulgence-9": 384,
+            "g0-provenance-10": 154,
+            "g0-value-11": 210,
+            "g0-social_proof-12": 153,
+            "g0-scarcity-13": 156,
+            "g0-health_halo-14": 195,
+            "g0-indulgence-15": 261,
+            "g0-provenance-16": 389,
+            "g0-value-17": 231,
+            "g0-social_proof-18": 308,
+            "g0-scarcity-19": 415
+          }
+        },
+        {
+          "step": 20,
+          "impressionsByAd": {
+            "g0-social_proof-0": 150,
+            "g0-scarcity-1": 160,
+            "g0-health_halo-2": 253,
+            "g0-indulgence-3": 485,
+            "g0-provenance-4": 4692,
+            "g0-value-5": 652,
+            "g0-social_proof-6": 156,
+            "g0-scarcity-7": 161,
+            "g0-health_halo-8": 393,
+            "g0-indulgence-9": 386,
+            "g0-provenance-10": 158,
+            "g0-value-11": 213,
+            "g0-social_proof-12": 155,
+            "g0-scarcity-13": 157,
+            "g0-health_halo-14": 200,
+            "g0-indulgence-15": 261,
+            "g0-provenance-16": 392,
+            "g0-value-17": 236,
+            "g0-social_proof-18": 311,
+            "g0-scarcity-19": 429
+          }
+        }
+      ]
+    }
+  ],
+  "winnerId": null
+}
